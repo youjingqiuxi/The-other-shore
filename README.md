@@ -1,15 +1,11 @@
 # The-other-shore
 
-Embrace sincerity and anticipation. The bedrock plugin community can gradually imitate java.
-To do this, we created a bedrock plan
+Embrace sincerity and anticipation. The bedrock plugin community can gradually imitate java.To do this, we created a bedrock plan
 
 The Bedrock Project is divided into three parts
 
-Instruction-based matrix interface
-For drawing trajectories and boundaries with limited and simple parameters
+#基于指令的矩阵接口，用于绘制具有有限和简单参数的轨迹和边界
 
-Based on block tags, completely based on the magic industry implemented by custom blocks
-For tasks that attempt to automate the industry by being fully data-driven
+#基于块标签，完全基于自定义块实现的神奇产业,试图通过完全数据驱动来实现行业自动化任务
 
-Floating solutions based on data-driven entities
-Try crafting, more interesting combat skills and character features
+#基于数据驱动实体的浮动解决方案,尝试手工，更有趣的战斗技能和角色特征
