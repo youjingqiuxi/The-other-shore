@@ -4,8 +4,8 @@ Embrace sincerity and anticipation. The bedrock plugin community can gradually i
 
 The Bedrock Project is divided into three parts
 
-#基于指令的矩阵接口，用于绘制具有有限和简单参数的轨迹和边界
+#Instruction-based matrix interface for plotting trajectories and boundaries with limited and simple parameters
 
-#基于块标签，完全基于自定义块实现的神奇产业,试图通过完全数据驱动来实现行业自动化任务
+#Based on block tags, the magic industry is completely based on custom blocks. Attempts to realize industry automation tasks through complete data-driven
 
-#基于数据驱动实体的浮动解决方案,尝试手工，更有趣的战斗技能和角色特征
+#Data-driven entity-based floating plan, try to make, more interesting combat skills and character characteristics
