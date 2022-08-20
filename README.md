@@ -1,15 +1,15 @@
 # The-other-shore
 
-Sincerely look forward to the modding community of the Bedrock Edition, which can gradually follow the Java Edition
-The Bedrock Edition Infrastructure Research Project is hereby launched
-The Bedrock Project is abbreviated below.
-The Bedrock Project is divided into three areas,
+Embrace sincerity and anticipation. The bedrock plugin community can gradually imitate java.
+To do this, we created a bedrock plan
 
-Matrix interface based on vanilla commands
-Used to draw trajectories and borders with limited and simple parameters
+The bedrock project is divided into three parts
 
-Based on the block tag, completely based on the realization of the custom block Magic Industry
-For tasks that try to achieve industrial automation by being completely data-driven
+Instruction-based matrix interface
+For drawing trajectories and boundaries with limited and simple parameters
+
+Based on block tags, completely based on the magic industry implemented by custom blocks
+For tasks that attempt to automate the industry by being fully data-driven
 
 Floating solutions based on data-driven entities
-For trying to make, more interesting combat skills and character functions
+Try crafting, more interesting combat skills and character features
