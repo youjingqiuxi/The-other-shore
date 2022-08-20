@@ -1,11 +1,11 @@
 # The-other-shore
 
-Embrace sincerity and anticipation. The bedrock plugin community can gradually imitate java.To do this, we created a bedrock plan
+Embrace sincerity and anticipation. The bedrock plugin community can gradually imitate java.To do this, we created a bedrock plan.
 
-Bedrock Project. divided into three parts
+Bedrock Project. divided into three parts.
 
-#Instruction-based matrix interface for plotting trajectories and boundaries with limited and simple parameters
+#Instruction-based matrix interface for plotting trajectories and boundaries with limited and simple parameters.
 
-#Based on block tags, the magic industry is completely based on custom blocks. Attempts to realize industry automation tasks through complete data-driven
+#Based on block tags, the magic industry is completely based on custom blocks. Attempts to realize industry automation tasks through complete data-driven.
 
-#Data-driven entity-based floating plan, try to make, more interesting combat skills and character characteristics
+#Data-driven entity-based floating plan, try to make, more interesting combat skills and character characteristics.
