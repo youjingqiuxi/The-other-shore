@@ -2,7 +2,7 @@
 
 Embrace sincerity and anticipation. The bedrock plugin community can gradually imitate java.To do this, we created a bedrock plan.
 
-Bedrock Project. divided into three parts.
+Bedrock Project divided into three parts.
 
 #Instruction-based matrix interface for plotting trajectories and boundaries with limited and simple parameters.
 
