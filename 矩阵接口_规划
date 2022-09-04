@@ -1,0 +1,1662 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "矩阵接口:规划",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "销毁.等待.01秒": {
+                "minecraft:ageable": {
+                    "duration": 1,
+                    "grow_up": {
+                        "event": "事件:实体消失",
+                        "target": "self"
+                    }
+                }
+            },
+            "销毁.等待.30秒": {
+                "minecraft:ageable": {
+                    "duration": 30,
+                    "grow_up": {
+                        "event": "事件:实体消失",
+                        "target": "self"
+                    }
+                }
+            },
+            "销毁.等待.270秒": {
+                "minecraft:ageable": {
+                    "duration": 270,
+                    "grow_up": {
+                        "event": "事件:实体消失",
+                        "target": "self"
+                    }
+                }
+            },
+            "驱动.线条.基础": {
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "time_down_event": {
+                        "event": "数据驱动.线条绘制.基础",
+                        "target": "self"
+                    }
+                }
+            },
+            "驱动.平面.基础": {
+                "minecraft:timer": {
+                    "time": 0.05,
+                    "time_down_event": {
+                        "event": "数据驱动.矩形平面.基础",
+                        "target": "self"
+                    }
+                }
+            },
+            "驱动.边框.基础": {
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "time_down_event": {
+                        "event": "数据驱动.平面边框.基础",
+                        "target": "self"
+                    }
+                }
+            },
+            "驱动.立体.效率": {
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "time_down_event": {
+                        "event": "数据驱动.立方绘制.效率",
+                        "target": "self"
+                    }
+                }
+            },
+            "驱动.平面.旋转": {
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "time_down_event": {
+                        "event": "标签驱动.图形绘制.旋转",
+                        "target": "self"
+                    }
+                }
+            },
+            "实体消失": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "Matrix_API",
+                    "Matrix_main"
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "*",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:collision_box": {
+                "width": 0.1,
+                "height": 0.1
+            },
+            "minecraft:conditional_bandwidth_optimization": {
+                "conditional_values": {
+                    "max_dropped_ticks": 20,
+                    "max_optimized_distance": 200,
+                    "use_motion_prediction_hints": true
+                },
+                "default_values": {
+                    "max_dropped_ticks": 10,
+                    "max_optimized_distance": 100,
+                    "use_motion_prediction_hints": true
+                }
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:nameable": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "run_command": {
+                    "command": [
+                        "say 请使用[ 实体事件 ]进行召唤"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "销毁.等待.01秒"
+                    ]
+                }
+            },
+            "数据驱动.线条绘制.基础": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.open"
+                                }
+                            ]
+                        },
+                        "sequence": [
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "function Matrix_API/axisX_draw",
+                                        "function Matrix_API/axisY_draw",
+                                        "function Matrix_API/axisZ_draw"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "event entity @s 标签定义.轨迹显示.基础",
+                                        "event entity @s 标签定义.实体销毁.基础",
+                                        "event entity @s 标签定义.附属功能.魔导",
+                                        "event entity @s 标签定义.附属功能.测距",
+                                        "event entity @s 标签定义.角色召唤.通用"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "Matrix_API.set"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.set"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "驱动.线条.基础",
+                                "销毁.等待.30秒"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "数据驱动.矩形平面.基础": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.open"
+                                }
+                            ]
+                        },
+                        "sequence": [
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "event entity @s 标签定义.轨迹显示.基础",
+                                        "event entity @s 标签定义.附属功能.魔导"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "function Matrix_API/plane_XZ"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "Matrix_API.set"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.set"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "驱动.平面.基础",
+                                "销毁.等待.270秒"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "数据驱动.平面边框.基础": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.open"
+                                }
+                            ]
+                        },
+                        "sequence": [
+                            {
+                                "filters": {
+                                    "any_of": [
+                                        {
+                                            "test": "has_tag",
+                                            "operator": "==",
+                                            "value": "Matrix_API.frame.XY"
+                                        }
+                                    ]
+                                },
+                                "sequence": [
+                                    {
+                                        "run_command": {
+                                            "command": [
+                                                "event entity @s 标签定义.轨迹显示.基础"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_0"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_XY/draw_0"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_0"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_1"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_XY/draw_1"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_1"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_2"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_XY/draw_2"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_2"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_3"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_XY/draw_3"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "filters": {
+                                    "any_of": [
+                                        {
+                                            "test": "has_tag",
+                                            "operator": "==",
+                                            "value": "Matrix_API.frame.XZ"
+                                        }
+                                    ]
+                                },
+                                "sequence": [
+                                    {
+                                        "run_command": {
+                                            "command": [
+                                                "event entity @s 标签定义.轨迹显示.基础"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_0"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_XZ/draw_0"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_0"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_1"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_XZ/draw_1"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_1"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_2"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_XZ/draw_2"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_2"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_3"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_XZ/draw_3"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "filters": {
+                                    "any_of": [
+                                        {
+                                            "test": "has_tag",
+                                            "operator": "==",
+                                            "value": "Matrix_API.frame.ZY"
+                                        }
+                                    ]
+                                },
+                                "sequence": [
+                                    {
+                                        "run_command": {
+                                            "command": [
+                                                "event entity @s 标签定义.轨迹显示.基础"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_0"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_ZY/draw_0"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_0"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_1"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_ZY/draw_1"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_1"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_2"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_ZY/draw_2"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_2"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_3"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_ZY/draw_3"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "filters": {
+                                    "any_of": [
+                                        {
+                                            "test": "has_tag",
+                                            "operator": "==",
+                                            "value": "Matrix_API.frame.any"
+                                        }
+                                    ]
+                                },
+                                "sequence": [
+                                    {
+                                        "run_command": {
+                                            "command": [
+                                                "event entity @s 标签定义.轨迹显示.基础"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_0"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_any/draw_0"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_0"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_1"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_any/draw_1"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_1"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_2"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_any/draw_2"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "draw_2"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "!=",
+                                                    "value": "draw_3"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/frame_any/draw_3"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "Matrix_API.set"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.set"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "驱动.边框.基础",
+                                "销毁.等待.30秒"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "数据驱动.立方绘制.效率": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.open"
+                                }
+                            ]
+                        },
+                        "sequence": [
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "event entity @s 标签定义.轨迹显示.基础"
+                                    ]
+                                }
+                            },
+                            {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_tag",
+                                            "operator": "!=",
+                                            "value": "Matrix_API.draw_set"
+                                        }
+                                    ]
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players operation @s HC = @s set_X",
+                                        "scoreboard players operation @s SR = @s set_Z",
+                                        "scoreboard players operation @s CC = @s set_Y",
+                                        "tag @s add Matrix_API.destroy.any",
+                                        "tag @s add Matrix_API.draw_set"
+                                    ]
+                                }
+                            },
+                            {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_tag",
+                                            "operator": "==",
+                                            "value": "Matrix_API.draw_set"
+                                        }
+                                    ]
+                                },
+                                "sequence": [
+                                    {
+                                        "run_command": {
+                                            "command": [
+                                                "function Matrix_API/axisY_draw",
+                                                "event entity @s 标签定义.实体销毁.基础"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "run_command": {
+                                            "command": [
+                                                "summon 矩阵接口:规划 ~~~ 数据驱动.平面边框.基础 立方",
+                                                "tag @e[tag=!Matrix_API.draw_set,name=立方] add Matrix_API.frame.XZ",
+                                                "scoreboard players operation @e[tag=!Matrix_API.draw_set,name=立方] set_X = @s HC",
+                                                "scoreboard players operation @e[tag=!Matrix_API.draw_set,name=立方] set_Z = @s SR",
+                                                "scoreboard players operation @e[tag=!Matrix_API.draw_set,name=立方] set_Y = @s CC"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "sequence": [
+                                            {
+                                                "filters": {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_tag",
+                                                            "operator": "==",
+                                                            "value": "Matrix_API.trail.blue_green"
+                                                        }
+                                                    ]
+                                                },
+                                                "run_command": {
+                                                    "command": [
+                                                        "tag @e[tag=!Matrix_API.draw_set,name=立方] add Matrix_API.trail.blue_green"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "filters": {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_tag",
+                                                            "operator": "==",
+                                                            "value": "Matrix_API.trail.crimson"
+                                                        }
+                                                    ]
+                                                },
+                                                "run_command": {
+                                                    "command": [
+                                                        "tag @e[tag=!Matrix_API.draw_set,name=立方] add Matrix_API.trail.crimson"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "filters": {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_tag",
+                                                            "operator": "==",
+                                                            "value": "Matrix_API.trail.sea_blue"
+                                                        }
+                                                    ]
+                                                },
+                                                "run_command": {
+                                                    "command": [
+                                                        "tag @e[tag=!Matrix_API.draw_set,name=立方] add Matrix_API.trail.sea_blue"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "filters": {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_tag",
+                                                            "operator": "==",
+                                                            "value": "Matrix_API.trail.mist.blue_green"
+                                                        }
+                                                    ]
+                                                },
+                                                "run_command": {
+                                                    "command": [
+                                                        "tag @e[tag=!Matrix_API.draw_set,name=立方] add Matrix_API.trail.mist.blue_green"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "filters": {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_tag",
+                                                            "operator": "==",
+                                                            "value": "Matrix_API.trail.mist.sea_blue"
+                                                        }
+                                                    ]
+                                                },
+                                                "run_command": {
+                                                    "command": [
+                                                        "tag @e[tag=!Matrix_API.draw_set,name=立方] add Matrix_API.trail.mist.sea_blue"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "filters": {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_tag",
+                                                            "operator": "==",
+                                                            "value": "Matrix_API.trail.mist.purple"
+                                                        }
+                                                    ]
+                                                },
+                                                "run_command": {
+                                                    "command": [
+                                                        "tag @e[tag=!Matrix_API.draw_set,name=立方] add Matrix_API.trail.mist.purple"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "filters": {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_tag",
+                                                            "operator": "==",
+                                                            "value": "Matrix_API.trail.random"
+                                                        }
+                                                    ]
+                                                },
+                                                "run_command": {
+                                                    "command": [
+                                                        "tag @e[tag=!Matrix_API.draw_set,name=立方] add Matrix_API.trail.random"
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "run_command": {
+                                            "command": [
+                                                "tag @e[tag=!Matrix_API.draw_set,name=立方] add Matrix_API.open"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "Matrix_API.set"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.set"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "驱动.立体.效率",
+                                "销毁.等待.30秒"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "标签驱动.图形绘制.旋转": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.rotate.Red_rising"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "function Matrix_API/rotate/Red_rising"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.rotate.Green_matrix"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "function Matrix_API/rotate/Green_matrix"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "Matrix_API.set"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.set"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "驱动.平面.旋转",
+                                "销毁.等待.30秒"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "标签定义.附属功能.魔导": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.function.magic_deliver"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "execute if block ~~~ 伺服机关:魔晶上传 run function Deliver/Magic_Reach",
+                                "execute if block ~~~ 伺服机关:魔晶下传 run function Deliver/Magic_Reach"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.function.lumbering"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "function book/Felling"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.function.Mining"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "function book/Mining"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "标签定义.附属功能.测距": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.function.ranging"
+                                }
+                            ]
+                        },
+                        "sequence": [
+                            {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_tag",
+                                            "operator": "!=",
+                                            "value": "Matrix_API.function.set_cache"
+                                        }
+                                    ]
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "function Matrix_API/ranging/set_cache"
+                                    ]
+                                }
+                            },
+                            {
+                                "sequence": [
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.set_cache"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.faceX_just"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "execute if entity @p [y=~64,dy=-128,z=~64,dz=-128,x=~,dx=0] run tag @s add find_target",
+                                                "execute as @s [tag=find_target] run function Matrix_API/ranging/value_just_X"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.set_cache"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.faceX_loss"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "execute if entity @p [y=~64,dy=-128,z=~64,dz=-128,x=~,dx=0] run tag @s add find_target",
+                                                "execute as @s [tag=find_target] run function Matrix_API/ranging/value_loss_X"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sequence": [
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.set_cache"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.faceZ_just"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "execute if entity @p [y=~64,dy=-128,z=~,dz=0,x=~64,dx=-128] run tag @s add find_target",
+                                                "execute as @s [tag=find_target] run function Matrix_API/ranging/value_just_Z"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.set_cache"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.faceZ_loss"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "execute if entity @p [y=~64,dy=-128,z=~,dz=0,x=~64,dx=-128] run tag @s add find_target",
+                                                "execute as @s [tag=find_target] run function Matrix_API/ranging/value_loss_Z"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "sequence": [
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.set_cache"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.faceY_just"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "execute if entity @p [y=~,dy=0,z=~64,dz=-128,x=~64,dx=-128] run tag @s add find_target",
+                                                "execute as @s [tag=find_target] run function Matrix_API/ranging/value_just_Y"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "all_of": [
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.set_cache"
+                                                },
+                                                {
+                                                    "test": "has_tag",
+                                                    "operator": "==",
+                                                    "value": "Matrix_API.function.faceY_loss"
+                                                }
+                                            ]
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "execute if entity @p [y=~,dy=0,z=~64,dz=-128,x=~64,dx=-128] run tag @s add find_target",
+                                                "execute as @s [tag=find_target] run function Matrix_API/ranging/value_loss_Y"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "标签定义.角色召唤.通用": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.function.role_call_unreal"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s remove wait_call",
+                                "execute if block ~~~ air run tag @s add wait_call",
+                                "execute as @s [tag=!wait_call] run function born/unreal",
+                                "event entity @s[tag=!wait_call] 事件:实体消失"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "标签定义.轨迹显示.基础": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.trail.blue_green"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 动态轨迹:靛蓝 ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.trail.crimson"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 动态轨迹:赤红 ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.trail.sea_blue"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 动态轨迹:海蓝 ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.trail.mist.blue_green"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 烟雾效果:靛蓝 ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.trail.mist.sea_blue"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 烟雾效果:海蓝 ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.trail.mist.purple"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 烟雾效果:紫影 ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.trail.random"
+                                }
+                            ]
+                        },
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle 烟雾效果:紫影 ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle 烟雾效果:海蓝 ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle 烟雾效果:靛蓝 ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle 动态轨迹:海蓝 ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle 动态轨迹:赤红 ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle 动态轨迹:靛蓝 ~~~"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "标签定义.实体销毁.基础": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.destroy.all"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "event entity @s[scores={set_X=0,set_Y=0,set_Z=0}] 事件:实体消失"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.destroy.any"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "event entity @s[scores={set_X=0}] 事件:实体消失",
+                                "event entity @s[scores={set_Y=0}] 事件:实体消失",
+                                "event entity @s[scores={set_Z=0}] 事件:实体消失"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "Matrix_API.destroy.all"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "Matrix_API.destroy.any"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "event entity @s 事件:实体消失",
+                                "say 必须定义< Matrix_API.destroy.any > 或 < Matrix_API.destroy.all >",
+                                "say 否则, 会因为积压过多的实体, 而造成卡顿"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "预设案例:功能试验.线条": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "scoreboard players set @s set_X 0",
+                                "scoreboard players set @s set_Y -100",
+                                "scoreboard players set @s set_Z 0"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.function.ranging",
+                                "tag @s add Matrix_API.trail.crimson",
+                                "tag @s add Matrix_API.destroy.all",
+                                "tag @s add Matrix_API.open"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "驱动.线条.基础"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "预设案例:功能试验.平面": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "scoreboard players set @s set_X 30",
+                                "scoreboard players set @s set_Z 30"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.trail.crimson",
+                                "tag @s add Matrix_API.open"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "驱动.平面.基础"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "预设案例:功能试验.边框": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "scoreboard players set @s set_X 30",
+                                "scoreboard players set @s set_Y 30",
+                                "scoreboard players set @s set_Z 30"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.trail.crimson",
+                                "tag @s add Matrix_API.frame.any",
+                                "tag @s add Matrix_API.open"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "驱动.边框.基础"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "预设案例:功能试验.立方": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "scoreboard players set @s set_X 30",
+                                "scoreboard players set @s set_Y 30",
+                                "scoreboard players set @s set_Z 30"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.trail.blue_green",
+                                "tag @s add Matrix_API.open"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "驱动.立体.效率"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "预设案例:功能试验.旋转": {
+                "run_command": {
+                    "command": [
+                        "tag @s add Matrix_API.rotate.Red_rising"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "驱动.平面.旋转"
+                    ]
+                }
+            },
+            "预设案例:林木植伐.砍伐": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "scoreboard players set @s set_X -21",
+                                "scoreboard players set @s set_Z -21"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.function.lumbering",
+                                "tag @s add Matrix_API.open"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "驱动.平面.基础"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "预设案例:岩矿采掘.挖矿": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "scoreboard players set @s set_X -21",
+                                "scoreboard players set @s set_Z -21"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.function.Mining",
+                                "tag @s add Matrix_API.open"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "驱动.平面.基础"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "预设案例:角色召唤.幻生": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "scoreboard players set @s set_X 100",
+                                "scoreboard players set @s set_Y -100"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.function.role_call_unreal",
+                                "tag @s add Matrix_API.trail.random",
+                                "tag @s add Matrix_API.destroy.all",
+                                "tag @s add Matrix_API.open"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "驱动.线条.基础"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:实体消失": {
+                "add": {
+                    "component_groups": [
+                        "实体消失"
+                    ]
+                }
+            }
+        }
+    }
+}
