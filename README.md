@@ -10,6 +10,7 @@ Bedrock Project divided into three parts.
 
 #Data-driven entity-based floating plan, try to make, more interesting combat skills and character characteristics.
 
+Author of the project@TayunStrry
 
 # 彼岸浮梦
 
