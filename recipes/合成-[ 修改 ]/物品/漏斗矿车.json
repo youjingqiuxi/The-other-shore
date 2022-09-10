@@ -1,0 +1,26 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "MC.item.hopper_minecart"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "TNT",
+            "TTT"
+        ],
+        "key": {
+            "N": {
+                "item": "hopper"
+            },
+            "T": {
+                "item": "iron_ingot"
+            }
+        },
+        "result": {
+            "item": "hopper_minecart"
+        }
+    }
+}

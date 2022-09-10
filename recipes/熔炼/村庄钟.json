@@ -1,0 +1,14 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "MC.melting.bell|melts-into|gold_ingot"
+        },
+        "tags": [
+            "furnace",
+            "blast_furnace"
+        ],
+        "input": "bell",
+        "output": "gold_ingot"
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.Magic_bus.basics"
+        },
+        "tags": [
+            "魔导总线合成台"
+        ],
+        "pattern": [
+            "GBG",
+            "BMB",
+            "GBG"
+        ],
+        "key": {
+            "G": {
+                "item": "合金材料:钢岩合金"
+            },
+            "B": {
+                "item": "glass"
+            },
+            "M": {
+                "item": "experience_bottle"
+            }
+        },
+        "result": {
+            "item": "魔导总线:总线本体",
+            "count": 4
+        }
+    }
+}

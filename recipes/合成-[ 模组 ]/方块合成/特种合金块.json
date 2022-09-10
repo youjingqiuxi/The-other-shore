@@ -1,0 +1,24 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.block.Special_Alloy"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "MMM",
+            "M#M",
+            "MMM"
+        ],
+        "key": {
+            "M": {
+                "item": "合金材料:特种合金"
+            }
+        },
+        "result": {
+            "item": "领域石:特种合金"
+        }
+    }
+}

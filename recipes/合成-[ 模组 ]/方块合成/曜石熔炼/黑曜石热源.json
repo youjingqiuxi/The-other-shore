@@ -1,0 +1,30 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.block.magma_heatSource"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "HYH",
+            "HYH",
+            "HMH"
+        ],
+        "key": {
+            "H": {
+                "item": "obsidian"
+            },
+            "M": {
+                "item": "magma"
+            },
+            "Y": {
+                "item": "合金材料:钢岩合金"
+            }
+        },
+        "result": {
+            "item": "工业类:黑耀石热源"
+        }
+    }
+}

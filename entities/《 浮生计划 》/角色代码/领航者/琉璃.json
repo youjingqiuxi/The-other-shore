@@ -1,0 +1,1738 @@
+{
+	"format_version": "1.19.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "星光阁:琉璃",
+			"is_experimental": false,
+			"is_summonable": true,
+			"is_spawnable": true,
+			"scripts": {
+				"animate": [
+					"code0",
+					"code1"
+				]
+			},
+			"animations": {
+				"code0": "controller.animation.code_liu-li",
+				"code1": "controller.animation.code_SitDown"
+			}
+		},
+		"component_groups": {
+			"自由": {
+				"minecraft:boss": {
+					"name": "<§6 神恩引领者 §r>§9 琉璃 §r",
+					"hud_range": 5
+				},
+				"minecraft:behavior.tempt": {
+					"priority": 2,
+					"speed_multiplier": 1,
+					"items": [
+						"魔法书籍:精灵结契"
+					]
+				},
+				"minecraft:tameable": {
+					"probability": 1.0,
+					"tame_items": "魔法书籍:精灵结契",
+					"tame_event": {
+						"event": "事件:缔结契约",
+						"target": "self"
+					}
+				},
+				"minecraft:behavior.ranged_attack": {
+					"attack_interval_min": 1,
+					"attack_interval_max": 3,
+					"attack_radius": 32
+				},
+				"minecraft:shooter": {
+					"def": "制导飞弹:神恩"
+				}
+			},
+			"契约": {
+				"minecraft:is_tamed": {},
+				"minecraft:behavior.tempt": {
+					"priority": 2,
+					"speed_multiplier": 1,
+					"items": [
+						"魔法礼盒:换装礼盒",
+						"基础书籍:魔导手册",
+						"魔法书籍:瞬间移动",
+						"魔法礼盒:武装礼盒"
+					]
+				},
+				"minecraft:behavior.find_mount": {
+					"priority": 3,
+					"within_radius": 5,
+					"start_delay": 5,
+					"max_failed_attempts": 99
+				},
+				"minecraft:leashable": {
+					"soft_distance": 5.0,
+					"max_distance": 15.0,
+					"hard_distance": 10.0,
+					"on_leash": {
+						"event": "minecraft:on_leash",
+						"target": "self"
+					},
+					"on_unleash": {
+						"event": "minecraft:on_unleash",
+						"target": "self"
+					}
+				},
+				"minecraft:behavior.owner_hurt_by_target": {
+					"priority": 4
+				},
+				"minecraft:behavior.owner_hurt_target": {
+					"priority": 4
+				},
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"cooldown": 1,
+							"use_item": true,
+							"interact_text": "更换 <服饰装扮>",
+							"play_sounds": "armor.equip_leather",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"value": "魔法礼盒:换装礼盒",
+											"subject": "other",
+											"domain": "hand"
+										}
+									]
+								},
+								"event": "事件:更换衣物",
+								"target": "self"
+							}
+						},
+						{
+							"cooldown": 1,
+							"use_item": true,
+							"interact_text": "更换 <节日衣装>",
+							"play_sounds": "armor.equip_leather",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"value": "魔法礼盒:节日礼盒",
+											"subject": "other",
+											"domain": "hand"
+										}
+									]
+								},
+								"event": "事件:节日衣装",
+								"target": "self"
+							}
+						},
+						{
+							"cooldown": 1,
+							"use_item": false,
+							"interact_text": "更换 < 角色状态 >",
+							"play_sounds": "armor.equip_diamond",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"domain": "hand",
+											"subject": "other",
+											"value": "基础书籍:魔导手册"
+										}
+									]
+								},
+								"event": "事件:状态切换",
+								"target": "self"
+							}
+						},
+						{
+							"cooldown": 1,
+							"use_item": false,
+							"interact_text": "更换 < 武器装备 >",
+							"play_sounds": "armor.equip_diamond",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"domain": "hand",
+											"subject": "other",
+											"value": "魔法礼盒:武装礼盒"
+										}
+									]
+								},
+								"event": "事件:更换武装",
+								"target": "self"
+							}
+						},
+						{
+							"cooldown": 1,
+							"use_item": false,
+							"interact_text": "§2开启 §r或 §4关闭 §9< 双重跟随 >",
+							"play_sounds": "armor.equip_diamond",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"domain": "hand",
+											"subject": "other",
+											"value": "魔法书籍:瞬间移动"
+										}
+									]
+								},
+								"event": "事件:双重跟随",
+								"target": "self"
+							}
+						}
+					]
+				}
+			},
+			"准备": {
+				"minecraft:timer": {
+					"time": 0.1,
+					"time_down_event": {
+						"event": "事件:展开施法",
+						"target": "self"
+					}
+				}
+			},
+			"进攻": {
+				"minecraft:angry": {
+					"duration": 5,
+					"broadcast_anger": true,
+					"broadcast_range": 64,
+					"broadcast_targets": [
+						"power",
+						"mob"
+					],
+					"broadcast_filters": {
+						"test": "is_visible",
+						"subject": "other",
+						"value": true
+					},
+					"calm_event": {
+						"event": "事件:放弃进攻",
+						"target": "self"
+					}
+				}
+			},
+			"跟随": {
+				"minecraft:behavior.follow_owner": {
+					"priority": 1,
+					"speed_multiplier": 1.15,
+					"start_distance": 5,
+					"stop_distance": 3
+				},
+				"minecraft:scheduler": {
+					"min_delay_secs": 0,
+					"max_delay_secs": 9,
+					"scheduled_events": [
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_leashed",
+										"value": false
+									},
+									{
+										"test": "has_tag",
+										"value": "dual_tracking"
+									},
+									{
+										"test": "has_tag",
+										"operator": "!=",
+										"value": "SitDown"
+									},
+									{
+										"test": "distance_to_nearest_player",
+										"operator": ">=",
+										"value": 16
+									}
+								]
+							},
+							"event": "事件:强制回归",
+							"target": "self"
+						},
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_tag",
+										"value": "daily_task"
+									},
+									{
+										"test": "is_daytime",
+										"value": false
+									}
+								]
+							},
+							"event": "事件:黑夜模式",
+							"target": "self"
+						},
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_daytime",
+										"value": true
+									},
+									{
+										"test": "has_tag",
+										"operator": "!=",
+										"value": "daily_task"
+									},
+									{
+										"test": "on_ground",
+										"value": true
+									},
+									{
+										"test": "distance_to_nearest_player",
+										"operator": "<=",
+										"value": 8
+									}
+								]
+							},
+							"event": "事件:白昼模式",
+							"target": "self"
+						},
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_tag",
+										"value": "contract"
+									},
+									{
+										"test": "has_component",
+										"value": "minecraft:angry"
+									}
+								]
+							},
+							"event": "事件:契约加成",
+							"target": "self"
+						}
+					]
+				},
+				"minecraft:environment_sensor": {
+					"triggers": {
+						"filters": {
+							"test": "in_nether",
+							"value": true
+						},
+						"event": "事件:进入下界"
+					}
+				}
+			},
+			"漫游": {
+				"minecraft:item_hopper": {},
+				"minecraft:environment_sensor": {
+					"triggers": {
+						"filters": {
+							"test": "in_nether",
+							"value": true
+						},
+						"event": "事件:进入下界"
+					}
+				},
+				"minecraft:scheduler": {
+					"min_delay_secs": 0,
+					"max_delay_secs": 9,
+					"scheduled_events": [
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "distance_to_nearest_player",
+										"operator": ">=",
+										"value": 64
+									},
+									{
+										"test": "in_contact_with_water",
+										"operator": "==",
+										"value": true
+									},
+									{
+										"test": "has_tag",
+										"value": "dual_tracking"
+									}
+								]
+							},
+							"event": "事件:强制回归",
+							"target": "self"
+						},
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "distance_to_nearest_player",
+										"operator": ">=",
+										"value": 64
+									},
+									{
+										"test": "is_brightness",
+										"operator": "<=",
+										"value": 0.5
+									},
+									{
+										"test": "has_tag",
+										"value": "dual_tracking"
+									}
+								]
+							},
+							"event": "事件:强制回归",
+							"target": "self"
+						},
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "distance_to_nearest_player",
+										"operator": ">=",
+										"value": 64
+									},
+									{
+										"test": "is_underground",
+										"operator": "==",
+										"value": true
+									},
+									{
+										"test": "has_tag",
+										"value": "dual_tracking"
+									}
+								]
+							},
+							"event": "事件:强制回归",
+							"target": "self"
+						}
+					]
+				},
+				"minecraft:inventory": {
+					"container_type": "container",
+					"can_be_siphoned_from": false,
+					"restrict_to_owner": true,
+					"inventory_size": 27,
+					"private": false
+				}
+			},
+			"下界": {
+				"minecraft:item_hopper": {},
+				"minecraft:is_chested": {},
+				"minecraft:inventory": {
+					"container_type": "container",
+					"can_be_siphoned_from": false,
+					"restrict_to_owner": true,
+					"inventory_size": 27,
+					"private": false
+				},
+				"minecraft:environment_sensor": {
+					"triggers": {
+						"filters": {
+							"test": "in_nether",
+							"value": false
+						},
+						"event": "事件:背包状态"
+					}
+				},
+				"minecraft:scheduler": {
+					"min_delay_secs": 4,
+					"max_delay_secs": 9,
+					"scheduled_events": [
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_component",
+										"value": "minecraft:timer"
+									},
+									{
+										"test": "on_ground",
+										"value": true
+									},
+									{
+										"test": "in_lava",
+										"value": false
+									}
+								]
+							},
+							"event": "事件:复苏锚定",
+							"target": "self"
+						},
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_tag",
+										"value": "contract"
+									},
+									{
+										"test": "has_component",
+										"value": "minecraft:angry"
+									}
+								]
+							},
+							"event": "事件:契约加成",
+							"target": "self"
+						}
+					]
+				}
+			},
+			"基础": {
+				"minecraft:behavior.stay_while_sitting": {
+					"priority": 0
+				},
+				"minecraft:sittable": {},
+				"minecraft:inventory": {
+					"container_type": "container",
+					"can_be_siphoned_from": false,
+					"restrict_to_owner": true,
+					"inventory_size": 27,
+					"private": true
+				}
+			},
+			"背包": {
+				"minecraft:item_hopper": {},
+				"minecraft:is_chested": {},
+				"minecraft:inventory": {
+					"container_type": "container",
+					"can_be_siphoned_from": true,
+					"restrict_to_owner": true,
+					"inventory_size": 27,
+					"private": false
+				}
+			},
+			"贸易": {
+				"minecraft:inventory": {
+					"container_type": "container",
+					"can_be_siphoned_from": false,
+					"restrict_to_owner": true,
+					"inventory_size": 27,
+					"private": true
+				},
+				"minecraft:behavior.trade_interest": {
+					"priority": 3,
+					"cooldown": 8.0,
+					"within_radius": 5.0,
+					"interest_time": 45.0,
+					"remove_item_time": 3.0,
+					"carried_item_switch_time": 3.0
+				},
+				"minecraft:economy_trade_table": {
+					"display_name": "§5琉璃宝库§r",
+					"table": "trading/琉璃.json",
+					"new_screen": true
+				}
+			},
+			"服饰.1": {
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			"服饰.2": {
+				"minecraft:variant": {
+					"value": 1
+				}
+			},
+			"服饰.3": {
+				"minecraft:variant": {
+					"value": 2
+				}
+			},
+			"服饰.4": {
+				"minecraft:variant": {
+					"value": 3
+				}
+			},
+			"服饰.5": {
+				"minecraft:variant": {
+					"value": 4
+				}
+			},
+			"服饰.6": {
+				"minecraft:variant": {
+					"value": 5
+				}
+			},
+			"服饰.7": {
+				"minecraft:variant": {
+					"value": 6
+				}
+			},
+			"消失": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:conditional_bandwidth_optimization": {
+				"conditional_values": {
+					"max_dropped_ticks": 20,
+					"max_optimized_distance": 200,
+					"use_motion_prediction_hints": true
+				},
+				"default_values": {
+					"max_dropped_ticks": 10,
+					"max_optimized_distance": 100,
+					"use_motion_prediction_hints": true
+				}
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 4,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "monster"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "warden"
+								}
+							]
+						},
+						"within_default": 32
+					}
+				],
+				"must_reach": true,
+				"must_see": true
+			},
+			"minecraft:behavior.restrict_open_door": {
+				"priority": 1
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 3
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 4,
+				"look_distance": 3,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 3,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.find_mount": {
+				"priority": 3,
+				"within_radius": 5,
+				"start_delay": 5,
+				"max_failed_attempts": 99
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.15
+			},
+			"minecraft:behavior.open_door": {
+				"priority": 1,
+				"close_door_after": true
+			},
+			"minecraft:navigation.generic": {
+				"can_path_over_water": true,
+				"avoid_damage_blocks": true,
+				"can_pass_doors": true,
+				"can_open_doors": true,
+				"is_amphibious": true,
+				"can_swim": true,
+				"can_walk": true
+			},
+			"minecraft:on_target_acquired": {
+				"event": "事件:发现目标",
+				"target": "self"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "projectile",
+						"on_damage": {
+							"event": "事件:损伤判定",
+							"target": "self",
+							"filters": {
+								"any_of": [
+									{
+										"test": "has_equipment",
+										"value": "shield"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									}
+								]
+							}
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "entity_attack",
+						"on_damage": {
+							"event": "事件:损伤判定",
+							"target": "self",
+							"filters": {
+								"any_of": [
+									{
+										"test": "has_equipment",
+										"value": "shield"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									}
+								]
+							}
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "entity_explosion",
+						"on_damage": {
+							"event": "事件:损伤判定",
+							"target": "self",
+							"filters": {
+								"any_of": [
+									{
+										"test": "has_equipment",
+										"value": "shield"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									}
+								]
+							}
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "block_explosion",
+						"on_damage": {
+							"event": "事件:损伤判定",
+							"target": "self",
+							"filters": {
+								"any_of": [
+									{
+										"test": "has_equipment",
+										"value": "shield"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									}
+								]
+							}
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.75,
+				"height": 2.50
+			},
+			"minecraft:type_family": {
+				"family": [
+					"Peer",
+					"Tayun",
+					"prime"
+				]
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": true,
+				"always_show": false,
+				"default_trigger": {
+					"event": "事件:获得称呼",
+					"target": "self"
+				},
+				"name_actions": [
+					{
+						"name_filter": "星阁-琉璃",
+						"on_named": {
+							"event": "事件:正确称呼",
+							"target": "self"
+						}
+					}
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.3
+			},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:physics": {
+				"has_gravity": true,
+				"has_collision": true
+			},
+			"minecraft:health": {
+				"value": 100
+			},
+			"minecraft:scale": {
+				"value": 0.57
+			},
+			"minecraft:annotation.open_door": {},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:fire_immune": {},
+			"minecraft:can_climb": {}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"run_command": {
+					"command": [
+						"execute as @p[tag=!ambient] run function Data/ambient"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"服饰.3",
+						"自由"
+					]
+				}
+			},
+			"事件:更换衣物": {
+				"sequence": [
+					{
+						"remove": {
+							"component_groups": [
+								"服饰.6",
+								"服饰.5",
+								"服饰.4",
+								"服饰.3",
+								"服饰.2",
+								"服饰.1"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"服饰.1"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"服饰.2"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"服饰.3"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"服饰.4"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"服饰.5"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"服饰.6"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"事件:节日衣装": {
+				"sequence": [
+					{
+						"remove": {
+							"component_groups": [
+								"服饰.7",
+								"服饰.6",
+								"服饰.5",
+								"服饰.4",
+								"服饰.3",
+								"服饰.2",
+								"服饰.1"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"服饰.7"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"事件:展开施法": {
+				"add": {
+					"component_groups": [
+						"进攻"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"准备"
+					]
+				}
+			},
+			"事件:强制回归": {
+				"run_command": {
+					"command": [
+						"title @p actionbar 【 @s 】: 等等我, 我跟不上了!",
+						"effect @s slowness 1 255 true",
+						"event entity @s 事件:常规台词",
+						"tp @s @p"
+					]
+				}
+			},
+			"事件:黑夜模式": {
+				"run_command": {
+					"command": [
+						"title @p[r=5] actionbar 【 @s 】: 天黑了, 请注意休息. 以免怪物偷家 !",
+						"tag @s remove daily_task",
+						"event entity @s 事件:常规台词"
+					]
+				}
+			},
+			"事件:白昼模式": {
+				"run_command": {
+					"command": [
+						"title @p[r=5] actionbar 【 @s 】: 早上好 ! §6 @p",
+						"tag @s add daily_task",
+						"event entity @s 事件:复苏锚定",
+						"event entity @s 事件:常规台词"
+					]
+				}
+			},
+			"事件:复苏锚定": {
+				"sequence": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "on_ground",
+									"operator": "==",
+									"value": true
+								},
+								{
+									"test": "in_lava",
+									"operator": "!=",
+									"value": true
+								},
+								{
+									"test": "in_water",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"particle 阵营图标:星光阁 ~ ~1.75 ~",
+								"spawnpoint @a[r=15] ~~~"
+							]
+						}
+					}
+				]
+			},
+			"事件:契约加成": {
+				"run_command": {
+					"command": [
+						"effect @p[r=15] Strength   5 0 true",
+						"effect @p[r=15] Resistance 5 5 true"
+					]
+				}
+			},
+			"事件:进入下界": {
+				"run_command": {
+					"command": [
+						"title @p actionbar @s 当前环境特殊, 我会携带背包并尽力保护你, 如果我不见了记得找我!",
+						"tag @s add NO_follow"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"下界"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"贸易",
+						"基础",
+						"背包",
+						"跟随",
+						"漫游"
+					]
+				}
+			},
+			"事件:漫游状态": {
+				"run_command": {
+					"command": [
+						"title @p actionbar 【 @s 】:  我会在附近散步, 有需要欢迎随时来找我",
+						"tag @s add NO_follow"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"漫游"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"贸易",
+						"基础",
+						"背包",
+						"跟随",
+						"下界"
+					]
+				}
+			},
+			"事件:驻留状态": {
+				"run_command": {
+					"command": [
+						"title @p actionbar 【 @s 】: 我将随你一起行动, 你可以随时安排我坐下",
+						"tag @s remove NO_follow"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"基础",
+						"跟随"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"贸易",
+						"背包",
+						"漫游",
+						"下界"
+					]
+				}
+			},
+			"事件:背包状态": {
+				"run_command": {
+					"command": [
+						"title @p actionbar 【 @s 】: 我将随你一起行动, 并为你携带背包",
+						"tag @s remove NO_follow"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"背包",
+						"跟随"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"漫游",
+						"基础",
+						"贸易",
+						"下界"
+					]
+				}
+			},
+			"事件:贸易状态": {
+				"run_command": {
+					"command": [
+						"title @p actionbar 【 @s 】: 我将随你一起行动, 如有需要你也可以与我兑换部分物品",
+						"tag @s remove NO_follow"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"贸易",
+						"跟随"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"漫游",
+						"基础",
+						"背包",
+						"下界"
+					]
+				}
+			},
+			"事件:缔结契约": {
+				"run_command": {
+					"command": [
+						"function RoleCode/EnterContracts"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"自由"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"契约",
+						"基础",
+						"跟随"
+					]
+				}
+			},
+			"事件:发现目标": {
+				"run_command": {
+					"command": [
+						"summon 制导飞弹:神恩 ^ ^1 ^0.5",
+						"summon 制导飞弹:神恩 ^ ^1 ^0.5",
+						"summon 制导飞弹:神恩 ^ ^1 ^0.5",
+						"summon 制导飞弹:神恩 ^ ^1 ^0.5"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"准备"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"进攻"
+					]
+				}
+			},
+			"事件:放弃进攻": {
+				"remove": {
+					"component_groups": [
+						"进攻"
+					]
+				}
+			},
+			"事件:状态切换": {
+				"sequence": [
+					{
+						"run_command": {
+							"command": [
+								"particle 提示图标:通用提示 ~ ~1.75 ~"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "feather"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"event entity @s 事件:漫游状态"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "saddle"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"event entity @s 事件:驻留状态"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "chest"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"event entity @s 事件:背包状态"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "book"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"event entity @s 事件:贸易状态"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"operator": "!=",
+									"value": "feather"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"operator": "!=",
+									"value": "saddle"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"operator": "!=",
+									"value": "chest"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"operator": "!=",
+									"value": "book"
+								}
+							]
+						},
+						"sequence": [
+							{
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_component",
+											"operator": "==",
+											"value": "minecraft:is_chested"
+										},
+										{
+											"test": "has_component",
+											"operator": "==",
+											"value": "minecraft:behavior.follow_owner"
+										}
+									]
+								},
+								"run_command": {
+									"command": [
+										"event entity @s 事件:漫游状态"
+									]
+								}
+							},
+							{
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_component",
+											"operator": "!=",
+											"value": "minecraft:behavior.follow_owner"
+										},
+										{
+											"test": "has_component",
+											"operator": "!=",
+											"value": "minecraft:is_chested"
+										}
+									]
+								},
+								"run_command": {
+									"command": [
+										"event entity @s 事件:驻留状态"
+									]
+								}
+							},
+							{
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_component",
+											"operator": "==",
+											"value": "minecraft:behavior.follow_owner"
+										},
+										{
+											"test": "has_component",
+											"operator": "!=",
+											"value": "minecraft:is_chested"
+										}
+									]
+								},
+								"run_command": {
+									"command": [
+										"event entity @s 事件:贸易状态"
+									]
+								}
+							},
+							{
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_component",
+											"operator": "==",
+											"value": "minecraft:behavior.follow_owner"
+										},
+										{
+											"test": "has_component",
+											"operator": "==",
+											"value": "minecraft:economy_trade_table"
+										},
+										{
+											"test": "has_component",
+											"operator": "!=",
+											"value": "minecraft:is_chested"
+										}
+									]
+								},
+								"run_command": {
+									"command": [
+										"event entity @s 事件:背包状态"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"事件:双重跟随": {
+				"sequence": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"operator": "==",
+									"value": "dual_tracking"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"title @p[r=15] actionbar 【 @s 】: §2< 双重跟随机制 >已关闭",
+								"particle 提示图标:通用提示 ~ ~1.75 ~",
+								"tag @s remove dual_tracking"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"operator": "!=",
+									"value": "dual_tracking"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"title @p[r=15] actionbar 【 @s 】: §2< 双重跟随机制 >已开启",
+								"particle 提示图标:通用提示 ~ ~1.75 ~",
+								"tag @s add dual_tracking"
+							]
+						}
+					}
+				]
+			},
+			"事件:获得称呼": {
+				"run_command": {
+					"command": [
+						"title @p[r=5] actionbar 【 @s 】: 这个称呼我很喜欢, 谢谢"
+					]
+				}
+			},
+			"事件:正确称呼": {
+				"run_command": {
+					"command": [
+						"title @p[r=5] actionbar 【 @s 】: 你能记住我的名字, 我很开心 !"
+					]
+				}
+			},
+			"事件:实体消失": {
+				"add": {
+					"component_groups": [
+						"消失"
+					]
+				}
+			},
+			"事件:损伤判定": {
+				"sequence": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"title @a[r=15] actionbar §4§l| 特殊禁令 |§r : 您好, 请不要试图伤害< @e[family=Tayun,family=Peer,r=15] >"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"value": "shield"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"playanimation @s animation.hold_use.shield default 1.0",
+								"playsound item.shield.block @a[r=5] ~~~",
+								"function RoleCode/Shield_Life"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"value": "魔法工具:魔晶弹弓"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"playanimation @s animation.hold_use.magic_bow default 1.0"
+							]
+						}
+					}
+				]
+			},
+			"事件:常规台词": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 我们去抓鱼吧? 我很擅长游泳的哦! 保证给你抓一条这~ 么~ 大~ 的鱼回来!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 保护我? 不要以为我身娇体柔好欺负哦! 我曾经可是当过<村庄守护者>呢!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 你问§9 啸天 §r的来历? 我也不清楚, 我完成[ 试炼 ]后突然就出现的\n虽然我也感觉有些来历不明, 但它现在已经是我的好朋友了"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 等到§9 啸天 §r长大了, 我就可以骑着它游历四方啦~~~ 开心!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 你说§6 琥珀 §r...... 我和【 天渊阁 】是至死方休的敌人\n他们试图凌驾于[ 天穹 ]并违逆了[ 试炼 ], 最后却害所有人被[ 天穹 ]所惩戒...... 此仇, 终生难忘"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 对付§6 琥珀 §r一定要注意保持距离! 因为[ 祂 ]传授了【 天渊阁 】许多很麻烦的技术, 太靠近会吃亏的!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 哎, §9 海灵姐姐 §r她好神秘啊, 为什么虽然总喜欢在海边独自徘徊啊? 不过她是好人哦!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 我记得§9 海灵姐姐 §r很喜欢吃鱼, 下次见面带一些给她吧?"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: §9 姐姐 §r她在某些方面很厉害, 特别是对于使用<精灵术>对抗魔物这方面, 有着深刻的理解"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 我的家乡……? 那是一座遨游于无尽虚空的人造浮空岛哦, 你想去看看吗?"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"title @a[r=15] actionbar 【 @s 】: 雷暴总是非常的可怕…… 但几乎所有的雷暴都远不如【 天渊阁 】违逆[ 天穹 ]时那犹如天谴的[ 深罪惩戒 ]……"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"run_command": {
+									"command": []
+								}
+							}
+						]
+					}
+				]
+			},
+			"事件:更换武装": {
+				"sequence": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "特制模板:空灵单元"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"replaceitem entity @s slot.weapon.mainhand 0 air",
+								"replaceitem entity @s slot.weapon.offhand 0 air",
+								"replaceitem entity @s slot.armor.head  0 air",
+								"replaceitem entity @s slot.armor.chest 0 air",
+								"replaceitem entity @s slot.armor.legs  0 air",
+								"replaceitem entity @s slot.armor.feet  0 air"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "shield"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"replaceitem entity @s slot.weapon.offhand 0 shield"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "totem_of_undying"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"replaceitem entity @s slot.weapon.offhand 0 totem_of_undying"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "魔法工具:魔晶弹弓"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"replaceitem entity @s slot.weapon.mainhand 0 魔法工具:魔晶弹弓"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "魔法工具:魔晶扳手"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"replaceitem entity @s slot.weapon.mainhand 0 魔法工具:魔晶扳手"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "特殊铠甲:魔晶铠甲_枯竭"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "特殊铠甲:魔晶铠甲_虚弱"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "特殊铠甲:魔晶铠甲_暗淡"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "特殊铠甲:魔晶铠甲_蒙尘"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "特殊铠甲:魔晶铠甲_至纯"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"replaceitem entity @s slot.armor.legs 0 特殊铠甲:魔晶铠甲_至纯"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "wooden_sword"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "stone_sword"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "iron_sword"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "diamond_sword"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "golden_sword"
+								},
+								{
+									"test": "has_equipment",
+									"subject": "other",
+									"value": "netherite_sword"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"replaceitem entity @s slot.weapon.mainhand 0 iron_sword"
+							]
+						}
+					}
+				]
+			},
+			"事件:锚点虚印": {
+				"sequence": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_component",
+									"operator": "==",
+									"value": "minecraft:is_tamed"
+								},
+								{
+									"test": "has_tag",
+									"operator": "!=",
+									"value": "SitDown"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"particle 提示图标:通用提示 ~ ~2.5 ~"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

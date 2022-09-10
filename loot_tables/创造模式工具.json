@@ -1,0 +1,202 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "spawn_egg",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_actor_id",
+                            "id": "npc"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "light_block",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "jigsaw",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "structure_block",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "structure_void",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "command_block",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "chain_command_block",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "allow",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "repeating_command_block",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "deny",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "border_block",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "end_gateway",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "glowingobsidian",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "portal",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "barrier",
+                    "weight": 1,
+                    "functions": [
+                        
+                    ]
+                }
+            ]
+        }
+    ]
+}

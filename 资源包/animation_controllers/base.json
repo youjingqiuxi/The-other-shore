@@ -1,0 +1,217 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ControlAttitude.basics": {
+			"initial_state": "move",
+			"states": {
+				"move": {
+					"animations": [
+						"move",
+						"stand"
+					],
+					"transitions": [
+						{
+							"sitting": "query.is_sitting && !query.is_riding "
+						},
+						{
+							"riding": "query.is_riding && !query.is_sitting"
+						},
+						{
+							"swimming": "variable.swim_amount != 0.0 && !query.is_riding && !query.has_target && !query.is_sitting"
+						}
+					]
+				},
+				"sitting": {
+					"animations": [
+						"sitting"
+					],
+					"transitions": [
+						{
+							"move": "!query.is_sitting"
+						}
+					]
+				},
+				"riding": {
+					"animations": [
+						"riding_0",
+						"riding_1"
+					],
+					"transitions": [
+						{
+							"move": "!query.is_riding"
+						},
+						{
+							"swimming": "variable.swim_amount > 0.0 && !query.is_riding && !query.has_target"
+						}
+					]
+				},
+				"swimming": {
+					"animations": [
+						"swimming"
+					],
+					"transitions": [
+						{
+							"move": "variable.swim_amount <= 0.0"
+						},
+						{
+							"riding": "query.is_riding"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlAttitude.Dog": {
+			"initial_state": "move",
+			"states": {
+				"move": {
+					"animations": [
+						"move"
+					],
+					"transitions": [
+						{
+							"jump": "!query.is_sitting && !query.is_on_ground && !query.is_in_water && query.vertical_speed >= 1"
+						},
+						{
+							"sitting": "query.is_sitting"
+						},
+						{
+							"swimming": "variable.swim_amount > 0.0 && query.is_in_water"
+						}
+					]
+				},
+				"jump": {
+					"animations": [
+						"jump"
+					],
+					"transitions": [
+						{
+							"move": "query.vertical_speed == 0 || query.is_sitting || query.is_on_ground || query.is_in_water"
+						}
+					]
+				},
+				"sitting": {
+					"animations": [
+						"sitt"
+					],
+					"transitions": [
+						{
+							"move": "!query.is_sitting"
+						}
+					]
+				},
+				"swimming": {
+					"animations": [
+						"swimming"
+					],
+					"transitions": [
+						{
+							"move": "variable.swim_amount <= 0.0 && !query.is_in_water"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlWatch.basics": {
+			"initial_state": "not",
+			"states": {
+				"not": {
+					"transitions": [
+						{
+							"swimming": "!query.has_target && query.is_swimming"
+						},
+						{
+							"default": "!query.has_target && !query.is_swimming"
+						}
+					]
+				},
+				"default": {
+					"animations": [
+						"basic-watch"
+					],
+					"transitions": [
+						{
+							"swimming": "query.is_swimming"
+						},
+						{
+							"not": "query.has_target"
+						}
+					]
+				},
+				"swimming": {
+					"animations": [
+						"swim-watch"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_swimming"
+						},
+						{
+							"not": "query.has_target"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlGrow.basics": {
+			"initial_state": "baby",
+			"states": {
+				"not": {},
+				"UP": {
+					"animations": [
+						"UP"
+					],
+					"transitions": [
+						{
+							"not": "query.mark_variant != 1"
+						}
+					]
+				},
+				"baby": {
+					"animations": [
+						"baby"
+					],
+					"transitions": [
+						{
+							"UP": "query.is_baby && query.mark_variant == 1"
+						},
+						{
+							"not": "query.is_baby != 1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlTake.basics": {
+			"initial_state": "hold",
+			"states": {
+				"hold": {
+					"animations": [
+						"held-item"
+					]
+				}
+			}
+		},
+		"controller.animation.ControlTake.use": {
+			"initial_state": "not",
+			"states": {
+				"not": {
+					"transitions": [
+						{
+							"use": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )"
+						}
+					]
+				},
+				"use": {
+					"animations": [
+						"Use-item"
+					],
+					"transitions": [
+						{
+							"not": "( variable.use_item_interval_progress <= 0.0 ) && ( variable.use_item_startup_progress <= 0.0 )"
+						}
+					]
+				}
+			}
+		}
+	}
+}

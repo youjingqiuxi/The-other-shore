@@ -1,0 +1,14 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "MC.melting.rotten_flesh|melts-into|leather"
+        },
+        "tags": [
+            "furnace",
+            "blast_furnace"
+        ],
+        "input": "rotten_flesh",
+        "output": "leather"
+    }
+}

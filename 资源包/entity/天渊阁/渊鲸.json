@@ -1,0 +1,43 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "天渊阁:渊鲸",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "x0": "textures/entity/无人机/渊鲸/普通",
+                "x1": "textures/entity/无人机/渊鲸/强化",
+                "HE_0": "textures/entity/无人机/渊鲸/血量_0",
+                "HE_1": "textures/entity/无人机/渊鲸/血量_1",
+                "HE_2": "textures/entity/无人机/渊鲸/血量_2",
+                "HE_3": "textures/entity/无人机/渊鲸/血量_3",
+                "HE_4": "textures/entity/无人机/渊鲸/血量_4"
+            },
+            "geometry": {
+                "default": "geometry.whale",
+                "heart": "geometry.whale"
+            },
+            "scripts": {
+                "animate": [
+                    "basic",
+                    "watch"
+                ]
+            },
+            "animations": {
+                "watch": "controller.animation.ControlAttack.0",
+                "attack": "animation.uav-radar_scan.attack",
+                "basic": "animation.machine_move.whale"
+            },
+            "render_controllers": [
+                "controller.render.heart:100",
+                "controller.render.Map:X02"
+            ],
+            "spawn_egg": {
+                "texture": "天渊阁_图标",
+                "texture_index": 3
+            }
+        }
+    }
+}

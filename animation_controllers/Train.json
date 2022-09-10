@@ -1,0 +1,91 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.train_runs": {
+			"initial_state": "list",
+			"states": {
+				"list": {
+					"transitions": [
+						{
+							"open": "query.variant == 0"
+						}
+					]
+				},
+				"open": {
+					"on_entry": [
+						"/execute as @s [scores={RZ=1}] ~~~ function Train/MuSu", 
+						"/execute as @s [scores={RZ=1}] ~~~ function Train/travel"
+					],
+					"transitions": [
+						{
+							"list": "query.variant == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.train_adds": {
+			"initial_state": "list",
+			"states": {
+				"list": {
+					"transitions": [
+						{
+							"buffer": "query.is_riding"
+						}
+					]
+				},
+				"buffer": {
+					"transitions": [
+						{
+							"destroy": "!query.is_riding"
+						}
+					]
+				},
+				"destroy": {
+					"on_entry": [
+						"/kill @s"
+					]
+				}
+			}
+		},
+		"controller.animation.train_switch": {
+			"initial_state": "list",
+			"states": {
+				"list": {
+					"on_entry": [
+						"/scoreboard players add @s[tag=!train_tips] RZ 0",
+						"/tag @s[tag=!train_tips] add train_tips"
+					],
+					"transitions": [
+						{
+							"dig": "query.variant == 0"
+						},
+						{
+							"switch": "query.variant == 1"
+						}
+					]
+				},
+				"dig": {
+					"on_entry": [
+						"/execute as @s [scores={RZ=1}] ~~~ function Train/dig"
+					],
+					"transitions": [
+						{
+							"list": "(1.0)"
+						}
+					]
+				},
+				"switch": {
+					"on_entry": [
+						"/function Train/switch"
+					],
+					"transitions": [
+						{
+							"list": "query.variant == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

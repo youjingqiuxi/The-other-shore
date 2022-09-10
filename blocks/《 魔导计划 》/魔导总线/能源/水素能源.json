@@ -1,0 +1,153 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "魔导总线:水素能源",
+            "category": "construction",
+            "properties": {
+                "Table:switch": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.hydro_power",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "魔导总线_流体能源",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "vessel_full": "query.block_property('Table:switch') != 0 && query.block_property('Table:switch') != 5",
+                    "vessel_energy": "query.block_property('Table:switch') == 5",
+                    "energy": "query.block_property('Table:switch') == 5"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "tag:Magic_Bus_Series": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') != 5",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            30,
+                            90
+                        ],
+                        "on_tick": {
+                            "event": "事件:质能转化",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 5",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            10,
+                            10
+                        ],
+                        "on_tick": {
+                            "event": "事件:质能转化",
+                            "target": "self"
+                        }
+                    },
+                    "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_energy": {},
+                    "tag:Magic_Bus_switch:5": {}
+                }
+            }
+        ],
+        "events": {
+            "事件:质能转化": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'water') == 1 && query.block_property('Table:switch') == 0",
+                        "set_block_property": {
+                            "Table:switch": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §6正在进行提取§r <§9 水源 §r>",
+                                "fill ~1~-1~1 ~-1~-1~-1 air 0 replace flowing_water",
+                                "fill ~1~-1~1 ~-1~-1~-1 air 0 replace water"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') != 0 && query.block_property('Table:switch') != 5",
+                        "set_block_property": {
+                            "Table:switch": "query.block_property('Table:switch') + 1"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') >= 1 && query.block_property('Table:switch') <= 3",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §6正在进行§r <§5 质能转化 §r>"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 4",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §6正在释放 <§5 魔能脉冲 §r>",
+                                "playsound conduit.activate @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 5",
+                        "set_block_property": {
+                            "Table:switch": 0
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

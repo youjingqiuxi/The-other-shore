@@ -1,0 +1,668 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "装饰类:基础伪装板",
+            "category": "construction",
+            "properties": {
+                "Table:angle": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:texture.wood": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "Table:texture.stone": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                ],
+                "Table:texture.brick": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.decorate_block.cover_plate",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 0,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:collision_box": false,
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    1
+                ]
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:angle') == 0",
+                "components": {
+                    "minecraft:rotation": [
+                        -90,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 1",
+                "components": {
+                    "minecraft:rotation": [
+                        90,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 2",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 3",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        180,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 4",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        90,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 5",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        270,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.伪装.基础",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 1 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.木板.绯红",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 2 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.木板.诡异",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 3 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.木板.橡木",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 4 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.木板.相思",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 5 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.木板.黑橡",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 6 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.木板.白桦",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 7 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.木板.丛林",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 8 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.木板.云杉",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 9 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.木板.红树",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 1 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.磨制.安山岩",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 2 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.磨制.闪长岩",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 3 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.磨制.花岗岩",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 4 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.磨制.基础岩",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 5 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.磨制.黑石岩",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 6 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.磨制.深板岩",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 7 && query.block_property('Table:texture.brick') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "grass_side",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.石砖.基础石",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 2",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.石砖.深板岩",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 3",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.石砖.末地石",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 4",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.石砖.潜影石",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 5",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.石砖.石英石",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 6",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.石砖.下界石",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 7",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.石砖.黑石岩",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:texture.wood') == 0 && query.block_property('Table:texture.stone') == 0 && query.block_property('Table:texture.brick') == 8",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "纹理.石砖.海晶石",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:angle": "(query.cardinal_facing)"
+                }
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "trigger": {
+                            "event": "事件:木板方块",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "trigger": {
+                            "event": "事件:磨制石头",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "trigger": {
+                            "event": "事件:石砖方块",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:木板方块": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:planks') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": "query.block_property('Table:texture.wood') == 0 ? 3 : ( query.block_property('Table:texture.wood') != 8 ? (query.block_property('Table:texture.wood') + 1) : 3 )",
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:mangrove_planks') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 9,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:crimson_planks') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 1,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:warped_planks') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 2,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:磨制石头": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:stone') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": "query.block_property('Table:texture.stone') != 4 ? (query.block_property('Table:texture.stone') + 1) : 1",
+                            "Table:texture.brick": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:polished_blackstone') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 5,
+                            "Table:texture.brick": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:polished_deepslate') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 6,
+                            "Table:texture.brick": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:grass') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 7,
+                            "Table:texture.brick": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:石砖方块": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:stonebrick') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:deepslate_bricks') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:end_bricks') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 3
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:purpur_block') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 4
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:quartz_bricks') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 5
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:nether_brick') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 6
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:polished_blackstone_bricks') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 7
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:prismarine') == 1",
+                        "set_block_property": {
+                            "Table:texture.wood": 0,
+                            "Table:texture.stone": 0,
+                            "Table:texture.brick": 8
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound fire.ignite @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
