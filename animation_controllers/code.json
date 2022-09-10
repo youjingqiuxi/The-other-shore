@@ -1,0 +1,200 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.code_liu-li": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "cure": "query.health <= 35"
+                        }
+                    ]
+                },
+                "cure": {
+                    "on_entry": [
+                        "/effect @s regeneration 9 9 true"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "query.health != 0"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.code_jasmine": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "attack": "query.has_target && query.variant == 2 && query.health != 0"
+                        },
+                        {
+                            "spare": "!query.has_target && query.health != 0"
+                        },
+                        {
+                            "death": "query.health == 0"
+                        }
+                    ]
+                },
+                "spare": {
+                    "on_entry": [
+                        "/execute as @s [scores={CD=300}] run function Lines/jasmine",
+                        "/scoreboard players add @s CD 1"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "attack": {
+                    "on_entry": [
+                        "/execute as @s [scores={ZX=5}] at @e [family=abyss,family=!spirit,r=32] run particle 阵营图标:天渊阁 ~ ~2 ~",
+                        "/execute as @s [scores={ZX=5}] run effect @e[family=abyss,family=!spirit,r=32] regeneration 15 4 true",
+                        "/scoreboard players set @s[scores={ZX=15..}] ZX 0",
+                        "/scoreboard players add @s ZX 1"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "death": {
+                    "on_entry": [
+                        "/execute at @e [family=abyss,family=!spirit,r=32] run particle 阵营图标:天渊阁 ~ ~2 ~",
+                        "/effect @e[family=abyss,family=!spirit,r=32] regeneration 15 255 false",
+                        "/effect @e[family=abyss,family=!spirit,r=32] resistance 15 255 false",
+                        "/title @p[r=32] actionbar @s: §c[ §4百花之祈§c ]"
+                    ]
+                }
+            }
+        },
+        "controller.animation.code_amber": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "spare": "!query.has_target"
+                        },
+                        {
+                            "attack": "query.has_target && query.variant == 1"
+                        }
+                    ]
+                },
+                "spare": {
+                    "on_entry": [
+                        "/execute as @s [scores={CD=150}] run function Lines/amber",
+                        "/scoreboard players add @s CD 1"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "attack": {
+                    "on_entry": [
+                        "/function code/amber",
+                        "/effect @p[r=15] weakness 1 255 true"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.code_dull_blue": {
+            "initial_state": "healthy",
+            "states": {
+                "healthy": {
+                    "on_entry": [
+                        "/tag @s remove Endangered"
+                    ],
+                    "transitions": [
+                        {
+                            "Endangered": "query.health <= 35"
+                        }
+                    ]
+                },
+                "Endangered": {
+                    "on_entry": [
+                        "/tag @s add Endangered"
+                    ],
+                    "transitions": [
+                        {
+                            "healthy": "query.health >= 35"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.code_ocean": {
+            "initial_state": "array",
+            "states": {
+                "array": {
+                    "transitions": [
+                        {
+                            "call": "query.is_in_water && !query.is_riding && query.has_target"
+                        },
+                        {
+                            "adds": "query.is_in_water && query.is_riding && query.has_target"
+                        }
+                    ]
+                },
+                "call": {
+                    "on_entry": [
+                        "/particle minecraft:knockback_roar_particle ~~~",
+                        "/summon 明镜阁:欧泊 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "array": "!query.has_target"
+                        }
+                    ]
+                },
+                "adds": {
+                    "on_entry": [
+                        "/effect @e[r=5,family=ocean] regeneration 1 0 true"
+                    ],
+                    "transitions": [
+                        {
+                            "array": "!query.has_target"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.code_SitDown": {
+            "initial_state": "false",
+            "states": {
+                "true": {
+                    "on_entry": [
+                        "/tag @s add SitDown"
+                    ],
+                    "transitions": [
+                        {
+                            "false": "!query.is_sitting"
+                        }
+                    ]
+                },
+                "false": {
+                    "on_entry": [
+                        "/tag @s remove SitDown"
+                    ],
+                    "transitions": [
+                        {
+                            "true": "query.is_sitting"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "伺服机关:效应核心",
+            "category": "construction",
+            "properties": {}
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.effect_core",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "魔导总线_效应核心",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:part_visibility": {
+                "conditions": {}
+            },
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -3,
+                    0,
+                    -3
+                ],
+                "size": [
+                    6,
+                    16,
+                    6
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -3,
+                    0,
+                    -3
+                ],
+                "size": [
+                    6,
+                    16,
+                    6
+                ]
+            },
+            "minecraft:queued_ticking": {
+                "looping": true,
+                "interval_range": [
+                    60,
+                    60
+                ],
+                "on_tick": {
+                    "event": "事件:运行时",
+                    "target": "self"
+                }
+            },
+            "tag:Magic_Bus_Series": {}
+        },
+        "permutations": [],
+        "events": {}
+    }
+}

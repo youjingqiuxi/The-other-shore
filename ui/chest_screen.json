@@ -1,0 +1,29 @@
+{
+    "namespace": "chest",
+    "small_chest_panel/root_panel": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "存储容器附加面板:小型储物界面@定制案例.容器附加面板:166": {}
+                    }
+                ]
+            }
+        ]
+    },
+    "large_chest_panel/root_panel": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "存储容器附加面板:大型储物界面@定制案例.容器附加面板:220": {}
+                    }
+                ]
+            }
+        ]
+    }
+}

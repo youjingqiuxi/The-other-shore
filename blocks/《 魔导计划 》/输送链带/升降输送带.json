@@ -1,0 +1,151 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "输送链带:物资升降",
+            "category": "construction",
+            "properties": {
+                "Table:angle": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.lift_traffic",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "升降输送带",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "rise": "query.block_property('Table:angle') == 0",
+                    "drop": "query.block_property('Table:angle') == 1"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -6,
+                    0,
+                    -8
+                ],
+                "size": [
+                    12,
+                    2,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -6,
+                    0,
+                    -8
+                ],
+                "size": [
+                    12,
+                    2,
+                    16
+                ]
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "tag:conveyor_belt_transfer": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:angle') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            15,
+                            15
+                        ],
+                        "on_tick": {
+                            "event": "事件:物品上升",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 1",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            15,
+                            15
+                        ],
+                        "on_tick": {
+                            "event": "事件:物品下降",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:angle": 0
+                }
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1 && query.block_property('Table:angle') == 0",
+                        "set_block_property": {
+                            "Table:angle": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 自动运行 | : 物品下降"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1 && query.block_property('Table:angle') == 1",
+                        "set_block_property": {
+                            "Table:angle": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 自动运行 | : 物品上升"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:物品下降": {
+                "run_command": {
+                    "command": [
+                        "tp @e[type=item,r=1] ~ ~-1 ~"
+                    ]
+                }
+            },
+            "事件:物品上升": {
+                "run_command": {
+                    "command": [
+                        "tp @e[type=item,r=1] ~~~",
+                        "execute as @e [type=item,r=0.1] run tp @s ~ ~1 ~"
+                    ]
+                }
+            }
+        }
+    }
+}

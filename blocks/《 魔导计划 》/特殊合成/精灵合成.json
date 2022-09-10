@@ -1,0 +1,635 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "制造台:精灵合成",
+            "category": "construction",
+            "properties": {
+                "Table:angle": [
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:slots.1": [
+                    0,
+                    1
+                ],
+                "Table:slots.2": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "Table:slots.3": [
+                    0,
+                    1,
+                    2
+                ],
+                "Table:slots.4": [
+                    0,
+                    1,
+                    2,
+                    3
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.make",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": true,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "精灵合成台",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "module_blank": "query.block_property('Table:slots.1') == 1",
+                    "book_1": "query.block_property('Table:slots.2') == 1",
+                    "book_2": "query.block_property('Table:slots.2') == 2",
+                    "book_3": "query.block_property('Table:slots.2') == 3",
+                    "book_4": "query.block_property('Table:slots.2') == 4",
+                    "book_5": "query.block_property('Table:slots.2') == 5",
+                    "book_6": "query.block_property('Table:slots.2') == 6",
+                    "book_7": "query.block_property('Table:slots.2') == 7",
+                    "book_8": "query.block_property('Table:slots.2') == 8",
+                    "alloy_special": "query.block_property('Table:slots.3') == 1",
+                    "rock_special": "query.block_property('Table:slots.3') == 2",
+                    "spar_base": "query.block_property('Table:slots.4') == 1",
+                    "spar_volt": "query.block_property('Table:slots.4') == 2",
+                    "spar_fast": "query.block_property('Table:slots.4') == 3"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    10,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    10,
+                    16
+                ]
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "tag:Rite_Make_Table": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:angle') == 2",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 3",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        180,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 4",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        90,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 5",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        270,
+                        0
+                    ]
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:angle": "(query.cardinal_facing_2d)"
+                }
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:slots.1') == 0",
+                        "trigger": {
+                            "event": "事件:填充<模板单元>",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.1') != 0 && query.block_property('Table:slots.2') == 0",
+                        "trigger": {
+                            "event": "事件:填充<魔导书籍>",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.1') != 0 && query.block_property('Table:slots.2') != 0 && query.block_property('Table:slots.3') == 0",
+                        "trigger": {
+                            "event": "事件:填充<合金材料>",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.1') != 0 && query.block_property('Table:slots.2') != 0 && query.block_property('Table:slots.3') != 0 && query.block_property('Table:slots.4') == 0",
+                        "trigger": {
+                            "event": "事件:填充<魔晶矿石>",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.1') != 0 && query.block_property('Table:slots.2') != 0 && query.block_property('Table:slots.3') != 0 && query.block_property('Table:slots.4') != 0",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §4请使用§9<§6 魔晶扳手 §9>§4确认合成, 或使用§9<§6 魔晶起子 §9>§4退还合成材料",
+                                "playsound random.click @a[r=15] ~~~",
+                                "particle 提示图标:通用提示 ~ ~1 ~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.1') != 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
+                        "trigger": {
+                            "event": "事件:合成<最终产品>",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.1') != 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
+                        "trigger": {
+                            "event": "事件:退还<合成材料>",
+                            "target": "self"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound random.glass @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:填充<模板单元>": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §4当前插槽仅支持使用§9<§6 模板单元 §9>§4进行填充",
+                                "playsound random.click @a[r=15] ~~~",
+                                "particle 提示图标:通用提示 ~ ~1 ~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'特制模板:空灵单元') == 1",
+                        "set_block_property": {
+                            "Table:slots.1": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 空灵单元 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    }
+                ]
+            },
+            "事件:填充<魔导书籍>": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §4当前插槽仅支持使用§9<§5 魔法书籍 §9>§4进行填充",
+                                "playsound random.click @a[r=15] ~~~",
+                                "particle 提示图标:通用提示 ~ ~1 ~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'基础书籍:源能秘典') == 1",
+                        "set_block_property": {
+                            "Table:slots.2": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 源能秘典 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法书籍:林业指南') == 1",
+                        "set_block_property": {
+                            "Table:slots.2": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 林业指南 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'基础书籍:畜牧典范') == 1",
+                        "set_block_property": {
+                            "Table:slots.2": 3
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 畜牧典范 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'基础书籍:魔导手册') == 1",
+                        "set_block_property": {
+                            "Table:slots.2": 4
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 魔导手册 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'基础书籍:农业纲目') == 1",
+                        "set_block_property": {
+                            "Table:slots.2": 5
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 农业纲目 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法书籍:瞬间移动') == 1",
+                        "set_block_property": {
+                            "Table:slots.2": 6
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 瞬间移动 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法书籍:矿物辞典') == 1",
+                        "set_block_property": {
+                            "Table:slots.2": 7
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 矿物辞典 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'基础书籍:战术规划') == 1",
+                        "set_block_property": {
+                            "Table:slots.2": 8
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 战术规划 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    }
+                ]
+            },
+            "事件:填充<合金材料>": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §4当前插槽仅支持使用§9<§g 合金材料 §9>§4进行填充",
+                                "playsound random.click @a[r=15] ~~~",
+                                "particle 提示图标:通用提示 ~ ~1 ~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'合金材料:特种合金') == 1",
+                        "set_block_property": {
+                            "Table:slots.3": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 特种合金 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'合金材料:钢岩合金') == 1",
+                        "set_block_property": {
+                            "Table:slots.3": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 钢岩合金 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    }
+                ]
+            },
+            "事件:填充<魔晶矿石>": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §4当前插槽仅支持使用§9<§5 魔能晶石 §9>§4进行填充",
+                                "playsound random.click @a[r=15] ~~~",
+                                "particle 提示图标:通用提示 ~ ~1 ~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:experience_bottle') == 1",
+                        "set_block_property": {
+                            "Table:slots.4": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 基础魔晶石 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'能量水晶:高压魔晶') == 1",
+                        "set_block_property": {
+                            "Table:slots.4": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 高压魔晶石 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'能量水晶:超频魔晶') == 1",
+                        "set_block_property": {
+                            "Table:slots.4": 3
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §9<§6 超频魔晶石 §9>已完成装载 !",
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    }
+                ]
+            },
+            "事件:合成<最终产品>": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:slots.1') == 1 && query.block_property('Table:slots.2') == 7 && query.block_property('Table:slots.3') == 2 && query.block_property('Table:slots.4') == 3",
+                        "run_command": {
+                            "command": [
+                                "summon 列车组:挖掘 ~~~"
+                            ]
+                        },
+                        "trigger": {
+                            "event": "事件:正确<合成配方>",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.1') != 0",
+                        "trigger": {
+                            "event": "事件:错误<合成配方>",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:错误<合成配方>": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:slots.1') != 0",
+                        "trigger": {
+                            "event": "事件:退还<合成材料>",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:正确<合成配方>": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "particle 烟雾效果:靛蓝 ~~~",
+                                "summon 矩阵接口:规划 ~~~ 标签驱动.图形绘制.旋转",
+                                "tag @e[family=Matrix_API,c=1] add Matrix_API.rotate.Red_rising",
+                                "playsound random.anvil_land @a[r=15] ~~~",
+                                "title @p[r=5] actionbar §6正在进行<§9 精灵合成 §6>"
+                            ]
+                        },
+                        "set_block_property": {
+                            "Table:slots.1": 0,
+                            "Table:slots.2": 0,
+                            "Table:slots.3": 0,
+                            "Table:slots.4": 0
+                        }
+                    }
+                ]
+            },
+            "事件:退还<合成材料>": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:slots.1') == 1",
+                        "run_command": {
+                            "command": [
+                                "give @p 特制模板:空灵单元"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.2') == 1",
+                        "run_command": {
+                            "command": [
+                                "give @p 基础书籍:源能秘典"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.2') == 2",
+                        "run_command": {
+                            "command": [
+                                "give @p 魔法书籍:林业指南"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.2') == 3",
+                        "run_command": {
+                            "command": [
+                                "give @p 基础书籍:畜牧典范"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.2') == 4",
+                        "run_command": {
+                            "command": [
+                                "give @p 基础书籍:魔导手册"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.2') == 5",
+                        "run_command": {
+                            "command": [
+                                "give @p 基础书籍:农业纲目"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.2') == 6",
+                        "run_command": {
+                            "command": [
+                                "give @p 魔法书籍:瞬间移动"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.2') == 7",
+                        "run_command": {
+                            "command": [
+                                "give @p 魔法书籍:矿物辞典"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.2') == 8",
+                        "run_command": {
+                            "command": [
+                                "give @p 基础书籍:战术规划"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.3') == 1",
+                        "run_command": {
+                            "command": [
+                                "give @p 合金材料:特种合金"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.3') == 2",
+                        "run_command": {
+                            "command": [
+                                "give @p 合金材料:钢岩合金"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.4') == 1",
+                        "run_command": {
+                            "command": [
+                                "give @p minecraft:experience_bottle"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.4') == 2",
+                        "run_command": {
+                            "command": [
+                                "give @p 能量水晶:高压魔晶"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:slots.4') == 3",
+                        "run_command": {
+                            "command": [
+                                "give @p 能量水晶:超频魔晶"
+                            ]
+                        }
+                    },
+                    {
+                        "set_block_property": {
+                            "Table:slots.1": 0,
+                            "Table:slots.2": 0,
+                            "Table:slots.3": 0,
+                            "Table:slots.4": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar §6正在返还剩余的§9<§2 合成材料 §9>"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

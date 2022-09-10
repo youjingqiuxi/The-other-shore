@@ -1,0 +1,176 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "深渊迷途:脉冲悬浮",
+            "category": "construction",
+            "properties": {
+                "Table:angle": [
+                    0,
+                    1
+                ],
+                "Table:color": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.step_block0",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "belowstep": "query.block_property('Table:angle') == 0",
+                    "upperstep": "query.block_property('Table:angle') == 1"
+                }
+            },
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    8,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    8,
+                    16
+                ]
+            },
+            "minecraft:queued_ticking": {
+                "looping": true,
+                "interval_range": [
+                    40,
+                    80
+                ],
+                "on_tick": {
+                    "event": "事件:运行中",
+                    "target": "self"
+                }
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:angle') == 1",
+                "components": {
+                    "minecraft:rotation": [
+                        180,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:color') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "深渊迷途_脉冲悬浮0",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:color') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "深渊迷途_脉冲悬浮1",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:color": 0,
+                    "Table:angle": 0
+                }
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:angle') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
+                        "set_block_property": {
+                            "Table:angle": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 方块形态 | : 上半台阶",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:angle') == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
+                        "set_block_property": {
+                            "Table:angle": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 方块形态 | : 下半台阶",
+                                "playsound tile.piston.in @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
+                        "set_block_property": {
+                            "Table:color": "query.block_property('Table:color') != 1 ? (query.block_property('Table:color') + 1) : 0"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound use.stone @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 方块名称 | : 脉冲漂浮石"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:运行中": {
+                "run_command": {
+                    "command": [
+                        "effect @e[dy=1] slow_falling 15 00 true",
+                        "effect @e[dy=1] levitation 10 00 true",
+                        "playsound conduit.short @a[r=15] ~~~",
+                        "particle 闪烁粒子:纯白 ~ ~0.5 ~"
+                    ]
+                }
+            }
+        }
+    }
+}

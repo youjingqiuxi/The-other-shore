@@ -1,0 +1,46 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "领域石:基础方块"
+        },
+        "components": {
+            "minecraft:geometry": "geometry.basic_block0",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 15,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": false,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "基础领地石",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -7,
+                    0,
+                    -7
+                ],
+                "size": [
+                    14,
+                    16,
+                    14
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            }
+        }
+    }
+}
