@@ -1,0 +1,363 @@
+{
+    "tiers": [
+        {
+            "groups": [
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "特制模板:空灵单元",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "gunpowder",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "spawn_egg",
+                                    "functions": [
+                                        {
+                                            "function": "set_actor_id",
+                                            "id": "工具组:凝滞"
+                                        }
+                                    ],
+                                    "quantity": 1
+                                }
+                            ],
+                            "max_uses": 16
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "特制模板:空灵单元",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "crafting_table",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "制造台:精灵合成",
+                                    "quantity": 1
+                                }
+                            ],
+                            "max_uses": 4
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "特制模板:空灵单元",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "魔法书籍:瞬间移动",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "spawn_egg",
+                                    "functions": [
+                                        {
+                                            "function": "set_actor_id",
+                                            "id": "执行器:区块"
+                                        }
+                                    ],
+                                    "quantity": 1
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "experience_bottle",
+                                    "quantity": 4
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "base_cost": 2,
+                                            "per_level_cost": 4,
+                                            "base_random_cost": 6,
+                                            "per_level_random_cost": 8,
+                                            "function": "enchant_book_for_trading"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 16
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "能量水晶:高压魔晶",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "base_cost": 2,
+                                            "per_level_cost": 4,
+                                            "base_random_cost": 6,
+                                            "per_level_random_cost": 8,
+                                            "function": "enchant_book_for_trading"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 16
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "能量水晶:超频魔晶",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "base_cost": 2,
+                                            "per_level_cost": 4,
+                                            "base_random_cost": 6,
+                                            "per_level_random_cost": 8,
+                                            "function": "enchant_book_for_trading"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 16
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "能量水晶:高压魔晶",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "base_cost": 2,
+                                            "per_level_cost": 4,
+                                            "base_random_cost": 6,
+                                            "per_level_random_cost": 8,
+                                            "function": "enchant_book_for_trading"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 16
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "experience_bottle",
+                                    "quantity": 4
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "base_cost": 2,
+                                            "per_level_cost": 4,
+                                            "base_random_cost": 6,
+                                            "per_level_random_cost": 8,
+                                            "function": "enchant_book_for_trading"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 16
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "能量水晶:高压魔晶",
+                                    "quantity": 16
+                                },
+                                {
+                                    "item": "gold_block",
+                                    "quantity": 4
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "totem",
+                                    "quantity": 1
+                                }
+                            ],
+                            "max_uses": 16
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "能量水晶:高压魔晶",
+                                    "quantity": 16
+                                },
+                                {
+                                    "item": "golden_apple",
+                                    "quantity": 4
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "appleenchanted",
+                                    "quantity": 1
+                                }
+                            ],
+                            "max_uses": 16
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "能量水晶:超频魔晶",
+                                    "quantity": 16
+                                },
+                                {
+                                    "item": "emptymap",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "map",
+                                    "functions": [
+                                        {
+                                            "function": "exploration_map",
+                                            "destination": "monument"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "能量水晶:超频魔晶",
+                                    "quantity": 16
+                                },
+                                {
+                                    "item": "emptymap",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "map",
+                                    "functions": [
+                                        {
+                                            "function": "exploration_map",
+                                            "destination": "mansion"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
