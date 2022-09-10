@@ -1,0 +1,59 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.beta.ocean_harpoon.start": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.52,
+			"bones": {
+				"magic": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.52": [0, -360, 0]
+					},
+					"position": {
+						"0.0": [0, -6.5, 0],
+						"0.52": [0, 10, 0],
+						"1.0": [0, -6.5, 0],
+						"1.52": [0, 0, 0]
+					},
+					"scale": {
+						"0.0": [0, 0, 0],
+						"1.52": [1, 1, 1]
+					}
+				},
+				"Harpoon": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [0, 360, 0]
+					},
+					"position": {
+						"0.0": [0, -10, 0],
+						"1.0": [0, 0, 0]
+					},
+					"scale": {
+						"0.0": [0, 0, 0],
+						"1.0": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"animation.beta.ocean_harpoon.loop": {
+			"loop": true,
+			"animation_length": 5,
+			"bones": {
+				"magic": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"5.0": [0, 1440, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.6": [0, 4, 0],
+						"3.4": [0, -4, 0],
+						"5.0": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "列车组:挖掘",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "enable_attachables": true,
+            "textures": {
+                "Map": "textures/entity/无人机/隧道列车"
+            },
+            "geometry": {
+                "default": "geometry.train_tunnel"
+            },
+            "scripts": {
+                "animate": [
+                    "runs",
+                    "show"
+                ]
+            },
+            "animations": {
+                "runs": "controller.animation.control_spin.Train",
+                "open": "animation.core_rotate.train",
+                "show": "animation.basic_action.train"
+            },
+            "render_controllers": [
+                "controller.render.Map:X01"
+            ],
+            "spawn_egg": {
+                "texture": "train_born",
+                "texture_index": 0
+            }
+        }
+    }
+}

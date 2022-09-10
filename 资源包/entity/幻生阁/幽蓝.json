@@ -1,0 +1,80 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "幻生阁:幽蓝",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "enable_attachables": true,
+            "textures": {
+                "Map": "textures/entity/girl/幽蓝",
+                "blink": "textures/entity/girl/眨眼_1",
+                "HE_0": "textures/entity/girl/血量_0",
+                "HE_1": "textures/entity/girl/血量_1",
+                "HE_2": "textures/entity/girl/血量_2",
+                "HE_3": "textures/entity/girl/血量_3",
+                "HE_4": "textures/entity/girl/血量_4",
+                "sit": "textures/entity/girl/幻生座椅",
+                "not": "textures/entity/not"
+            },
+            "geometry": {
+                "default": "geometry.girl_figure_v4",
+                "heart": "geometry.girl_bracelet",
+                "sit": "geometry.girl_chair"
+            },
+            "spawn_egg": {
+                "texture": "Tayun_born",
+                "texture_index": 2
+            },
+            "render_controllers": [
+                "controller.render.heart:100",
+                "controller.render.Map:X01",
+                "controller.render.blink",
+                {
+                    "controller.render.sit": "!query.is_riding"
+                }
+            ],
+            "scripts": {
+                "pre_animation": [
+                    "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+                ],
+                "animate": [
+                    "use",
+                    "deed",
+                    "hold",
+                    "watch",
+                    "battle",
+                    "initial"
+                ]
+            },
+            "animations": {
+                //通用 动画控制
+                "deed": "controller.animation.ControlAttitude.basics",
+                "watch": "controller.animation.ControlWatch.basics",
+                "hold": "controller.animation.ControlTake.basics",
+                "use": "controller.animation.ControlTake.use",
+                //通用 动作动画
+                "riding_0": "animation.riding_action.arm.girl-v4",
+                "riding_1": "animation.riding_action.leg.girl-v4",
+                "initial": "animation.basic_action.girl-v4",
+                "move": "animation.human_move.girl-v4",
+                "swimming": "animation.swimming.girl-v4",
+                "sitting": "animation.sit_down.girl-v4",
+                "stand": "animation.sit_down.stand",
+                //通用 拾取物品
+                "use-item": "animation.humanoid.use_item_progress",
+                "held-item": "animation.humanoid.holding",
+                //通用 观察四周
+                "basic-watch": "animation.observation.girl-v4_basic",
+                "swim-watch": "animation.observation.girl-v4_swim",
+                //个性化定制 动画控制
+                "battle": "controller.animation.ControlAttack.3",
+                //个性化定制 战斗动画
+                "attack.0": "animation.star_sand.attact_0",
+                "attack.1": "animation.star_sand.attact_1",
+                "attack.2": "animation.star_sand.attact_2"
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "format_version": "1.10.10",
+    "animations": {
+		"animation.liu-li.attack": {
+			"loop": true,
+			"bones": {
+				"rightarm": {
+					"rotation": ["query.target_x_rotation - 90.0 + math.sin(query.life_time * 75) * 3 - this", -15.0, "(math.cos(query.life_time * 100) * 3) + 3"]
+				},
+				"leftArm": {
+					"rotation": ["query.target_x_rotation - 90.0 + math.sin(query.life_time * 75) * 3 - this", 15.0, "(math.cos(query.life_time * 100) * 3) + 3"]
+				},
+				"aims": {
+					"rotation": ["query.target_x_rotation - 90.0 + math.sin(query.life_time * 75) * 3 - this", 0.0, 0.0]
+				},
+				"main": {
+					"rotation": [0.0, "query.life_time * 175.0", 0.0]
+				},
+				"small": {
+					"rotation": [0.0, "query.life_time * -175.0", 0.0]
+				}
+			}
+		}
+    }
+}
