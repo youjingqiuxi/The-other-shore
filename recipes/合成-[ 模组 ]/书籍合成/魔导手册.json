@@ -1,0 +1,25 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "addons.book.Magic_guide"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "group": "Tayun",
+        "priority": 1,
+        "ingredients": [
+            {
+                "item": "experience_bottle"
+            },
+            {
+                "item": "book"
+            }
+        ],
+        "result": {
+            "item": "基础书籍:魔导手册",
+            "count": 1
+        }
+    }
+}

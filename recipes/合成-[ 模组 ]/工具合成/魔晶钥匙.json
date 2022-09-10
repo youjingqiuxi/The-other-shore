@@ -1,0 +1,33 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.tool.key"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "#M#",
+            "CSC",
+            "C#C"
+        ],
+        "key": {
+            "#": {
+                "item": "合金材料:特种合金"
+            },
+            "C": {
+                "item": "copper_ingot"
+            },
+            "M": {
+                "item": "experience_bottle"
+            },
+            "S": {
+                "item": "stonecutter_block"
+            }
+        },
+        "result": {
+            "item": "魔法工具:魔晶钥匙"
+        }
+    }
+}

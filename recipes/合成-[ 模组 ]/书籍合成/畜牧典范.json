@@ -1,0 +1,33 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.book.Animal_husbandry_book"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "GJG",
+            "ZSZ",
+            "ZZZ"
+        ],
+        "key": {
+            "Z": {
+                "item": "fence"
+            },
+            "G": {
+                "item": "能量水晶:高压魔晶"
+            },
+            "S": {
+                "item": "基础书籍:魔导手册"
+            },
+            "J": {
+                "item": "wooden_sword"
+            }
+        },
+        "result": {
+            "item": "基础书籍:畜牧典范"
+        }
+    }
+}

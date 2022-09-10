@@ -1,0 +1,257 @@
+{
+    "resource_pack_name": "vanilla",
+    "texture_name": "atlas.terrain",
+    "padding": 8,
+    "num_mip_levels": 4,
+    "texture_data": {
+        "grass_side": {
+            "textures": [
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#79c05a"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#8ab689"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#bfb755"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#59c93c"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#55c93f"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#88bb66"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#86b87f"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#64c73f"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#86b783"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#83b593"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#80b497"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#91bd59"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#90814d"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#8eb971"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#6a7039"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#507a32"
+                },
+                "textures/blocks/snow"
+            ]
+        },
+        "纹理.伪装.基础": {
+            "textures": "textures/blocks/基础伪装"
+        },
+        "纹理.木板.绯红": {
+            "textures": "textures/blocks/huge_fungus/crimson_planks"
+        },
+        "纹理.木板.诡异": {
+            "textures": "textures/blocks/huge_fungus/warped_planks"
+        },
+        "纹理.木板.橡木": {
+            "textures": "textures/blocks/planks_oak"
+        },
+        "纹理.木板.相思": {
+            "textures": "textures/blocks/planks_acacia"
+        },
+        "纹理.木板.黑橡": {
+            "textures": "textures/blocks/planks_big_oak"
+        },
+        "纹理.木板.白桦": {
+            "textures": "textures/blocks/planks_birch"
+        },
+        "纹理.木板.云杉": {
+            "textures": "textures/blocks/planks_spruce"
+        },
+        "纹理.木板.丛林": {
+            "textures": "textures/blocks/planks_jungle"
+        },
+        "纹理.木板.红树": {
+            "textures": "textures/blocks/mangrove_planks"
+        },
+        "纹理.磨制.安山岩": {
+            "textures": "textures/blocks/stone_andesite_smooth"
+        },
+        "纹理.磨制.闪长岩": {
+            "textures": "textures/blocks/stone_diorite_smooth"
+        },
+        "纹理.磨制.花岗岩": {
+            "textures": "textures/blocks/stone_granite_smooth"
+        },
+        "纹理.磨制.基础岩": {
+            "textures": "textures/blocks/stone"
+        },
+        "纹理.磨制.黑石岩": {
+            "textures": "textures/blocks/polished_blackstone"
+        },
+        "纹理.磨制.深板岩": {
+            "textures": "textures/blocks/deepslate/polished_deepslate"
+        },
+        "纹理.石砖.基础石": {
+            "textures": "textures/blocks/stonebrick"
+        },
+        "纹理.石砖.深板岩": {
+            "textures": "textures/blocks/deepslate/deepslate_bricks"
+        },
+        "纹理.石砖.末地石": {
+            "textures": "textures/blocks/end_bricks"
+        },
+        "纹理.石砖.潜影石": {
+            "textures": "textures/blocks/purpur_block"
+        },
+        "纹理.石砖.石英石": {
+            "textures": "textures/blocks/quartz_bricks"
+        },
+        "纹理.石砖.下界石": {
+            "textures": "textures/blocks/nether_brick"
+        },
+        "纹理.石砖.黑石岩": {
+            "textures": "textures/blocks/polished_blackstone_bricks"
+        },
+        "纹理.石砖.海晶石": {
+            "textures": "textures/blocks/prismarine_bricks"
+        },
+        "基础领地石": {
+            "textures": "textures/blocks/领地石/基础领地石"
+        },
+        "虚空方块": {
+            "textures": "textures/blocks/领地石/虚空方块"
+        },
+        "特种合金": {
+            "textures": "textures/blocks/领地石/特种合金块"
+        },
+        "压缩原石": {
+            "textures": "textures/blocks/领地石/压缩原石"
+        },
+        "基础魔晶块": {
+            "textures": "textures/blocks/魔晶块/基础"
+        },
+        "高压魔晶块": {
+            "textures": "textures/blocks/魔晶块/高压"
+        },
+        "超频魔晶块": {
+            "textures": "textures/blocks/魔晶块/超频"
+        },
+        "精灵合成台": {
+            "textures": "textures/blocks/合成台/精灵合成"
+        },
+        "魔灵分解台": {
+            "textures": "textures/blocks/合成台/魔灵分解"
+        },
+        "总线合成台": {
+            "textures": "textures/blocks/合成台/总线合成"
+        },
+        "野蜂生成器": {
+            "textures": "textures/blocks/生成器/野蜂生成"
+        },
+        "列车生成器": {
+            "textures": "textures/blocks/生成器/列车生成"
+        },
+        "深渊迷途_脉冲悬浮0": {
+            "textures": "textures/blocks/悬浮台/基础"
+        },
+        "深渊迷途_脉冲悬浮1": {
+            "textures": "textures/blocks/悬浮台/海晶"
+        },
+        "深渊迷途_引导石碑": {
+            "textures": "textures/blocks/引导石碑"
+        },
+        "特殊机关门": {
+            "textures": "textures/blocks/机关之门"
+        },
+        "深渊迷途_屏障生成": {
+            "textures": "textures/blocks/屏障生成"
+        },
+        "魔导总线_总线本体.空白": {
+            "textures": "textures/blocks/魔导总线/空白"
+        },
+        "魔导总线_总线本体.蓝色": {
+            "textures": "textures/blocks/魔导总线/蓝色"
+        },
+        "魔导总线_总线本体.红色": {
+            "textures": "textures/blocks/魔导总线/红色"
+        },
+        "魔导总线_总线本体.绿色": {
+            "textures": "textures/blocks/魔导总线/绿色"
+        },
+        "魔导总线_总线本体.橙色": {
+            "textures": "textures/blocks/魔导总线/橙色"
+        },
+        "魔导总线_总线本体.紫色": {
+            "textures": "textures/blocks/魔导总线/紫色"
+        },
+        "魔导总线_流体能源": {
+            "textures": "textures/blocks/魔导总线/流体能源"
+        },
+        "魔导总线_伺服基座": {
+            "textures": "textures/blocks/伺服机关/伺服基座"
+        },
+        "魔导总线_效应基座": {
+            "textures": "textures/blocks/伺服机关/效应基座"
+        },
+        "魔导总线_效应核心": {
+            "textures": "textures/blocks/伺服机关/效应核心"
+        },
+        "魔导总线_传送节点": {
+            "textures": "textures/blocks/伺服机关/传送节点"
+        },
+        "基础输送带": {
+            "textures": "textures/blocks/输送链带/基础"
+        },
+        "流转输送带": {
+            "textures": "textures/blocks/输送链带/流转"
+        },
+        "升降输送带": {
+            "textures": "textures/blocks/输送链带/升降"
+        },
+        "曜石熔炼炉": {
+            "textures": "textures/blocks/曜石熔炼"
+        },
+        "弓箭增幅": {
+            "textures": "textures/blocks/弓箭增幅"
+        },
+        "智能建筑": {
+            "textures": "textures/blocks/智能建筑"
+        },
+        "家具装饰_0": {
+            "textures": "textures/blocks/家具装饰_0"
+        },
+        "家具装饰_1": {
+            "textures": "textures/blocks/家具装饰_1"
+        }
+    }
+}

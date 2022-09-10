@@ -1,0 +1,21 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "结构定义:若水渊鲸塔"
+		},
+		"structure_name": "自然生成:若水渊鲸塔",
+		"facing_direction": "south",
+		"adjustment_radius": 0,
+		"constraints": {
+			"block_intersection": {
+				"block_whitelist": [
+					"minecraft:coral_block",
+					"minecraft:gravel",
+					"minecraft:water",
+					"minecraft:sand"
+				]
+			}
+		}
+	}
+}

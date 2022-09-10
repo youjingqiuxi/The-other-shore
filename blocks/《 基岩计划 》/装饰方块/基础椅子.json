@@ -1,0 +1,508 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "装饰类:基础椅子",
+            "category": "construction",
+            "properties": {
+                "Table:main": [
+                    0,
+                    1
+                ],
+                "Table:angle": [
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:brace": [
+                    0,
+                    1
+                ],
+                "Table:switch": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.decorate_block.chair",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 0,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "家具装饰_0",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "leg_r": "query.block_property('Table:main') == 0 && [ query.block_property('Table:switch') == 0 || query.block_property('Table:switch') == 2]",
+                    "leg_l": "query.block_property('Table:main') == 0 && [ query.block_property('Table:switch') == 0 || query.block_property('Table:switch') == 1]",
+                    "brace_r": "query.block_property('Table:main') == 0 && query.block_property('Table:brace') == 1 && [ query.block_property('Table:switch') == 0 || query.block_property('Table:switch') == 2 ]",
+                    "brace_l": "query.block_property('Table:main') == 0 && query.block_property('Table:brace') == 1 && [ query.block_property('Table:switch') == 0 || query.block_property('Table:switch') == 1 ]",
+                    "stool_in": "query.block_property('Table:main') == 0",
+                    "stool_r": "query.block_property('Table:main') == 0 && [ query.block_property('Table:switch') == 1 || query.block_property('Table:switch') == 3]",
+                    "stool_l": "query.block_property('Table:main') == 0 && [ query.block_property('Table:switch') == 2 || query.block_property('Table:switch') == 3]",
+                    "back_in": "query.block_property('Table:main') == 1 && query.block_property('Table:switch') == 0",
+                    "back_r": "query.block_property('Table:main') == 1 && query.block_property('Table:switch') == 2",
+                    "back_l": "query.block_property('Table:main') == 1 && query.block_property('Table:switch') == 1",
+                    "back_up": "query.block_property('Table:main') == 1 && query.block_property('Table:switch') == 3"
+                }
+            },
+            "minecraft:queued_ticking": {
+                "looping": true,
+                "interval_range": [
+                    4,
+                    4
+                ],
+                "on_tick": {
+                    "event": "事件:状态侦测",
+                    "target": "self"
+                }
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "tag:block_chair": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:angle') == 2",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        180,
+                        0
+                    ],
+                    "tag:block_chair.angle.2": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 3",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "tag:block_chair.angle.3": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 4",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        270,
+                        0
+                    ],
+                    "tag:block_chair.angle.4": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 5",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        90,
+                        0
+                    ],
+                    "tag:block_chair.angle.5": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:main') == 0",
+                "components": {
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -7,
+                            0,
+                            -7
+                        ],
+                        "size": [
+                            14,
+                            11,
+                            14
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -7,
+                            0,
+                            -7
+                        ],
+                        "size": [
+                            14,
+                            12,
+                            14
+                        ]
+                    },
+                    "tag:block_chair.main": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:main') == 1",
+                "components": {
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -8,
+                            0,
+                            6
+                        ],
+                        "size": [
+                            16,
+                            14,
+                            2
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -8,
+                            0,
+                            6
+                        ],
+                        "size": [
+                            16,
+                            14,
+                            2
+                        ]
+                    },
+                    "tag:block_chair.back": {}
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:angle": "(query.cardinal_facing_2d)"
+                }
+            },
+            "事件:进行交互": {
+                "run_command": {
+                    "command": [
+                        "tp @p ~ ~1 ~"
+                    ]
+                }
+            },
+            "事件:状态侦测": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:main": "query.block_neighbor_has_all_tags(0,-1,0,'block_chair.main') == 1 ? 1 : 0"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:main') == 0",
+                        "run_command": {
+                            "command": [
+                                "execute positioned ~ ~0.5 ~ run playanimation @p[r=0.5] animation.sit_down.seat"
+                            ]
+                        },
+                        "trigger": {
+                            "event": "事件:座椅侦测",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:main') == 1",
+                        "trigger": {
+                            "event": "事件:靠背侦测",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:座椅侦测": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:brace": "query.block_neighbor_has_all_tags(0,1,0,'block_chair.back') == 1 ? 1 : 0"
+                        }
+                    },
+                    {
+                        "sequence": [
+                            {
+                                "condition": "query.block_property('Table:angle') == 3",
+                                "sequence": [
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 1
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(-1,0,0,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 2
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.main') == 1 && query.block_neighbor_has_all_tags(-1,0,0,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 3
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.main') == 0 && query.block_neighbor_has_all_tags(-1,0,0,'block_chair.main') == 0",
+                                        "set_block_property": {
+                                            "Table:switch": 0
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "condition": "query.block_property('Table:angle') == 2",
+                                "sequence": [
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(-1,0,0,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 1
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 2
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.main') == 1 && query.block_neighbor_has_all_tags(-1,0,0,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 3
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.main') == 0 && query.block_neighbor_has_all_tags(-1,0,0,'block_chair.main') == 0",
+                                        "set_block_property": {
+                                            "Table:switch": 0
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "condition": "query.block_property('Table:angle') == 4",
+                                "sequence": [
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 1
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,-1,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 2
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.main') == 1 && query.block_neighbor_has_all_tags(0,0,-1,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 3
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.main') == 0 && query.block_neighbor_has_all_tags(0,0,-1,'block_chair.main') == 0",
+                                        "set_block_property": {
+                                            "Table:switch": 0
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "condition": "query.block_property('Table:angle') == 5",
+                                "sequence": [
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,-1,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 1
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 2
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.main') == 1 && query.block_neighbor_has_all_tags(0,0,-1,'block_chair.main') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 3
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.main') == 0 && query.block_neighbor_has_all_tags(0,0,-1,'block_chair.main') == 0",
+                                        "set_block_property": {
+                                            "Table:switch": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "事件:靠背侦测": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'block_chair.angle.2') == 1",
+                        "set_block_property": {
+                            "Table:angle": 2
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'block_chair.angle.3') == 1",
+                        "set_block_property": {
+                            "Table:angle": 3
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'block_chair.angle.4') == 1",
+                        "set_block_property": {
+                            "Table:angle": 4
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'block_chair.angle.5') == 1",
+                        "set_block_property": {
+                            "Table:angle": 5
+                        }
+                    },
+                    {
+                        "sequence": [
+                            {
+                                "condition": "query.block_property('Table:angle') == 3",
+                                "sequence": [
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 1
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(-1,0,0,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 2
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.back') == 1 && query.block_neighbor_has_all_tags(-1,0,0,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 3
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.back') == 0 && query.block_neighbor_has_all_tags(-1,0,0,'block_chair.back') == 0",
+                                        "set_block_property": {
+                                            "Table:switch": 0
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "condition": "query.block_property('Table:angle') == 2",
+                                "sequence": [
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(-1,0,0,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 1
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 2
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.back') == 1 && query.block_neighbor_has_all_tags(-1,0,0,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 3
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'block_chair.back') == 0 && query.block_neighbor_has_all_tags(-1,0,0,'block_chair.back') == 0",
+                                        "set_block_property": {
+                                            "Table:switch": 0
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "condition": "query.block_property('Table:angle') == 4",
+                                "sequence": [
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 1
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,-1,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 2
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.back') == 1 && query.block_neighbor_has_all_tags(0,0,-1,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 3
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.back') == 0 && query.block_neighbor_has_all_tags(0,0,-1,'block_chair.back') == 0",
+                                        "set_block_property": {
+                                            "Table:switch": 0
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "condition": "query.block_property('Table:angle') == 5",
+                                "sequence": [
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,-1,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 1
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 2
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.back') == 1 && query.block_neighbor_has_all_tags(0,0,-1,'block_chair.back') == 1",
+                                        "set_block_property": {
+                                            "Table:switch": 3
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'block_chair.back') == 0 && query.block_neighbor_has_all_tags(0,0,-1,'block_chair.back') == 0",
+                                        "set_block_property": {
+                                            "Table:switch": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

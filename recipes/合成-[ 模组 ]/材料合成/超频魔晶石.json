@@ -1,0 +1,31 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.item.rate_crysta"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "#0#",
+            "0X0",
+            "#0#"
+        ],
+        "key": {
+            "X": {
+                "item": "diamond"
+            },
+            "#": {
+                "item": "experience_bottle"
+            },
+            "0": {
+                "item": "dye",
+                "data": 4
+            }
+        },
+        "result": {
+            "item": "能量水晶:超频魔晶"
+        }
+    }
+}

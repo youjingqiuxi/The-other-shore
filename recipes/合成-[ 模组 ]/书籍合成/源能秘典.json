@@ -1,0 +1,30 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.book.Energy_design_document"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "GCG",
+            "CSC",
+            "GCG"
+        ],
+        "key": {
+            "S": {
+                "item": "基础书籍:魔导手册"
+            },
+            "G": {
+                "item": "能量水晶:高压魔晶"
+            },
+            "C": {
+                "item": "能量水晶:超频魔晶"
+            }
+        },
+        "result": {
+            "item": "基础书籍:源能秘典"
+        }
+    }
+}

@@ -1,0 +1,440 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "深渊迷途:引导石碑",
+            "properties": {
+                "Table:angle": [
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:function": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.guide_stone",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": false,
+            "minecraft:friction": 1.0,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "深渊迷途_引导石碑",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -5,
+                    0,
+                    -3
+                ],
+                "size": [
+                    10,
+                    16,
+                    2
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -5,
+                    0,
+                    -3
+                ],
+                "size": [
+                    10,
+                    16,
+                    2
+                ]
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:angle') == 2",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 3",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        180,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 4",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        90,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 5",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        270,
+                        0
+                    ]
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:angle": "(query.cardinal_facing_2d)"
+                }
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,1,0,'initial_crystal_block') == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'魔晶块:基础魔晶') == 1",
+                        "set_block_property": {
+                            "Table:function": "query.block_property('Table:function') != 15 ? (query.block_property('Table:function') + 1) : 0"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound block.grindstone.use @a[r=15] ~~~"
+                            ]
+                        },
+                        "trigger": {
+                            "event": "事件:方块设置",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,1,0,'initial_crystal_block') == 0",
+                        "run_command": {
+                            "command": [
+                                "playsound random.click @a[r=15] ~~~",
+                                "particle 提示图标:通用提示 ~ ~1 ~"
+                            ]
+                        },
+                        "trigger": {
+                            "event": "事件:显示引导",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:方块设置": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:function') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 进入迷宫"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 1",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 初级机关门"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 2",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 波束换向"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 3",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 波束赋能"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 4",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 脉冲开关"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 5",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 波束分离"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 6",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 初级侦测"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 7",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 关于-镇压塔附近未关闭的初级机关门"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 8",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 关于-海渊镇压塔的主题"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 9",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 关于-海渊镇压塔的屏障"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 10",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 关于-海渊镇压塔的玻璃地板"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 11",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 关于-如何抵达海渊镇压塔的一层平台"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 12",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 关于-深渊迷途的偏光棱镜汇集之处"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 13",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 标签 13"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 14",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 标签 14"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 15",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar | 提示内容 | : 标签 15"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:显示引导": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:function') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n在迷宫中探索时请保持警惕 , 谨防怪物突袭! \n\n 在迷宫的终点有新的同伴正在等待与你相遇!"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 1",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n是否携带了[§8 魔晶扳手 §9][§8 魔晶起子 §9] ? \n\n 尝试使用这些工具去操纵[§a 色彩侦测器 §9]来开启[§a 初级机关门 §9]吧!"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 2",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n[§a 偏光棱镜 - 波束换向 §9] 是一种将'§5 特定粒子束 §9'\n引导至'§5 特定位置 §9'进行解密的机关 \n\n 尝试使用[§8 魔晶扳手 §9][§8 魔晶起子 §9]来操作这种设备吧! \n\n [§8 魔晶扳手 §9]似乎可以让部分未运行的[§a 偏光棱镜 §9]组件改变朝向 ?"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 3",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n[§a 偏光棱镜 - 波束赋能 §9] 是一种为'§5 特定粒子束 §9'\n提供'§5 中继与充能 §9'的辅助解密的机关 \n\n 尝试使用[§8 魔晶起子 §9]来操作这种设备吧!"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 4",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n[§a 偏光棱镜 - 脉冲开关 §9] 是一种发射'§5 特定粒子束 §9'进行解密的机关 \n\n 尝试使用[§8 魔晶扳手 §9][§8 魔晶起子 §9]来操作这种设备吧! \n\n [§8 魔晶扳手 §9]似乎可以让部分未运行的[§a 偏光棱镜 §9]组件改变朝向 ?"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 5",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n[§a 偏光棱镜 - 波束分离 §9] 是一种将'§2 1 §9束''§5 特定粒子束 §9'\n分离为§2 2 §9束进行解密的机关 \n\n 尝试使用[§8 魔晶扳手 §9][§8 魔晶起子 §9]来操作这种设备吧! \n\n [§8 魔晶扳手 §9]似乎可以让部分未运行的[§a 偏光棱镜 §9]组件改变朝向 ?"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 6",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n[§a 偏光棱镜 - 初级侦测 §9] 是一种侦测'§5 特定粒子束 §9'\n并控制周围设备的解密机关 \n\n 尝试使用[§8 魔晶起子 §9]来操作这种设备吧!"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 7",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n镇压塔周边的[§a 初级机关门 §9]基本都关闭了 , 但这扇门似乎是例外? \n\n 尝试使用 镇压塔 附近的[§a 偏光棱镜 §9]组件来开启这扇门吧! \n\n 或者…… 还有别的方法?"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 8",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n这里便是此行的目的地 ———— \n【 深渊迷途 】的终点【 海渊镇压塔 】\n\n 在这高塔之下似乎镇压着一名少女? \n保护好自己, 然后帅气的营救出那名少女吧 ! \n\n 英雄救美之余别忘了这高塔之上似乎还能搜刮点东西出来……"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 9",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n被镇压的少女近在咫尺, 但无形的屏障遮挡了你的步伐 \n\n 尝试使用 镇压塔 附近的[§a 偏光棱镜 §9]组件来解除这本不该存在的屏障吧! \n\n 或者…… 你也可以选择高空飞跃的方式来解开这个屏障?"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 10",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n被镇压的少女就在下方, 但你仍需击碎这水晶地板才能将其解救 \n\n 塔的上层似乎有一个操作平台? 那里也许会有破局的办法 \n\n 如果不会飞的话, 可以试着凭借附近的'§5 浮空平台 §9'来辅助登塔"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 11",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n少女被镇压在高塔之下, 若想将其解救, 你仍需贯穿这座高塔 \n\n 塔的上层似乎有一个操作平台? 那里也许会有破局的办法 \n\n 如果不会飞的话, 可以试着凭借附近的'§5 脉冲漂浮石 §9'来辅助登塔"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 12",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title §7| §6秘境探索§7 - §5迷途指引§7 |",
+                                "title @p[r=5] subtitle §9\n此处似乎与[ 海渊镇压塔 ]的另外三面有所不同 \n\n 似乎需要将[§a 偏光棱镜 §9]所发射的粒子束引导至此处 \n\n 那么, 怎样才能将粒子束引导到这里呢?"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 13",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title ",
+                                "title @p[r=5] subtitle | 提示内容 | : 标签 13"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 14",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title ",
+                                "title @p[r=5] subtitle | 提示内容 | : 标签 14"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 15",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] title ",
+                                "title @p[r=5] subtitle | 提示内容 | : 标签 15"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

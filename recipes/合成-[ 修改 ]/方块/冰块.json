@@ -1,0 +1,24 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "MC.block.ice_block"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "XXX",
+            "XXX",
+            "XXX"
+        ],
+        "key": {
+            "X": {
+                "item": "snow"
+            }
+        },
+        "result": {
+            "item": "ice"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "MC.item.heart_of_the_sea"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SMS",
+            "HSH",
+            "SMS"
+        ],
+        "key": {
+            "S": {
+                "item": "enchanted_book"
+            },
+            "H": {
+                "item": "heart_of_the_sea"
+            },
+            "M": {
+                "item": "experience_bottle"
+            }
+        },
+        "result": {
+            "item": "heart_of_the_sea",
+            "count": 3
+        }
+    }
+}

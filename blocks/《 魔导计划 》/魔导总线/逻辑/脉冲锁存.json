@@ -1,0 +1,242 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "魔导总线:脉冲锁存",
+            "category": "construction",
+            "properties": {
+                "Table:switch": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "Table:value": [
+                    0,
+                    1
+                ],
+                "Table:face_0": [
+                    0,
+                    1
+                ],
+                "Table:face_1": [
+                    0,
+                    1
+                ],
+                "Table:face_2": [
+                    0,
+                    1
+                ],
+                "Table:face_3": [
+                    0,
+                    1
+                ],
+                "Table:face_4": [
+                    0,
+                    1
+                ],
+                "Table:face_5": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.pulse_latch",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "link_0": "query.block_property('Table:face_0') == 1",
+                    "link_1": "query.block_property('Table:face_1') == 1",
+                    "link_2": "query.block_property('Table:face_2') == 1",
+                    "link_3": "query.block_property('Table:face_3') == 1",
+                    "link_4": "query.block_property('Table:face_4') == 1",
+                    "link_5": "query.block_property('Table:face_5') == 1"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -3,
+                    5,
+                    -3
+                ],
+                "size": [
+                    6,
+                    6,
+                    6
+                ]
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "tag:Magic_Bus_Series": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.空白",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:等待激活",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.蓝色",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:正在激活",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 2",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.蓝色",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:等待关闭",
+                            "target": "self"
+                        }
+                    },
+                    "tag:Magic_Bus_Latch": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 3",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.蓝色",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:正在关闭",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:switch": 0
+                }
+            },
+            "事件:正在激活": {
+                "set_block_property": {
+                    "Table:switch": 2
+                }
+            },
+            "事件:正在关闭": {
+                "set_block_property": {
+                    "Table:switch": 0
+                }
+            },
+            "事件:等待激活": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:face_0": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_Series') == 1 ? 1 : 0",
+                            "Table:face_1": "query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_Series') == 1 ? 1 : 0",
+                            "Table:face_2": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_Series')  == 1 ? 1 : 0",
+                            "Table:face_3": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_Series')  == 1 ? 1 : 0",
+                            "Table:face_4": "query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_Series') == 1 ? 1 : 0",
+                            "Table:face_5": "query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_Series')  == 1 ? 1 : 0"
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 1
+                        }
+                    }
+                ]
+            },
+            "事件:等待关闭": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:face_0": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_Series') == 1 ? 1 : 0",
+                            "Table:face_1": "query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_Series') == 1 ? 1 : 0",
+                            "Table:face_2": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_Series')  == 1 ? 1 : 0",
+                            "Table:face_3": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_Series')  == 1 ? 1 : 0",
+                            "Table:face_4": "query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_Series') == 1 ? 1 : 0",
+                            "Table:face_5": "query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_Series')  == 1 ? 1 : 0"
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 3
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

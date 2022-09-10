@@ -1,0 +1,179 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.data_born": {
+            "initial_state": "show",
+            "states": {
+                "show": {
+                    "transitions": [
+                        {
+                            "Tayun": "query.variant == 1"
+                        },
+                        {
+                            "abyss": "query.variant == 2"
+                        },
+                        {
+                            "unreal": "query.variant == 3"
+                        },
+                        {
+                            "final": "query.variant == 0"
+                        }
+                    ]
+                },
+                "Tayun": {
+                    "on_entry": [
+                        "/particle 阵营图标:星光阁 ~~~",
+                        "/scoreboard players set @s RZ 1"
+                    ],
+                    "transitions": [
+                        {
+                            "final": "query.variant == 0"
+                        },
+                        {
+                            "show": "query.variant != 0"
+                        }
+                    ]
+                },
+                "abyss": {
+                    "on_entry": [
+                        "/particle 阵营图标:天渊阁 ~~~",
+                        "/scoreboard players set @s RZ 2"
+                    ],
+                    "transitions": [
+                        {
+                            "final": "query.variant == 0"
+                        },
+                        {
+                            "show": "query.variant != 0"
+                        }
+                    ]
+                },
+                "unreal": {
+                    "on_entry": [
+                        "/particle 阵营图标:幻生阁 ~ ~-3 ~",
+                        "/scoreboard players set @s RZ 3"
+                    ],
+                    "transitions": [
+                        {
+                            "final": "query.variant == 0"
+                        },
+                        {
+                            "show": "query.variant != 0"
+                        }
+                    ]
+                },
+                "final": {
+                    "on_entry": [
+                        "/execute as @s [scores={RZ=1}] ~~~ function born/TaYun",
+                        "/execute as @s [scores={RZ=2}] ~~~ function born/abyss",
+                        "/execute as @s [scores={RZ=3}] ~~~ function born/unreal"
+                    ]
+                }
+            }
+        },
+        "controller.animation.data_trail": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "00": "query.variant == 0 && query.has_target"
+                        },
+                        {
+                            "01": "query.variant == 1 && query.has_target"
+                        },
+                        {
+                            "02": "query.variant == 2 && query.has_target"
+                        },
+                        {
+                            "03": "query.variant == 3 && query.has_target"
+                        },
+                        {
+                            "04": "query.variant == 4"
+                        },
+                        {
+                            "09": "query.variant == 9"
+                        }
+                    ]
+                },
+                "00": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:靛蓝 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "01": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:纯白 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "02": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:叶绿 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "03": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:赤红 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "04": {
+                    "on_entry": [
+                        "/function BulletEffect/main_0"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "09": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:叶绿 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.data_death": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "death": "query.health == 0"
+                        }
+                    ]
+                },
+                "death": {
+                    "on_entry": [
+                        "/particle minecraft:knockback_roar_particle ~~~"
+                    ]
+                }
+            }
+        }
+    }
+}

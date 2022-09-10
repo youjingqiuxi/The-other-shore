@@ -1,0 +1,148 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "魔法书籍:矿物辞典",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "矿物辞典"
+            },
+            "minecraft:display_name": {
+                "value": "§l《矿物辞典》§r"
+            },
+            "minecraft:creative_category": {
+                "parent": "equipment"
+            },
+            "minecraft:durability": {
+                "max_durability": 350,
+                "damage_chance": {
+                    "min": 1,
+                    "max": 1
+                }
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "阅读书籍",
+                    "target": "self"
+                }
+            },
+            "minecraft:cooldown": {
+                "category": "矿业指南",
+                "duration": 1
+            },
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:foil": true,
+            "minecraft:enchantable": {
+                "value": 10,
+                "slot": "elytra"
+            },
+            "minecraft:render_offsets": {
+                "main_hand": {
+                    "third_person": {
+                        "position": [
+                            0.05,
+                            0.65,
+                            -0.3
+                        ],
+                        "scale": [
+                            0.05,
+                            0.05,
+                            0.05
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            1.5,
+                            -0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.09,
+                            0.09,
+                            0.09
+                        ]
+                    }
+                }
+            },
+            "minecraft:repairable": {
+                "repair_items": [
+                    {
+                        "items": [
+                            "魔晶块:超频魔晶"
+                        ],
+                        "repair_amount": 50
+                    }
+                ]
+            },
+            "tag:Magic_Books": {}
+        },
+        "events": {
+            "阅读书籍": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "execute as @p[tag=!ambient] run function Data/ambient"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "summon 矩阵接口:规划 ~10 ~0.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~1.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~2.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~3.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~4.5 ~10 预设案例:岩矿采掘.挖矿"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "summon 矩阵接口:规划 ~10 ~5.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~6.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~7.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~8.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~9.5 ~10 预设案例:岩矿采掘.挖矿"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "summon 矩阵接口:规划 ~10 ~-0.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~-1.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~-2.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~-3.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~-4.5 ~10 预设案例:岩矿采掘.挖矿"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "summon 矩阵接口:规划 ~10 ~-5.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~-6.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~-7.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~-8.5 ~10 预设案例:岩矿采掘.挖矿", 
+                                "summon 矩阵接口:规划 ~10 ~-9.5 ~10 预设案例:岩矿采掘.挖矿"
+                            ]
+                        }
+                    },
+                    {
+                        "damage": {
+                            "type": "magic",
+                            "amount": 10
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

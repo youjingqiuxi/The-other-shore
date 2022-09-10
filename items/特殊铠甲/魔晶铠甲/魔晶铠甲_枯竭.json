@@ -1,0 +1,107 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "特殊铠甲:魔晶铠甲_枯竭",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:knockback_resistance": {
+                "protection": 0.0
+            },
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.leggings"
+            },
+            "minecraft:render_offsets": {
+                "main_hand": {
+                    "third_person": {
+                        "position": [
+                            0.20,
+                            0.85,
+                            -0.5
+                        ],
+                        "scale": [
+                            0.04,
+                            0.04,
+                            0.04
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            1.5,
+                            -0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.06,
+                            0.06,
+                            0.06
+                        ]
+                    }
+                }
+            },
+            "minecraft:display_name": {
+                "value": "§l§6  魔晶铠甲 §r\n 品质:§8 枯竭 §r\n 等级:§2 1/5 %§r"
+            },
+            "minecraft:enchantable": {
+                "value": 2,
+                "slot": "armor_torso"
+            },
+            "minecraft:repairable": {
+                "repair_items": [
+                    {
+                        "items": [
+                            "合金材料:钢岩合金"
+                        ],
+                        "repair_amount": "query.max_durability"
+                    }
+                ]
+            },
+            "minecraft:durability": {
+                "max_durability": 350,
+                "damage_chance": {
+                    "min": 45,
+                    "max": 90
+                }
+            },
+            "minecraft:wearable": {
+                "dispensable": true,
+                "slot": "slot.armor.legs"
+            },
+            "minecraft:cooldown": {
+                "category": "穿戴铠甲",
+                "duration": 1
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "穿戴铠甲",
+                    "target": "self"
+                }
+            },
+            "minecraft:armor": {
+                "protection": 10
+            },
+            "minecraft:icon": {
+                "texture": "魔晶铠甲_LV:1"
+            },
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1
+        },
+        "events": {
+            "穿戴铠甲": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar 特种防具 [ 魔晶铠甲 ] 自动穿戴已完成 可随时进入战斗状态",
+                                "playsound armor.equip_iron @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.control_spin.basics": {
+			"initial_state": "not",
+			"states": {
+				"not": {
+					"transitions": [
+						{
+							"spin": "query.variant >= 1"
+						}
+					]
+				},
+				"spin": {
+					"animations": [
+						"core"
+					],
+					"transitions": [
+						{
+							"not": "query.variant == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.control_spin.Train": {
+			"initial_state": "not",
+			"states": {
+				"not": {
+					"transitions": [
+						{
+							"spin": "query.ground_speed > 0"
+						}
+					]
+				},
+				"spin": {
+					"animations": [
+						"open"
+					],
+					"transitions": [
+						{
+							"not": "query.ground_speed == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.control_spin.Open": {
+			"initial_state": "not",
+			"states": {
+				"not": {
+					"transitions": [
+						{
+							"spin": "query.is_powered"
+						}
+					]
+				},
+				"spin": {
+					"animations": [
+						"open"
+					],
+					"transitions": [
+						{
+							"not": "!query.is_powered"
+						}
+					]
+				}
+			}
+		}
+	}
+}

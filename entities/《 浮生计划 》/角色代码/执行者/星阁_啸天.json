@@ -1,0 +1,849 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "星光阁:啸天",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    "data"
+                ]
+            },
+            "animations": {
+                "data": "controller.animation.code_SitDown"
+            }
+        },
+        "component_groups": {
+            "自由": {
+                "minecraft:is_baby": {},
+                "minecraft:scale": {
+                    "value": 0.5
+                },
+                "minecraft:boss": {
+                    "name": "§9啸天§r",
+                    "hud_range": 5
+                },
+                "minecraft:behavior.defend_village_target": {
+                    "priority": 0
+                },
+                "minecraft:behavior.move_through_village": {
+                    "priority": 3,
+                    "speed_multiplier": 1.0,
+                    "only_at_night": true
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "monster"
+                                    }
+                                ]
+                            },
+                            "within_default": 32
+                        },
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "flyer"
+                                    }
+                                ]
+                            },
+                            "within_default": 32
+                        }
+                    ],
+                    "must_reach": true,
+                    "must_see": true
+                },
+                "minecraft:dweller": {
+                    "dwelling_type": "village",
+                    "dweller_role": "defender",
+                    "update_interval_base": 60,
+                    "update_interval_variant": 40,
+                    "can_find_poi": false,
+                    "can_migrate": true,
+                    "first_founding_reward": 0
+                },
+                "minecraft:tameable": {
+                    "probability": 1.0,
+                    "tame_items": "魔法书籍:精灵结契",
+                    "tame_event": {
+                        "event": "事件:缔结契约",
+                        "target": "self"
+                    }
+                }
+            },
+            "契约": {
+                "minecraft:behavior.follow_owner": {
+                    "priority": 1,
+                    "speed_multiplier": 1.15,
+                    "start_distance": 15,
+                    "stop_distance": 5
+                },
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 1
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 1
+                },
+                "minecraft:sittable": {
+                    "sit_event": {
+                        "event": "事件:禁止移动",
+                        "target": "self"
+                    },
+                    "stand_event": {
+                        "event": "事件:允许移动",
+                        "target": "self"
+                    }
+                },
+                "minecraft:leashable": {
+                    "soft_distance": 5.0,
+                    "max_distance": 15.0,
+                    "hard_distance": 10.0,
+                    "on_leash": {
+                        "event": "minecraft:on_leash",
+                        "target": "self"
+                    },
+                    "on_unleash": {
+                        "event": "minecraft:on_unleash",
+                        "target": "self"
+                    }
+                },
+                "minecraft:behavior.tempt": {
+                    "priority": 2,
+                    "speed_multiplier": 1,
+                    "items": [
+                        "基础书籍:魔导手册",
+                        "魔法书籍:瞬间移动"
+                    ]
+                },
+                "minecraft:scheduler": {
+                    "min_delay_secs": 0,
+                    "max_delay_secs": 9,
+                    "scheduled_events": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_leashed",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "value": "dual_tracking"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "operator": "!=",
+                                        "value": "SitDown"
+                                    },
+                                    {
+                                        "test": "distance_to_nearest_player",
+                                        "operator": ">=",
+                                        "value": 16
+                                    }
+                                ]
+                            },
+                            "event": "事件:强制回归",
+                            "target": "self"
+                        },
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "in_lava",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "operator": "!=",
+                                        "value": "minecraft:buoyant"
+                                    }
+                                ]
+                            },
+                            "event": "事件:进入岩浆"
+                        },
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "in_lava",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "on_ground",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "operator": "==",
+                                        "value": "in.lava"
+                                    }
+                                ]
+                            },
+                            "event": "事件:离开岩浆"
+                        }
+                    ]
+                },
+                "minecraft:interact": {
+                    "interactions": [
+                        {
+                            "cooldown": 1,
+                            "use_item": false,
+                            "interact_text": "更换 < 坐骑状态 >",
+                            "play_sounds": "armor.equip_diamond",
+                            "on_interact": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_equipment",
+                                            "domain": "hand",
+                                            "subject": "other",
+                                            "value": "基础书籍:魔导手册"
+                                        }
+                                    ]
+                                },
+                                "event": "事件:骑乘控制",
+                                "target": "self"
+                            }
+                        },
+                        {
+                            "cooldown": 1,
+                            "use_item": false,
+                            "interact_text": "§2开启 §r或 §4关闭 §9< 双重跟随 >",
+                            "play_sounds": "armor.equip_diamond",
+                            "on_interact": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_equipment",
+                                            "domain": "hand",
+                                            "subject": "other",
+                                            "value": "魔法书籍:瞬间移动"
+                                        }
+                                    ]
+                                },
+                                "event": "事件:双重跟随",
+                                "target": "self"
+                            }
+                        },
+                        {
+                            "cooldown": 1,
+                            "use_item": false,
+                            "interact_text": "更换 < 武器装备 >",
+                            "play_sounds": "armor.equip_diamond",
+                            "on_interact": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_equipment",
+                                            "domain": "hand",
+                                            "subject": "other",
+                                            "value": "魔法礼盒:武装礼盒"
+                                        }
+                                    ]
+                                },
+                                "event": "事件:更换武装",
+                                "target": "self"
+                            }
+                        }
+                    ]
+                },
+                "minecraft:is_tamed": {}
+            },
+            "治愈": {
+                "minecraft:spell_effects": {
+                    "add_effects": [
+                        {
+                            "effect": "regeneration",
+                            "visible": false,
+                            "amplifier": 2,
+                            "duration": 10
+                        }
+                    ]
+                },
+                "minecraft:timer": {
+                    "time": 10,
+                    "time_down_event": {
+                        "event": "事件:精灵治愈",
+                        "target": "self"
+                    }
+                }
+            },
+            "成长": {
+                "minecraft:mark_variant": {
+                    "value": 1
+                },
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.5,
+                    "end_scale": 1.75
+                },
+                "minecraft:ageable": {
+                    "duration": 15,
+                    "feed_items": [],
+                    "grow_up": {
+                        "event": "事件:骑乘控制",
+                        "target": "self"
+                    }
+                }
+            },
+            "坐骑": {
+                "minecraft:behavior.controlled_by_player": {
+                    "priority": 1
+                },
+                "minecraft:variant": {
+                    "value": 1
+                },
+                "minecraft:scale": {
+                    "value": 1.75
+                },
+                "minecraft:rideable": {
+                    "seat_count": 2,
+                    "family_types": [
+                        "player",
+                        "prime"
+                    ],
+                    "seats": [
+                        {
+                            "position": [
+                                0.0,
+                                0.9,
+                                0.1
+                            ],
+                            "min_rider_count": 0,
+                            "max_rider_count": 2
+                        },
+                        {
+                            "position": [
+                                0.0,
+                                0.82,
+                                -0.35
+                            ],
+                            "min_rider_count": 2,
+                            "max_rider_count": 2
+                        }
+                    ]
+                },
+                "minecraft:horse.jump_strength": {
+                    "value": {
+                        "range_min": 1.5,
+                        "range_max": 4.5
+                    }
+                },
+                "minecraft:behavior.player_ride_tamed": {},
+                "minecraft:input_ground_controlled": {},
+                "minecraft:can_power_jump": {}
+            },
+            "取消": {
+                "minecraft:variant": {
+                    "value": 0
+                },
+                "minecraft:scale": {
+                    "value": 1.75
+                }
+            },
+            "禁足": {
+                "minecraft:movement": {
+                    "value": 0.0
+                },
+                "minecraft:underwater_movement": {
+                    "value": 0.0
+                }
+            },
+            "移动": {
+                "minecraft:movement": {
+                    "value": 0.35
+                },
+                "minecraft:underwater_movement": {
+                    "value": 0.15
+                }
+            },
+            "炽步": {
+                "minecraft:buoyant": {
+                    "base_buoyancy": 0.75,
+                    "apply_gravity": false,
+                    "simulate_waves": false,
+                    "liquid_blocks": [
+                        "minecraft:flowing_lava",
+                        "minecraft:lava"
+                    ]
+                },
+                "minecraft:movement": {
+                    "value": 2.0
+                },
+                "minecraft:underwater_movement": {
+                    "value": 2.0
+                }
+            },
+            "消失": {
+                "minecraft:instant_despawn": {
+                    "remove_child_entities": true
+                }
+            }
+        },
+        "components": {
+            "minecraft:behavior.stay_while_sitting": {
+                "priority": 0
+            },
+            "minecraft:behavior.leap_at_target": {
+                "priority": 4,
+                "target_dist": 0.4
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 9,
+                "target_distance": 6.0,
+                "probability": 0.02
+            },
+            "minecraft:behavior.mount_pathing": {
+                "priority": 2,
+                "speed_multiplier": 1.25,
+                "target_dist": 0.0,
+                "track_target": true
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 3,
+                "speed_multiplier": 1.0
+            },
+            "minecraft:behavior.melee_attack": {
+                "priority": 3,
+                "track_target": true,
+                "random_stop_interval": 100,
+                "reach_multiplier": 0.8
+            },
+            "minecraft:underwater_movement": {
+                "value": 0.15
+            },
+            "minecraft:navigation.generic": {
+                "can_path_over_water": true,
+                "avoid_damage_blocks": true,
+                "can_pass_doors": true,
+                "can_open_doors": false,
+                "is_amphibious": true,
+                "can_swim": true,
+                "can_walk": true
+            },
+            "minecraft:behavior.tempt": {
+                "priority": 2,
+                "speed_multiplier": 1,
+                "items": [
+                    "cooked_porkchop",
+                    "cooked_chicken",
+                    "cooked_rabbit",
+                    "muttonCooked",
+                    "cooked_beef"
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "projectile",
+                        "on_damage": {
+                            "event": "事件:损伤判定",
+                            "target": "self",
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    }
+                                ]
+                            }
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "entity_attack",
+                        "on_damage": {
+                            "event": "事件:损伤判定",
+                            "target": "self",
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    }
+                                ]
+                            }
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "entity_explosion",
+                        "on_damage": {
+                            "event": "事件:损伤判定",
+                            "target": "self",
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    }
+                                ]
+                            }
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "block_explosion",
+                        "on_damage": {
+                            "event": "事件:损伤判定",
+                            "target": "self",
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    }
+                                ]
+                            }
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "fall",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.5,
+                "height": 1.5
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "Tayun",
+                    "prime",
+                    "Peer",
+                    "dog",
+                    "mob"
+                ]
+            },
+            "minecraft:movement": {
+                "value": 0.35
+            },
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:attack": {
+                "damage": {
+                    "range_min": 4,
+                    "range_max": 8
+                },
+                "effect_name": "darkness",
+                "effect_duration": 64
+            },
+            "minecraft:health": {
+                "value": 40
+            },
+            "minecraft:conditional_bandwidth_optimization": {},
+            "minecraft:movement.basic": {},
+            "minecraft:fire_immune": true,
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:nameable": {},
+            "minecraft:physics": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "run_command": {
+                    "command": [
+                        "execute as @p[tag=!ambient] run function Data/ambient"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "自由",
+                        "治愈"
+                    ]
+                }
+            },
+            "事件:精灵治愈": {
+                "add": {
+                    "component_groups": [
+                        "治愈"
+                    ]
+                }
+            },
+            "事件:缔结契约": {
+                "run_command": {
+                    "command": [
+                        "function RoleCode/EnterContracts"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "自由"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "契约",
+                        "成长"
+                    ]
+                }
+            },
+            "事件:双重跟随": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "dual_tracking"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=15] actionbar 【 @s 】: §2< 双重跟随机制 >已关闭",
+                                "particle 提示图标:通用提示 ~ ~1.75 ~",
+                                "tag @s remove dual_tracking"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "dual_tracking"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=15] actionbar 【 @s 】: §2< 双重跟随机制 >已开启",
+                                "particle 提示图标:通用提示 ~ ~1.75 ~",
+                                "tag @s add dual_tracking"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:进入岩浆": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "value": "特殊铠甲:诸海之环"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add in.lava",
+                                "effect @a[r=5] fire_resistance 5 0 true"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "移动"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "炽步"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:离开岩浆": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "tag @s remove in.lava"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "炽步"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "移动"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:强制回归": {
+                "run_command": {
+                    "command": [
+                        "title @p actionbar 【 @s 】: 汪 汪汪 汪汪 旺 !",
+                        "effect @s slowness 1 255 true",
+                        "tp @s @p"
+                    ]
+                }
+            },
+            "事件:禁止移动": {
+                "remove": {
+                    "component_groups": [
+                        "移动"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "禁足"
+                    ]
+                }
+            },
+            "事件:允许移动": {
+                "remove": {
+                    "component_groups": [
+                        "禁足"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "移动"
+                    ]
+                }
+            },
+            "事件:骑乘控制": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "operator": "==",
+                                    "value": "minecraft:rideable"
+                                }
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "坐骑"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "取消"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "operator": "!=",
+                                    "value": "minecraft:rideable"
+                                }
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "取消",
+                                "成长"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "坐骑"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:更换武装": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "value": "特制模板:空灵单元"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "replaceitem entity @s slot.weapon.mainhand 0 air",
+                                "replaceitem entity @s slot.weapon.offhand 0 air",
+                                "replaceitem entity @s slot.armor.head  0 air",
+                                "replaceitem entity @s slot.armor.chest 0 air",
+                                "replaceitem entity @s slot.armor.legs  0 air",
+                                "replaceitem entity @s slot.armor.feet  0 air"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "value": "特殊铠甲:诸海之环"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "replaceitem entity @s slot.armor.legs 0 特殊铠甲:诸海之环"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:实体消失": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "消失"
+                            ]
+                        }
+                    }
+                ]
+            },
+			"事件:锚点虚印": {
+				"sequence": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_component",
+									"operator": "==",
+									"value": "minecraft:is_tamed"
+								},
+								{
+									"test": "has_tag",
+									"operator": "!=",
+									"value": "SitDown"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"particle 提示图标:通用提示 ~ ~2.5 ~"
+							]
+						}
+					}
+				]
+			}
+        }
+    }
+}

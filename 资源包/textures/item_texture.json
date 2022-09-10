@@ -1,0 +1,313 @@
+{
+    "resource_pack_name": "vanilla",
+    "texture_name": "atlas.items",
+    "texture_data": {
+        "Tayun_born": {
+            "textures": [
+                "textures/icon/00",
+                "textures/icon/01",
+                "textures/icon/02",
+                "textures/icon/03",
+                "textures/icon/04",
+                "textures/icon/05"
+            ]
+        },
+        "train_born": {
+            "textures": [
+                "textures/icon/train/00",
+                "textures/icon/train/01",
+                "textures/icon/train/02",
+                "textures/icon/train/03",
+                "textures/icon/train/04"
+            ]
+        },
+        "星光阁_图标": {
+            "textures": [
+                "textures/icon/星光阁/Basics_0",
+                "textures/icon/星光阁/琉璃",
+                "textures/icon/星光阁/蔷薇",
+                "textures/icon/星光阁/啸天"
+            ]
+        },
+        "明镜阁_图标": {
+            "textures": [
+                "textures/icon/明镜阁/Basics_0",
+                "textures/icon/明镜阁/Basics_1",
+                "textures/icon/明镜阁/海灵",
+                "textures/icon/明镜阁/珍珠",
+                "textures/icon/明镜阁/渊鲸"
+            ]
+        },
+        "幻生阁_图标": {
+            "textures": [
+                "textures/icon/幻生阁/Basics_0"
+            ]
+        },
+        "天渊阁_图标": {
+            "textures": [
+                "textures/icon/天渊阁/Basics_0",
+                "textures/icon/天渊阁/Basics_1",
+                "textures/icon/天渊阁/野蜂",
+                "textures/icon/天渊阁/渊鲸",
+                "textures/icon/天渊阁/蝰蛇",
+                "textures/icon/天渊阁/茉莉",
+                "textures/icon/天渊阁/琥珀"
+            ]
+        },
+        "创造工具包": {
+            "textures": [
+                "textures/items/创造模式工具"
+            ]
+        },
+        "明镜渊鲸": {
+            "textures": [
+                "textures/icon/明镜阁/渊鲸"
+            ]
+        },
+        "虚空方块": {
+            "textures": [
+                "textures/items/虚空方块"
+            ]
+        },
+        "建筑蓝图": {
+            "textures": [
+                "textures/items/建筑蓝图"
+            ]
+        },
+        "建筑蓝图.碎片": {
+            "textures": [
+                "textures/items/蓝图碎片"
+            ]
+        },
+        "质能转换": {
+            "textures": [
+                "textures/items/质能转换"
+            ]
+        },
+        "载具控制_行驶开关": {
+            "textures": [
+                "textures/items/载具控制/行驶开关"
+            ]
+        },
+        "载具控制_右舷回转": {
+            "textures": [
+                "textures/items/载具控制/右舷回转"
+            ]
+        },
+        "载具控制_左舷回转": {
+            "textures": [
+                "textures/items/载具控制/左舷回转"
+            ]
+        },
+        "载具控制_浮力开关": {
+            "textures": [
+                "textures/items/载具控制/浮力开关"
+            ]
+        },
+        "载具控制_仓储过滤": {
+            "textures": [
+                "textures/items/载具控制/仓储过滤"
+            ]
+        },
+        "洁净曜石": {
+            "textures": [
+                "textures/items/洁净曜石"
+            ]
+        },
+        "武装礼盒": {
+            "textures": [
+                "textures/items/特殊礼盒/武装礼盒"
+            ]
+        },
+        "换装礼盒": {
+            "textures": [
+                "textures/items/特殊礼盒/换装礼盒"
+            ]
+        },
+        "节日礼盒": {
+            "textures": [
+                "textures/items/特殊礼盒/节日礼盒"
+            ]
+        },
+        "匣里乾坤": {
+            "textures": [
+                "textures/items/特殊礼盒/匣里乾坤"
+            ]
+        },
+        "特种合金": {
+            "textures": [
+                "textures/items/定制合金/特种合金"
+            ]
+        },
+        "钢岩合金": {
+            "textures": [
+                "textures/items/定制合金/钢岩合金"
+            ]
+        },
+        "魔法卷轴": {
+            "textures": [
+                "textures/items/魔法卷宗/魔法卷轴"
+            ]
+        },
+        "锚点虚印": {
+            "textures": [
+                "textures/items/锚点虚印"
+            ]
+        },
+        "魔晶铠甲_LV:1": {
+            "textures": [
+                "textures/items/魔晶铠甲/LV_1"
+            ]
+        },
+        "魔晶铠甲_LV:2": {
+            "textures": [
+                "textures/items/魔晶铠甲/LV_2"
+            ]
+        },
+        "魔晶铠甲_LV:3": {
+            "textures": [
+                "textures/items/魔晶铠甲/LV_3"
+            ]
+        },
+        "魔晶铠甲_LV:4": {
+            "textures": [
+                "textures/items/魔晶铠甲/LV_4"
+            ]
+        },
+        "魔晶铠甲_LV:5": {
+            "textures": [
+                "textures/items/魔晶铠甲/LV_5"
+            ]
+        },
+        "特种合金铠甲": {
+            "textures": [
+                "textures/items/特种合金铠甲"
+            ]
+        },
+        "诸海之环": {
+            "textures": [
+                "textures/icon/明镜阁/Basics_1"
+            ]
+        },
+        "纯化还原药水": {
+            "textures": [
+                "textures/items/魔法药剂/纯化还原"
+            ]
+        },
+        "潜能激化药水": {
+            "textures": [
+                "textures/items/魔法药剂/潜能激化"
+            ]
+        },
+        "魔晶扳手": {
+            "textures": [
+                "textures/items/魔法工具/魔晶扳手"
+            ]
+        },
+        "魔晶起子": {
+            "textures": [
+                "textures/items/魔法工具/魔晶起子"
+            ]
+        },
+        "魔晶钥匙": {
+            "textures": [
+                "textures/items/魔法工具/魔晶钥匙"
+            ]
+        },
+        "魔晶弹弓": {
+            "textures": [
+                "textures/items/魔法工具/魔晶弹弓"
+            ]
+        },
+        "空灵单元": {
+            "textures": [
+                "textures/items/模板单元/空灵单元"
+            ]
+        },
+        "铁偶魔芯": {
+            "textures": [
+                "textures/items/模板单元/铁偶魔芯"
+            ]
+        },
+        "永恒碎片": {
+            "textures": [
+                "textures/items/能量水晶/永恒碎片"
+            ]
+        },
+        "高压魔晶": {
+            "textures": [
+                "textures/items/能量水晶/高压魔晶"
+            ]
+        },
+        "超频魔晶": {
+            "textures": [
+                "textures/items/能量水晶/超频魔晶"
+            ]
+        },
+        "永恒魔晶": {
+            "textures": [
+                "textures/items/能量水晶/永恒魔晶"
+            ]
+        },
+        "精灵结契": {
+            "textures": [
+                "textures/items/魔法卷宗/0"
+            ]
+        },
+        "魔导手册": {
+            "textures": [
+                "textures/items/魔法卷宗/1"
+            ]
+        },
+        "源能秘典": {
+            "textures": [
+                "textures/items/魔法卷宗/2"
+            ]
+        },
+        "战术规划": {
+            "textures": [
+                "textures/items/魔法卷宗/3"
+            ]
+        },
+        "矿物辞典": {
+            "textures": [
+                "textures/items/魔法卷宗/4"
+            ]
+        },
+        "畜牧典范": {
+            "textures": [
+                "textures/items/魔法卷宗/5"
+            ]
+        },
+        "book.6": {
+            "textures": [
+                "textures/items/魔法卷宗/6"
+            ]
+        },
+        "精灵治愈": {
+            "textures": [
+                "textures/items/魔法卷宗/7"
+            ]
+        },
+        "book.8": {
+            "textures": [
+                "textures/items/魔法卷宗/8"
+            ]
+        },
+        "瞬间移动": {
+            "textures": [
+                "textures/items/魔法卷宗/9"
+            ]
+        },
+        "林业指南": {
+            "textures": [
+                "textures/items/魔法卷宗/10"
+            ]
+        },
+        "农业纲目": {
+            "textures": [
+                "textures/items/魔法卷宗/11"
+            ]
+        }
+    }
+}

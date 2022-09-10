@@ -1,0 +1,86 @@
+{
+    "format_version": "1.10.1800",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "列车组:货架",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    "runs"
+                ]
+            },
+            "animations": {
+                "runs": "controller.animation.train_adds"
+            }
+        },
+        "component_groups": {},
+        "components": {
+            "minecraft:is_stackable": {},
+            "minecraft:type_family": {
+                "family": [
+                    "train_parts",
+                    "Tayun",
+                    "make"
+                ]
+            },
+            "minecraft:scale": {
+                "value": 3.0
+            },
+            "minecraft:health": {
+                "value": 10,
+                "max": 10
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1.0
+            },
+            "minecraft:behavior.find_mount": {
+                "priority": 0,
+                "within_radius": 5,
+                "start_delay": 1,
+                "max_failed_attempts": 99
+            },
+            "minecraft:inventory": {
+                "container_type": "container",
+                "inventory_size": 32
+            },
+            "minecraft:movement.hover": {},
+            "minecraft:flying_speed": {
+                "value": 0.0
+            },
+            "minecraft:navigation.hover": {
+                "can_path_from_air": true,
+                "is_amphibious": true,
+                "can_swim": true,
+                "can_sink": true
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "fall",
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "projectile",
+                        "deals_damage": true
+                    }
+                ]
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/train/BOX.json"
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:collision_box": {
+                "width": 0.25,
+                "height": 0.75
+            }
+        },
+        "events": {}
+    }
+}

@@ -1,0 +1,109 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "魔法书籍:精灵治愈",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "精灵治愈"
+            },
+            "minecraft:display_name": {
+                "value": "§d《精灵治愈》§r"
+            },
+            "minecraft:creative_category": {
+                "parent": "equipment"
+            },
+            "minecraft:durability": {
+                "max_durability": 350,
+                "damage_chance": {
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "阅读书籍",
+                    "target": "self"
+                }
+            },
+            "minecraft:cooldown": {
+                "category": "精灵治愈",
+                "duration": 5
+            },
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:foil": true,
+            "minecraft:enchantable": {
+                "value": 10,
+                "slot": "elytra"
+            },
+            "minecraft:render_offsets": {
+                "main_hand": {
+                    "third_person": {
+                        "position": [
+                            0.05,
+                            0.65,
+                            -0.3
+                        ],
+                        "scale": [
+                            0.05,
+                            0.05,
+                            0.05
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            1.5,
+                            -0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.09,
+                            0.09,
+                            0.09
+                        ]
+                    }
+                }
+            },
+            "tag:Magic_Books": {}
+        },
+        "events": {
+            "阅读书籍": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "execute as @p[tag=!ambient] run function Data/ambient"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "summon 矩阵接口:规划 ~~~ 标签驱动.图形绘制.旋转",
+                                "tag @e[family=Matrix_API,c=1] add Matrix_API.rotate.Red_rising"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "effect @s regeneration 5 4 true"
+                            ]
+                        }
+                    },
+                    {
+                        "damage": {
+                            "type": "magic",
+                            "amount": 10
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

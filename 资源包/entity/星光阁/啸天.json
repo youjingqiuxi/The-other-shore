@@ -1,0 +1,60 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "星光阁:啸天",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "enable_attachables": true,
+      "textures": {
+        "x0": "textures/entity/星阁-啸天/基础",
+        "x1": "textures/entity/星阁-啸天/坐骑",
+        "blink": "textures/entity/星阁-啸天/眨眼",
+        "HE_0": "textures/entity/星阁-啸天/生命值_0",
+        "HE_1": "textures/entity/星阁-啸天/生命值_1",
+        "HE_2": "textures/entity/星阁-啸天/生命值_2",
+        "HE_3": "textures/entity/星阁-啸天/生命值_3",
+        "HE_4": "textures/entity/星阁-啸天/生命值_4",
+        "not": "textures/entity/not"
+      },
+      "geometry": {
+        "default": "geometry.Xiao-Tian"
+      },
+      "scripts": {
+        "animate": [
+          "is_baby",
+          "watch",
+          "defa",
+          "deed"
+        ],
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ]
+      },
+      "animations": {
+        "swim-watch": "animation.humanoid.look_at_target.default",
+        "basic-watch": "animation.humanoid.look_at_target.default",
+        "is_baby": "controller.animation.ControlGrow.basics",
+        "watch": "controller.animation.ControlWatch.basics",
+        "deed": "controller.animation.ControlAttitude.Dog",
+        "defa": "animation.basic_action.dogs",
+        "jump": "animation.animal_move.jump",
+        "swimming": "animation.swimming.dogs",
+        "move": "animation.animal_move.basic",
+        "UP": "animation.growth_effect.dog",
+        "baby": "animation.basic_action.whelp",
+        "sitt": "animation.sit_down.dog"
+      },
+      "render_controllers": [
+        "controller.render.heart:40",
+        "controller.render.Map:X02",
+        "controller.render.blink"
+      ],
+      "spawn_egg": {
+        "texture": "星光阁_图标",
+        "texture_index": 3
+      }
+    }
+  }
+}

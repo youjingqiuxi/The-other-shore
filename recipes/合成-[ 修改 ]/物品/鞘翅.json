@@ -1,0 +1,30 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "MC.item.elytra"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "HMH",
+            "P0P",
+            "P0P"
+        ],
+        "key": {
+            "P": {
+                "item": "leather"
+            },
+            "H": {
+                "item": "phantom_membrane"
+            },
+            "M": {
+                "item": "experience_bottle"
+            }
+        },
+        "result": {
+            "item": "elytra"
+        }
+    }
+}

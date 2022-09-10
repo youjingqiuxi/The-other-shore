@@ -1,0 +1,30 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "MC.block.dispenser"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "#MX",
+            "MTX",
+            "#MX"
+        ],
+        "key": {
+            "M": {
+                "item": "stick"
+            },
+            "X": {
+                "item": "string"
+            },
+            "T": {
+                "item": "dropper"
+            }
+        },
+        "result": {
+            "item": "dispenser"
+        }
+    }
+}
