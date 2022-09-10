@@ -1,0 +1,87 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "载具控制:仓储过滤",
+            "category": "items"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "载具控制_仓储过滤"
+            },
+            "minecraft:display_name": {
+                "value": "§5<[ 过滤控制器 ]>§r"
+            },
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:allow_off_hand": true,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:foil": false,
+            "minecraft:durability": {
+                "max_durability": 9999,
+                "damage_chance": {
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            "minecraft:render_offsets": {
+                "main_hand": {
+                    "third_person": {
+                        "position": [
+                            0.0,
+                            0.75,
+                            -0.3
+                        ],
+                        "scale": [
+                            0.04,
+                            0.04,
+                            0.04
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            1.5,
+                            -0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.045,
+                            0.045,
+                            0.054
+                        ]
+                    }
+                },
+                "off_hand": {
+                    "third_person": {
+                        "position": [
+                            0.1,
+                            0.75,
+                            -0.3
+                        ],
+                        "scale": [
+                            0.04,
+                            0.04,
+                            0.04
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            -1.5,
+                            0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.1,
+                            0.1,
+                            0.1
+                        ]
+                    }
+                }
+            }
+        },
+        "events": {}
+    }
+}
