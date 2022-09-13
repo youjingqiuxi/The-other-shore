@@ -67,10 +67,10 @@ export class 辅助说明 {
         //定义当前界面所用到的各项元素
         页面元素 = 页面元素.body("§7功能目录")
             .title("§6==========§1[§3§o§l 浮世众生 §1]§r§6==========")
-            .button("§6[|§l§9 星光阁 §r§6|]", "textures/ui/book_addtextpage_default")
-            .button("§6[|§l§2 幻生阁 §r§6|]", "textures/ui/book_addtextpage_default")
-            .button("§6[|§l§3 明镜阁 §r§6|]", "textures/ui/book_addtextpage_default")
-            .button("§6[|§l§4 天渊阁 §r§6|]", "textures/ui/book_addtextpage_default")
+            .button("[|§l§9 星光阁 §r|]", "textures/ui/book_addtextpage_default")
+            .button("[|§l§a 幻生阁 §r|]", "textures/ui/book_addtextpage_default")
+            .button("[|§l§b 明镜阁 §r|]", "textures/ui/book_addtextpage_default")
+            .button("[|§l§c 天渊阁 §r|]", "textures/ui/book_addtextpage_default")
         //生成界面并执行玩家的选择
         页面元素.show(用户).then((用户选择) => {
             if (用户选择.isCanceled) {
