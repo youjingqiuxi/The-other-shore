@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+	  "controller.render.experience_orb": {
+		"geometry": "Geometry.default",
+		"materials": [
+		  {
+			"*": "Material.default"
+		  }
+		],
+		"textures": [
+		  "Texture.default"
+		],
+		"overlay_color": {
+		  "r": "64.0",
+		  "g": "1.0",
+		  "b": "64.0",
+		  "a": "0.45"
+		},
+		"uv_anim": {
+		  "offset": [
+			"variable.u",
+			"variable.v"
+		  ],
+		  "scale": [
+			1.0,
+			1.0
+		  ]
+		}
+	  }
+	}
+  }

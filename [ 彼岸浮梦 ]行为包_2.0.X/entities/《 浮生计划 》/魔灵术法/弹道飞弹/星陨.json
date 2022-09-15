@@ -1,0 +1,154 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "弹道飞弹:星陨",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "消失": {
+                "minecraft:instant_despawn": {
+                    "remove_child_entities": true
+                }
+            },
+            "爆炸": {
+                "minecraft:explode": {
+                    "destroy_affected_by_griefing": true,
+                    "fire_affected_by_griefing": true,
+                    "causes_fire": true,
+                    "fuse_lit": true,
+                    "fuse_length": 0,
+                    "power": 1
+                }
+            }
+        },
+        "components": {
+            "minecraft:conditional_bandwidth_optimization": {
+                "default_values": {
+                    "max_optimized_distance": 80.0,
+                    "max_dropped_ticks": 7,
+                    "use_motion_prediction_hints": true
+                }
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "*",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.1,
+                "height": 0.1
+            },
+            "minecraft:breathable": {
+                "totalSupply": 10,
+                "suffocateTime": 0,
+                "breathes_air": true,
+                "breathes_lava": true,
+                "breathes_water": true,
+                "breathes_solids": true
+            },
+            "minecraft:projectile": {
+                "on_hit": {
+                    "definition_event": {
+                        "affect_projectile": true,
+                        "event_trigger": {
+                            "event": "事件:发生爆炸",
+                            "target": "self"
+                        }
+                    }
+                },
+                "inertia": 1.0,
+                "power": 1.6,
+                "gravity": 0.0,
+                "liquid_inertia": 1.5,
+                "uncertainty_base": 0,
+                "uncertainty_multiplier": 0,
+                "anchor": 3,
+                "offset": [
+                    0,
+                    0,
+                    0
+                ],
+                "reflect_on_hurt": true,
+                "catch_fire": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:timer": {
+                "time": 0.01,
+                "looping": true,
+                "time_down_event": {
+                    "event": "事件:弹道粒子",
+                    "target": "self"
+                }
+            }
+        },
+        "events": {
+            "事件:发生爆炸": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "bullet_hit"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "damage @e[r=4,type=!item,type=!player,family=!prime] 15 suicide entity @r",
+                                "particle 烟雾效果:紫影 ~~~",
+                                "tag @s add bullet_hit"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "bullet_hit"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "damage @e[r=8,type=!item,type=!player,family=!prime] 5 suicide entity @r",
+                                "playsound random.explode @a[r=15] ~~~",
+                                "event entity @s 事件:实体消失"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:弹道粒子": {
+                "run_command": {
+                    "command": [
+                        "particle 动态轨迹:赤红 ^^^"
+                    ]
+                }
+            },
+            "事件:实体消失": {
+                "add": {
+                    "component_groups": [
+                        "消失"
+                    ]
+                }
+            }
+        }
+    }
+}

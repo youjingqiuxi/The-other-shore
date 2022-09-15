@@ -1,0 +1,609 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "工业类:智能建筑台",
+            "category": "construction",
+            "properties": {
+                "Table:action": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:function": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "Table:switch": [
+                    0,
+                    1,
+                    2
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.fast_build",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "智能建筑",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "action0": "query.block_property('Table:action') == 0 && query.block_property('Table:switch') == 2",
+                    "action1": "query.block_property('Table:action') == 1 && query.block_property('Table:switch') == 2",
+                    "action2": "query.block_property('Table:action') == 2 && query.block_property('Table:switch') == 2",
+                    "action3": "query.block_property('Table:action') == 3 && query.block_property('Table:switch') == 2",
+                    "action4": "query.block_property('Table:action') == 4 && query.block_property('Table:switch') == 2",
+                    "action5": "query.block_property('Table:action') == 5 && query.block_property('Table:switch') == 2",
+                    "actionx0": "query.block_property('Table:action') == 0 && query.block_property('Table:switch') == 0",
+                    "actionx1": "query.block_property('Table:action') == 1 && query.block_property('Table:switch') == 0",
+                    "actionx2": "query.block_property('Table:action') == 2 && query.block_property('Table:switch') == 0",
+                    "actionx3": "query.block_property('Table:action') == 3 && query.block_property('Table:switch') == 0",
+                    "actionx4": "query.block_property('Table:action') == 4 && query.block_property('Table:switch') == 0",
+                    "actionx5": "query.block_property('Table:action') == 5 && query.block_property('Table:switch') == 0"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') == 2",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            20,
+                            20
+                        ],
+                        "on_tick": {
+                            "event": "事件:功能运行",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            10,
+                            10
+                        ],
+                        "on_tick": {
+                            "event": "事件:待机动画",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:switch') == 2",
+                        "run_command": {
+                            "command": [
+                                "playsound random.anvil_land @a[r=15] ~~~",
+                                "title @p actionbar 系统正在运行, 请勿进行操作"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 0",
+                        "trigger": {
+                            "event": "事件:面积显示",
+                            "target": "self"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 1",
+                        "trigger": {
+                            "event": "事件:蓝图加载",
+                            "target": "self"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
+                        "set_block_property": {
+                            "Table:switch": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar 运行模式已切换至:§3 蓝图加载模式 §r"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:面积显示": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : §4 未检测到< 建筑蓝图 > §r !\n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:智能仓库') == 1",
+                        "sequence": [
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 智能仓库 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "summon 矩阵接口:绘制 ~1 ~-1 ~-12.5 数据驱动.立方绘制.效率"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_X 25",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Y 5",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Z 25"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.trail.blue_green",
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.open"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:深渊迷途') == 1",
+                        "sequence": [
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 深渊迷途 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "summon 矩阵接口:绘制 ~-2.5 ~-1 ~-2.5 数据驱动.立方绘制.效率"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_X 5",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Y 5",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Z 5"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.trail.blue_green",
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.open"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:猪灵之塔') == 1",
+                        "sequence": [
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 猪灵之塔 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "summon 矩阵接口:绘制 ~1 ~-1 ~-12.5 数据驱动.立方绘制.效率"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_X 25",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Y 5",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Z 25"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.trail.blue_green",
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.open"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:星辉楼磐') == 1",
+                        "sequence": [
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 星辉楼磐 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "summon 矩阵接口:绘制 ~1 ~-1 ~-12.5 数据驱动.立方绘制.效率"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_X 25",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Y 5",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Z 25"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.trail.blue_green",
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.open"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:幻灵浑居') == 1",
+                        "sequence": [
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 幻灵浑居 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "summon 矩阵接口:绘制 ~1 ~-1 ~-32.5 数据驱动.立方绘制.效率"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_X 65",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Y 5",
+                                        "scoreboard players set @e[family=Matrix_API,c=1] set_Z 65"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.trail.blue_green",
+                                        "tag @e[family=Matrix_API,c=1] add Matrix_API.open"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "事件:蓝图加载": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : §4 未检测到< 建筑蓝图 > §r !"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:智能仓库') == 1",
+                        "set_block_property": {
+                            "Table:function": 1,
+                            "Table:switch": 2,
+                            "Table:action": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 智能仓库 §r>\n蓝图状态 : 已接入系统"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:深渊迷途') == 1",
+                        "run_command": {
+                            "command": [
+                                "title @a[r=15] actionbar §5很抱歉 该功能暂时不支持使用"
+                            ]
+                        }
+                        /**
+                        "set_block_property": {
+                            "Table:function": 2,
+                            "Table:switch": 2,
+                            "Table:action": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 深渊迷途 §r>\n蓝图状态 : 已接入系统"
+                            ]
+                        },
+                        "decrement_stack": {}*/
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:猪灵之塔') == 1",
+                        "set_block_property": {
+                            "Table:function": 3,
+                            "Table:switch": 2,
+                            "Table:action": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 双门猪人塔 §r>\n蓝图状态 : 已接入系统"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:星辉楼磐') == 1",
+                        "set_block_property": {
+                            "Table:function": 5,
+                            "Table:switch": 2,
+                            "Table:action": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 星辉楼磐 §r>\n蓝图状态 : 已接入系统"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'建筑蓝图:幻灵浑居') == 1",
+                        "set_block_property": {
+                            "Table:function": 6,
+                            "Table:switch": 2,
+                            "Table:action": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 幻灵浑居 §r>\n蓝图状态 : 已接入系统"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    }
+                ]
+            },
+            "事件:功能运行": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:action') == 0",
+                        "set_block_property": {
+                            "Table:action": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 蓝图 | 数据加载中....."
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:action') == 1",
+                        "set_block_property": {
+                            "Table:action": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar 正在校验 | 蓝图 | 完整性......"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:action') == 2",
+                        "set_block_property": {
+                            "Table:action": 3
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar 正在部署 | 蓝图 | 运行环境......"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:action') == 3",
+                        "set_block_property": {
+                            "Table:action": 4
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:action') == 4",
+                        "set_block_property": {
+                            "Table:action": 5
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:action') == 5",
+                        "set_block_property": {
+                            "Table:action": 0,
+                            "Table:switch": 0
+                        },
+                        "trigger": {
+                            "event": "事件:房屋搭建",
+                            "target": "self"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound block.bell.hit @a[r=15] ~~~",
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:待机动画": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:action') != 5",
+                        "set_block_property": {
+                            "Table:action": "(query.block_property('Table:action') + 1)"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:action') == 5",
+                        "set_block_property": {
+                            "Table:action": 0
+                        }
+                    }
+                ]
+            },
+            "事件:房屋搭建": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:function') == 1",
+                        "set_block_property": {
+                            "Table:function": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "fill ~1 ~-13 ~-12  ~21 ~0 ~12 stained_glass",
+                                "fill ~1 ~00 ~-12  ~21 ~19 ~12 stained_glass",
+                                "structure load 蓝图建筑:半自动仓库 ~1 ~-13 ~-12 0_degrees none true true 100",
+                                "title @p actionbar 蓝图名称: [ 智能仓库 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 2",
+                        "set_block_property": {
+                            "Table:function": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar 进阶建筑蓝图: [ 深渊迷途 ] \n蓝图解析: 在线校验异常\n设备状态: 正在执行 离线升级 操作"
+                            ]
+                        },
+                        "trigger": {
+                            "event": "转化:迷途再现",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 3",
+                        "set_block_property": {
+                            "Table:function": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "fill ~1 ~ ~-12  ~9 ~53 ~11 stained_glass 15",
+                                "structure load 蓝图建筑:双门猪灵塔 ~1 ~ ~-12 0_degrees none block_by_block 20 false true 100",
+                                "title @p actionbar 蓝图名称: [ 双门猪灵塔 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 4",
+                        "set_block_property": {
+                            "Table:function": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "structure load 蓝图建筑:星辉楼岚 ~1 ~-1 ~-13 0_degrees none block_by_block 20 true true 100",
+                                "title @p actionbar 蓝图名称: [ 星辉楼岚 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 5",
+                        "set_block_property": {
+                            "Table:function": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "structure load 蓝图建筑:星辉楼磐 ~1 ~-1 ~-8 0_degrees none true true 100",
+                                "title @p actionbar 蓝图名称: [ 星辉楼磐 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:function') == 6",
+                        "set_block_property": {
+                            "Table:function": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "structure load 蓝图建筑:幻灵浑居 ~1 ~-2 ~-32 0_degrees none block_by_block 10 true true 100",
+                                "title @p actionbar 蓝图名称: [ 幻灵浑居 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "转化:迷途再现": {
+                "run_command": {
+                    "command": [
+                        "summon minecraft:lightning_bolt ~-1~-1~-1",
+                        "summon minecraft:lightning_bolt ~1~-1~-1",
+                        "summon minecraft:lightning_bolt ~-1~-1~1",
+                        "summon minecraft:lightning_bolt ~1~-1~1",
+                        "summon minecraft:lightning_bolt ~-1~-1~",
+                        "summon minecraft:lightning_bolt ~~-1~-1",
+                        "summon minecraft:lightning_bolt ~1~-1~",
+                        "summon minecraft:lightning_bolt ~~-1~1",
+                        "setblock ~~~ 深渊迷途:迷宫再现"
+                    ]
+                }
+            }
+        }
+    }
+}

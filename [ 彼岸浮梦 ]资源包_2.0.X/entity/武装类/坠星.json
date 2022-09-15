@@ -1,0 +1,34 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "制导飞弹:坠星",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "Map": "textures/entity/girl/战斗武器"
+            },
+            "geometry": {
+                "default": "geometry.gravity_rune"
+            },
+            "scripts": {
+                "animate": [
+                    "battle"
+                ]
+            },
+            "animations": {
+                "battle": "controller.animation.ControlAttack.6",
+                "pages": "animation.gravity_rune.pages",
+                "runes": "animation.gravity_rune.runes"
+            },
+            "render_controllers": [
+                "controller.render.Map:X01"
+            ],
+            "spawn_egg": {
+                "texture": "Tayun_born",
+                "texture_index": 2
+            }
+        }
+    }
+}

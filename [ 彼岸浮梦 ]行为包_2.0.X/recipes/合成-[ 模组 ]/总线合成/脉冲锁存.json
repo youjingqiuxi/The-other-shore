@@ -1,0 +1,27 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.Magic_bus.Latch"
+        },
+        "tags": [
+            "魔导总线合成台"
+        ],
+        "pattern": [
+            "#H#",
+            "#G#",
+            "#H#"
+        ],
+        "key": {
+            "G": {
+                "item": "魔导总线:总线本体"
+            },
+            "H": {
+                "item": "redstone_torch"
+            }
+        },
+        "result": {
+            "item": "魔导总线:脉冲锁存"
+        }
+    }
+}

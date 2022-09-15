@@ -1,0 +1,173 @@
+{
+    "format_version": "1.10.1800",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "制导飞弹:沧海",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "战斗": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "monster"
+                                    }
+                                ]
+                            },
+                            "within_default": 64
+                        }
+                    ],
+                    "must_reach": true,
+                    "must_see": true
+                },
+                "minecraft:behavior.random_hover": {
+                    "y_offset": -1,
+                    "interval": 1,
+                    "priority": 5,
+                    "xz_dist": 5,
+                    "y_dist": 5,
+                    "hover_height": [
+                        0,
+                        1
+                    ]
+                },
+                "minecraft:behavior.float": {
+                    "priority": 10
+                },
+                "minecraft:flying_speed": {
+                    "value": 0.2
+                },
+                "minecraft:underwater_movement": {
+                    "value": 0.3
+                },
+                "minecraft:navigation.hover": {
+                    "can_path_from_air": true,
+                    "is_amphibious": true,
+                    "can_swim": true,
+                    "can_sink": true
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 0,
+                    "attack_once": false,
+                    "track_target": true,
+                    "speed_multiplier": 1.4,
+                    "on_attack": {
+                        "event": "水母命中",
+                        "target": "self"
+                    }
+                },
+                "minecraft:variant": {
+                    "value": 0
+                },
+                "minecraft:collision_box": {
+                    "width": 0.1,
+                    "height": 0.1
+                },
+                "minecraft:attack": {
+                    "damage": {
+                        "range_min": 75,
+                        "range_max": 75
+                    }
+                },
+                "minecraft:movement.hover": {},
+                "minecraft:can_fly": {}
+            },
+            "缩小": {
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.5,
+                    "end_scale": 0.0
+                },
+                "minecraft:ageable": {
+                    "duration": 1,
+                    "grow_up": {
+                        "event": "事件:实体消失",
+                        "target": "self"
+                    }
+                }
+            },
+            "消失": {
+                "minecraft:scale": {
+                    "value": 0.0
+                },
+                "minecraft:despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:fire_immune": true,
+            "minecraft:health": {
+                "value": 150
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "spirit",
+                    "ocean"
+                ]
+            },
+            "minecraft:scale": {
+                "value": 0.5
+            },
+            "minecraft:ageable": {
+                "duration": 14,
+                "grow_up": {
+                    "event": "水母缩小",
+                    "target": "self"
+                }
+            },
+            "minecraft:breathable": {
+                "totalSupply": 10,
+                "suffocateTime": 0,
+                "breathes_air": true,
+                "breathes_lava": true,
+                "breathes_water": true,
+                "breathes_solids": true
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "战斗"
+                    ]
+                }
+            },
+            "水母缩小": {
+                "add": {
+                    "component_groups": [
+                        "缩小"
+                    ]
+                }
+            },
+            "事件:实体消失": {
+                "add": {
+                    "component_groups": [
+                        "消失"
+                    ]
+                }
+            },
+            "水母命中": {
+				"run_command": {
+					"command": [
+						"effect @e[r=32,family=!monster] regeneration 5 3 true",
+						"scoreboard players add @e[type=明镜阁:珍珠,r=15] MU 1"
+					]
+				}
+            }
+        }
+    }
+}

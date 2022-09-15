@@ -1,0 +1,516 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "伺服机关:伺服基座",
+            "category": "construction",
+            "properties": {
+                "Table:switch": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "Table:value": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.carrier_base",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 0,
+            "minecraft:block_light_filter": 0,
+            "minecraft:destructible_by_mining": true,
+            "minecraft:friction": 0.5,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "value_0": "query.block_property('Table:value') == 0",
+                    "value_1": "query.block_property('Table:value') == 1",
+                    "value_2": "query.block_property('Table:value') == 2",
+                    "value_3": "query.block_property('Table:value') == 3",
+                    "value_4": "query.block_property('Table:value') == 4",
+                    "value_5": "query.block_property('Table:value') == 5"
+                }
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "魔导总线_伺服基座",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "tag:MagicBus_servo_base": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:状态判定",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') != 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            5,
+                            5
+                        ],
+                        "on_tick": {
+                            "event": "事件:使能判定",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
+                        "set_block_property": {
+                            "Table:value": "query.block_property('Table:value') != 5 ? (query.block_property('Table:value') + 1) : 0"
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e伺服基座§r已修改[§6 最大负载 §r]参数",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 0 && query.block_property('Table:value') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar |§l§4 重要提示 §l§r| : 请勿使用[§l§e 伺服基座 §r]来移动[ 箱子 ] [ 陷阱箱 ] 否则容易造成容器内物品丢失 !",
+                                "playsound conduit.activate @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:状态判定": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 && query.block_neighbor_has_all_tags(1,-1,0,'Magic_Bus_Series') == 1 && query.block_neighbor_has_all_tags(1,0,0,'MagicBus_servo_base') == 0",
+                        "set_block_property": {
+                            "Table:switch": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:2') == 1 && query.block_neighbor_has_all_tags(-1,-1,0,'Magic_Bus_Series') == 1 && query.block_neighbor_has_all_tags(-1,0,0,'MagicBus_servo_base') == 0",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:3') == 1 && query.block_neighbor_has_all_tags(0,-1,1,'Magic_Bus_Series') == 1 && query.block_neighbor_has_all_tags(0,0,1,'MagicBus_servo_base') == 0",
+                        "set_block_property": {
+                            "Table:switch": 3
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:4') == 1 && query.block_neighbor_has_all_tags(0,-1,-1,'Magic_Bus_Series') == 1 && query.block_neighbor_has_all_tags(0,0,-1,'MagicBus_servo_base') == 0",
+                        "set_block_property": {
+                            "Table:switch": 4
+                        }
+                    },
+                    {
+                        "trigger": {
+                            "event": "事件:修改参数",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:修改参数": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'carrier_base_set:0') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'carrier_base_set:0') == 1 || query.block_neighbor_has_all_tags(0,0,1,'carrier_base_set:0') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'carrier_base_set:0') == 1",
+                        "set_block_property": {
+                            "Table:value": 0
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'carrier_base_set:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'carrier_base_set:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'carrier_base_set:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'carrier_base_set:1') == 1",
+                        "set_block_property": {
+                            "Table:value": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'carrier_base_set:2') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'carrier_base_set:2') == 1 || query.block_neighbor_has_all_tags(0,0,1,'carrier_base_set:2') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'carrier_base_set:2') == 1",
+                        "set_block_property": {
+                            "Table:value": 2
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'carrier_base_set:3') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'carrier_base_set:3') == 1 || query.block_neighbor_has_all_tags(0,0,1,'carrier_base_set:3') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'carrier_base_set:3') == 1",
+                        "set_block_property": {
+                            "Table:value": 3
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'carrier_base_set:4') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'carrier_base_set:4') == 1 || query.block_neighbor_has_all_tags(0,0,1,'carrier_base_set:4') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'carrier_base_set:4') == 1",
+                        "set_block_property": {
+                            "Table:value": 4
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'carrier_base_set:5') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'carrier_base_set:5') == 1 || query.block_neighbor_has_all_tags(0,0,1,'carrier_base_set:5') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'carrier_base_set:5') == 1",
+                        "set_block_property": {
+                            "Table:value": 5
+                        }
+                    }
+                ]
+            },
+            "事件:使能判定": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:switch') == 1",
+                        "set_block_property": {
+                            "Table:switch": 0
+                        },
+                        "trigger": {
+                            "event": "事件:使能判定_X+",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 2",
+                        "set_block_property": {
+                            "Table:switch": 0
+                        },
+                        "trigger": {
+                            "event": "事件:使能判定_X-",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 3",
+                        "set_block_property": {
+                            "Table:switch": 0
+                        },
+                        "trigger": {
+                            "event": "事件:使能判定_Z+",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 4",
+                        "set_block_property": {
+                            "Table:switch": 0
+                        },
+                        "trigger": {
+                            "event": "事件:使能判定_Z-",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:使能判定_X+": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:value') == 0",
+                        "run_command": {
+                            "command": [
+                                "fill ~1~~ ~1~~ air 0 destroy",
+                                "clone ~~~ ~~~ ~1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 1",
+                        "run_command": {
+                            "command": [
+                                "fill ~1~~ ~1~1~ air 0 destroy",
+                                "clone ~~~ ~~1~ ~1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 2",
+                        "run_command": {
+                            "command": [
+                                "fill ~1~~ ~1~2~ air 0 destroy",
+                                "clone ~~~ ~~2~ ~1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 3",
+                        "run_command": {
+                            "command": [
+                                "fill ~1~~ ~1~3~ air 0 destroy",
+                                "clone ~~~ ~~3~ ~1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 4",
+                        "run_command": {
+                            "command": [
+                                "fill ~1~~ ~1~4~ air 0 destroy",
+                                "clone ~~~ ~~4~ ~1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 5",
+                        "run_command": {
+                            "command": [
+                                "fill ~1~~ ~1~5~ air 0 destroy",
+                                "clone ~~~ ~~5~ ~1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:使能判定_X-": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:value') == 0",
+                        "run_command": {
+                            "command": [
+                                "fill ~-1~~ ~-1~~ air 0 destroy",
+                                "clone ~~~ ~~~ ~-1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 1",
+                        "run_command": {
+                            "command": [
+                                "fill ~-1~~ ~-1~1~ air 0 destroy",
+                                "clone ~~~ ~~1~ ~-1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 2",
+                        "run_command": {
+                            "command": [
+                                "fill ~-1~~ ~-1~2~ air 0 destroy",
+                                "clone ~~~ ~~2~ ~-1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 3",
+                        "run_command": {
+                            "command": [
+                                "fill ~-1~~ ~-1~3~ air 0 destroy",
+                                "clone ~~~ ~~3~ ~-1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 4",
+                        "run_command": {
+                            "command": [
+                                "fill ~-1~~ ~-1~4~ air 0 destroy",
+                                "clone ~~~ ~~4~ ~-1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 5",
+                        "run_command": {
+                            "command": [
+                                "fill ~-1~~ ~-1~5~ air 0 destroy",
+                                "clone ~~~ ~~5~ ~-1~~ replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:使能判定_Z+": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:value') == 0",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~1 ~~~1 air 0 destroy",
+                                "clone ~~~ ~~~ ~~~1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 1",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~1 ~~1~1 air 0 destroy",
+                                "clone ~~~ ~~1~ ~~~1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 2",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~1 ~~2~1 air 0 destroy",
+                                "clone ~~~ ~~2~ ~~~1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 3",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~1 ~~3~1 air 0 destroy",
+                                "clone ~~~ ~~3~ ~~~1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 4",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~1 ~~4~1 air 0 destroy",
+                                "clone ~~~ ~~4~ ~~~1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 5",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~1 ~~5~1 air 0 destroy",
+                                "clone ~~~ ~~5~ ~~~1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:使能判定_Z-": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:value') == 0",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~-1 ~~~-1 air 0 destroy",
+                                "clone ~~~ ~~~ ~~~-1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 1",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~-1 ~~1~-1 air 0 destroy",
+                                "clone ~~~ ~~1~ ~~~-1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 2",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~-1 ~~2~-1 air 0 destroy",
+                                "clone ~~~ ~~2~ ~~~-1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 3",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~-1 ~~3~-1 air 0 destroy",
+                                "clone ~~~ ~~3~ ~~~-1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 4",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~-1 ~~4~-1 air 0 destroy",
+                                "clone ~~~ ~~4~ ~~~-1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 5",
+                        "run_command": {
+                            "command": [
+                                "fill ~~~-1 ~~5~-1 air 0 destroy",
+                                "clone ~~~ ~~5~ ~~~-1 replace move",
+                                "fill ~~~ ~~~ air"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

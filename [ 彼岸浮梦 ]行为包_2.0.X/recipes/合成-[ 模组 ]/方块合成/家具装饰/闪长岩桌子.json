@@ -1,0 +1,26 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.block.diorite_table"
+        },
+        "tags": [
+            "桌面合成站"
+        ],
+        "pattern": [
+            "MMM",
+            "M#M",
+            "M#M"
+        ],
+        "key": {
+            "M": {
+                "item": "stone"
+            }
+        
+        },
+        "result": {
+            "item": "装饰类:基础桌子",
+            "count": 1
+        }
+    }
+}

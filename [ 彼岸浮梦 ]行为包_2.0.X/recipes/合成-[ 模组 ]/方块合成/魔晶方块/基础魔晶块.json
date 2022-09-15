@@ -1,0 +1,24 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.block.initial_crystal"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "MMM",
+            "MMM",
+            "MMM"
+        ],
+        "key": {
+            "M": {
+                "item": "experience_bottle"
+            }
+        },
+        "result": {
+            "item": "魔晶块:基础魔晶"
+        }
+    }
+}

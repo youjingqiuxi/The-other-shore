@@ -1,0 +1,20 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "结构定义:诡异路灯"
+		},
+		"structure_name": "自然生成:诡异路灯",
+		"facing_direction": "random",
+		"adjustment_radius": 0,
+		"constraints": {
+			"grounded": {},
+			"unburied": {},
+			"block_intersection": {
+				"block_whitelist": [
+					"minecraft:air"
+				]
+			}
+		}
+	}
+}

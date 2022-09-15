@@ -1,0 +1,31 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.block.Magic_portal_make_0"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "TtT",
+            "tMt",
+            "TtT"
+        ],
+        "key": {
+            "M": {
+                "item": "魔晶块:基础魔晶"
+            },
+            "T": {
+                "item": "领域石:特种合金"
+            },
+            "t": {
+                "item": "合金材料:特种合金"
+            }
+        },
+        "result": {
+            "item": "伺服机关:魔晶上传",
+            "count": 2
+        }
+    }
+}

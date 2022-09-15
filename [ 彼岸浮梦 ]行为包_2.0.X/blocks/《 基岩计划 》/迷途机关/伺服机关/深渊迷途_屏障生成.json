@@ -1,0 +1,165 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "深渊迷途:屏障生成",
+            "properties": {
+                "Table:switch": [
+                    0,
+                    1,
+                    2
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.basic_block0",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": false,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "深渊迷途_屏障生成",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') == 1",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:进行侦测",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 2",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:方块枯竭",
+                            "target": "self"
+                        }
+                    },
+                    "tag:Magic_Bus_open": {}
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:switch": 0
+                }
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
+                        "set_block_property": {
+                            "Table:switch": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound random.anvil_land @a[r=15] ~~~",
+                                "fill ~ ~1 ~ ~ ~32 ~ barrier 0 keep",
+                                "title @p actionbar §c屏障已生成"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:进行侦测": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:方块枯竭": {
+                "run_command": {
+                    "command": [
+                        "particle minecraft:knockback_roar_particle ~~~",
+                        "playsound block.grindstone.use @a[r=15] ~~~",
+                        "fill ~~1~ ~~32~ air 0 replace barrier 0",
+                        "setblock ~~~ amethyst_block"
+                    ]
+                }
+            }
+        }
+    }
+}

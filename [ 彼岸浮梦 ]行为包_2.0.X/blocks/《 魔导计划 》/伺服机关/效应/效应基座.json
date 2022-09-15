@@ -1,0 +1,250 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "伺服机关:效应基座",
+            "category": "construction",
+            "properties": {
+                "Table:state": [
+                    0,
+                    1,
+                    2
+                ],
+                "Table:energy": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:switch": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.effect_base",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": true,
+            "minecraft:friction": 1.0,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "魔导总线_效应基座",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "energy_1": "query.block_property('Table:energy') >= 1",
+                    "energy_2": "query.block_property('Table:energy') >= 2",
+                    "energy_3": "query.block_property('Table:energy') >= 3",
+                    "energy_4": "query.block_property('Table:energy') >= 4",
+                    "energy_5": "query.block_property('Table:energy') >= 5",
+                    "blue": "query.block_property('Table:switch') == 1",
+                    "red": "query.block_property('Table:switch') == 2",
+                    "green": "query.block_property('Table:switch') == 3",
+                    "orange": "query.block_property('Table:switch') == 4"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "tag:Magic_Bus_Series": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:state') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:状态侦测",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:state') != 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:功能运行",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:状态侦测": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_energy') == 1",
+                        "set_block_property": {
+                            "Table:energy": "query.block_property('Table:energy') != 5 ? (query.block_property('Table:energy') + 1) : 5",
+                            "Table:state": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:1') == 1",
+                        "set_block_property": {
+                            "Table:switch": 1,
+                            "Table:state": 2
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:2') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2,
+                            "Table:state": 2
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:3') == 1",
+                        "set_block_property": {
+                            "Table:switch": 3,
+                            "Table:state": 2
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:4') == 1",
+                        "set_block_property": {
+                            "Table:switch": 4,
+                            "Table:state": 2
+                        }
+                    }
+                ]
+            },
+            "事件:功能运行": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:state') == 1",
+                        "run_command": {
+                            "command": [
+                                "playsound place.amethyst_block @a[r=15] ~~~",
+                                "say 充能完成"
+                            ]
+                        },
+                        "set_block_property": {
+                            "Table:state": 0
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:state') == 2 && query.block_property('Table:energy') != 0",
+                        "sequence": [
+                            {
+                                "condition": "query.block_property('Table:switch') == 1",
+                                "run_command": {
+                                    "command": [
+                                        "playsound place.amethyst_block @a[r=15] ~~~",
+                                        "say 蓝色模式"
+                                    ]
+                                },
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') - 1",
+                                    "Table:switch": 0,
+                                    "Table:state": 0
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:switch') == 2",
+                                "run_command": {
+                                    "command": [
+                                        "playsound place.amethyst_block @a[r=15] ~~~",
+                                        "say 红色模式"
+                                    ]
+                                },
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') - 1",
+                                    "Table:switch": 0,
+                                    "Table:state": 0
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:switch') == 3",
+                                "run_command": {
+                                    "command": [
+                                        "playsound place.amethyst_block @a[r=15] ~~~",
+                                        "say 绿色模式"
+                                    ]
+                                },
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') - 1",
+                                    "Table:switch": 0,
+                                    "Table:state": 0
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:switch') == 4",
+                                "run_command": {
+                                    "command": [
+                                        "playsound place.amethyst_block @a[r=15] ~~~",
+                                        "say 橙色模式"
+                                    ]
+                                },
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') - 1",
+                                    "Table:switch": 0,
+                                    "Table:state": 0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "condition": "query.block_property('Table:state') == 2 && query.block_property('Table:energy') == 0",
+                        "run_command": {
+                            "command": [
+                                "playsound place.amethyst_block @a[r=15] ~~~",
+                                "say 能源不足,任务执行失败"
+                            ]
+                        },
+                        "set_block_property": {
+                            "Table:state": 0
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

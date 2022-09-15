@@ -1,0 +1,28 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.item.initial_crystal"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "0"
+        ],
+        "key": {
+            "0": {
+                "item": "enchanted_book"
+            }
+        },
+        "result": [
+            {
+                "item": "experience_bottle",
+                "count": 8
+            },
+            {
+                "item": "book"
+            }
+        ]
+    }
+}

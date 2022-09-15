@@ -1,7 +1,0 @@
-{
-    "namespace": "debug_screen",
-    "content_panel": {
-        "type": "panel",
-        "controls": []
-    }
-}

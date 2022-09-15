@@ -1,0 +1,16 @@
+{
+    "namespace": "anvil",
+    "anvil_panel/root_panel": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "存储容器附加面板:铁砧@定制案例.容器附加面板:166": {}
+                    }
+                ]
+            }
+        ]
+    }
+}

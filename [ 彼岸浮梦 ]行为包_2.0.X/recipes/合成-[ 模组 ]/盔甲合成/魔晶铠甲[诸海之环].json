@@ -1,0 +1,30 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.item.MagicCrystalArmor.Ring_of_the_seas"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "#G#",
+            "#X#",
+            "GKG"
+        ],
+        "key": {
+            "X": {
+                "item": "能量水晶:超频魔晶"
+            },
+            "G": {
+                "item": "合金材料:钢岩合金"
+            },
+            "K": {
+                "item": "特殊铠甲:魔晶铠甲_至纯"
+            }
+        },
+        "result": {
+            "item": "特殊铠甲:诸海之环"
+        }
+    }
+}
