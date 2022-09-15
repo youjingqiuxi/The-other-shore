@@ -1,0 +1,67 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:feature_rules": {
+        "description": {
+            "identifier": "结构规则:特殊建筑_幻生遗居",
+            "places_feature": "结构定义:结构替换_幻生遗居"
+        },
+        "conditions": {
+            "placement_pass": "underground_pass",
+            "minecraft:biome_filter": [
+                {
+                    "any_of": [
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "savanna"
+                        },
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "savanna_plateau"
+                        },
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "mesa"
+                        },
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "mesa_plateau"
+                        },
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "mesa_plateau_stone"
+                        }
+                    ]
+                }
+            ]
+        },
+        "distribution": {
+            "iterations": 1,
+            "x": {
+                "distribution": "gaussian",
+                "extent": [
+                    0,
+                    16
+                ]
+            },
+            "y": {
+                "distribution": "gaussian",
+                "extent": [
+                    64,
+                    126
+                ]
+            },
+            "z": {
+                "distribution": "gaussian",
+                "extent": [
+                    0,
+                    16
+                ]
+            }
+        }
+    }
+}

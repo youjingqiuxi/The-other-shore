@@ -1,0 +1,340 @@
+{
+    "tiers": [
+        {
+            "groups": [
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "fish",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "function": "enchant_book_for_trading",
+                                            "per_level_random_cost": 2,
+                                            "base_random_cost": 2,
+                                            "per_level_cost": 2,
+                                            "base_cost": 2
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "fish",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "function": "enchant_book_for_trading",
+                                            "per_level_random_cost": 2,
+                                            "base_random_cost": 2,
+                                            "per_level_cost": 2,
+                                            "base_cost": 2
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "fish",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "function": "enchant_book_for_trading",
+                                            "per_level_random_cost": 2,
+                                            "base_random_cost": 2,
+                                            "per_level_cost": 2,
+                                            "base_cost": 2
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "fish",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "function": "enchant_book_for_trading",
+                                            "per_level_random_cost": 2,
+                                            "base_random_cost": 2,
+                                            "per_level_cost": 2,
+                                            "base_cost": 2
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "fish",
+                                    "quantity": 1
+                                },
+                                {
+                                    "item": "book",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "book",
+                                    "quantity": 1,
+                                    "functions": [
+                                        {
+                                            "function": "enchant_book_for_trading",
+                                            "per_level_random_cost": 2,
+                                            "base_random_cost": 2,
+                                            "per_level_cost": 2,
+                                            "base_cost": 2
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "salmon",
+                                    "quantity": 8
+                                },
+                                {
+                                    "item": "iron_ingot",
+                                    "quantity": 8
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "trident"
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "fish",
+                                    "quantity": 16
+                                },
+                                {
+                                    "item": "salmon",
+                                    "quantity": 16
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "heart_of_the_sea"
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "fish",
+                                    "quantity": 8
+                                },
+                                {
+                                    "item": "pufferfish",
+                                    "quantity": 8
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "sponge"
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "salmon",
+                                    "quantity": 8
+                                },
+                                {
+                                    "item": "tropical_fish",
+                                    "quantity": 8
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "sealantern"
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "salmon",
+                                    "quantity": 8
+                                },
+                                {
+                                    "item": "tropical_fish",
+                                    "quantity": 8
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "prismarine"
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "tropical_fish",
+                                    "quantity": 8
+                                },
+                                {
+                                    "item": "pufferfish",
+                                    "quantity": 8
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "nautilus_shell"
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
+                                    "item": "tropical_fish",
+                                    "quantity": 16
+                                },
+                                {
+                                    "item": "emptymap",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "map",
+                                    "functions": [
+                                        {
+                                            "function": "exploration_map",
+                                            "destination": "monument"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

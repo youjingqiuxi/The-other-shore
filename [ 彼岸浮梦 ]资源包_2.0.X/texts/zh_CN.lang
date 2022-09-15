@@ -1,0 +1,676 @@
+##《彼岸浮梦》 < addons:2.0.1 > 汉化翻译
+
+##————————————————————————————————————————
+
+##【模组_自定义生成】
+
+##珍宝箱
+item.spawn_egg.entity.珍宝箱:迷途.name=§5放置 §6迷途珍宝§r
+item.spawn_egg.entity.珍宝箱:旅途.name=§5放置 §6旅途珍宝§r
+
+##魔法飞弹
+item.spawn_egg.entity.制导飞弹:坠星.name=§5精灵·坠星§r
+item.spawn_egg.entity.增幅法阵:星渊.name=§5精灵·星渊§r
+item.spawn_egg.entity.制导飞弹:逐渊.name=§4精灵·噬约§r
+item.spawn_egg.entity.制导飞弹:神恩.name=§4精灵·誓约§r
+item.spawn_egg.entity.制导飞弹:碎星.name=§4精灵·碎星§r
+item.spawn_egg.entity.制导飞弹:沧海.name=§9精灵·沧海§r
+item.spawn_egg.entity.制导飞弹:幻海.name=§9精灵·幻海§r
+item.spawn_egg.entity.增幅法阵:幻戟.name=§9精灵·幻戟§r
+
+##星光阁
+item.spawn_egg.entity.星光阁:琉璃.name=§9星阁-琉璃§r
+item.spawn_egg.entity.星光阁:啸天.name=§9星阁-啸天§r
+item.spawn_egg.entity.星光阁:蔷薇.name=§9星阁-蔷薇§r
+
+##明镜阁
+item.spawn_egg.entity.明镜阁:海灵.name=§9明镜-海灵§r
+item.spawn_egg.entity.明镜阁:珍珠.name=§9明镜-珍珠§r
+item.spawn_egg.entity.明镜阁:欧泊.name=§9明镜-欧泊§r
+item.spawn_egg.entity.明镜阁:渊鲸.name=§9明镜-渊鲸§r
+
+##幻生阁
+item.spawn_egg.entity.幻生阁:绯红.name=§9幻阁-绯红§r
+item.spawn_egg.entity.幻生阁:星砂.name=§9幻阁-星砂§r
+item.spawn_egg.entity.幻生阁:雪隐.name=§9幻阁-雪隐§r
+item.spawn_egg.entity.幻生阁:九九.name=§9幻阁-九九§r
+item.spawn_egg.entity.幻生阁:幽蓝.name=§9幻阁-幽蓝§r
+item.spawn_egg.entity.幻生阁:野蜂.name=§9幻阁-野蜂§r
+
+##超脱者
+item.spawn_egg.entity.超脱者:琉璃.name=§4终焉·琉璃§r
+item.spawn_egg.entity.超脱者:啸天.name=§4神武·啸天§r
+
+##天渊阁
+item.spawn_egg.entity.天渊阁:茉莉.name=§4天渊-茉莉§r
+item.spawn_egg.entity.天渊阁:琥珀.name=§4天渊-琥珀§r
+item.spawn_egg.entity.天渊阁:野蜂.name=§4【 野蜂 】武装侦察机§r
+item.spawn_egg.entity.天渊阁:渊鲸.name=§4【 渊鲸 】武装深潜船§r
+item.spawn_egg.entity.天渊阁:蝰蛇.name=§4【 蝰蛇 】轻型防空车§r
+
+item.spawn_egg.entity.天渊阁:维修.name=§4【 维修型 】增幅核心§r
+item.spawn_egg.entity.天渊阁:防御.name=§4【 防御型 】增幅核心§r
+item.spawn_egg.entity.天渊阁:乾蜂.name=§4【 乾蜂 】前哨塔核心§r
+item.spawn_egg.entity.天渊阁:海渊.name=§4【 海渊 】科考站核心§r
+item.spawn_egg.entity.天渊阁:惧象.name=§4【 惧象 】研究院核心§r
+
+##列车组
+item.spawn_egg.entity.列车组:挖掘.name=§7隧道掘进列车§r
+item.spawn_egg.entity.列车组:座椅.name=§7单人列车座椅§r
+item.spawn_egg.entity.列车组:货架.name=§7列车储物货架§r
+item.spawn_egg.entity.列车组:链接.name=§7魔导链接支架§r
+
+##————————————————————————————————————————
+
+##【模组_自定义实体】
+
+##魔法飞弹
+entity.增幅法阵:星渊.name=§9精灵·星渊§r
+
+entity.制导飞弹:坠星.name=§9精灵·坠星§r
+entity.制导飞弹:逐渊.name=§4精灵·噬约§r
+entity.制导飞弹:碎星.name=§6精灵·碎星§r
+entity.制导飞弹:神恩.name=§6精灵·誓约§r
+entity.制导飞弹:幻海.name=§9精灵·幻海§r
+entity.增幅法阵:幻戟.name=§9精灵·幻戟§r
+entity.制导飞弹:沧海.name=§9精灵·沧海§r
+
+entity.弹道飞弹:辉光.name=§9精灵·辉光§r
+entity.弹道飞弹:星陨.name=§9精灵·星陨§r
+
+##珍宝箱
+entity.珍宝箱:迷途.name=§6迷途珍宝§r
+entity.珍宝箱:旅途.name=§6旅途珍宝§r
+
+##星光阁
+entity.星光阁:琉璃.name=§9星阁-琉璃§r
+entity.星光阁:啸天.name=§9星阁-啸天§r
+entity.星光阁:蔷薇.name=§9星阁-蔷薇§r
+
+##明镜阁
+entity.明镜阁:海灵.name=§9明镜-海灵§r
+entity.明镜阁:珍珠.name=§9明镜-珍珠§r
+entity.明镜阁:欧泊.name=§9明镜-欧泊§r
+entity.明镜阁:渊鲸.name=§9明镜-渊鲸§r
+
+##幻生阁
+entity.幻生阁:绯红.name=§9幻阁-绯红§r
+entity.幻生阁:星砂.name=§9幻阁-星砂§r
+entity.幻生阁:雪隐.name=§9幻阁-雪隐§r
+entity.幻生阁:九九.name=§9幻阁-九九§r
+entity.幻生阁:幽蓝.name=§9幻阁-幽蓝§r
+entity.幻生阁:野蜂.name=§9幻阁-野蜂§r
+
+##超脱者
+entity.超脱者:琉璃.name=§6终焉·琉璃§r
+entity.超脱者:啸天.name=§6神武·啸天§r
+
+##天渊阁
+entity.天渊阁:茉莉.name=§4天渊-茉莉§r
+entity.天渊阁:琥珀.name=§4天渊-琥珀§r
+entity.天渊阁:野蜂.name=§4【 野蜂 】§r
+entity.天渊阁:渊鲸.name=§4【 渊鲸 】§r
+entity.天渊阁:蝰蛇.name=§4【 蝰蛇 】§r
+
+entity.天渊阁:乾蜂.name=§4【 乾蜂 】§r
+entity.天渊阁:维修.name=§4【 维修 】§r
+entity.天渊阁:防御.name=§4【 防御 】§r
+
+##列车组
+entity.列车组:挖掘.name=§7隧道掘进§r
+entity.列车组:座椅.name=§7列车座椅§r
+entity.列车组:货架.name=§7列车货架§r
+entity.列车组:链接.name=§7魔导链接§r
+
+##矩阵接口
+entity.矩阵接口:绘制.name=§7矩阵接口§r
+entity.矩阵接口:锚点.name=§7矩阵接口§r
+
+##————————————————————————————————————————
+
+##【模组_自定义物品】
+## 此处内容请查询: behavior_packs/模组行为包/items/特定物品/"minecraft:display_name"
+
+##————————————————————————————————————————
+
+##【模组_自定义方块】
+tile.工业类:智能建筑台.name=§6智能建筑台§r
+
+tile.工业类:耀石熔炼炉.name=§4耀石熔炼炉§r
+tile.工业类:黑耀石储罐.name=§4黑耀石储罐§r
+tile.工业类:黑耀石热源.name=§4黑耀石热源§r
+
+tile.装饰类:基础伪装板.name=§9基础伪装板§r
+  tile.装饰类:基础椅子.name=§6丛林木椅子§r
+  tile.装饰类:基础桌子.name=§6闪长岩桌子§r
+  tile.装饰类:基础铁锅.name=§6合金小钢锅§r
+
+tile.领域石:基础方块.name=§7基础领域块§r
+tile.领域石:压缩原石.name=§6压缩圆石块§r
+tile.领域石:虚空方块.name=§b虚空之方块§r
+tile.领域石:特种合金.name=§b特种合金块§r
+
+tile.制造台:精灵合成.name=§b精灵合成终端§r
+tile.制造台:魔术溶媒.name=§b魔术溶媒终端§r
+tile.制造台:总线合成.name=§b总线合成终端§r
+
+tile.武装类:弓箭增幅.name=§6< §9弓箭增幅台§6 >§r
+
+tile.魔晶块:基础魔晶.name=§5基础魔晶块§r
+tile.魔晶块:高压魔晶.name=§4高压魔晶块§r
+tile.魔晶块:超频魔晶.name=§9超频魔晶块§r
+
+tile.召唤器:野蜂生成.name=§l< 野蜂战机召唤器 >§r
+tile.召唤器:隧道列车.name=§6< 隧道列车召唤器 >§r
+tile.召唤器:通用列车.name=§6< 通用列车召唤器 >§r
+
+tile.深渊迷途:引导石碑.name=§6< 深渊指引碑 >§r
+tile.深渊迷途:脉冲悬浮.name=§6< 脉冲漂浮石 >§r
+tile.深渊迷途:迷宫再现.name=§6< 迷途之核心 >§r
+tile.深渊迷途:屏障生成.name=§6< 屏障生成器 >§r
+
+tile.深渊迷途:初级_机关门.name=§6< 初级-机关门 >§r
+
+tile.魔导总线:总线本体.name=§6< §9魔导总线§r _ §l§e基础线缆§6 >§r
+tile.魔导总线:信号过滤.name=§6< §9魔导总线§r _ §l§e信号过滤§6 >§r
+tile.魔导总线:信号转化.name=§6< §9魔导总线§r _ §l§e信号转化§6 >§r
+
+tile.魔导总线:脉冲总线.name=§6< §9魔导总线§r _ §l§e脉冲总线§6 >§r
+tile.魔导总线:脉冲锁存.name=§6< §9魔导总线§r _ §l§e脉冲锁存§6 >§r
+tile.魔导总线:逻辑门控.name=§6< §9魔导总线§r _ §l§e逻辑门控§6 >§r
+tile.魔导总线:交互终端.name=§6< §9魔导总线§r _ §l§e交互终端§6 >§r
+tile.魔导总线:灯光侦测.name=§6< §9魔导总线§r _ §l§e灯光侦测§6 >§r
+tile.魔导总线:脉冲计数.name=§6< §9魔导总线§r _ §l§e脉冲计数§6 >§r
+tile.魔导总线:传播许可.name=§6< §9魔导总线§r _ §l§e传播许可§6 >§r
+
+tile.魔导总线:水素能源.name=§6< §9魔导总线§r _ §l§e水素能源§6 >§r
+
+tile.伺服机关:伺服基座.name=§6< §9伺服机关§r _ §l§e伺服基座§6 >§r
+tile.伺服机关:参数设置.name=§6< §9伺服机关§r _ §l§e参数设置§6 >§r
+tile.伺服机关:闪长岩门.name=§6< §9伺服机关§r _ §l§e闪长岩门§6 >§r
+
+tile.伺服机关:效应基座.name=§6< §9伺服机关§r _ §l§e效应基座§6 >§r
+tile.伺服机关:效应核心.name=§6< §9伺服机关§r _ §l§e效应核心§6 >§r
+tile.伺服机关:物资收集.name=§6< §9伺服机关§r _ §l§e物资收集§6 >§r
+
+tile.伺服机关:魔晶上传.name=§6< §9伺服机关§r _ §l§e魔晶§6上传§6 >§r
+tile.伺服机关:魔晶下传.name=§6< §9伺服机关§r _ §l§e魔晶§5下传§6 >§r
+
+tile.输送链带:物资升降.name=§6< §9输送链带§r _ §l§e物资升降§6 >§r
+tile.输送链带:物资流转.name=§6< §9输送链带§r _ §l§e物资流转§6 >§r
+tile.输送链带:基础运输.name=§6< §9输送链带§r _ §l§e基础运输§6 >§r
+
+##————————————————————————————————————————
+
+##【模组_自定义界面】
+##标题
+howtoplay.主题00=§l§6功能简介
+howtoplay.主题01=§l§6开发人员
+howtoplay.主题02=§l§6项目授权
+
+howtoplay.主题03=§l§9星光阁 <实体>
+howtoplay.主题04=§l§9幻生阁 <实体>
+howtoplay.主题05=§l§9明镜阁 <实体>
+howtoplay.主题06=§l§9天渊阁 <实体>
+
+howtoplay.主题10=§l§9隧道列车 <实体>
+howtoplay.主题11=§l§a特殊道具 <物品>
+howtoplay.主题12=§l§a魔导书籍 <物品>
+howtoplay.主题13=§l§5附属功能 <混合>
+howtoplay.主题14=§l§5魔晶矿石 <混合>
+
+howtoplay.主题16=§l§e曜石熔炼 <方块>
+howtoplay.主题17=§l§e迷途机关 <方块>
+howtoplay.主题18=§l§e领域方块 <方块>
+howtoplay.主题19=§l§e输送单元 <方块>
+howtoplay.主题20=§l§5辅助增强 <混合>
+howtoplay.主题21=§l§8深渊迷途 <秘境>
+howtoplay.主题22=§l§e魔导总线 <方块>
+
+
+##简介
+howtoplay.主题00.title=§9关于
+howtoplay.主题01.title=§9关于
+howtoplay.主题02.title=§9关于
+howtoplay.主题03.title=§9关于
+howtoplay.主题04.title=§9关于
+howtoplay.主题05.title=§9关于
+howtoplay.主题06.title=§9关于
+howtoplay.主题07.title=§9关于
+howtoplay.主题08.title=§9关于
+howtoplay.主题09.title=§9关于
+howtoplay.主题10.title=§9关于
+howtoplay.主题11.title=§9关于
+howtoplay.主题12.title=§9关于
+howtoplay.主题13.title=§9关于
+howtoplay.主题14.title=§9关于
+howtoplay.主题15.title=§9关于
+howtoplay.主题16.title=§9关于
+howtoplay.主题17.title=§9关于
+howtoplay.主题18.title=§9关于
+howtoplay.主题19.title=§9关于
+howtoplay.主题20.title=§9关于
+howtoplay.主题21.title=§9关于
+
+##内容
+howtoplay.category.模组信息=§f 《 彼岸浮梦 》模组信息
+howtoplay.category.浮世众生=§f 《 浮世众生 》辅助文档
+howtoplay.category.魔导工业=§f 《 魔导工业 》说明文档
+howtoplay.category.基岩计划=§f 《 基岩计划 》辅助说明
+howtoplay.category.世界探索=§f 【 秘境探索 】介绍文案
+
+##其他
+action.hint.exit.列车组:座椅=§2 已坐下 
+action.hint.exit.明镜阁:渊鲸=欢迎乘坐 < 渊鲸级 深潜炮击舰 >
+action.hint.exit.星光阁:啸天=§2 您已骑上<§9 星阁-啸天 §2>
+
+##accessibility.chat.howtoopen=< 彼岸浮梦 >addons
+
+##————————————————————————————————————————
+
+##【杂项】
+dr.header.capes=披风
+action.interact.tame=契约
+generator.old=有限大的世界
+generator.flat=超平坦的世界
+container.shulkerbox=潜影箱
+trade.expMax=§4需要无尽魔力!
+generator.infinite=无限的世界
+trade.mysteriousText=附魔属性
+createWorldScreen.pvp=玩家误伤
+trade.doesNotWant=该操作无法执行
+createWorldScreen.mobLoot=战利品
+commandBlockScreen.title=命令方块
+commandBlock.genericName=命令方块
+trade.expProgress=§9魔力§:§5 %d/%d
+createWorldScreen.advanced=高级选项-
+createWorldScreen.tileDrops=方块掉落
+createWorldScreen.alwaysDay=永久白昼
+createWorldScreen.tntexplodes=发生爆炸
+createWorldScreen.fireSpreads=火焰蔓延
+createWorldScreen.cheatSettings=开启作弊
+createWorldScreen.respawnRadius=重生半径
+createWorldScreen.educationtoggle=教育版
+container.repair.cost=§9消耗魔力:§5 %1$d
+createWorldScreen.keepInventory=物品不掉落
+createWorldScreen.immediaterespawn=立即重生
+createWorldScreen.entitiesdroploot=掉落实体
+commandBlockScreen.blockType.chain=§2连锁型
+commandBlockScreen.blockType.repeat=§5重复型
+commandBlockScreen.blockType.impulse=§6脉冲型
+createWorldScreen.commandblocksenabled=使用命令方块
+createWorldScreen.experimentalholiday=启用自定义方块
+createWorld.customize.custom.preset.caveChaos=洞穴与悬崖
+
+##————————————————————————————————————————
+
+##【效果】
+potion.wither=生命衰变
+effect.badOmen=村庄噩兆
+effect.villageHero=村庄英雄
+potion.conduitPower=潮涌能量
+
+##————————————————————————————————————————
+
+##【实体】
+entity.unknown.name= 
+entity.tnt.name=§4炸药§r
+entity.xp_orb.name=§5魔力§r
+entity.minecart.name=基础矿车
+entity.xp_bottle.name=§5魔晶石§r
+entity.chest_minecart.name=运输矿车
+entity.hopper_minecart.name=漏斗矿车
+entity.furnace_minecart.name=动力矿车
+entity.tnt_minecart.name=§4爆炸矿车§r
+entity.command_block_minecart.name=命令矿车
+
+entity.allay.name=§2悦灵§r
+entity.glow_squid.name=§2发光鱿鱼§r
+entity.axolotl.name=§2美西螈§r
+entity.bat.name=§2蝙蝠§r
+entity.cat.name=§2猫§r
+entity.chicken.name=§2鸡§r
+entity.cow.name=§2牛§r
+entity.donkey.name=§2驴§r
+entity.fox.name=§2狐狸§r
+entity.cod.name=§2鳕鱼§r
+entity.salmon.name=§2鲑鱼§r
+entity.tropicalfish.name=§2热带鱼§r
+entity.horse.name=§2马§r
+entity.mule.name=§2骡§r
+entity.mooshroom.name=§2哞菇§r
+entity.ocelot.name=§2豹猫§r
+entity.parrot.name=§2鹦鹉§r
+entity.pig.name=§2猪§r
+entity.rabbit.name=§2兔子§r
+entity.sheep.name=§2羊§r
+entity.skeleton_horse.name=§2骷髅马§r
+entity.squid.name=§2鱿鱼§r
+entity.turtle.name=§2海龟§r
+entity.villager.name=§2村民§r
+entity.villager.armor=§2盔甲商§r
+entity.villager.butcher=§2屠夫§r
+entity.villager.cartographer=§2制图师§r
+entity.villager.cleric=§2牧师§r
+entity.villager.farmer=§2农夫§r
+entity.villager.fisherman=§2渔夫§r
+entity.villager.fletcher=§2制箭师§r
+entity.villager.leather=§2皮匠§r
+entity.villager.librarian=§2图书管理员§r
+entity.villager.name=§2村民§r
+entity.villager.shepherd=§2牧羊人§r
+entity.villager.tool=§2工具商§r
+entity.villager.weapon=§2武器商§r
+entity.villager.mason=§2石匠§r
+entity.villager.unskilled=§2不熟练的村民§r
+entity.villager_v2.name=§2村民§r
+entity.vindicator.name=§4卫道士§r
+entity.wandering_trader.name=§2旅行商人§r
+entity.zombie_horse.name=§2僵尸马§r
+entity.strider.name=§2炽足兽§r
+
+entity.goat.name=§6山羊§r
+entity.bee.name=§6蜜蜂§r
+entity.dolphin.name=§6海豚§r
+entity.panda.name=§6熊猫§r
+entity.enderman.name=§6末影人§r
+entity.pufferfish.name=§6刺豚鱼§r
+entity.iron_golem.name=§6铁傀儡§r
+entity.llama.name=§6羊驼§r
+entity.polar_bear.name=§6北极熊§r
+entity.snow_golem.name=§6雪傀儡§r
+entity.wolf.name=§6狼§r
+entity.zombie_pigman.name=§6僵尸猪灵§r
+entity.piglin.name=§6猪灵§r
+
+entity.blaze.name=§4烈焰人§r
+entity.cave_spider.name=§4洞穴蜘蛛§r
+entity.creeper.name=§4苦力怕§r
+entity.drowned.name=§4水魁§r
+entity.elder_guardian.name=§4远古海洋守卫者§r
+entity.ender_dragon.name=§4【==§5 末影龙 §4==】§r
+entity.endermite.name=§4末影螨§r
+entity.evocation_illager.name=§4唤魔者§r
+entity.ghast.name=§4恶魂§r
+entity.guardian.name=§4海洋守卫者§r
+entity.husk.name=§4尸傀§r
+entity.ravager.name=§4掠夺兽§r
+entity.magma_cube.name=§4熔岩史莱姆§r
+entity.phantom.name=§4幻翼§r
+entity.pillager.name=§4劫掠者§r
+entity.shulker.name=§4潜影贝§r
+entity.silverfish.name=§4蠹虫§r
+entity.skeleton.name=§4骷髅§r
+entity.stray.name=§4流骷§r
+entity.slime.name=§4史莱姆§r
+entity.spider.name=§4蜘蛛§r
+entity.vex.name=§4恼鬼§r
+entity.witch.name=§4女巫§r
+entity.wither.name=§4【==§5 凋灵 §4==】§r
+entity.wither_skeleton.name=§4凋灵骷髅§r
+entity.wither_skull.name=§4凋灵骷髅头§r
+entity.wither_skull_dangerous.name=§4凋灵骷髅头§r
+entity.zombie_villager.name=§4僵尸村民§r
+entity.zombie_villager_v2.name=§4僵尸村民§r
+entity.zombie.name=§4僵尸§r
+entity.hoglin.name=§4疣猪兽§r
+entity.zoglin.name=§4僵尸疣猪兽§r
+entity.piglin_brute.name=§4猪灵蛮兵§r
+
+##————————————————————————————————————————
+
+##【生成】
+item.spawn_egg.entity.allay.name=生成 悦灵
+item.spawn_egg.entity.drowned.name=生成 水魁
+item.spawn_egg.entity.creeper.name=生成 苦力怕
+item.spawn_egg.entity.magma_cube.name=生成 熔岩史莱姆
+item.spawn_egg.entity.stray.name=生成 流骷
+item.spawn_egg.entity.vex.name=生成 恼鬼
+item.spawn_egg.entity.husk.name=生成 尸傀
+item.spawn_egg.entity.guardian.name=生成 海洋守卫者
+item.spawn_egg.entity.elder_guardian.name=生成 远古守卫者
+item.spawn_egg.entity.shulker.name=生成 潜影贝
+item.spawn_egg.entity.phantom.name=生成 幻翼
+item.spawn_egg.entity.piglin_brute.name=生成 猪灵蛮兵
+
+##————————————————————————————————————————
+
+##【方块】
+tile.tinted_glass.name=遮光玻璃
+tile.jigsaw.name=拼图方块
+tile.allow.name=允许建设方块
+tile.deny.name=拒绝建设方块
+tile.border_block.name=边境之墙
+tile.end_gateway.name=末影折跃门
+tile.glowingobsidian.name=发光黑曜石
+tile.bell.name=村庄钟
+tile.conduit.name=浪涌核心
+tile.brown_mushroom.name=平菇
+tile.lightning_rod.name=避雷针
+tile.brown_mushroom_block.name=蘑菇方块
+tile.dried_kelp_block.name=干海带块
+tile.shulkerBoxWhite.name=白色潜影箱
+tile.shulkerBoxOrange.name=橙色潜影箱
+tile.shulkerBoxMagenta.name=品红色潜影箱
+tile.shulkerBoxLightBlue.name=淡蓝色潜影箱
+tile.shulkerBoxYellow.name=黄色潜影箱
+tile.shulkerBoxLime.name=黄绿色潜影箱
+tile.shulkerBoxPink.name=粉红色潜影箱
+tile.shulkerBoxGray.name=灰色潜影箱
+tile.shulkerBoxSilver.name=淡灰色潜影箱
+tile.shulkerBoxCyan.name=青色潜影箱
+tile.shulkerBoxPurple.name=紫色潜影箱
+tile.shulkerBoxBlue.name=蓝色潜影箱
+tile.shulkerBoxBrown.name=棕色潜影箱
+tile.shulkerBoxGreen.name=绿色潜影箱
+tile.shulkerBoxRed.name=红色潜影箱
+tile.shulkerBoxBlack.name=黑色潜影箱
+tile.shulkerBox.name=潜影箱
+tile.chorus_flower.name=紫颂花
+tile.chorus_plant.name=紫颂茎
+tile.command_block.name=§6脉冲型命令方块§r
+tile.repeating_command_block.name=§5重复型命令方块§r
+tile.chain_command_block.name=§2连锁型命令方块§r
+tile.purpur_block.default.name=紫颂块
+tile.purpur_block.lines.name=竖纹紫颂块
+tile.purpur_block.chiseled.name=錾制紫颂块
+tile.purpur_stairs.name=紫颂阶梯
+tile.stone_slab2.purpur.name=紫颂台阶
+tile.grass_path.name=草径
+tile.monster_egg.brick.name=蠹虫石砖
+tile.monster_egg.chiseledbrick.name=蠹虫錾制石砖
+tile.monster_egg.cobble.name=蠹虫圆石
+tile.monster_egg.crackedbrick.name=蠹虫裂石砖
+tile.monster_egg.mossybrick.name=蠹虫苔石砖
+tile.monster_egg.name=蠹虫石头
+tile.monster_egg.stone.name=蠹虫石头
+tile.red_mushroom.name=红蘑菇
+tile.red_mushroom_block.name=红蘑菇方块
+tile.tnt.name=炸药
+tile.sweet_berry_bush.name=甜浆果灌木丛
+tile.wood.stripped.oak.name=剥皮橡木
+tile.wood.stripped.spruce.name=剥皮云杉木
+tile.wood.stripped.birch.name=剥皮桦木
+tile.wood.stripped.jungle.name=剥皮丛林木
+tile.wood.stripped.acacia.name=剥皮金合欢木
+tile.wood.stripped.dark_oak.name=剥皮深色橡木
+tile.coral_block.blue.name=管珊瑚块
+tile.coral_block.pink.name=脑珊瑚块
+tile.coral_block.purple.name=泡珊瑚块
+tile.coral_block.red.name=火珊瑚块
+tile.coral_block.yellow.name=角珊瑚块
+tile.coral_block.blue_dead.name=死亡管珊瑚块
+tile.coral_block.pink_dead.name=死亡脑珊瑚块
+tile.coral_block.purple_dead.name=死亡泡珊瑚块
+tile.coral_block.red_dead.name=死亡火珊瑚块
+tile.coral_block.yellow_dead.name=死亡角珊瑚块
+
+##————————————————————————————————————————
+
+##【物品】
+item.shield.name=盾牌
+item.appleEnchanted.name=附魔金苹果
+item.bell.name=村庄钟
+item.bucketLava.name=桶装岩浆
+item.bucketWater.name=桶装水
+item.bucketFish.name=桶装鳕鱼
+item.bucketSalmon.name=桶装鲑鱼
+item.bucketTropical.name=桶装热带鱼
+item.bucketPuffer.name=桶装刺豚鱼
+item.chorus_fruit.name=紫颂果
+item.chorus_fruit_popped.name=爆裂紫颂果
+item.elytra.name=鞘翅
+item.experience_bottle.name=§5魔晶石§r
+item.heart_of_the_sea.name=海洋之心
+item.minecart.name=基础矿车
+item.chest_minecart.name=运输矿车
+item.command_block_minecart.name=命令方块矿车
+item.minecartFurnace.name=动力矿车
+item.hopper_minecart.name=漏斗矿车
+item.tnt_minecart.name=爆炸矿车
+item.clock.name=时钟
+item.skull.creeper.name=苦力怕头颅
+item.shulker_shell.name=潜影贝壳
+item.totem.name=不死图腾
+item.turtle_helmet.name=龟鳞头盔
+item.turtle_shell_piece.name=龟鳞
+item.phantom_membrane.name=幻翼膜
+item.sweet_berries.name=甜浆果
+item.suspicious_stew.name=迷之炖菜
+item.banner_pattern.creeper=苦力怕头像
+itemGroup.name.monsterStoneEgg=蠹虫石头
+itemGroup.name.mobEgg=生物生成蛋
+itemGroup.name.shulkerBox=潜影贝箱子
+itemGroup.name.fireworkStars=烟花核心
+
+##————————————————————————————————————————
+
+##【建筑】
+feature.endcity=末地之城
+feature.fortress=地狱堡垒
+feature.mansion=林地宅邸
+feature.mineshaft=废弃矿井
+feature.missingno=未知功能
+feature.monument=海底遗迹
+feature.stronghold=末影要塞
+feature.temple=遗迹神庙
+feature.village=自然村庄
+feature.shipwreck=海底沉船
+feature.buriedtreasure=尘封宝藏
+feature.ruins=海洋废墟
+feature.pillageroutpost=劫掠哨所
+
+##————————————————————————————————————————
+
+##【附魔】
+##攻击
+enchantment.arrowDamage=§6强力之弓
+enchantment.crossbowPiercing=§6弩击穿透
+enchantment.arrowKnockback=§6冲击之弓
+enchantment.damage.all=§6锋利之刃
+enchantment.damage.arthropods=§6节肢杀手
+enchantment.damage.undead=§6亡灵杀手
+enchantment.tridentChanneling=§6引雷之戟
+
+##水系
+enchantment.frostwalker=§9冰霜行者
+enchantment.tridentRiptide=§9激流冲刺
+enchantment.tridentImpaling=§9穿刺之戟
+enchantment.waterWalker=§9深海探索
+enchantment.waterWorker=§9水下速掘
+enchantment.lootBonusFishing=§9海之眷顾
+enchantment.fishingSpeed=§5诱饵之钓
+enchantment.oxygen=§9水下呼吸
+
+##火系
+enchantment.arrowFire=§4火焰之弓
+enchantment.fire=§4火焰附加
+
+##盾系
+enchantment.protect.all=§5伤害保护
+enchantment.protect.explosion=§5爆炸保护
+enchantment.protect.fall=§5摔落保护
+enchantment.protect.fire=§5火焰保护
+enchantment.protect.projectile=§5弹射保护
+enchantment.thorns=§5反伤之甲
+
+##法系
+enchantment.arrowInfinite=§5无限箭矢
+enchantment.crossbowMultishot=§5多重射击
+enchantment.crossbowQuickCharge=§5快速装填
+enchantment.digging=§5采掘效率
+enchantment.durability=§5耐久提升
+enchantment.knockback=§5生物击退
+enchantment.lootBonus=§5物资抢夺
+enchantment.lootBonusDigger=§5时运采掘
+enchantment.mending=§5魔力修复
+enchantment.untouching=§5精准采集
+enchantment.tridentLoyalty=§5忠诚之戟
+enchantment.soul_speed=§5灵魂疾行
+
+##诅咒
+enchantment.curse.binding=§7绑定诅咒
+enchantment.curse.vanishing=§7消失诅咒
+
+##————————————————————————————————————————
+
+##【失败】
+death.attack.anvil=§9 %1$s §r被铁砧天降正义了
+death.attack.cactus=§9 %1$s §r试图拥抱仙人掌
+death.attack.cactus.player=§9 %1$s §r在逃离§4 %2$s §r时试图与仙人共舞
+death.attack.magic=§9 %1$s §r时运不济,魂归高天
+death.attack.inWall=§9 %1$s §r穿墙失败
+death.attack.flyIntoWall=§9 %1$s §r撞壁失败
+death.attack.starve=§9 %1$s §r节食失败
+death.attack.wither=§9 %1$s §r凋谢了
+
+##<天谴类>
+death.attack.explosion.player=§9 %1$s §r被§4 %2$s §r强制升仙了
+death.attack.fallingBlock=§9 %1$s §r被天降正义了
+death.attack.fireworks=§9 %1$s §r在雷鸣中穿越了
+death.attack.explosion=§9 %1$s §r原地升仙
+death.attack.lightningBolt=§9 %1$s §r渡劫失败
+death.attack.outOfWorld=§9 %1$s §r试图穿越
+
+##<水伤类>
+death.attack.drown=§9 %1$s §r没能成为海王
+death.attack.drown.player=§9 %1$s §r在逃离§4 %2$s §r时试图成为海王
+
+##<战斗类>
+death.attack.generic=§9 %1$s §r离开了这个世界
+death.attack.mob=§9 %1$s §r被§4 %2$s §r逐出世界
+death.attack.arrow=§9 %1$s §r因§4 %2$s §r而透心凉
+death.attack.player=§9 %1$s §r被§4 %2$s §r逐出世界
+death.attack.thrown=§9 %1$s §r被§4 %2$s §r给天降正义了
+death.attack.thorns=§9 %1$s §r在试图伤害§4 %2$s §r时与世长辞
+death.attack.arrow.item=§9 %1$s §r因§4 %2$s §r用 %3$s 而透心凉
+death.attack.indirectMagic=§9 %1$s §r被§4 %2$s §r的力量逐出世界
+death.attack.player.item=§9 %1$s §r被§4 %2$s §r用 %3$s 逐出世界
+death.attack.thrown.item=§9 %1$s §r被§4 %2$s §r用 %3$s 给天降正义了
+death.attack.indirectMagic.item=§9 %1$s §r被§4 %2$s §r使用 %3$s 逐出世界
+
+##<火伤类>
+death.attack.inFire=§9 %1$s §r焦灼难耐
+death.attack.onFire=§9 %1$s §r欲火焚身
+death.attack.magma=§9 %1$s §r尝试在岩浆上行走
+death.attack.lava=§9 %1$s §r试图使用岩浆洗澡
+death.attack.fireball=§9 %1$s §r因§4 %2$s §r而浴火焚身
+death.attack.magma.player=由于 %2$s，§9 %1$s §r步入无比炙热的危险之地
+death.attack.inFire.player=§9 %1$s §r在与§4 %2$s §r战斗时试图与火共舞
+death.attack.onFire.player=§9 %1$s §r在试图与§4 %2$s §r战斗时被烤的酥脆
+death.attack.fireball.item=§9 %1$s §r因§4 %2$s §r使用了 %3$s 而浴火焚身
+death.attack.lava.player=§9 %1$s §r在逃离§4 %2$s §r时试图在岩浆上凌波微步
+
+##<摔落类>主动
+death.fell.accident.generic=§9 %1$s §r尝试信仰之跃,但……没有风之翼……
+death.fell.accident.water=§9 %1$s §r尝试进行落地水,但失败了……
+death.fell.accident.ladder=§9 %1$s §r尝试攀爬梯子时不慎失足
+death.fell.accident.vines=§9 %1$s §r认为藤蔓是可以攀爬的……
+death.attack.fall=%1$s落地成盒
+
+##<摔落类>被动
+death.fell.assist.item=§9 %1$s §r由于§4 %2$s §r使用了 %3$s 而被迫进行雏鹰起飞,但失败了……
+death.fell.finish.item=§9 %1$s §r因为摔得太痛并被§4 %2$s §r用 %3$s 成功补刀
+death.fell.assist=§9 %1$s §r被§4 %2$s §r从高空中推下,离开了这个世界
+death.fell.finish=§9 %1$s §r因为摔得太痛而被§4 %2$s §r成功补刀
+death.fell.killer=§9 %1$s §r在他人的教唆下尝试进行信仰之跃

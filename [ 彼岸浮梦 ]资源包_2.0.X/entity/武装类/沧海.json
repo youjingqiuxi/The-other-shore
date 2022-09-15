@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "制导飞弹:沧海",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "Map": "textures/entity/沧海"
+            },
+            "geometry": {
+                "default": "geometry.jellyfish"
+            },
+            "scripts": {
+                "animate": [
+                    "attact"
+                ]
+            },
+            "animations": {
+                "attact": "animation.jellyfish.attact"
+            },
+            "render_controllers": [
+                "controller.render.Map:X01"
+            ],
+            "spawn_egg": {
+                "texture": "明镜阁_图标",
+                "texture_index": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.book.False_mark_of_anchor_point"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SC"
+        ],
+        "key": {
+            "S": {
+                "item": "基础书籍:魔导手册"
+            },
+            "C": {
+                "item": "魔法书籍:瞬间移动"
+            }
+        },
+        "result": {
+            "item": "特殊道具:锚点虚印"
+        }
+    }
+}

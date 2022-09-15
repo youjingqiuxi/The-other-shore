@@ -1,0 +1,58 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "魔法礼盒:匣里乾坤",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "匣里乾坤"
+            },
+            "minecraft:display_name": {
+                "value": "§l§6< 匣里乾坤 >§r"
+            },
+            "minecraft:creative_category": {
+                "parent": "equipment"
+            },
+            "minecraft:cooldown": {
+                "category": "匣里乾坤",
+                "duration": 1
+            },
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:foil": false,
+            "minecraft:render_offsets": {
+                "main_hand": {
+                    "third_person": {
+                        "position": [
+                            0.20,
+                            0.85,
+                            -0.5
+                        ],
+                        "scale": [
+                            0.04,
+                            0.04,
+                            0.04
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            1.5,
+                            -0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.06,
+                            0.06,
+                            0.06
+                        ]
+                    }
+                }
+            }
+        },
+        "events": {}
+    }
+}

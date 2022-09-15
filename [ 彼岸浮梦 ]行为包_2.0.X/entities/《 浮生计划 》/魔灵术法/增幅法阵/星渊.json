@@ -1,0 +1,101 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "增幅法阵:星渊",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    "runs"
+                ]
+            },
+            "animations": {
+                "runs": "controller.animation.train_adds"
+            }
+        },
+        "component_groups": {
+            "链接": {
+                "minecraft:behavior.find_mount": {
+                    "priority": 0,
+                    "within_radius": 15,
+                    "start_delay": 1,
+                    "max_failed_attempts": 99
+                },
+                "minecraft:movement.hover": {},
+                "minecraft:flying_speed": {
+                    "value": 0.0
+                },
+                "minecraft:navigation.hover": {
+                    "can_path_from_air": true,
+                    "is_amphibious": true,
+                    "can_swim": true,
+                    "can_sink": true
+                }
+            },
+            "消失": {
+				"minecraft:instant_despawn": {
+					"remove_child_entities": true
+				}
+			}
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "spirit",
+                    "amulet",
+                    "abyss"
+                ]
+            },
+            "minecraft:health": {
+                "value": 1
+            },
+			"minecraft:behavior.ranged_attack": {
+				"attack_interval_min": 1,
+				"attack_interval_max": 4,
+				"attack_radius": 16
+			},
+			"minecraft:shooter": {
+				"def": "制导飞弹:逐渊"
+			},
+            "minecraft:breathable": {
+                "totalSupply": 10,
+                "suffocateTime": 0,
+                "breathes_air": true,
+                "breathes_lava": true,
+                "breathes_water": true,
+                "breathes_solids": true
+            },
+            "minecraft:fire_immune": true,
+			"minecraft:scale": {
+				"value": 1.5
+			},
+            "minecraft:collision_box": {
+                "width": 0.1,
+                "height": 0.1
+            },
+			"minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "链接"
+                    ]
+                }
+            },
+            "事件:实体消失": {
+                "add": {
+                    "component_groups": [
+                        "消失"
+                    ]
+                }
+            }
+        }
+    }
+}

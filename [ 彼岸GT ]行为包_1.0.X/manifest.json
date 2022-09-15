@@ -29,7 +29,7 @@
         {
             "uuid": "87734006-DEF1-BFD6-47F7-C88E0DB01D30",
             "description": "The_other_shore.Gametest",
-            "entry": "scripts/main_script.js",
+            "entry": "scripts/matrix_API/plan/main.js",
             "language": "javascript",
             "type": "script",
             "version": [

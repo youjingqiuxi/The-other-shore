@@ -1,0 +1,296 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "深渊迷途:初级_机关门",
+            "category": "construction",
+            "properties": {
+                "Table:switch": [
+                    0,
+                    1,
+                    2
+                ],
+                "Table:angle": [
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.door_block.mechanism_door",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": false,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "特殊机关门",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "open": "query.block_property('Table:switch') == 0",
+                    "shut": "query.block_property('Table:switch') == 1"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -4
+                ],
+                "size": [
+                    16,
+                    16,
+                    8
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -4
+                ],
+                "size": [
+                    16,
+                    16,
+                    8
+                ]
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "tag:level1_mechanism_door":{}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:进行侦测",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 2",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            10,
+                            10
+                        ],
+                        "on_tick": {
+                            "event": "事件:拆除门板",
+                            "target": "self"
+                        }
+                    },
+                    "tag:Magic_Bus_open": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 2",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 3",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        180,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 4",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        90,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:angle') == 5",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        270,
+                        0
+                    ]
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:angle": "(query.cardinal_facing_2d)",
+                    "Table:switch": 0
+                }
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
+                        "set_block_property": {
+                            "Table:switch": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 自动侦测 | : 已关闭",
+                                "playsound random.click @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
+                        "set_block_property": {
+                            "Table:switch": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 自动侦测 | : 已开启",
+                                "playsound random.click @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar §6| 自动侦听 | 已开启§9 请寻找附近的解锁机关!",
+                                "playsound hit.amethyst_block @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar §6| 自动侦听 | 已关闭§c 请使用§6[§2 工具 §6]§c开启功能!",
+                                "playsound hit.amethyst_block @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:进行侦测": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    },
+
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(1,-1,0,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,1,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,-1,1,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    },
+
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(-1,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,-1,0,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,1,-1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,-1,-1,'Magic_Bus_open') == 1",
+                        "set_block_property": {
+                            "Table:switch": 2
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:拆除门板": {
+                "run_command": {
+                    "command": [
+                        "playsound block.grindstone.use @a[r=15] ~~~",
+                        "setblock ~~~ air"
+                    ]
+                }
+            }
+        }
+    }
+}

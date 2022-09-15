@@ -1,0 +1,30 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.book.enter_contracts"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "###",
+            "#10",
+            "###"
+        ],
+        "key": {
+            "#": {
+                "item": "gold_nugget"
+            },
+            "0": {
+                "item": "diamond"
+            },
+            "1": {
+                "item": "基础书籍:魔导手册"
+            }
+        },
+        "result": {
+            "item": "魔法书籍:精灵结契"
+        }
+    }
+}

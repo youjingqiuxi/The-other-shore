@@ -1,0 +1,34 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "幻生阁:野蜂",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "Map": "textures/entity/无人机/野蜂/追击者"
+            },
+            "geometry": {
+                "default": "geometry.wild_bee"
+            },
+            "scripts": {
+                "animate": [
+                    "watch"
+                ]
+            },
+            "animations": {
+                "watch": "controller.animation.ControlAttack.5",
+                "attack": "animation.uav-wild_bee.battle",
+                "basic": "animation.uav-wild_bee.routine"
+            },
+            "render_controllers": [
+                "controller.render.Map:X01"
+            ],
+            "spawn_egg": {
+                "texture": "幻生阁_图标",
+                "texture_index": 0
+            }
+        }
+    }
+}

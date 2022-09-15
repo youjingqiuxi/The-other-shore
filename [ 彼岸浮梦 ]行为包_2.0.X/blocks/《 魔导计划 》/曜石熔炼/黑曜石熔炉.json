@@ -1,0 +1,412 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "工业类:耀石熔炼炉",
+            "category": "construction",
+            "properties": {
+                "Table:output": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "Table:input": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "Table:cache": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "Table:await": [
+                    0,
+                    1,
+                    2
+                ],
+                "Table:full": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.magmastove",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "曜石熔炼炉",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "input0": "query.block_property('Table:input') == 0",
+                    "input1": "query.block_property('Table:input') == 1",
+                    "input2": "query.block_property('Table:input') == 2",
+                    "input3": "query.block_property('Table:input') == 3",
+                    "input4": "query.block_property('Table:input') == 4",
+                    "input5": "query.block_property('Table:input') == 5",
+                    "input6": "query.block_property('Table:input') == 6",
+                    "input7": "query.block_property('Table:input') == 7",
+                    "input8": "query.block_property('Table:input') == 8",
+                    "cache0": "query.block_property('Table:cache') == 0",
+                    "cache1": "query.block_property('Table:cache') == 1",
+                    "cache2": "query.block_property('Table:cache') == 2",
+                    "cache3": "query.block_property('Table:cache') == 3",
+                    "cache4": "query.block_property('Table:cache') == 4",
+                    "cache5": "query.block_property('Table:cache') == 5",
+                    "cache6": "query.block_property('Table:cache') == 6",
+                    "cache7": "query.block_property('Table:cache') == 7",
+                    "cache8": "query.block_property('Table:cache') == 8",
+                    "output1": "query.block_property('Table:output') == 1",
+                    "output2": "query.block_property('Table:output') == 2",
+                    "output3": "query.block_property('Table:output') == 3",
+                    "output4": "query.block_property('Table:output') == 4",
+                    "output5": "query.block_property('Table:output') == 5",
+                    "output6": "query.block_property('Table:output') == 6",
+                    "output7": "query.block_property('Table:output') == 7",
+                    "output8": "query.block_property('Table:output') == 8",
+                    "ins0_1": "query.block_property('Table:full') == 0",
+                    "ins0_2": "query.block_property('Table:full') == 0",
+                    "ins0_3": "query.block_property('Table:full') == 0",
+                    "ins0_4": "query.block_property('Table:full') == 0",
+                    "ins1_1": "query.block_property('Table:full') == 1",
+                    "ins1_2": "query.block_property('Table:full') == 1",
+                    "ins1_3": "query.block_property('Table:full') == 1",
+                    "ins1_4": "query.block_property('Table:full') == 1"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -6,
+                    0,
+                    -6
+                ],
+                "size": [
+                    12,
+                    16,
+                    12
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -6,
+                    0,
+                    -6
+                ],
+                "size": [
+                    12,
+                    16,
+                    12
+                ]
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:await') == 0",
+                "components": {
+                    "tag:furnace_await_false": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:await') != 0",
+                "components": {
+                    "tag:furnace_await_true": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:output') == 0",
+                "components": {
+                    "minecraft:light_emission": 0,
+                    "tag:furnace_magma_false": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:output') != 0",
+                "components": {
+                    "minecraft:light_emission": 15,
+                    "tag:furnace_magma_true": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:full') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            120,
+                            180
+                        ],
+                        "on_tick": {
+                            "event": "事件:功能运行",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:full') == 1",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            10,
+                            10
+                        ],
+                        "on_tick": {
+                            "event": "事件:自动提取",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:output": 0,
+                    "Table:input": 0,
+                    "Table:cache": 0,
+                    "Table:full": 0
+                }
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:cobblestone') == 1",
+                        "trigger": {
+                            "event": "事件:填充圆石",
+                            "target": "self"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound use.stone @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'领域石:压缩原石') == 1",
+                        "trigger": {
+                            "event": "事件:快速填充",
+                            "target": "self"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound use.stone @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:bucket') == 1",
+                        "trigger": {
+                            "event": "事件:提取岩浆",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:填充圆石": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:input') != 8",
+                        "set_block_property": {
+                            "Table:input": "(query.block_property('Table:input') + 1)"
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.block_property('Table:input') == 8 && query.block_property('Table:cache') != 8",
+                        "set_block_property": {
+                            "Table:cache": "(query.block_property('Table:cache') + 1)",
+                            "Table:input": 1
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.block_property('Table:input') == 8 && query.block_property('Table:cache') == 8",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar 储存空间不足, 原料无法继续填充"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:output') != 8",
+                        "set_block_property": {
+                            "Table:full": 0
+                        }
+                    }
+                ]
+            },
+            "事件:快速填充": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:cache') != 8",
+                        "set_block_property": {
+                            "Table:cache": "(query.block_property('Table:cache') + 1)",
+                            "Table:full": 0
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "query.block_property('Table:cache') == 8",
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar 储存空间不足, 原料无法继续填充"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:提取岩浆": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:output') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar 储备不足, 无法提取"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:output') != 0",
+                        "decrement_stack": {},
+                        "spawn_loot": {
+                            "table": "loot_tables/熔岩桶.json"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound bucket.empty_lava @a ~~~"
+                            ]
+                        },
+                        "set_block_property": {
+                            "Table:output": "(query.block_property('Table:output') - 1)"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:output') != 8",
+                        "set_block_property": {
+                            "Table:full": 0
+                        }
+                    }
+                ]
+            },
+            "事件:功能运行": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:output') != 8 && query.block_property('Table:cache') != 0 && query.block_neighbor_has_all_tags(0,-1,0,'Heat_source_open') == 1 ",
+                        "set_block_property": {
+                            "Table:output": "(query.block_property('Table:output') + 1)",
+                            "Table:cache": "(query.block_property('Table:cache') - 1)"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:output') == 8",
+                        "set_block_property": {
+                            "Table:full": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p[r=5] actionbar 储存空间不足, 无法继续生产"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:自动提取": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:await') == 0 && query.block_property('Table:output') != 0 && query.block_neighbor_has_all_tags(1,0,0,'vessel_await_true') == 1",
+                        "set_block_property": {
+                            "Table:await": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:await') == 1 && query.block_neighbor_has_all_tags(1,0,0,'vessel_await_true') == 1",
+                        "set_block_property": {
+                            "Table:output": "(query.block_property('Table:output') - 1)",
+                            "Table:await": 0
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:await') == 0 && query.block_property('Table:output') != 0 && query.block_neighbor_has_all_tags(0,0,1,'vessel_await_true') == 1",
+                        "set_block_property": {
+                            "Table:await": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:await') == 1 && query.block_neighbor_has_all_tags(0,0,1,'vessel_await_true') == 1",
+                        "set_block_property": {
+                            "Table:output": "(query.block_property('Table:output') - 1)",
+                            "Table:await": 0
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:await') == 0 && query.block_property('Table:output') != 0 && query.block_neighbor_has_all_tags(-1,0,0,'vessel_await_true') == 1",
+                        "set_block_property": {
+                            "Table:await": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:await') == 1 && query.block_neighbor_has_all_tags(-1,0,0,'vessel_await_true') == 1",
+                        "set_block_property": {
+                            "Table:output": "(query.block_property('Table:output') - 1)",
+                            "Table:await": 0
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:await') == 0 && query.block_property('Table:output') != 0 && query.block_neighbor_has_all_tags(0,0,-1,'vessel_await_true') == 1",
+                        "set_block_property": {
+                            "Table:await": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:await') == 1 && query.block_neighbor_has_all_tags(0,0,-1,'vessel_await_true') == 1",
+                        "set_block_property": {
+                            "Table:output": "(query.block_property('Table:output') - 1)",
+                            "Table:await": 0
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:output') == 0",
+                        "set_block_property": {
+                            "Table:full": 0
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,135 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.hold_book_reading": {
+            "initial_state": "close",
+            "states": {
+                "open": {
+                    "animations": [
+                        "OpenBook",
+                        "BookFloat"
+                    ],
+                    "transitions": [
+                        {
+                            "switch.1": "query.is_on_ground == 0"
+                        },
+                        {
+                            "close": "query.is_in_contact_with_water == 1"
+                        },
+                        {
+                            "close": "query.is_sprinting == 1"
+                        }
+                    ]
+                },
+                "switch.1": {
+                    "animations": [
+                        "CloseBook"
+                    ],
+                    "transitions": [
+                        {
+                            "page_flip.1": "query.is_on_ground == 1"
+                        }
+                    ]
+                },
+                "page_flip.1": {
+                    "animations": [
+                        "PageFlip.1",
+                        "BookFloat",
+                        "OpenBook"
+                    ],
+                    "transitions": [
+                        {
+                            "switch.2": "query.is_on_ground == 0"
+                        },
+                        {
+                            "close": "query.is_in_contact_with_water == 1"
+                        },
+                        {
+                            "close": "query.is_sprinting == 1"
+                        }
+                    ]
+                },
+                "switch.2": {
+                    "animations": [
+                        "CloseBook"
+                    ],
+                    "transitions": [
+                        {
+                            "page_flip.2": "query.is_on_ground == 1"
+                        }
+                    ]
+                },
+                "page_flip.2": {
+                    "animations": [
+                        "PageFlip.2",
+                        "BookFloat",
+                        "OpenBook"
+                    ],
+                    "transitions": [
+                        {
+                            "switch.3": "query.is_on_ground == 0"
+                        },
+                        {
+                            "close": "query.is_in_contact_with_water == 1"
+                        },
+                        {
+                            "close": "query.is_sprinting == 1"
+                        }
+                    ]
+                },
+                "switch.3": {
+                    "animations": [
+                        "CloseBook"
+                    ],
+                    "transitions": [
+                        {
+                            "open": "query.is_on_ground == 1"
+                        }
+                    ]
+                },
+                "close": {
+                    "animations": [
+                        "CloseBook"
+                    ],
+                    "transitions": [
+                        {
+                            "open": "query.is_sprinting == 0 && query.is_in_contact_with_water == 0"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.hold_box_switch": {
+            "initial_state": "close",
+            "states": {
+                "open": {
+                    "animations": [
+                        "Open",
+                        "Float"
+                    ],
+                    "transitions": [
+                        {
+                            "close": "query.is_on_ground == 0"
+                        },
+                        {
+                            "close": "query.is_in_contact_with_water == 1"
+                        },
+                        {
+                            "close": "query.is_sprinting == 1"
+                        }
+                    ]
+                },
+                "close": {
+                    "animations": [
+                        "Close"
+                    ],
+                    "transitions": [
+                        {
+                            "open": "query.is_on_ground == 1 && query.is_sprinting == 0 && query.is_in_contact_with_water == 0"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

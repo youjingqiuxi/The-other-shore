@@ -1,0 +1,134 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "增幅法阵:幻戟",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "悬浮": {
+                "minecraft:behavior.find_mount": {
+                    "priority": 0,
+                    "start_delay": 0,
+                    "within_radius": 16,
+                    "max_failed_attempts": 99
+                },
+                "minecraft:movement.hover": {},
+                "minecraft:flying_speed": {
+                    "value": 0.0
+                },
+                "minecraft:navigation.hover": {
+                    "can_path_from_air": true,
+                    "is_amphibious": true,
+                    "can_swim": true,
+                    "can_sink": true
+                }
+            },
+            "消失": {
+				"minecraft:instant_despawn": {
+					"remove_child_entities": true
+				}
+			}
+        },
+        "components": {
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 4,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "monster"
+								}
+							]
+						},
+						"within_default": 32
+					}
+				],
+				"must_reach": true,
+				"must_see": true
+			},
+            "minecraft:knockback_resistance": {
+                "value": 1.0
+            },
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fall",
+						"deals_damage": false
+					},
+					{
+						"cause": "projectile",
+						"deals_damage": false
+					}
+				]
+			},
+            "minecraft:type_family": {
+                "family": [
+                    "ocean_harpoon",
+                    "spirit",
+                    "ocean"
+                ]
+            },
+            "minecraft:health": {
+                "value": 10
+            },
+			"minecraft:behavior.ranged_attack": {
+				"attack_interval_min": 1,
+				"attack_interval_max": 4,
+				"attack_radius": 16
+			},
+			"minecraft:shooter": {
+				"def": "thrown_trident"
+			},
+            "minecraft:breathable": {
+                "totalSupply": 10,
+                "suffocateTime": 0,
+                "breathes_air": true,
+                "breathes_lava": true,
+                "breathes_water": true,
+                "breathes_solids": true
+            },
+            "minecraft:fire_immune": true,
+			"minecraft:scale": {
+				"value": 0.75
+			},
+            "minecraft:ageable": {
+                "duration": 20,
+                "grow_up": {
+                    "event": "事件:实体消失",
+                    "target": "self"
+                }
+            },
+            "minecraft:collision_box": {
+                "width": 0.5,
+                "height": 0.5
+            },
+			"minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "悬浮"
+                    ]
+                }
+            },
+            "事件:实体消失": {
+                "add": {
+                    "component_groups": [
+                        "消失"
+                    ]
+                }
+            }
+        }
+    }
+}

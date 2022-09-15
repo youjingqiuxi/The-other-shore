@@ -1,0 +1,20 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "结构定义:结构替换_小型营地"
+		},
+		"structure_name": "自然生成:小型营地",
+		"facing_direction": "south",
+		"adjustment_radius": 0,
+		"constraints": {
+			"grounded": {},
+			"unburied": {},
+			"block_intersection": {
+				"block_whitelist": [
+					"minecraft:air"
+				]
+			}
+		}
+	}
+}

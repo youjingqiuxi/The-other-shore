@@ -1,0 +1,32 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "MC.item.fish_bucket"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "0M0",
+            "0Y0",
+            "0T0"
+        ],
+        "key": {
+            "M": {
+                "item": "experience_bottle"
+            },
+            "Y": {
+                "item": "fish"
+            },
+            "T": {
+                "item": "bucket",
+                "data": 8
+            }
+        },
+        "result": {
+            "item": "bucket",
+            "data": 2
+        }
+    }
+}

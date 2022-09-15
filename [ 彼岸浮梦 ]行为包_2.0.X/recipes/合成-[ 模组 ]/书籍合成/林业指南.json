@@ -1,0 +1,36 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.book.Logging_permit"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "GFG",
+            "MSM",
+            "TTT"
+        ],
+        "key": {
+            "T": {
+                "item": "dirt"
+            },
+            "M": {
+                "item": "sapling"
+            },
+            "F": {
+                "item": "wooden_axe"
+            },
+            "G": {
+                "item": "能量水晶:高压魔晶"
+            },
+            "S": {
+                "item": "基础书籍:魔导手册"
+            }
+        },
+        "result": {
+            "item": "魔法书籍:林业指南"
+        }
+    }
+}

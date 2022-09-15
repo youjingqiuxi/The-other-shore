@@ -1,0 +1,30 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "MC.item.saddle"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "0P0",
+            "PXP",
+            "T0T"
+        ],
+        "key": {
+            "P": {
+                "item": "leather"
+            },
+            "X": {
+                "item": "string"
+            },
+            "T": {
+                "item": "iron_ingot"
+            }
+        },
+        "result": {
+            "item": "saddle"
+        }
+    }
+}

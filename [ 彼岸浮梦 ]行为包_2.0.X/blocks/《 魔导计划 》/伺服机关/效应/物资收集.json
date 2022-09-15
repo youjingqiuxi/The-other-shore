@@ -1,0 +1,220 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "伺服机关:物资收集",
+            "category": "construction",
+            "properties": {
+                "Table:value": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "Table:switch": [
+                    0,
+                    1,
+                    2
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.goods_collection",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "魔导总线_传送节点",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:part_visibility": {
+                "conditions": {}
+            },
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -2
+                ],
+                "size": [
+                    16,
+                    16,
+                    4
+                ]
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "minecraft:collision_box": false,
+            "tag:Magic_Bus_Series": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:状态侦测",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:功能运行",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
+                        "trigger": {
+                            "event": "事件:参数调整",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l参数设置§r | : 使用§l§6 魔晶起子 §r调整| 工作半径 |",
+                                "playsound random.click @a[r=15] ~~~",
+                                "particle 提示图标:通用提示 ~ ~1 ~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:参数调整": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:value": "query.block_property('Table:value') != 4 ? (query.block_property('Table:value') + 1) : 1"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 1",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e物资收集§r[§4 工作半径: 8 §r]",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 2",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e物资收集§r[§2 工作半径: 16 §r]",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 3",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e物资收集§r[§6 工作半径: 32 §r]",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 4",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e物资收集§r[§l 工作半径: 64 §r]",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:状态侦测": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_energy') == 1",
+                        "set_block_property": {
+                            "Table:switch": 1
+                        }
+                    }
+                ]
+            },
+            "事件:功能运行": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:value') == 1",
+                        "run_command": {
+                            "command": [
+                                "execute at @e [r=8,type=item,c=5] run particle 烟雾效果:紫影 ~~~",
+                                "tp @e[r=8,type=item] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 2",
+                        "run_command": {
+                            "command": [
+                                "execute at @e [r=16,type=item,c=5] run particle 烟雾效果:紫影 ~~~",
+                                "tp @e[r=16,type=item] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 3",
+                        "run_command": {
+                            "command": [
+                                "execute at @e [r=32,type=item,c=5] run particle 烟雾效果:紫影 ~~~",
+                                "tp @e[r=32,type=item] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 4",
+                        "run_command": {
+                            "command": [
+                                "execute at @e [r=64,type=item,c=5] run particle 烟雾效果:紫影 ~~~",
+                                "tp @e[r=64,type=item] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "playsound place.amethyst_block @a[r=15] ~~~"
+                            ]
+                        },
+                        "set_block_property": {
+                            "Table:switch": 0
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

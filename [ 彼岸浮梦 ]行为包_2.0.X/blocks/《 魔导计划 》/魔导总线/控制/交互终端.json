@@ -1,0 +1,509 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "魔导总线:交互终端",
+            "category": "construction",
+            "properties": {
+                "Table:Detect": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:value": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:switch": [
+                    0,
+                    1,
+                    2
+                ],
+                "Table:face_0": [
+                    0,
+                    1
+                ],
+                "Table:face_1": [
+                    0,
+                    1
+                ],
+                "Table:face_2": [
+                    0,
+                    1
+                ],
+                "Table:face_3": [
+                    0,
+                    1
+                ],
+                "Table:face_4": [
+                    0,
+                    1
+                ],
+                "Table:face_5": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.button_bus",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "link_0": "query.block_property('Table:face_0') == 1",
+                    "link_1": "query.block_property('Table:face_1') == 1",
+                    "link_2": "query.block_property('Table:face_2') == 1",
+                    "link_3": "query.block_property('Table:face_3') == 1",
+                    "link_4": "query.block_property('Table:face_4') == 1",
+                    "link_5": "query.block_property('Table:face_5') == 1",
+                    "value_1_0": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 1 && query.block_property('Table:Detect') == 1",
+                    "value_1_1": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 1 && query.block_property('Table:Detect') == 3",
+                    "value_1_2": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 1 && query.block_property('Table:Detect') == 2",
+                    "value_1_3": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 1 && query.block_property('Table:Detect') == 4",
+                    "value_1_4": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 1 && query.block_property('Table:Detect') == 5",
+                    "value_1_5": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 1 && query.block_property('Table:Detect') == 0",
+                    "value_2_0": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 2 && query.block_property('Table:Detect') == 1",
+                    "value_2_1": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 2 && query.block_property('Table:Detect') == 3",
+                    "value_2_2": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 2 && query.block_property('Table:Detect') == 2",
+                    "value_2_3": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 2 && query.block_property('Table:Detect') == 4",
+                    "value_2_4": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 2 && query.block_property('Table:Detect') == 5",
+                    "value_2_5": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 2 && query.block_property('Table:Detect') == 0",
+                    "value_3_0": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 3 && query.block_property('Table:Detect') == 1",
+                    "value_3_1": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 3 && query.block_property('Table:Detect') == 3",
+                    "value_3_2": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 3 && query.block_property('Table:Detect') == 2",
+                    "value_3_3": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 3 && query.block_property('Table:Detect') == 4",
+                    "value_3_4": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 3 && query.block_property('Table:Detect') == 5",
+                    "value_3_5": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 3 && query.block_property('Table:Detect') == 0",
+                    "value_4_0": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 4 && query.block_property('Table:Detect') == 1",
+                    "value_4_1": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 4 && query.block_property('Table:Detect') == 3",
+                    "value_4_2": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 4 && query.block_property('Table:Detect') == 2",
+                    "value_4_3": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 4 && query.block_property('Table:Detect') == 4",
+                    "value_4_4": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 4 && query.block_property('Table:Detect') == 5",
+                    "value_4_5": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 4 && query.block_property('Table:Detect') == 0",
+                    "value_5_0": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 5 && query.block_property('Table:Detect') == 1",
+                    "value_5_1": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 5 && query.block_property('Table:Detect') == 3",
+                    "value_5_2": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 5 && query.block_property('Table:Detect') == 2",
+                    "value_5_3": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 5 && query.block_property('Table:Detect') == 4",
+                    "value_5_4": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 5 && query.block_property('Table:Detect') == 5",
+                    "value_5_5": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 5 && query.block_property('Table:Detect') == 0",
+                    "panel_0": "query.block_property('Table:Detect') == 1",
+                    "panel_1": "query.block_property('Table:Detect') == 3",
+                    "panel_2": "query.block_property('Table:Detect') == 2",
+                    "panel_3": "query.block_property('Table:Detect') == 4",
+                    "panel_4": "query.block_property('Table:Detect') == 5",
+                    "panel_5": "query.block_property('Table:Detect') == 0"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "tag:Magic_Bus_Series": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.空白",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 2",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.空白",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            16,
+                            16
+                        ],
+                        "on_tick": {
+                            "event": "事件:冷却完成",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 0 && query.block_property('Table:Detect') == 0 && query.block_property('Table:value') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:灯光侦测",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1 && query.block_property('Table:value') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.蓝色",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:进行冷却",
+                            "target": "self"
+                        }
+                    },
+                    "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_switch:1": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1 && query.block_property('Table:value') == 2",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.红色",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:进行冷却",
+                            "target": "self"
+                        }
+                    },
+                    "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_switch:2": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1 && query.block_property('Table:value') == 3",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.绿色",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:进行冷却",
+                            "target": "self"
+                        }
+                    },
+                    "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_switch:3": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1 && query.block_property('Table:value') == 4",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.橙色",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:进行冷却",
+                            "target": "self"
+                        }
+                    },
+                    "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_switch:4": {}
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1 && query.block_property('Table:value') == 5",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.紫色",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:进行冷却",
+                            "target": "self"
+                        }
+                    },
+                    "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_energy": {},
+                    "tag:Magic_Bus_switch:5": {}
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:Detect": "query.cardinal_facing"
+                        },
+                        "trigger": {
+                            "event": "事件:自动链接",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
+                        "trigger": {
+                            "event": "事件:参数调整",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
+                        "set_block_property": {
+                            "Table:Detect": "query.block_property('Table:Detect') != 5 ? (query.block_property('Table:Detect') + 1) : 0"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        },
+                        "trigger": {
+                            "event": "事件:自动链接",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 0",
+                        "trigger": {
+                            "event": "事件:交互判定",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "事件:参数调整": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:value": "query.block_property('Table:value') != 5 ? (query.block_property('Table:value') + 1) : 0"
+                        },
+                        "trigger": {
+                            "event": "事件:自动链接",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§9 蓝色模式 §r]",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 1",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§4 红色模式 §r]",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 2",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§2 绿色模式 §r]",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 3",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§6 橙色模式 §r]",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') == 4",
+                        "set_block_property": {
+                            "Table:value": "query.block_property('Table:value') != 5 ? (query.block_property('Table:value') + 1) : 0"
+                        },
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§l 无效模式 §r]",
+                                "playsound tile.piston.out @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:交互判定": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') != 0",
+                        "set_block_property": {
+                            "Table:switch": 1
+                        },
+                        "trigger": {
+                            "event": "事件:自动链接",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l交互终端§r | : §4当前操作无法执行!§r\n| §l交互终端§r | : 使用§l§6 魔晶起子 §r调整| 运行参数 |\n| §l交互终端§r | : 使用§l§6 魔晶扳手 §r调整| 设备朝向 |",
+                                "playsound random.click @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:switch') == 0 && query.block_property('Table:Detect') == 0 && query.block_property('Table:value') == 0",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §6灯光侦测§r | : 当面板上方的[§4 红石灯 §r]被§e点亮§r时, 将触发§9脉冲信号§r\n| §l交互终端§r | : 使用§l§6 魔晶起子 §r调整| 运行参数 |\n| §l交互终端§r | : 使用§l§6 魔晶扳手 §r调整| 设备朝向 |",
+                                "playsound random.click @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value') != 0",
+                        "run_command": {
+                            "command": [
+                                "title @p actionbar | §l交互终端§r | : §6信号已发送",
+                                "playsound conduit.activate @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:自动链接": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:face_0": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_Series') == 1 ? 1 : 0",
+                            "Table:face_1": "query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_Series') == 1 ? 1 : 0",
+                            "Table:face_2": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_Series')  == 1 ? 1 : 0",
+                            "Table:face_3": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_Series')  == 1 ? 1 : 0",
+                            "Table:face_4": "query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_Series') == 1 ? 1 : 0",
+                            "Table:face_5": "query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_Series')  == 1 ? 1 : 0"
+                        }
+                    }
+                ]
+            },
+            "事件:进行冷却": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:switch": 2
+                        }
+                    }
+                ]
+            },
+            "事件:冷却完成": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:switch": 0
+                        }
+                    }
+                ]
+            },
+            "事件:灯光侦测": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "execute if block ~~1~ lit_redstone_lamp run setblock ~~~ 魔导总线:灯光侦测"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

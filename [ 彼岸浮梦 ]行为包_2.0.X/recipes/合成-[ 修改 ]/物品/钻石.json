@@ -1,0 +1,28 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "MC.item.diamond_0"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "TTT",
+            "TMT",
+            "TTT"
+        ],
+        "key": {
+            "T": {
+                "item": "coal_block"
+            },
+            "M": {
+                "item": "experience_bottle"
+            }
+        },
+        "result": {
+            "item": "diamond",
+            "count": 1
+        }
+    }
+}

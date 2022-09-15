@@ -1,0 +1,34 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "魔法礼盒:匣里乾坤",
+			"materials": {
+				"enchanted": "armor_enchanted",
+				"default": "armor"
+			},
+			"textures": {
+				"enchanted": "textures/misc/enchanted_item_glint",
+				"default": "textures/armor/手持道具_盒子/匣里乾坤"
+			},
+			"geometry": {
+				"default": "geometry.hold_box"
+			},
+			"scripts": {
+				"parent_setup": "variable.boot_layer_visible = 0.0;",
+				"animate": [
+					"Hold"
+				]
+			},
+			"animations": {
+				"Hold": "controller.animation.hold_box_switch",
+				"Float":"animation.hold_box.float",
+				"Close":"animation.hold_box.close",
+				"Open":"animation.hold_box.open"
+			},
+			"render_controllers": [
+				"controller.render.armor"
+			]
+		}
+	}
+}

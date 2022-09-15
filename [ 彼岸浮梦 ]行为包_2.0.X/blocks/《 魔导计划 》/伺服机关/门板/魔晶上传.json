@@ -1,0 +1,234 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "伺服机关:魔晶上传",
+            "category": "construction",
+            "properties": {
+                "Table:switch": [
+                    0,
+                    1,
+                    2
+                ],
+                "Table:face_0": [
+                    0,
+                    1
+                ],
+                "Table:face_1": [
+                    0,
+                    1
+                ],
+                "Table:face_2": [
+                    0,
+                    1
+                ],
+                "Table:face_3": [
+                    0,
+                    1
+                ],
+                "Table:value.bit": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:value.ten": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.door_block.magic_delivery",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:block_light_filter": 0,
+            "minecraft:breathability": "air",
+            "minecraft:destructible_by_mining": true,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "魔导总线_传送节点",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "frame_0": "query.block_property('Table:face_0') == 0",
+                    "frame_1": "query.block_property('Table:face_1') == 0",
+                    "frame_2": "query.block_property('Table:face_2') == 0",
+                    "frame_3": "query.block_property('Table:face_3') == 0",
+                    "plane_0": "query.block_property('Table:face_0') == 1",
+                    "plane_1": "query.block_property('Table:face_1') == 1",
+                    "plane_2": "query.block_property('Table:face_2') == 1",
+                    "plane_3": "query.block_property('Table:face_3') == 1"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    2,
+                    -8
+                ],
+                "size": [
+                    16,
+                    2,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    6,
+                    16
+                ]
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "tag:magic_Portal": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            10,
+                            10
+                        ],
+                        "on_tick": {
+                            "event": "事件:自动侦测",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            60,
+                            60
+                        ],
+                        "on_tick": {
+                            "event": "事件:冷却完成",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:自动侦测": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:face_0": "query.block_neighbor_has_all_tags(-1,0,0,'magic_Portal') == 1 ? 1 : 0",
+                            "Table:face_1": "query.block_neighbor_has_all_tags(0,0,1,'magic_Portal')  == 1 ? 1 : 0",
+                            "Table:face_2": "query.block_neighbor_has_all_tags(1,0,0,'magic_Portal')  == 1 ? 1 : 0",
+                            "Table:face_3": "query.block_neighbor_has_all_tags(0,0,-1,'magic_Portal') == 1 ? 1 : 0"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value.bit') != 5",
+                        "set_block_property": {
+                            "Table:value.bit": "query.block_property('Table:value.bit') + 1"
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value.bit') == 5",
+                        "set_block_property": {
+                            "Table:value.ten": "query.block_property('Table:value.ten') + 1",
+                            "Table:value.bit": 0
+                        }
+                    },
+                    {
+                        "condition": "query.block_property('Table:value.ten') == 5",
+                        "set_block_property": {
+                            "Table:value.ten": 0
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 提示图标:上传提示 ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:switch') == 0",
+                        "set_block_property": {
+                            "Table:switch": 1
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "execute as @p[tag=!ambient] run function Data/ambient",
+                                "playsound conduit.activate @a[r=15] ~~~",
+                                "tp @p ~~-0.5~"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @p title §6正在执行 §5传送操作",
+                                "title @p[r=15] subtitle §9\n请站立于[ 传送门 ]上耐心等待, 正在匹配传送门\n\n请勿频繁操作, 干扰传送流程, 以免遭遇不测!!!",
+                                "summon 矩阵接口:绘制 ~~1~ 数据驱动.线条绘制.基础"
+                            ]
+                        }
+                    },
+                    {
+                        "sequence": [
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[r=2,family=Matrix_API] set_Y 128"
+                                    ]
+                                }
+                            },
+                            {
+                                "run_command": {
+                                    "command": [
+                                        "tag @e[r=2,family=Matrix_API] add Matrix_API.function.magic_deliver",
+                                        "tag @e[r=2,family=Matrix_API] add Matrix_API.trail.mist.purple",
+                                        "tag @e[r=2,family=Matrix_API] add Matrix_API.destroy.any",
+                                        "tag @e[r=2,family=Matrix_API] add Matrix_API.open"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "事件:冷却完成": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "Table:switch": 0
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

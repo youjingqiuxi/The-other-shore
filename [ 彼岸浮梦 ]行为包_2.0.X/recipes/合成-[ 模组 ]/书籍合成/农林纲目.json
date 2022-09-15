@@ -1,0 +1,36 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.book.Planting_instruction"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "GCG",
+            "ZSZ",
+            "GTG"
+        ],
+        "key": {
+            "T": {
+                "item": "dirt"
+            },
+            "Z": {
+                "item": "wheat_seeds"
+            },
+            "C": {
+                "item": "wooden_hoe"
+            },
+            "G": {
+                "item": "能量水晶:高压魔晶"
+            },
+            "S": {
+                "item": "基础书籍:魔导手册"
+            }
+        },
+        "result": {
+            "item": "基础书籍:农业纲目"
+        }
+    }
+}

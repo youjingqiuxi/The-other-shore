@@ -1,0 +1,30 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.block.Magic_guide_bus_synthesis_platform"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "STS",
+            "TMT",
+            "STS"
+        ],
+        "key": {
+            "M": {
+                "item": "制造台:精灵合成"
+            },
+            "S": {
+                "item": "合金材料:钢岩合金"
+            },
+            "T": {
+                "item": "合金材料:特种合金"
+            }
+        },
+        "result": {
+            "item": "制造台:总线合成"
+        }
+    }
+}
