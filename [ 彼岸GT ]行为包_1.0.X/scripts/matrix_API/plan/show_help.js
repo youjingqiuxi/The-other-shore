@@ -7,8 +7,21 @@
 */
 
 //导入预设接口
-import { ActionFormData, MessageFormData, ModalFormData } from "mojang-minecraft-ui"
-import { EntityRaycastOptions, BlockLocation, world } from "mojang-minecraft"
+import {
+    MessageFormData,
+    ActionFormData,
+    ModalFormData
+} from "mojang-minecraft-ui"
+
+import {
+    EntityRaycastOptions,
+    MinecraftBlockTypes,
+    MinecraftItemTypes,
+    BlockLocation,
+    ItemStack,
+    world
+} from "mojang-minecraft"
+
 //导入< 彼岸 >预设接口
 import { 功能界面 } from './function'
 
@@ -30,8 +43,11 @@ export class 辅助说明 {
             .button("§l§1查看§1[§0§o§l 项目开发 §1]§r", "textures/GUI/icon/icon_00")
             .button("§l§1查看§1[§3§o§l 浮世众生 §1]§r", "textures/items/魔法卷宗/0")
             .button("§l§1查看§1[§5§o§l 魔导工业 §1]§r", "textures/GUI/icon/icon_04")
+            .button("§l§1查看§1[§c§o§l 特种制造 §1]§r", "textures/GUI/icon/icon_06")
+            .button("§l§1查看§1[§8§o§l 家居装饰 §1]§r", "textures/GUI/icon/icon_05")
+            .button("§l§1查看§1[§8§o§l 领域方块 §1]§r", "textures/GUI/icon/icon_05")
+            .button("§l§1查看§1[§8§o§l 迷途机关 §1]§r", "textures/GUI/icon/icon_05")
             .button("§l§1查看§1[§8§o§l 秘境探索 §1]§r", "textures/GUI/icon/icon_05")
-            .button("§l§1查看§1[§c§o§l 基岩计划 §1]§r", "textures/GUI/icon/icon_06")
             .button("§l§1查看§1[§c§o§l 矩阵接口 §1]§r", "textures/GUI/icon/icon_07")
             .button("§l§9设置§1[§5§o§l 状态侦测 §1]§r", "textures/GUI/icon/icon_08")
         if (用户.hasTag('Gametest.GetMagic_CareFor')) {
@@ -49,15 +65,15 @@ export class 辅助说明 {
                     辅助说明.目录_浮世众生(用户)
                     break
 
-                case 6:
+                case 9:
                     功能界面.状态侦测(用户)
                     break
 
-                case 7:
+                case 10:
                     功能界面.瞬间移动(用户)
                     break
 
-                case 8:
+                case 11:
                     功能界面.锚点虚印(用户)
                     break
 
