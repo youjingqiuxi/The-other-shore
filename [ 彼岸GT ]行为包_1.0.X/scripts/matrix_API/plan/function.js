@@ -7,8 +7,20 @@
 */
 
 //导入< 香草 >预设接口
-import { ActionFormData, MessageFormData, ModalFormData } from "mojang-minecraft-ui"
-import { EntityRaycastOptions, BlockLocation, world } from "mojang-minecraft"
+import {
+    MessageFormData,
+    ActionFormData,
+    ModalFormData
+} from "mojang-minecraft-ui"
+
+import {
+    EntityRaycastOptions,
+    MinecraftBlockTypes,
+    MinecraftItemTypes,
+    BlockLocation,
+    ItemStack,
+    world
+} from "mojang-minecraft"
 
 /**
 * @example 定义了< 实现特定功能 >所依赖的 设置界面
@@ -220,7 +232,7 @@ export class 功能组件 {
     }
 
     /**
-     * @param {carry} 目标 定义了需要被查询的实体, 请勿使用原版指令进行定义
+     * @param {carry} 目标 定义了需要被查询的目标, 请勿使用原版指令进行定义
      * @param {any} 类型 定义了调用该接口后, 应该返回的信息类型
      * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
      * @returns {run.command | string}
@@ -229,22 +241,45 @@ export class 功能组件 {
     static 查询名称 = function (目标, 类型, 用户) {
         //定义实现当前功能所需的变量
         let 查询_命名空间 = 目标.id.split(':')
+        var 查询类型 = 类型
         //执行功能判定
-        if (类型) {
-            try {
-                world.getDimension("overworld").runCommand(`tellraw ${用户} {"rawtext":[{"translate":"entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name"}]}`)
-            }
-            catch {
-                world.getDimension("overworld").runCommand(`tellraw @a {"rawtext":[{"translate":"entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name"}]}`)
-            }
-        }
-        else {
-            if (目标.id == 'minecraft:player') {
-                return `{ "text": "${目标.name}" }`
-            }
-            else {
-                return `{ "translate": "entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name" }`
-            }
+        switch (查询类型) {
+            case 'entity':
+                try {
+                    world.getDimension("overworld").runCommand(`tellraw ${用户} {"rawtext":[{"translate":"entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name"}]}`)
+                }
+                catch {
+                    world.getDimension("overworld").runCommand(`tellraw @a {"rawtext":[{"translate":"entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name"}]}`)
+                }
+                break
+
+            case 'block':
+                try {
+                    world.getDimension("overworld").runCommand(`tellraw ${用户} {"rawtext":[{"translate":"tile.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name"}]}`)
+                }
+                catch {
+                    world.getDimension("overworld").runCommand(`tellraw @a {"rawtext":[{"translate":"tile.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name"}]}`)
+                }
+                break
+
+            case 'return_entity':
+                if (目标.id == 'minecraft:player') {
+                    return `{ "text": "${目标.name}" }`
+                }
+                else {
+                    return `{ "translate": "entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name" }`
+                }
+
+            case 'return_block':
+                return `{ "translate": "tile.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name" }`
+
+            default:
+                if (目标.id == 'minecraft:player') {
+                    return `{ "text": "${目标.name}" }`
+                }
+                else {
+                    return `{ "translate": "entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name" }`
+                }
         }
     }
 }
