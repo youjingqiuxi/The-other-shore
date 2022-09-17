@@ -3,6 +3,7 @@
     "minecraft:block": {
         "description": {
             "identifier": "深渊迷途:屏障生成",
+            "category": "construction",
             "properties": {
                 "Table:switch": [
                     0,
@@ -23,6 +24,9 @@
                     "texture": "深渊迷途_屏障生成",
                     "render_method": "alpha_test"
                 }
+            },
+            "minecraft:creative_category": {
+                "category": "construction"
             },
             "minecraft:collision_box": {
                 "origin": [

@@ -141,7 +141,7 @@ export class 执行功能 {
      * @param {carry} 内容 定义了该功能的用户所输入的文本内容
      * @param {carry} 名称 定义了该功能的用户的真实名称
      * @returns {run.command}
-     * @example 接口功能: 在使用 游戏道具:<匣里乾坤>时, 应该执行的功能
+     * @example 接口功能: 用于实现自定义指令的效果
      */
     static 彼岸指令 = function (用户, 内容, 名称) {
         //定义实现当前功能所需的变量
@@ -253,12 +253,71 @@ export class 执行功能 {
 
             default:
                 功能组件.快捷消息("_______________", 玩家名称)
-                功能组件.快捷消息(`===§o§l§c| 彼岸附加指令组 |§r===`, 玩家名称)
+                功能组件.快捷消息(`§o§l§c| 彼岸附加指令组 |§r`, 玩家名称)
                 功能组件.快捷消息(`输入 ${参数[0]} <§c health:show §r> 开启或关闭 实体属性侦测`, 玩家名称)
                 功能组件.快捷消息(`输入 ${参数[0]} <§c event:show §r> 开启或关闭 实体事件侦测`, 玩家名称)
                 功能组件.快捷消息(`输入 ${参数[0]} <§c mode §r> 可改变道具的功能表现`, 玩家名称)
                 功能组件.快捷消息("_______________", 玩家名称)
                 功能组件.快捷消息(`您输入了: ${参数[0]} + ${参数[1]} + ${参数[2]} + ${参数[3]}`, 玩家名称)
+                break
+        }
+    }
+
+    /**
+     * @param {carry} 用户 定义了该功能的用户
+     * @param {carry} 方块 定义了玩家放置的方块类型
+     * @param {carry} 坐标 定义了玩家所点击的方块坐标
+     * @param {string} 类型 定义了需要执行的功能类型
+     * @param {any} 查询 定义了定义了部分功能所需要的来自外部信息
+     * @returns {run.command}
+     * @example 接口功能: 用于实现拟态矩阵的效果
+     */
+    static 拟态矩阵 = function (用户, 方块, 坐标, 类型, 查询) {
+        //定义实现当前功能所需的变量
+        var 玩家名称 = `"` + `${用户.name}` + `"`
+        var 方块标识 = 方块.id
+        var 方块信息 = 方块
+        //执行本接口的功能
+        switch (类型) {
+            case '标记起点':
+                用户.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
+                数据标签.刷新坐标('拟态矩阵_标记起点', 用户, 坐标)
+                功能组件.快捷消息(`${查询}`, 玩家名称)
+                break
+
+            case '标记终点':
+                用户.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
+                数据标签.刷新坐标('拟态矩阵_标记终点', 用户, 坐标)
+                功能组件.快捷消息(`${查询}`, 玩家名称)
+                break
+
+            case '开始填充':
+                用户.runCommand("function Data/fill_matrix")
+                功能组件.快捷消息(`起点坐标: ${数据标签.读取坐标('拟态矩阵_标记起点', 用户)} | 终点坐标: ${数据标签.读取坐标('拟态矩阵_标记终点', 用户)}`, 玩家名称)
+                用户.runCommand(`fill ${数据标签.读取坐标('拟态矩阵_标记起点', 用户)} ${数据标签.读取坐标('拟态矩阵_标记终点', 用户)} ${数据标签.读取方块('拟态矩阵_标记方块', 用户)}`)
+                break
+
+            case '等待方块':
+                功能组件.快捷消息(`您已处于方块标记的模式, 请放置你需要用来填充的方块`, 玩家名称)
+                用户.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
+                用户.runCommand("tag @s add Gametest.RecordBlock")
+                break
+
+            case '记录方块':
+                //获取信息并进行显示
+                功能组件.快捷消息("_______________", 玩家名称)
+                数据标签.存储方块('拟态矩阵_标记方块', 用户, 方块标识)
+                功能组件.快捷消息("<拟态矩阵> 方块名称:")
+                功能组件.查询名称(方块信息, `block`, 玩家名称)
+                功能组件.快捷消息("<拟态矩阵> 方块标识:")
+                功能组件.快捷消息(`${方块标识}`, 玩家名称)
+                功能组件.快捷消息("<拟态矩阵> 执行玩家:")
+                功能组件.快捷消息(`${用户.name}`, 玩家名称)
+                功能组件.快捷消息("_______________", 玩家名称)
+                //移除标签
+                用户.runCommand("tag @s remove Gametest.RecordBlock")
+                //给予物品
+                用户.runCommand("give @s 拟态矩阵:标记方块")
                 break
         }
     }
@@ -278,32 +337,22 @@ world.events.beforeItemUseOn.subscribe((使用物品) => { //侦听点击方块�
     const 查询坐标 = `${使用物品.blockLocation.x} ${使用物品.blockLocation.y} ${使用物品.blockLocation.z}`
     const 方块坐标 = 使用物品.blockLocation
     const 当前玩家 = 使用物品.source
-    var 玩家名称 = `"` + `${当前玩家.name}` + `"`
     //使用物品时的自定义效果
     switch (使用物品.item.id) {
-        case 'minecraft:wooden_sword':
-            当前玩家.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
-            功能组件.快捷消息(`${查询坐标}`, 玩家名称)
-            //储存坐标信息
-            数据标签.刷新坐标(`标记点_1`, 当前玩家, 方块坐标)
+        case '拟态矩阵:标记起点':
+            执行功能.拟态矩阵(当前玩家, '', 方块坐标, `标记起点`, 查询坐标)
             break
 
-        case 'minecraft:stone_sword':
-            当前玩家.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
-            功能组件.快捷消息(`${查询坐标}`, 玩家名称)
-            //储存坐标信息
-            数据标签.刷新坐标(`标记点_2`, 当前玩家, 方块坐标)
+        case '拟态矩阵:标记终点':
+            执行功能.拟态矩阵(当前玩家, '', 方块坐标, `标记终点`, 查询坐标)
             break
 
-        case 'minecraft:iron_sword':
-            当前玩家.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
-            功能组件.快捷消息(`坐标点1: ${数据标签.读取坐标(`标记点_1`, 当前玩家)} | 坐标点2: ${数据标签.读取坐标(`标记点_2`, 当前玩家)}`, 玩家名称)
-            当前玩家.runCommand(`fill ${数据标签.读取坐标(`标记点_1`, 当前玩家)} ${数据标签.读取坐标(`标记点_2`, 当前玩家)} ${数据标签.读取方块('快速填充', 当前玩家)}`)
+        case '拟态矩阵:开始填充':
+            执行功能.拟态矩阵(当前玩家, '', 方块坐标, `开始填充`, 查询坐标)
             break
 
-        case 'minecraft:diamond_sword':
-            当前玩家.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
-            当前玩家.runCommand("tag @s add Gametest.RecordBlock")
+        case '拟态矩阵:标记方块':
+            执行功能.拟态矩阵(当前玩家, '', 方块坐标, `等待方块`, 查询坐标)
             break
 
         default:
@@ -379,16 +428,8 @@ world.events.beforeChat.subscribe((发送信息) => { //侦听聊天栏输入
 )
 world.events.blockPlace.subscribe((放置方块) => { //侦听玩家放置方块时
     for (const 用户 of world.getPlayers()) {
-        //定义实现当前功能所需的变量
-        var 玩家名称 = `"` + `${用户.name}` + `"`
-        //获取信息并进行显示
         if (用户.hasTag('Gametest.RecordBlock')) {
-            用户.runCommand("tag @s remove Gametest.RecordBlock")
-            数据标签.存储方块('快速填充', 用户, 放置方块.block.id)
-            功能组件.查询名称(放置方块.block, `block`, 玩家名称)
-            功能组件.快捷消息(`${放置方块.block.id}`, 玩家名称)
-            功能组件.快捷消息(`${用户.name}`, 玩家名称)
-            放置方块.cancel = true
+            执行功能.拟态矩阵(用户, 放置方块.block, '', `记录方块`)
         }
     }
 }

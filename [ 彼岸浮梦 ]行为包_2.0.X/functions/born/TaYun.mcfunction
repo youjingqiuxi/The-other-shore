@@ -3,11 +3,11 @@
 #时间 : 2021.09.12
 
 #清理所需空间 防止水分入侵结构
-execute as @s positioned ~-13 ~-16 ~-13 run fill ~~~ ~26 ~26 ~26 stone
+execute as @s positioned ~-13 ~-17 ~-13 run fill ~~~ ~26 ~25 ~26 stone
 execute as @s positioned ~-14 ~ ~-14 run fill ~~~ ~28 ~ ~28 fence 1 keep
 
 #生成所需的结构
-structure load 建筑.星辉雅居 ~-13 ~-16 ~-13 0_degrees none true true 100
+structure load 建筑.星辉雅居 ~-13 ~-17 ~-13 0_degrees none true true 100
 
 #清除 召唤时 需要消耗 的材料
 replaceitem entity @s slot.weapon.offhand 0 air
