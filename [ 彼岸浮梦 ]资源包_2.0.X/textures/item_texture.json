@@ -109,6 +109,26 @@
                 "textures/items/载具控制/仓储过滤"
             ]
         },
+        "拟态矩阵_开始填充": {
+            "textures": [
+                "textures/items/拟态矩阵/开始填充"
+            ]
+        },
+        "拟态矩阵_标记起点": {
+            "textures": [
+                "textures/items/拟态矩阵/标记起点"
+            ]
+        },
+        "拟态矩阵_标记终点": {
+            "textures": [
+                "textures/items/拟态矩阵/标记终点"
+            ]
+        },
+        "拟态矩阵_标记方块": {
+            "textures": [
+                "textures/items/拟态矩阵/标记方块"
+            ]
+        },
         "洁净曜石": {
             "textures": [
                 "textures/items/洁净曜石"

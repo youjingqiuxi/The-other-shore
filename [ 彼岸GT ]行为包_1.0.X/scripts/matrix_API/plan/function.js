@@ -241,9 +241,8 @@ export class 功能组件 {
     static 查询名称 = function (目标, 类型, 用户) {
         //定义实现当前功能所需的变量
         let 查询_命名空间 = 目标.id.split(':')
-        var 查询类型 = 类型
         //执行功能判定
-        switch (查询类型) {
+        switch (类型) {
             case 'entity':
                 try {
                     world.getDimension("overworld").runCommand(`tellraw ${用户} {"rawtext":[{"translate":"entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.id}.name"}]}`)
@@ -282,4 +281,6 @@ export class 功能组件 {
                 }
         }
     }
+
+    static 延迟执行 = function () { }
 }
