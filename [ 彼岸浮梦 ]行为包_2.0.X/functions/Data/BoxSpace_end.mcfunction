@@ -16,6 +16,3 @@ execute as @e [x=~-5,dx=10,y=~-2,dy=4,z=~-5,dz=10,tag=Need_to_clear] run particl
 event entity @e[family=Peer,tag=Need_to_clear] 事件:实体消失
 tp @e[family=!Peer,tag=Need_to_clear] ~ -128 ~
 kill @e[family=!Peer,tag=Need_to_clear]
-
-#给予匣里乾坤道具
-loot spawn ~ ~2 ~ loot 匣里乾坤
