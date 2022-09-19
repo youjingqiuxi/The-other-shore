@@ -282,5 +282,28 @@ export class 功能组件 {
         }
     }
 
-    static 延迟执行 = function () { }
+    static 延迟执行 = function (类型, 内容, 用户, 延迟 = 20) {
+        //定义实现当前功能所需的变量
+        var 玩家名称 = `"` + `${用户.name}` + `"`
+        //执行接口功能
+        return new Promise(() => {
+            const 等待执行 = () => {
+                if (延迟 <= 0) {
+                    switch (类型) {
+                        case '快捷消息':
+                            功能组件.快捷消息([内容], 玩家名称)
+                            break
+
+                        case '原版指令':
+                            用户.runCommand(`${内容}`)
+                            break
+                    }
+                    world.events.tick.unsubscribe(等待执行)
+                }
+                延迟--
+            }
+            world.events.tick.subscribe(等待执行)
+        }
+        )
+    }
 }
