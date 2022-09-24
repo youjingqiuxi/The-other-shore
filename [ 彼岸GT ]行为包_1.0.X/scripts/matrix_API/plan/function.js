@@ -3,31 +3,30 @@
 
 该<javaScript>的分类为: 矩阵接口_规划
 
-该<javaScript>的作者为: [ 钛宇·星光阁 | Tayun_Strry | <in>_taiyu ]
+该<javaScript>的作者为: [ 钛宇·星光阁 | Tayun_Starry | <in>_taiyu ]
 */
 
 //导入< 香草 >预设接口
 import {
     MessageFormData,
-    ActionFormData,
     ModalFormData
 } from "mojang-minecraft-ui"
 
 import {
     EntityRaycastOptions,
-    MinecraftBlockTypes,
-    MinecraftItemTypes,
     BlockLocation,
-    ItemStack,
     world
 } from "mojang-minecraft"
+
+//导入< 矩阵 >预设接口
+import { 数据标签 } from './data_tag'
 
 /**
 * @example 定义了< 实现特定功能 >所依赖的 设置界面
 */
 export class 功能界面 {
     /**
-     * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
      * @returns {show.command}
      * @example 接口功能: 用于生成<状态侦测>的控制界面, 并根据玩家选择调整功能的执行效果
      */
@@ -44,13 +43,15 @@ export class 功能界面 {
             .show(用户).then((用户选择) => {
                 switch (用户选择.formValues[0]) {
                     case 0:
-                        用户.runCommand("function HealthShow/BaseShow")
                         用户.runCommand(`function HealthShow/Range_${用户选择.formValues[1]}`)
+                        用户.runCommand("function HealthShow/BaseShow")
+                        功能组件.持续侦听('游戏时刻', '实体属性显示')
                         break
 
                     case 1:
-                        用户.runCommand("function HealthShow/ManyShow")
                         用户.runCommand(`function HealthShow/Range_${用户选择.formValues[1]}`)
+                        用户.runCommand("function HealthShow/ManyShow")
+                        功能组件.持续侦听('游戏时刻', '实体属性显示')
                         break
 
                     case 2:
@@ -59,13 +60,14 @@ export class 功能界面 {
                 }
                 switch (用户选择.formValues[2]) {
                     case 0:
-                        用户.runCommand(`tag @s add Gametest.EventShow`)
-                        消息(`<§6 事件侦测 §r> §a已开启§r`, 玩家名称)
+                        功能组件.快捷消息(`<§6 事件侦测 §r> §a已开启§r`, 玩家名称)
+                        功能组件.持续侦听('实体事件', '实体事件显示')
+                        用户.addTag('Gametest.EventShow')
                         break
 
                     case 1:
-                        用户.runCommand(`tag @s remove Gametest.EventShow`)
-                        消息(`<§6 事件侦测 §r> §c已关闭§r`, 玩家名称)
+                        功能组件.快捷消息(`<§6 事件侦测 §r> §c已关闭§r`, 玩家名称)
+                        用户.removeTag('Gametest.EventShow')
                         break
                 }
             }
@@ -73,7 +75,7 @@ export class 功能界面 {
     }
 
     /**
-     * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
      * @returns {show.command}
      * @example 接口功能: 用于生成<快速传送>的控制界面, 并根据玩家选择调整功能的执行效果
      */
@@ -120,7 +122,7 @@ export class 功能界面 {
     }
 
     /**
-     * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
      * @returns {show.command}
      * @example 接口功能: 用于生成<锚点虚印>的控制界面, 并根据玩家选择调整功能的执行效果
      */
@@ -187,7 +189,7 @@ export class 功能界面 {
 */
 export class 功能组件 {
     /**
-     * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
      * @param {string} 标题 定义了进行功能组件.通知界面显示的界面标题
      * @param {string} 内容 定义了进行功能组件.通知界面显示的界面内容
      * @returns {show}
@@ -213,28 +215,23 @@ export class 功能组件 {
     /**
      * @param {string} 内容 定义了需要显示的内容
      * @param {string} 目标 定义了显示信息的目标, 定义方式等同于原版指令
-     * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
+     * @param {carry} 译名 定义了需要追加显示的内容
      * @returns {run.command}
      * @example 此接口所定义了一个 快捷的 向 指定玩家 的 聊天栏 显示 指定的 内容 的功能
      */
-    static 快捷消息 = function (内容, 目标, 用户) {
+    static 快捷消息 = function (内容, 目标, 译名) {
         try {
-            用户.runCommand(`tellraw ${目标} {"rawtext":[{"text":"${内容}"}]}`)
+            world.getDimension("overworld").runCommand(`tellraw ${目标} {"rawtext":[{"text":"${内容}"}` + `${译名 ? ',' + 译名 : ``}` + `]}`)
         }
         catch {
-            try {
-                world.getDimension("overworld").runCommand(`tellraw ${目标} {"rawtext":[{"text":"${内容}"}]}`)
-            }
-            catch {
-                world.getDimension("overworld").runCommand(`tellraw @a {"rawtext":[{"text":"${内容}"}]}`)
-            }
+            world.getDimension("overworld").runCommand(`tellraw @a {"rawtext":[{"text":"${内容}"}` + `${译名 ? ',' + 译名 : ``}` + `]}`)
         }
     }
 
     /**
      * @param {carry} 目标 定义了需要被查询的目标, 请勿使用原版指令进行定义
-     * @param {any} 类型 定义了调用该接口后, 应该返回的信息类型
-     * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
+     * @param {carry} 类型 该参数只能是< entity >< block >< return_entity >< return_block >
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
      * @returns {run.command | string}
      * @example 接口功能: <状态侦测><事件侦测>所依赖的信息查询功能
      */
@@ -282,6 +279,14 @@ export class 功能组件 {
         }
     }
 
+    /**
+     * @param {string} 类型 该参数只能为< 快捷消息 >< 原版指令 >
+     * @param {string} 内容 定义了需要执行的内容与功能
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
+     * @param {value} 延迟 定义了延迟多少个游戏刻后再执行预定的功能
+     * @returns {run.command | string}
+     * @example 接口功能: <状态侦测><事件侦测>所依赖的信息查询功能
+     */
     static 延迟执行 = function (类型, 内容, 用户, 延迟 = 20) {
         //定义实现当前功能所需的变量
         var 玩家名称 = `"` + `${用户.name}` + `"`
@@ -289,6 +294,7 @@ export class 功能组件 {
         return new Promise(() => {
             const 等待执行 = () => {
                 if (延迟 <= 0) {
+                    //当倒计时完成时, 执行预先设置好的内容
                     switch (类型) {
                         case '快捷消息':
                             功能组件.快捷消息([内容], 玩家名称)
@@ -298,12 +304,236 @@ export class 功能组件 {
                             用户.runCommand(`${内容}`)
                             break
                     }
+                    //移除游戏刻侦听
                     world.events.tick.unsubscribe(等待执行)
                 }
                 延迟--
             }
+            //添加游戏刻侦听, 并在每个游戏刻中运行
             world.events.tick.subscribe(等待执行)
         }
         )
+    }
+
+    /**
+     * @param {string} 类型 该参数只能为< 实体事件 >< 方块放置 >< 游戏时刻 >
+     * @param {string} 效果 该参数只能在< 实体属性显示 >< 实体事件显示 >< ... >中选择
+     * @param {value} 维持 该参数定义了 持续侦听 将在多久后被移除
+     * @returns {run.command}
+     * @example 接口功能: <状态侦测><事件侦测>所依赖的信息查询功能
+     */
+    static 持续侦听 = function (类型, 效果, 维持 = 1200) {
+        return new Promise(() => {
+            //定义所需的游戏事件效果
+            const 游戏事件 = (事件内容) => {
+                switch (效果) {
+                    case '实体属性显示':
+                        for (const 用户 of world.getPlayers()) {
+                            if (用户.hasTag('Gametest.HealthShow')) {
+                                功能组件.属性侦测(用户)
+                            }
+                        }
+                        break
+
+                    case '实体事件显示':
+                        for (const 用户 of world.getPlayers()) {
+                            if (用户.hasTag('Gametest.EventShow')) {
+                                功能组件.事件侦测(用户, 事件内容)
+                            }
+                        }
+                        break
+
+                    case '拟态矩阵_方块记录':
+                        for (const 用户 of world.getPlayers()) {
+                            if (用户.hasTag('Gametest.RecordBlock')) {
+                                功能组件.拟态矩阵(用户, 事件内容.block, '', `记录方块`)
+                                //移除游戏刻侦听
+                                world.events.tick.unsubscribe(等待关闭)
+                                //移除方块事件侦听
+                                world.events.blockPlace.unsubscribe(游戏事件)
+                            }
+                        }
+                        break
+
+                    default:
+                        功能组件.快捷消息(`您输入的|>§c ${效果} §r<|存在参数错误, 未能找到您所期望的功能`)
+                        break
+                }
+            }
+            const 等待关闭 = () => {
+                if (维持 <= 0) {
+                    //移除实体事件侦听
+                    world.events.beforeDataDrivenEntityTriggerEvent.unsubscribe(游戏事件)
+                    //移除方块事件侦听
+                    world.events.blockPlace.unsubscribe(游戏事件)
+                    //移除游戏刻侦听
+                    world.events.tick.unsubscribe(等待关闭)
+                    world.events.tick.unsubscribe(游戏事件)
+                    //移除游戏事件时, 进行通报操作
+                    功能组件.快捷消息(`§a${效果} §6持续时间结束 §c正在停止运行`, '@s')
+                }
+                维持--
+            }
+            //添加游戏刻侦听, 并在每个游戏刻中运行, 用于关闭长时间运行的后台
+            world.events.tick.subscribe(等待关闭)
+            //开启所需的游戏内容侦听
+            switch (类型) {
+                case '实体事件':
+                    world.events.beforeDataDrivenEntityTriggerEvent.subscribe(游戏事件)
+                    break
+
+                case '方块放置':
+                    world.events.blockPlace.subscribe(游戏事件)
+                    break
+
+                case '游戏时刻':
+                    world.events.tick.subscribe(游戏事件)
+                    break
+
+                default:
+                    功能组件.快捷消息(`您输入的|>§c ${类型} §r<|存在参数错误, 未能找到您所期望的功能`)
+                    break
+            }
+        }
+        )
+    }
+
+    /**
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
+     * @returns {run.command}
+     * @example 接口功能: 用于侦测<目标实体>的各项属性值(如:生命值,移速值)并向<指定玩家>显示
+     */
+    static 属性侦测 = function (用户) {
+        //定义目标类型
+        var 前方实体 = new EntityRaycastOptions()
+        // 定义侦测距离
+        if (用户.hasTag('Gametest.HealthShow.Range.08')) {
+            前方实体.maxDistance = 8
+        }
+        if (用户.hasTag('Gametest.HealthShow.Range.16')) {
+            前方实体.maxDistance = 16
+        }
+        if (用户.hasTag('Gametest.HealthShow.Range.24')) {
+            前方实体.maxDistance = 24
+        }
+        if (用户.hasTag('Gametest.HealthShow.Range.32')) {
+            前方实体.maxDistance = 32
+        }
+        // 定义目标名称
+        let 信息 = 用户.getEntitiesFromViewVector(前方实体)[0]
+        //执行功能判断
+        if (信息) {
+            //定义实现当前功能所需的变量
+            let 水下移速 = 信息.getComponent('underwater_movement')
+            let 能否牵引 = 信息.getComponent('leashable')
+            let 常规移速 = 信息.getComponent('movement')
+            let 能否契约 = 信息.getComponent('tameable')
+            let 健康状态 = 信息.getComponent('health')
+            //执行功能判断
+            if (用户.hasTag('Gametest.HealthShow_detailed')) {
+                if (健康状态) {
+                    用户.runCommand(`titleraw @s actionbar { "rawtext": [ ${功能组件.查询名称(信息)}, { "text": "\n§l§6实体标识符§r: ${信息.id}\n§l§e实体生命值§r: ${Math.round(健康状态.current)}/${健康状态.value}\n§l§2实体可牵引§r: ${!!能否牵引}\n§l§2实体可契约§r: ${!!能否契约}\n${(常规移速) ? `§l§5陆地移速值§r: ${常规移速.value.toFixed(2)}` : ""}\n${(水下移速) ? `§l§9水下移速值§r: ${水下移速.value.toFixed(2)}` : ""}"}]}`)
+                }
+                else {
+                    用户.runCommand(`titleraw @s actionbar { "rawtext": [ ${功能组件.查询名称(信息)}, { "text": "\n§l§6实体标识符§r: ${信息.id}" }]}`)
+                }
+            }
+            else {
+                if (用户.isSneaking) {
+                    if (健康状态) {
+                        用户.runCommand(`titleraw @s actionbar { "rawtext": [ ${功能组件.查询名称(信息)}, { "text": "\n§l§6实体标识符§r: ${信息.id}\n§l§e实体生命值§r: ${Math.round(健康状态.current)}/${健康状态.value}\n§l§2实体可牵引§r: ${!!能否牵引}\n§l§2实体可契约§r: ${!!能否契约}\n${(常规移速) ? `§l§5陆地移速值§r: ${常规移速.value.toFixed(2)}` : ""}\n${(水下移速) ? `§l§9水下移速值§r: ${水下移速.value.toFixed(2)}` : ""}"}]}`)
+                    }
+                    else {
+                        用户.runCommand(`titleraw @s actionbar { "rawtext": [ ${功能组件.查询名称(信息)}, { "text": "\n§l§6实体标识符§r: ${信息.id}" }]}`)
+                    }
+                }
+                else {
+                    用户.runCommand(`titleraw @s actionbar {"rawtext":[${功能组件.查询名称(信息)},{"text": "${(健康状态) ? `${`§8 | §r${Math.round(健康状态.current)}`}` : ""}"}]}`)
+                }
+            }
+        }
+
+    }
+
+    /**
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
+     * @param {carry} 目标 定义了需要侦测的目标, 请继承 调用该函数的方法 的目标数组
+     * @returns {run.command}
+     * @example 接口功能: 用于侦测<目标实体>所触发的(实体事件)并向<指定玩家>显示
+     */
+    static 事件侦测 = function (用户, 目标) {
+        //定义实现当前功能所需的变量
+        var 玩家名称 = `"` + `${用户.name}` + `"`
+        //获取信息并进行显示
+        功能组件.快捷消息("===============", 玩家名称)
+        功能组件.快捷消息(`§b实体名称§7 : §3`, 玩家名称, `${功能组件.查询名称(目标.entity, 'return_entity', 玩家名称)}`)
+        功能组件.快捷消息(`§e实体标识§7 : §6${目标.entity.id}`, 玩家名称)
+        功能组件.快捷消息(`§a实体事件§7 : §2${目标.id}`, 玩家名称)
+        功能组件.快捷消息("===============", 玩家名称)
+    }
+
+    /**
+     * @param {carry} 用户 定义了该功能的用户
+     * @param {carry} 方块 定义了玩家放置的方块类型
+     * @param {carry} 坐标 定义了玩家所点击的方块坐标
+     * @param {string} 类型 定义了需要执行的功能类型
+     * @param {any} 查询 定义了定义了部分功能所需要的来自外部信息
+     * @returns {run.command}
+     * @example 接口功能: 用于实现拟态矩阵的效果
+     */
+    static 拟态矩阵 = function (用户, 方块, 坐标, 类型, 查询) {
+        //定义实现当前功能所需的变量
+        var 玩家名称 = `"` + `${用户.name}` + `"`
+        var 方块标识 = 方块.id
+        var 方块信息 = 方块
+        //执行本接口的功能
+        switch (类型) {
+            case '标记起点':
+                用户.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
+                数据标签.刷新坐标('拟态矩阵_标记起点', 用户, 坐标)
+                功能组件.快捷消息(`${查询}`, 玩家名称)
+                break
+
+            case '标记终点':
+                用户.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
+                数据标签.刷新坐标('拟态矩阵_标记终点', 用户, 坐标)
+                功能组件.快捷消息(`${查询}`, 玩家名称)
+                break
+
+            case '开始填充':
+                //移除特定道具
+                用户.runCommand("function Data/matrix_delete_items")
+                //归还特定道具
+                功能组件.延迟执行('原版指令', `give @s 拟态矩阵:开始填充`, 用户, 10)
+                功能组件.延迟执行('原版指令', `give @s 拟态矩阵:标记起点`, 用户, 15)
+                功能组件.延迟执行('原版指令', `give @s 拟态矩阵:标记终点`, 用户, 20)
+                //提示 进行填充时 的 坐标点
+                功能组件.快捷消息(`起点坐标: ${数据标签.读取坐标('拟态矩阵_标记起点', 用户)} | 终点坐标: ${数据标签.读取坐标('拟态矩阵_标记终点', 用户)}`, 玩家名称)
+                //执行填充操作
+                用户.runCommand(`fill ${数据标签.读取坐标('拟态矩阵_标记起点', 用户)} ${数据标签.读取坐标('拟态矩阵_标记终点', 用户)} ${数据标签.读取方块('拟态矩阵_标记方块', 用户)}`)
+                break
+
+            case '等待方块':
+                功能组件.快捷消息(`§6您已处于方块标记的模式, 请放置你需要用来填充的方块`, 玩家名称)
+                用户.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
+                功能组件.持续侦听('方块放置', '拟态矩阵_方块记录')
+                用户.addTag('Gametest.RecordBlock')
+                break
+
+            case '记录方块':
+                //获取方块信息
+                数据标签.存储方块('拟态矩阵_标记方块', 用户, 方块标识)
+                //向玩家反馈与显示
+                功能组件.快捷消息("===============", 玩家名称)
+                功能组件.快捷消息(`§2方块名称 §7:§a `, 玩家名称, `${功能组件.查询名称(方块信息, `return_block`, 玩家名称)}`)
+                功能组件.快捷消息(`§3玩家名称 §7:§b ${用户.name}`, 玩家名称)
+                功能组件.快捷消息(`§4方块标识 §7:§c ${方块标识}`, 玩家名称)
+                功能组件.快捷消息("===============", 玩家名称)
+                //移除标签
+                用户.removeTag('Gametest.RecordBlock')
+                //给予物品
+                用户.runCommand("give @s 拟态矩阵:标记方块")
+                break
+        }
     }
 }

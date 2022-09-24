@@ -3,7 +3,7 @@
 
 该<javaScript>的分类为: 矩阵接口_规划
 
-该<javaScript>的作者为: [ 钛宇·星光阁 | Tayun_Strry | <in>_taiyu ]
+该<javaScript>的作者为: [ 钛宇·星光阁 | Tayun_Starry | <in>_taiyu ]
 */
 
 //导入预设接口
@@ -13,16 +13,7 @@ import {
     ModalFormData
 } from "mojang-minecraft-ui"
 
-import {
-    EntityRaycastOptions,
-    MinecraftBlockTypes,
-    MinecraftItemTypes,
-    BlockLocation,
-    ItemStack,
-    world
-} from "mojang-minecraft"
-
-//导入< 彼岸 >预设接口
+//导入< 矩阵 >预设接口
 import { 功能界面 } from './function'
 
 /**
@@ -30,7 +21,7 @@ import { 功能界面 } from './function'
 */
 export class 辅助说明 {
     /**
-     * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
      * @returns {show}
      * @example 接口功能: 本模组的<辅助说明>的目录部分
      */
@@ -85,7 +76,7 @@ export class 辅助说明 {
     }
 
     /**
-     * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
      * @returns {show}
      * @example 接口功能: 定义了< 项目开发 >的基础目录
      */
@@ -113,7 +104,7 @@ export class 辅助说明 {
     }
     
     /**
-     * @param {carry} 用户 定义了该功能的用户, 请勿使用原版指令进行定义
+     * @param {carry} 用户 定义了该功能的用户, 请继承 调用该函数的方法 的目标数组
      * @returns {show}
      * @example 接口功能: 定义了< 浮世众生 >的基础目录
      */
