@@ -3,24 +3,10 @@
 
 该<javaScript>的分类为: 矩阵接口_规划
 
-该<javaScript>的作者为: [ 钛宇·星光阁 | Tayun_Strry | <in>_taiyu ]
+该<javaScript>的作者为: [ 钛宇·星光阁 | Tayun_Starry | <in>_taiyu ]
 */
 
 //导入预设接口
-import {
-    MessageFormData,
-    ActionFormData,
-    ModalFormData
-} from "mojang-minecraft-ui"
-
-import {
-    EntityRaycastOptions,
-    MinecraftBlockTypes,
-    MinecraftItemTypes,
-    BlockLocation,
-    ItemStack,
-    world
-} from "mojang-minecraft"
 
 /**
 * @example 定义了向 <指定目标 > 进行 [ 添加 | 移除 | 读取 ] <json>标签 的 方法与机制
