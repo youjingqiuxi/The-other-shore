@@ -37,7 +37,7 @@
             "minecraft:block_light_filter": 0,
             "minecraft:breathability": "air",
             "minecraft:destructible_by_mining": false,
-            "minecraft:friction": 1.0,
+            "minecraft:friction": 0.9,
             "minecraft:material_instances": {
                 "*": {
                     "texture": "深渊迷途_引导石碑",
