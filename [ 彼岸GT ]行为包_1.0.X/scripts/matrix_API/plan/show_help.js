@@ -14,7 +14,7 @@ import {
 } from "mojang-minecraft-ui"
 
 //导入< 矩阵 >预设接口
-import { 功能界面 } from './function'
+import { 专用界面 } from './function'
 
 /**
 * @example 定义了向 <指定目标 > 展示 < 辅助说明 > 的 方法与机制
@@ -57,15 +57,15 @@ export class 辅助说明 {
                     break
 
                 case 9:
-                    功能界面.状态侦测(用户)
+                    专用界面.状态侦测(用户)
                     break
 
                 case 10:
-                    功能界面.瞬间移动(用户)
+                    专用界面.瞬间移动(用户)
                     break
 
                 case 11:
-                    功能界面.锚点虚印(用户)
+                    专用界面.锚点虚印(用户)
                     break
 
                 default:

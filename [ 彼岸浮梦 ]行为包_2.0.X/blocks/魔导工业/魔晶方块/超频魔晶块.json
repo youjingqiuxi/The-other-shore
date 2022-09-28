@@ -10,7 +10,7 @@
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 15,
             "minecraft:destructible_by_mining": true,
-            "minecraft:friction": 1.0,
+            "minecraft:friction": 0.9,
             "minecraft:creative_category": {
                 "category": "construction"
             },
