@@ -142,6 +142,7 @@
                         }
                     },
                     "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_control": {},
                     "tag:Magic_Bus_switch:1": {}
                 }
             },

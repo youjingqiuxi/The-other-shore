@@ -1,7 +1,7 @@
 {
     "format_version": 2,
     "header": {
-        "description": "§l模组版本§r: §6V2.0.0\n§l适配版本§r: §2MC_BE:1.19.20§r\n§4请开启全部|实验性玩法|以保证功能可以正常运行",
+        "description": "§l模组版本§r: §6V2.0.2\n§l适配版本§r: §2MC_BE:1.19.40§r\n§4请开启全部|实验性玩法|以保证功能可以正常运行",
         "uuid": "2393ac10-2bca-11ea-b7af-49e491d2b2d7",
         "name": "§9[ 彼岸浮梦 ]行为包§r",
         "min_engine_version": [
@@ -25,15 +25,45 @@
                 0,
                 0
             ]
+        },
+        {
+            "uuid": "87734006-DEF1-BFD6-47F7-C88E0DB01D30",
+            "description": "matrix_API => scriptAPI",
+            "entry": "scripts/matrix_API/plan/main.js",
+            "language": "javascript",
+            "type": "script",
+            "version": [
+                2,
+                0,
+                0
+            ]
         }
     ],
     "dependencies": [
         {
-            "uuid": "986b0fa9-b70e-4909-b50c-3752810dbb86",
             // 彼岸浮梦 的 配套资源包
+            "uuid": "986b0fa9-b70e-4909-b50c-3752810dbb86",
             "version": [
                 2,
                 0,
+                0
+            ]
+        },
+        {
+            // 当需要使用 "mojang-minecraft" 时 必须加载的模块
+            "uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
+            "version": [
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            // 当需要使用 "mojang-minecraft-ui" 时 必须加载的模块
+            "uuid": "2bd50a27-ab5f-4f40-a596-3641627c635e",
+            "version": [
+                0,
+                1,
                 0
             ]
         }

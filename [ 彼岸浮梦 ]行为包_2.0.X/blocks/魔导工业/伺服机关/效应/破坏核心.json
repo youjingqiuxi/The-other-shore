@@ -1,0 +1,323 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "伺服机关:破坏核心",
+            "category": "construction",
+            "properties": {
+                "Table:state": [
+                    0,
+                    1,
+                    2
+                ],
+                "Table:energy": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "Table:direction": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.broken_core",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": true,
+            "minecraft:friction": 0.9,
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "魔导总线_效应基座",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "energy": "query.block_property('Table:energy') >= 1"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
+            },
+            "tag:Magic_Bus_Series": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:state') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:状态侦测",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:state') != 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:功能运行",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:direction') == 0",
+                "components": {
+                    "minecraft:rotation": [
+                        -90,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:direction') == 1",
+                "components": {
+                    "minecraft:rotation": [
+                        90,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:direction') == 2",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:direction') == 3",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        180,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:direction') == 4",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        90,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:direction') == 5",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        270,
+                        0
+                    ]
+                }
+            }
+        ],
+        "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:direction": "query.cardinal_facing"
+                }
+            },
+            "事件:进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
+                        "set_block_property": {
+                            "Table:direction": "query.block_property('Table:direction') != 5 ? (query.block_property('Table:direction') + 1) : 0"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound use.stone @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "事件:状态侦测": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_energy') == 1",
+                        "sequence": [
+                            {
+                                "condition": "query.block_property('Table:energy') != 5",
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') + 1"
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "playsound beacon.activate @a[r=15] ~~~"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:2') == 1",
+                        "set_block_property": {
+                            "Table:state": 2
+                        }
+                    }
+                ]
+            },
+            "事件:功能运行": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:energy') != 0",
+                        "sequence": [
+                            {
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') - 1"
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "playsound beacon.deactivate @a[r=15] ~~~",
+                                        "summon 矩阵接口:绘制 ~~~ 数据驱动.线条绘制.基础",
+                                        "tag @e[r=1,tag=!Matrix_API.open,family=Matrix_API] add Matrix_API.destroy.any",
+                                        "tag @e[r=1,tag=!Matrix_API.open,family=Matrix_API] add Matrix_API.trail.crimson"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:direction') == 0",
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_Y -6",
+                                        "tag @e[r=1,tag=!Matrix_API.open,family=Matrix_API] add Matrix_API.open",
+                                        "fill ~~-1~ ~~-5~ air 0 destroy"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:direction') == 1",
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_Y 6",
+                                        "tag @e[r=1,tag=!Matrix_API.open,family=Matrix_API] add Matrix_API.open",
+                                        "fill ~~1~ ~~5~ air 0 destroy"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:direction') == 2",
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_Z -6",
+                                        "tag @e[r=1,tag=!Matrix_API.open,family=Matrix_API] add Matrix_API.open",
+                                        "fill ~~~-1 ~~~-5 air 0 destroy"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:direction') == 3",
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_Z 6",
+                                        "tag @e[r=1,tag=!Matrix_API.open,family=Matrix_API] add Matrix_API.open",
+                                        "fill ~~~1 ~~~5 air 0 destroy"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:direction') == 4",
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_X -6",
+                                        "tag @e[r=1,tag=!Matrix_API.open,family=Matrix_API] add Matrix_API.open",
+                                        "fill ~-1~~ ~-5~~ air 0 destroy"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:direction') == 5",
+                                "run_command": {
+                                    "command": [
+                                        "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_X 6",
+                                        "tag @e[r=1,tag=!Matrix_API.open,family=Matrix_API] add Matrix_API.open",
+                                        "fill ~1~~ ~5~~ air 0 destroy"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "condition": "query.block_property('Table:energy') == 0",
+                        "run_command": {
+                            "command": [
+                                "particle 提示图标:通用提示 ~ ~1 ~",
+                                "playsound random.anvil_land @a[r=15] ~~~",
+                                "title @p actionbar | 破坏核心 | : §c§l能源储备不足, 请补充能量"
+                            ]
+                        }
+                    },
+                    {
+                        "set_block_property": {
+                            "Table:state": 0
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

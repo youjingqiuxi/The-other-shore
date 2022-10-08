@@ -223,9 +223,6 @@
         "魔导总线_效应基座": {
             "textures": "textures/blocks/伺服机关/效应基座"
         },
-        "魔导总线_效应核心": {
-            "textures": "textures/blocks/伺服机关/效应核心"
-        },
         "魔导总线_传送节点": {
             "textures": "textures/blocks/伺服机关/传送节点"
         },

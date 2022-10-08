@@ -3,7 +3,7 @@
     "header": {
         "description": "§l当前模组版本§r : §6V1.0.0\n§l游戏版本§r : §2V1.19.10.x\n§4§l重要提示§r : §6请开启全部| 实验性玩法 |以保证功能可以正常运行 !",
         "uuid": "41ACB53E-3FCF-959D-FE10-CE258DDB7DF3",
-        "name": "§9[ 彼岸UI ]扩展包",
+        "name": "§9[ 附加界面 ]扩展包",
         "min_engine_version": [
             1,
             19,

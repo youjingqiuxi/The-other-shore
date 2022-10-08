@@ -47,11 +47,11 @@
                     "render_method": "alpha_test"
                 }
             },
-            "minecraft:on_interact": {
-                "event": "事件:进行交互"
-            },
             "minecraft:on_player_placing": {
                 "event": "事件:放置方块"
+            },
+            "minecraft:on_interact": {
+                "event": "事件:进行交互"
             },
             "minecraft:collision_box": {
                 "origin": [
@@ -81,7 +81,7 @@
         },
         "permutations": [
             {
-                "condition": "query.block_property('Table:angle') == 2",
+                "condition": "query.block_property('Table:angle') == 3",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -91,7 +91,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:angle') == 3",
+                "condition": "query.block_property('Table:angle') == 2",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -101,7 +101,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:angle') == 4",
+                "condition": "query.block_property('Table:angle') == 5",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -111,7 +111,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:angle') == 5",
+                "condition": "query.block_property('Table:angle') == 4",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -160,7 +160,7 @@
         "events": {
             "事件:放置方块": {
                 "set_block_property": {
-                    "Table:angle": "(query.cardinal_facing_2d)"
+                    "Table:angle": "query.cardinal_facing_2d"
                 }
             },
             "事件:进行交互": {

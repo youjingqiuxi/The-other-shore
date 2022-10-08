@@ -3,7 +3,7 @@
 #时间 : 2021.08.1
 
 #提示
-title @p actionbar 恭喜你@p, 您与 @s 已成功缔结契约
+title @p actionbar 恭喜你< @p >, 您与< @s >已成功缔结契约
 
 #标签
 tag @s add contract

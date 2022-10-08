@@ -78,7 +78,7 @@
                         "condition": "query.is_in_water == 1",
                         "run_command": {
                             "command": [
-                                "structure load 渊鲸_浅岸支援舰_已契约 ~~~ 0_degrees none true false 100"
+                                "structure load 渊鲸_浅岸支援舰_已契约 ~~~ 0_degrees none true false"
                             ]
                         },
                         "damage": {

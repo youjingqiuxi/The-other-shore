@@ -194,6 +194,7 @@
                         }
                     },
                     "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_control": {},
                     "tag:Magic_Bus_switch:1": {}
                 }
             },
@@ -218,6 +219,7 @@
                         }
                     },
                     "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_control": {},
                     "tag:Magic_Bus_switch:2": {}
                 }
             },
@@ -242,6 +244,7 @@
                         }
                     },
                     "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_control": {},
                     "tag:Magic_Bus_switch:3": {}
                 }
             },
@@ -266,6 +269,7 @@
                         }
                     },
                     "tag:Magic_Bus_open": {},
+                    "tag:Magic_Bus_control": {},
                     "tag:Magic_Bus_switch:4": {}
                 }
             },

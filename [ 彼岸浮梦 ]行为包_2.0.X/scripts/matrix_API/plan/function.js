@@ -205,7 +205,7 @@ export class 专用组件 {
             //乾坤空间_预处理
             用户.runCommand("function Data/BoxSpace_start")
             //释放被存储的实体 并 储存附近的实体
-            用户.runCommand(`structure load ${玩家名称} ~-5~3~-5 0_degrees none true false 100`)
+            用户.runCommand(`structure load ${玩家名称} ~-5~3~-5 0_degrees none true false`)
             用户.runCommand(`structure save ${玩家名称} ~5~2~5 ~-5~-2~-5 true disk true`)
             //乾坤空间_后处理
             用户.runCommand("function Data/BoxSpace_end")
