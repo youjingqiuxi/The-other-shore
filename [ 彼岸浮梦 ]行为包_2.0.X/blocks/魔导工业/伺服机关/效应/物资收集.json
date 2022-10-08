@@ -15,6 +15,12 @@
                     0,
                     1,
                     2
+                ],
+                "Table:direction": [
+                    2,
+                    3,
+                    4,
+                    5
                 ]
             }
         },
@@ -49,6 +55,9 @@
                     4
                 ]
             },
+            "minecraft:on_player_placing": {
+                "event": "事件:放置方块"
+            },
             "minecraft:on_interact": {
                 "event": "事件:进行交互"
             },
@@ -56,6 +65,46 @@
             "tag:Magic_Bus_Series": {}
         },
         "permutations": [
+            {
+                "condition": "query.block_property('Table:direction') == 2",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:direction') == 3",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        180,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:direction') == 4",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        90,
+                        0
+                    ]
+                }
+            },
+            {
+                "condition": "query.block_property('Table:direction') == 5",
+                "components": {
+                    "minecraft:rotation": [
+                        0,
+                        270,
+                        0
+                    ]
+                }
+            },
             {
                 "condition": "query.block_property('Table:switch') == 0",
                 "components": {
@@ -90,6 +139,11 @@
             }
         ],
         "events": {
+            "事件:放置方块": {
+                "set_block_property": {
+                    "Table:direction": "query.cardinal_facing_2d"
+                }
+            },
             "事件:进行交互": {
                 "sequence": [
                     {
@@ -206,7 +260,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "playsound place.amethyst_block @a[r=15] ~~~"
+                                "playsound beacon.deactivate @a[r=5] ~~~"
                             ]
                         },
                         "set_block_property": {

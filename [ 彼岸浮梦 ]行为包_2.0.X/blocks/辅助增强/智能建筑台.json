@@ -518,7 +518,7 @@
                             "command": [
                                 "fill ~1 ~-13 ~-12  ~21 ~0 ~12 stained_glass",
                                 "fill ~1 ~00 ~-12  ~21 ~19 ~12 stained_glass",
-                                "structure load 蓝图建筑:半自动仓库 ~1 ~-13 ~-12 0_degrees none true true 100",
+                                "structure load 蓝图建筑:半自动仓库 ~1 ~-13 ~-12 0_degrees none true true",
                                 "title @p actionbar 蓝图名称: [ 智能仓库 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }
@@ -546,7 +546,7 @@
                         "run_command": {
                             "command": [
                                 "fill ~1 ~ ~-12  ~9 ~53 ~11 stained_glass 15",
-                                "structure load 蓝图建筑:双门猪灵塔 ~1 ~ ~-12 0_degrees none block_by_block 20 false true 100",
+                                "structure load 蓝图建筑:双门猪灵塔 ~1 ~ ~-12 0_degrees none block_by_block 20 false true",
                                 "title @p actionbar 蓝图名称: [ 双门猪灵塔 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }
@@ -558,7 +558,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "structure load 蓝图建筑:星辉楼岚 ~1 ~-1 ~-13 0_degrees none block_by_block 20 true true 100",
+                                "structure load 蓝图建筑:星辉楼岚 ~1 ~-1 ~-13 0_degrees none block_by_block 20 true true",
                                 "title @p actionbar 蓝图名称: [ 星辉楼岚 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }
@@ -570,7 +570,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "structure load 蓝图建筑:星辉楼磐 ~1 ~-1 ~-8 0_degrees none true true 100",
+                                "structure load 蓝图建筑:星辉楼磐 ~1 ~-1 ~-8 0_degrees none true true",
                                 "title @p actionbar 蓝图名称: [ 星辉楼磐 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }
@@ -582,7 +582,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "structure load 蓝图建筑:幻灵浑居 ~1 ~-2 ~-32 0_degrees none block_by_block 10 true true 100",
+                                "structure load 蓝图建筑:幻灵浑居 ~1 ~-2 ~-32 0_degrees none block_by_block 10 true true",
                                 "title @p actionbar 蓝图名称: [ 幻灵浑居 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }

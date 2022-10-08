@@ -5,7 +5,10 @@
 			"loop": true,
 			"bones": {
 				"core": {
-					"rotation": [0, "query.life_time * 35.0", 0]
+					"rotation": ["query.life_time * 35.0", "query.life_time * 35.0", 0]
+				},
+				"core2": {
+					"rotation": [0, "query.life_time * 35.0", "query.life_time * 35.0"]
 				}
 			}
 		},

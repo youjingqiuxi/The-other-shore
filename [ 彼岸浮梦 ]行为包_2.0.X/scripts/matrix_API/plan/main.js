@@ -7,9 +7,7 @@
 */
 
 //导入< 香草 >预设接口
-import {
-    world
-} from "mojang-minecraft"
+import { world } from "mojang-minecraft"
 
 //导入< 矩阵 >预设接口
 import { 专用界面, 通用组件, 专用组件 } from './function'

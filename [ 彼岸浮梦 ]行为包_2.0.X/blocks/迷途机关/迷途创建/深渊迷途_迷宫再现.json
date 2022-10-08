@@ -297,7 +297,7 @@
                         "condition": "query.block_property('Table:function') == 9",
                         "run_command": {
                             "command": [
-                                "structure load 64X迷宫_出入口 ~-032 -64 ~-32 0_degrees none true true 100",
+                                "structure load 64X迷宫_出入口 ~-032 -64 ~-32 0_degrees none true true",
                                 "title @p[r=15] title §7| §6秘境探索§7 - §4深渊迷途§7 |",
                                 "title @p[r=15] subtitle §6正在搭建 深渊之门\n迷宫完成度: 6/6",
                                 "particle minecraft:knockback_roar_particle ~~~",

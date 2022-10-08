@@ -139,6 +139,7 @@
                     ]
                 }
             },
+            //根据标签绘制出指定的矩形轨迹
             "数据驱动.线条绘制.基础": {
                 "sequence": [
                     {
@@ -966,6 +967,7 @@
                     }
                 ]
             },
+            //执行标签定义的附加功能
             "标签定义.附属功能.魔导": {
                 "sequence": [
                     {
@@ -1014,6 +1016,22 @@
                         "run_command": {
                             "command": [
                                 "function book/Mining"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "Matrix_API.function.mineral_mechanism"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "function Data/mineral_mechanism"
                             ]
                         }
                     }
@@ -1441,6 +1459,7 @@
                     }
                 ]
             },
+            //预设的样板案例
             "预设案例:功能试验.线条": {
                 "sequence": [
                     {
@@ -1567,6 +1586,7 @@
                     ]
                 }
             },
+            //预设的功能案例
             "预设案例:林木植伐.砍伐": {
                 "sequence": [
                     {
@@ -1650,10 +1670,50 @@
                     }
                 ]
             },
+            "预设案例:凝岩聚矿.扫描": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "scoreboard players set @s set_X 11",
+                                "scoreboard players set @s set_Z 11"
+                            ]
+                        }
+                    },
+                    {
+                        "run_command": {
+                            "command": [
+                                "tag @s add Matrix_API.function.mineral_mechanism",
+                                "tag @s add Matrix_API.open"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "驱动.平面.基础"
+                            ]
+                        }
+                    }
+                ]
+            },
+            //通用的实体销毁事件
             "事件:实体消失": {
                 "add": {
                     "component_groups": [
                         "实体消失"
+                    ]
+                }
+            },
+            "事件:闪烁退场": {
+                "add": {
+                    "component_groups": [
+                        "实体消失"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "particle 烟雾效果:靛蓝 ~~~"
                     ]
                 }
             }

@@ -1,0 +1,22 @@
+{
+ "entity_sounds": {
+  "entities": {
+                "星光阁:啸天": {
+				"events": {
+					"ambient": "mob.wolf.bark",
+					"death": "mob.wolf.death",
+					"hurt": "mob.wolf.hurt",
+					"pant": "mob.wolf.panting",
+					"whine": "mob.wolf.whine",
+					"step": {
+						"pitch": 1,
+						"sound": "mob.wolf.step",
+						"volume": 0.65
+					}
+				},
+				"pitch": [0.8,1.2],
+				"volume": 1
+			}
+        }
+    }
+}

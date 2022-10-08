@@ -1,0 +1,167 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "伺服机关:凝岩聚矿",
+            "category": "construction",
+            "properties": {
+                "Table:state": [
+                    0,
+                    1
+                ],
+                "Table:energy": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.prop_block.mineral_mechanism",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:destructible_by_mining": true,
+            "minecraft:light_emission": 15,
+            "minecraft:friction": 0.9,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "魔导总线_效应基座",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:creative_category": {
+                "category": "construction"
+            },
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "energy": "query.block_property('Table:energy') >= 1"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "tag:Magic_Bus_Series": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:state') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            4,
+                            4
+                        ],
+                        "on_tick": {
+                            "event": "事件:状态侦测",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:state') != 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "事件:功能运行",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "事件:状态侦测": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:1') == 1",
+                        "set_block_property": {
+                            "Table:state": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_energy') == 1",
+                        "sequence": [
+                            {
+                                "condition": "query.block_property('Table:energy') != 6",
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') + 1"
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "playsound beacon.activate @a[r=15] ~~~"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "事件:功能运行": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:energy') >= 3",
+                        "sequence": [
+                            {
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') - 3"
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "playsound beacon.deactivate @a[r=15] ~~~",
+                                        "summon 矩阵接口:绘制 ~-5~~-5 预设案例:凝岩聚矿.扫描"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "condition": "query.block_property('Table:energy') == 0",
+                        "run_command": {
+                            "command": [
+                                "particle 提示图标:通用提示 ~ ~1 ~",
+                                "playsound random.anvil_land @a[r=15] ~~~",
+                                "title @p actionbar | 凝岩聚矿 | : §c§l能源储备不足, 请补充能量"
+                            ]
+                        }
+                    },
+                    {
+                        "set_block_property": {
+                            "Table:state": 0
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
