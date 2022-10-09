@@ -1,0 +1,41 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:silverfish",
+      "materials": {
+        "default": "silverfish",
+        "body_layer": "silverfish_layers",
+        "HeartState": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/silverfish",
+        "HE_0": "textures/HeartState/heart_0",
+        "HE_1": "textures/HeartState/heart_1",
+        "HE_2": "textures/HeartState/heart_2",
+        "HE_3": "textures/HeartState/heart_3",
+        "HE_4": "textures/HeartState/heart_4"
+      },
+      "geometry": {
+        "default": "geometry.silverfish",
+        "HeartState": "geometry.HeartStateBase_Y.13"
+      },
+      "animations": {
+        "move": "animation.silverfish.move"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.silverfish.move"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.silverfish",
+        "controller.render.state:heart_08"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 8
+      }
+    }
+  }
+}

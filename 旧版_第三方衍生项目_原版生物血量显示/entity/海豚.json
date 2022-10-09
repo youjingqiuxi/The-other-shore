@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:dolphin",
+      "materials": {
+        "default": "dolphin",
+        "HeartState": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/dolphin",
+        "HE_0": "textures/HeartState/heart_0",
+        "HE_1": "textures/HeartState/heart_1",
+        "HE_2": "textures/HeartState/heart_2",
+        "HE_3": "textures/HeartState/heart_3",
+        "HE_4": "textures/HeartState/heart_4"
+      },
+      "geometry": {
+        "default": "geometry.dolphin",
+        "HeartState": "geometry.HeartStateBase_Y.13"
+      },
+      "animations": {
+        "move": "animation.dolphin.move"
+      },
+      "animation_controllers": [
+        { "general": "controller.animation.dolphin.general" }
+      ],
+      "render_controllers": [
+          "controller.render.dolphin",
+          "controller.render.state:heart_10"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 49
+      }
+    }
+  }
+}

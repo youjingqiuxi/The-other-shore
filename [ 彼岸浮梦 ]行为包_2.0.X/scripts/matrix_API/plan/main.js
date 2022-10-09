@@ -46,7 +46,11 @@ world.events.beforeItemUse.subscribe((使用物品) => { //侦听使用物品时
     //使用物品时的自定义效果
     switch (使用物品.item.id) {
         case '基础书籍:魔导手册':
-            辅助说明.目录(使用物品.source)
+            switch (使用物品.source.isSneaking) {
+                case true:
+                    辅助说明.目录(使用物品.source)
+                    break
+            }
             break
 
         case '魔法礼盒:匣里乾坤':

@@ -28,7 +28,7 @@
         },
         {
             "uuid": "87734006-DEF1-BFD6-47F7-C88E0DB01D30",
-            "description": "matrix_API => scriptAPI",
+            "description": "matrix_API => script_API",
             "entry": "scripts/matrix_API/plan/main.js",
             "language": "javascript",
             "type": "script",

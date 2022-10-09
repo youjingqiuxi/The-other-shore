@@ -1,0 +1,47 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "minecraft:cod",
+        "materials": {
+          "default": "cod",
+          "HeartState": "entity_alphatest"
+        },
+        "textures": {
+          "default": "textures/entity/fish/cod",
+          "HE_0": "textures/HeartState/heart_0",
+          "HE_1": "textures/HeartState/heart_1",
+          "HE_2": "textures/HeartState/heart_2",
+          "HE_3": "textures/HeartState/heart_3",
+          "HE_4": "textures/HeartState/heart_4"
+        },
+        "geometry": {
+          "default": "geometry.cod",
+          "HeartState": "geometry.HeartStateBase_Y.04"
+        },
+        "scripts": {
+          "pre_animation": [
+            "variable.ZRot = !query.is_in_water ? Math.cos((query.time_stamp + query.frame_alpha) * 14.32) * 90 : 0.0;",
+            "variable.AnimationAmountBlend = Math.lerp(variable.AnimationAmountPrev, variable.AnimationAmount, query.frame_alpha);"
+          ]
+        },
+        "animations": {
+          "flop": "animation.cod.flop",
+          "swim": "animation.cod.swim"
+        },
+        "animation_controllers": [
+          {
+            "general": "controller.animation.fish.general"
+          }
+        ],
+        "render_controllers": [
+          "controller.render.cod",
+          "controller.render.state:heart_06"
+        ],
+        "spawn_egg": {
+          "texture": "spawn_egg",
+          "texture_index": 45
+        }
+      }
+    }
+  }

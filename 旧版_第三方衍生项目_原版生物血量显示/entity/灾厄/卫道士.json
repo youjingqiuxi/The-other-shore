@@ -1,0 +1,53 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:vindicator",
+      "materials": {
+        "default": "vindicator",
+        "HeartState": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/vindicator",
+        "HE_0": "textures/HeartState/heart_0",
+        "HE_1": "textures/HeartState/heart_1",
+        "HE_2": "textures/HeartState/heart_2",
+        "HE_3": "textures/HeartState/heart_3",
+        "HE_4": "textures/HeartState/heart_4"
+      },
+      "geometry": {
+        "default": "geometry.vindicator",
+        "HeartState": "geometry.HeartStateBody_Y.32"
+      },
+      "scripts": {
+        "scale": "0.9375"
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default.v1.0",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding.v1.0",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming.v1.0",
+        "vindicator_base": "animation.vindicator.base",
+        "vindicator_attack": "animation.vindicator.attack",
+        "vindicator_walk": "animation.vindicator.walk"
+      },
+      "animation_controllers": [
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        },
+        {
+          "vindicator_base": "controller.animation.vindicator.base.v1.0"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.state:heart_24",
+        "controller.render.vindicator"
+      ],
+      "enable_attachables": true,
+      "hide_armor": true,
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 39
+      }
+    }
+  }
+}
