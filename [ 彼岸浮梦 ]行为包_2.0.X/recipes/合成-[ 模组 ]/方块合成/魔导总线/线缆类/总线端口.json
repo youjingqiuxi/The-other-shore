@@ -2,35 +2,30 @@
     "format_version": "1.8.5",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "addons.Magic_bus.conversion"
+            "identifier": "addons.Magic_bus.basics_port"
         },
         "tags": [
             "魔导总线合成台"
         ],
         "pattern": [
-            "jR#",
-            "YGY",
-            "#M#"
+            "GMG",
+            "MTM",
+            "GMG"
         ],
         "key": {
-            "Y": {
+            "G": {
                 "item": "合金材料:钢岩合金"
             },
-            "j": {
-                "item": "魔导总线:交互终端"
+            "T": {
+                "item": "领域石:特种合金"
             },
             "M": {
-                "item": "能量水晶:高压魔晶"
-            },
-            "G": {
                 "item": "魔导总线:总线本体"
-            },
-            "R": {
-                "item": "stained_glass"
             }
         },
         "result": {
-            "item": "魔导总线:信号转化"
+            "item": "魔导总线:总线端口",
+            "count": 4
         }
     }
 }

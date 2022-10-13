@@ -1,0 +1,80 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "拟态矩阵:方块标定",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "拟态矩阵_方块标定"
+            },
+            "minecraft:display_name": {
+                "value": "§b|§a 拟态矩阵 - 方块标定 §b|§r"
+            },
+            "minecraft:creative_category": {
+                "parent": "equipment"
+            },
+            "minecraft:render_offsets": {
+                "main_hand": {
+                    "third_person": {
+                        "position": [
+                            0.50,
+                            0.75,
+                            -0.90
+                        ],
+                        "scale": [
+                            0.04,
+                            0.04,
+                            0.04
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            1.5,
+                            -0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.045,
+                            0.045,
+                            0.054
+                        ]
+                    }
+                },
+                "off_hand": {
+                    "third_person": {
+                        "position": [
+                            0.50,
+                            0.75,
+                            -0.90
+                        ],
+                        "scale": [
+                            0.04,
+                            0.04,
+                            0.04
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            -1.5,
+                            0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.1,
+                            0.1,
+                            0.1
+                        ]
+                    }
+                }
+            },
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:foil": false
+        },
+        "events": {}
+    }
+}

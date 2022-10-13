@@ -179,13 +179,16 @@ tile.魔导总线:交互终端.name=§6< §9魔导总线§r _ §l§e交互终端
 tile.魔导总线:灯光侦测.name=§6< §9魔导总线§r _ §l§e灯光侦测§6 >§r
 tile.魔导总线:脉冲计数.name=§6< §9魔导总线§r _ §l§e脉冲计数§6 >§r
 tile.魔导总线:传播许可.name=§6< §9魔导总线§r _ §l§e传播许可§6 >§r
+tile.魔导总线:总线端口.name=§6< §9魔导总线§r _ §l§e总线端口§6 >§r
 
 tile.魔导总线:水素能源.name=§6< §9魔导总线§r _ §l§e水素能源§6 >§r
 
 tile.伺服机关:伺服基座.name=§6< §9伺服机关§r _ §l§e伺服基座§6 >§r
 tile.伺服机关:伺服牵引.name=§6< §9伺服机关§r _ §l§e伺服牵引§6 >§r
 tile.伺服机关:参数设置.name=§6< §9伺服机关§r _ §l§e参数设置§6 >§r
+
 tile.伺服机关:闪长岩门.name=§6< §9伺服机关§r _ §l§e闪长岩门§6 >§r
+tile.伺服机关:安山岩门.name=§6< §9伺服机关§r _ §l§e安山岩门§6 >§r
 
 tile.伺服机关:物资收集.name=§6< §9伺服机关§r _ §l§e物资收集§6 >§r
 tile.伺服机关:破坏核心.name=§6< §9伺服机关§r _ §l§c破坏核心§6 >§r
@@ -513,7 +516,7 @@ tile.coral_block.yellow_dead.name=死亡角珊瑚块
 item.shield.name=盾牌
 item.appleEnchanted.name=附魔金苹果
 item.bell.name=村庄钟
-item.bucketLava.name=桶装岩浆
+item.bucketLava.name=桶装熔岩
 item.bucketWater.name=桶装水
 item.bucketFish.name=桶装鳕鱼
 item.bucketSalmon.name=桶装鲑鱼
@@ -654,14 +657,14 @@ death.attack.indirectMagic.item=§9 %1$s §r被§4 %2$s §r使用 %3$s 逐出世
 ##<火伤类>
 death.attack.inFire=§9 %1$s §r焦灼难耐
 death.attack.onFire=§9 %1$s §r欲火焚身
-death.attack.magma=§9 %1$s §r尝试在岩浆上行走
-death.attack.lava=§9 %1$s §r试图使用岩浆洗澡
+death.attack.magma=§9 %1$s §r尝试在熔岩上行走
+death.attack.lava=§9 %1$s §r试图使用熔岩洗澡
 death.attack.fireball=§9 %1$s §r因§4 %2$s §r而浴火焚身
 death.attack.magma.player=由于 %2$s，§9 %1$s §r步入无比炙热的危险之地
 death.attack.inFire.player=§9 %1$s §r在与§4 %2$s §r战斗时试图与火共舞
 death.attack.onFire.player=§9 %1$s §r在试图与§4 %2$s §r战斗时被烤的酥脆
 death.attack.fireball.item=§9 %1$s §r因§4 %2$s §r使用了 %3$s 而浴火焚身
-death.attack.lava.player=§9 %1$s §r在逃离§4 %2$s §r时试图在岩浆上凌波微步
+death.attack.lava.player=§9 %1$s §r在逃离§4 %2$s §r时试图在熔岩上凌波微步
 
 ##<摔落类>主动
 death.fell.accident.generic=§9 %1$s §r尝试信仰之跃,但……没有风之翼……

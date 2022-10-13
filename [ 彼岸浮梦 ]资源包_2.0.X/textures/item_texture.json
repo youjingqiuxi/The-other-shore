@@ -129,6 +129,11 @@
                 "textures/items/拟态矩阵/标记方块"
             ]
         },
+        "拟态矩阵_方块标定": {
+            "textures": [
+                "textures/items/拟态矩阵/方块标定"
+            ]
+        },
         "洁净曜石": {
             "textures": [
                 "textures/items/洁净曜石"

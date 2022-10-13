@@ -9,12 +9,15 @@
         ],
         "pattern": [
             "#H#",
-            "#G#",
+            "TGT",
             "#H#"
         ],
         "key": {
             "G": {
                 "item": "魔导总线:总线本体"
+            },
+            "T": {
+                "item": "合金材料:特种合金"
             },
             "H": {
                 "item": "redstone_torch"

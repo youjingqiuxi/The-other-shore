@@ -17,6 +17,7 @@ import { 辅助说明 } from './show_help'
 world.events.beforeItemUseOn.subscribe((使用物品) => { //侦听点击方块时
     //定义实现当前功能所需的变量
     const 查询坐标 = `${使用物品.blockLocation.x} ${使用物品.blockLocation.y} ${使用物品.blockLocation.z}`
+    const 玩家名称 = 使用物品.source.nameTag
     const 方块坐标 = 使用物品.blockLocation
     const 当前玩家 = 使用物品.source
     //使用物品时的自定义效果
@@ -35,6 +36,33 @@ world.events.beforeItemUseOn.subscribe((使用物品) => { //侦听点击方块�
 
         case '拟态矩阵:标记方块':
             专用组件.拟态矩阵(当前玩家, '', 方块坐标, `等待方块`, 查询坐标)
+            break
+
+        case '拟态矩阵:方块标定':
+            专用组件.拟态矩阵(当前玩家, '', 方块坐标, `方块标定`, 查询坐标)
+            break
+
+        case '特殊道具:质能转换':
+            switch (当前玩家.isSneaking) {
+                case true:
+                    专用组件.仓储整理(当前玩家, 查询坐标)
+                    break
+
+                case false:
+                    try {
+                        通用组件.快捷标题(`§4散落物品已销毁, 该操作不可撤销!\n\n§2执行操作者§r: <§6 ${玩家名称} §r>`)
+                        当前玩家.runCommand(`particle 提示图标:通用提示 ~ ~2.35 ~`)
+                        当前玩家.runCommand(`kill @e[type=item,r=32]`)
+                        //实现物品使用后的冷却效果
+                        当前玩家.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
+                        通用组件.延迟执行('原版指令', `give @s 特殊道具:质能转换`, 当前玩家, 15)
+                    }
+                    catch {
+                        当前玩家.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
+                        通用组件.延迟执行('原版指令', `give @s 特殊道具:质能转换`, 当前玩家, 30)
+                    }
+                    break
+            }
             break
 
         default:
@@ -103,7 +131,7 @@ world.events.beforeChat.subscribe((发送信息) => { //侦听聊天栏输入
     //定义实现当前功能所需的变量
     var 用户 = 发送信息.sender
     var 内容 = 发送信息.message
-    var 名称 = `"` + `${用户.name}` + `"`
+    var 名称 = `"` + `${用户.nameTag}` + `"`
     //定义新增命令
     if (内容.startsWith(`in: `) || 内容.startsWith(`<!>: `) || 内容.startsWith(`<$>:`) || 内容.startsWith(`!: `) || 内容.startsWith(`#: `)) {
         //执行自定义指令

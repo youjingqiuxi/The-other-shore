@@ -239,7 +239,7 @@
             {
                 "condition": "query.block_property('Table:switch') == 1",
                 "components": {
-                    "tag:open_door": {}
+                    "tag:Magic_Bus_open": {}
                 }
             }
         ],
@@ -324,7 +324,7 @@
                         }
                     },
                     {
-                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'open_door') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'open_door') == 1",
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1",
                         "set_block_property": {
                             "Table:switch": 1
                         },
@@ -335,7 +335,7 @@
                         }
                     },
                     {
-                        "condition": "query.block_neighbor_has_all_tags(0,1,0,'open_door') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'open_door') == 1",
+                        "condition": "query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_open') == 1",
                         "set_block_property": {
                             "Table:switch": 1
                         },
@@ -346,7 +346,7 @@
                         }
                     },
                     {
-                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'open_door') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'open_door') == 1",
+                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
                         "set_block_property": {
                             "Table:switch": 1
                         },
