@@ -15,37 +15,10 @@
             "minecraft:creative_category": {
                 "parent": "equipment"
             },
-            "minecraft:on_use": {
-                "on_use": {
-                    "event": "使用工具",
-                    "target": "self"
-                }
-            },
-            "minecraft:cooldown": {
-                "category": "物资销毁",
-                "duration": 1
-            },
             "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,
-            "minecraft:durability": {
-                "max_durability": 350,
-                "damage_chance": {
-                    "min": 0,
-                    "max": 0
-                }
-            },
-            "minecraft:repairable": {
-              "repair_items": [
-                {
-                  "items": [
-                    "合金材料:特种合金"
-                  ],
-                  "repair_amount": 50
-                }
-              ]
-            },
             "minecraft:render_offsets": {
                 "main_hand": {
                     "third_person": {
@@ -76,25 +49,6 @@
             }
         },
         "events": {
-            "使用工具": {
-                "sequence": [
-                    {
-                        "run_command": {
-                            "command": [
-                                "title @a[r=5] actionbar §4物品已销毁, 该操作不可撤销 !!§2\n用户§r: <§6 @s §r>",
-                                "particle 提示图标:通用提示 ~ ~2.35 ~",
-                                "kill @e[type=item,r=32]"
-                            ]
-                        }
-                    },
-                    {
-                        "damage": {
-                            "type": "magic",
-                            "amount": 1
-                        }
-                    }
-                ]
-            }
         }
     }
 }

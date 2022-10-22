@@ -1,0 +1,59 @@
+{
+	"format_version": "1.10.0",
+	"render_controllers": {
+		"controller.render.state:attack": {
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"query.has_target ? Texture.attack_true : Texture.attack_false"
+			]
+		},
+        "controller.render.state:tame": {
+            "geometry": "Geometry.HeartState",
+            "materials": [
+                {
+                    "*": "Material.HeartState"
+                }
+            ],
+            "textures": [
+                "query.has_owner ? Texture.tame_true : Texture.tame_false"
+            ]
+        },
+		"controller.render.state:attack_wolf": {
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"query.has_target ? Texture.attack_true : Texture.attack_false"
+			],
+			"part_visibility": [
+				{
+					"*": "query.has_owner ? (query.health != 20 ? true : false) : (query.health != 8 ? true : false)"
+				}
+			]
+		},
+        "controller.render.state:tame_wolf": {
+            "geometry": "Geometry.HeartState",
+            "materials": [
+                {
+                    "*": "Material.HeartState"
+                }
+            ],
+            "textures": [
+                "query.has_owner ? Texture.tame_true : Texture.tame_false"
+            ],
+			"part_visibility": [
+				{
+					"*": "query.has_owner ? (query.health != 20 ? true : false) : (query.health != 8 ? true : false)"
+				}
+			]
+        }
+	}
+}

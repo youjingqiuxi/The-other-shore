@@ -2,32 +2,32 @@
     "format_version": "1.8.5",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "addons.Magic_bus.filter"
+            "identifier": "addons.Magic_bus.Pulse_count"
         },
         "tags": [
             "魔导总线合成台"
         ],
         "pattern": [
-            "jM#",
             "#G#",
-            "#R#"
+            "JTM",
+            "###"
         ],
         "key": {
-            "j": {
+            "J": {
                 "item": "魔导总线:交互终端"
             },
+            "T": {
+                "item": "领域石:特种合金"
+            },
             "M": {
-                "item": "能量水晶:超频魔晶"
+                "item": "魔导总线:脉冲总线"
             },
             "G": {
                 "item": "魔导总线:总线本体"
-            },
-            "R": {
-                "item": "stained_glass"
             }
         },
         "result": {
-            "item": "魔导总线:信号过滤"
+            "item": "魔导总线:脉冲计数"
         }
     }
 }

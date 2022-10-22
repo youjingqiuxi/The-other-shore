@@ -2,26 +2,29 @@
     "format_version": "1.8.5",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "addons.Magic_bus.Latch"
+            "identifier": "addons.Magic_bus.Parameter_setting"
         },
         "tags": [
             "魔导总线合成台"
         ],
         "pattern": [
-            "#H#",
-            "#G#",
-            "#H#"
+            "T#T",
+            "TGT",
+            "TjT"
         ],
         "key": {
             "G": {
                 "item": "魔导总线:总线本体"
             },
-            "H": {
-                "item": "redstone_torch"
+            "j": {
+                "item": "魔导总线:交互终端"
+            },
+            "T": {
+                "item": "copper_ingot"
             }
         },
         "result": {
-            "item": "魔导总线:脉冲锁存"
+            "item": "伺服机关:参数设置"
         }
     }
 }

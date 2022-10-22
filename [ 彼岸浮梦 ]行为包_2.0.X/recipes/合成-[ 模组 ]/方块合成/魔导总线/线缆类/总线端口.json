@@ -1,0 +1,31 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.Magic_bus.basics_port"
+        },
+        "tags": [
+            "魔导总线合成台"
+        ],
+        "pattern": [
+            "GMG",
+            "MTM",
+            "GMG"
+        ],
+        "key": {
+            "G": {
+                "item": "合金材料:钢岩合金"
+            },
+            "T": {
+                "item": "领域石:特种合金"
+            },
+            "M": {
+                "item": "魔导总线:总线本体"
+            }
+        },
+        "result": {
+            "item": "魔导总线:总线端口",
+            "count": 4
+        }
+    }
+}

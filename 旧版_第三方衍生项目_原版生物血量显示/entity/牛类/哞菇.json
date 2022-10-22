@@ -1,0 +1,44 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:mooshroom",
+      "materials": {
+         "default": "mooshroom",
+         "HeartState": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/cow/mooshroom",
+        "brown": "textures/entity/cow/brown_mooshroom",
+        "HE_0": "textures/HeartState/heart_0",
+        "HE_1": "textures/HeartState/heart_1",
+        "HE_2": "textures/HeartState/heart_2",
+        "HE_3": "textures/HeartState/heart_3",
+        "HE_4": "textures/HeartState/heart_4"
+      },
+      "geometry": {
+        "default": "geometry.mooshroom",
+        "HeartState": "geometry.HeartStateBase_Y.24"
+      },
+      "animations": {
+        "setup": "animation.mooshroom.setup.v1.0",
+        "walk": "animation.quadruped.walk",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.mooshroom.baby_transform"
+      },
+      "animation_controllers": [
+        { "setup": "controller.animation.mooshroom.setup" },
+        { "move": "controller.animation.mooshroom.move" },
+        { "baby": "controller.animation.mooshroom.baby" }
+      ],
+      "render_controllers": [
+         "controller.render.state:heart_10",
+         "controller.render.mooshroom"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 5
+      }
+    }
+  }
+}

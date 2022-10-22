@@ -1,0 +1,39 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:snow_golem",
+      "materials": {
+        "default": "snow_golem",
+        "head": "snow_golem_pumpkin",
+        "HeartState": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/snow_golem",
+        "HE_0": "textures/HeartState/heart_0",
+        "HE_1": "textures/HeartState/heart_1",
+        "HE_2": "textures/HeartState/heart_2",
+        "HE_3": "textures/HeartState/heart_3",
+        "HE_4": "textures/HeartState/heart_4"
+      },
+      "geometry": {
+        "default": "geometry.snowgolem",
+        "HeartState": "geometry.HeartStateBody_Y.32"
+      },
+      "animations": {
+        "move": "animation.snowgolem.move",
+        "arms": "animation.snowgolem.arms",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.snowgolem.move"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.snowgolem",
+        "controller.render.state:heart_04"
+      ]
+    }
+  }
+}

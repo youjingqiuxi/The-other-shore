@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:iron_golem",
+      "materials": {
+         "default": "iron_golem",
+         "HeartState": "entity_alphatest"
+      },
+      "geometry": {
+        "default": "geometry.irongolem",
+        "HeartState": "geometry.HeartStateBody_Y.40"
+      },
+      "textures": {
+        "cracked_high": "textures/entity/iron_golem/cracked_high",
+        "cracked_med": "textures/entity/iron_golem/cracked_medium",
+        "cracked_low": "textures/entity/iron_golem/cracked_low",
+        "cracked_none": "textures/entity/iron_golem/cracked_none",
+        "HE_0": "textures/HeartState/heart_0",
+        "HE_1": "textures/HeartState/heart_1",
+        "HE_2": "textures/HeartState/heart_2",
+        "HE_3": "textures/HeartState/heart_3",
+        "HE_4": "textures/HeartState/heart_4"
+      },
+      "render_controllers": [
+         "controller.render.state:heart_100",
+         "controller.render.iron_golem",
+         "controller.render.iron_golem_cracks"
+      ]
+    }
+  }
+}

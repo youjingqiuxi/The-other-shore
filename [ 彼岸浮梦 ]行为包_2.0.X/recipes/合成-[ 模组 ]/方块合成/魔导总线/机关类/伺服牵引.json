@@ -2,29 +2,29 @@
     "format_version": "1.8.5",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "addons.Magic_bus.Parameter_setting"
+            "identifier": "addons.Magic_bus.Servo_drag"
         },
         "tags": [
             "魔导总线合成台"
         ],
         "pattern": [
-            "T#T",
-            "TGT",
-            "#j#"
+            "THT",
+            "#G#",
+            "TTT"
         ],
         "key": {
             "G": {
                 "item": "魔导总线:总线本体"
             },
-            "j": {
-                "item": "魔导总线:交互终端"
+            "H": {
+                "item": "sticky_piston"
             },
             "T": {
                 "item": "copper_ingot"
             }
         },
         "result": {
-            "item": "伺服机关:参数设置"
+            "item": "伺服机关:伺服牵引"
         }
     }
 }

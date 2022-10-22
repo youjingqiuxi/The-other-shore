@@ -43,10 +43,10 @@
         "components": {
             "minecraft:geometry": "geometry.prop_block.magic_bus",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": true,
             "minecraft:block_light_filter": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_emission": 5,
             "minecraft:creative_category": {
                 "category": "construction"
             },

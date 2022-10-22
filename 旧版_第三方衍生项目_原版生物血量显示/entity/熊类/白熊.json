@@ -1,0 +1,49 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:polar_bear",
+      "materials": {
+        "default": "polar_bear",
+        "HeartState": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/polarbear",
+        "HE_0": "textures/HeartState/heart_0",
+        "HE_1": "textures/HeartState/heart_1",
+        "HE_2": "textures/HeartState/heart_2",
+        "HE_3": "textures/HeartState/heart_3",
+        "HE_4": "textures/HeartState/heart_4"
+      },
+      "geometry": {
+        "default": "geometry.polarbear",
+        "HeartState": "geometry.HeartStateBase_Y.20"
+      },
+      "animations": {
+        "walk": "animation.quadruped.walk",
+        "move": "animation.polarbear.move",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.polarbear.baby_transform"
+      },
+      "scripts": {
+        "scale": "1.2"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.polarbear.move"
+        },
+        {
+          "baby": "controller.animation.polarbear.baby"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.polarbear",
+        "controller.render.state:heart_30"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 37
+      }
+    }
+  }
+}

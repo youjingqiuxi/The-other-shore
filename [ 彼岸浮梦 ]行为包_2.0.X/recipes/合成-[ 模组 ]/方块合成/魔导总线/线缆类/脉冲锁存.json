@@ -2,29 +2,29 @@
     "format_version": "1.8.5",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "addons.Magic_bus.Servo_base"
+            "identifier": "addons.Magic_bus.Latch"
         },
         "tags": [
             "魔导总线合成台"
         ],
         "pattern": [
-            "TTT",
-            "#G#",
+            "#H#",
+            "TGT",
             "#H#"
         ],
         "key": {
             "G": {
                 "item": "魔导总线:总线本体"
             },
-            "H": {
-                "item": "sticky_piston"
-            },
             "T": {
-                "item": "copper_ingot"
+                "item": "合金材料:特种合金"
+            },
+            "H": {
+                "item": "redstone_torch"
             }
         },
         "result": {
-            "item": "伺服机关:伺服基座"
+            "item": "魔导总线:脉冲锁存"
         }
     }
 }

@@ -1,0 +1,62 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "minecraft:axolotl",
+            "materials": {
+                "default": "axolotl",
+                "limbs": "axolotl_limbs",
+                "HeartState": "entity_alphatest"
+            },
+            "textures": {
+                "blue": "textures/entity/axolotl/axolotl_blue",
+                "cyan": "textures/entity/axolotl/axolotl_cyan",
+                "gold": "textures/entity/axolotl/axolotl_gold",
+                "lucy": "textures/entity/axolotl/axolotl_lucy",
+                "wild": "textures/entity/axolotl/axolotl_wild",
+                "HE_0": "textures/HeartState/heart_0",
+                "HE_1": "textures/HeartState/heart_1",
+                "HE_2": "textures/HeartState/heart_2",
+                "HE_3": "textures/HeartState/heart_3",
+                "HE_4": "textures/HeartState/heart_4"
+            },
+            "geometry": {
+                "default": "geometry.axolotl",
+                "HeartState": "geometry.HeartStateBase_Y.04"
+            },
+            "animations": {
+                "idle_float": "animation.axolotl.idle_underwater",
+                "idle_floor": "animation.axolotl.idle_floor",
+                "idle_floor_water": "animation.axolotl.idle_floor_underwater",
+                "swim": "animation.axolotl.swim",
+                "walk_floor": "animation.axolotl.walk_floor",
+                "walk_floor_water": "animation.axolotl.walk_floor_underwater",
+                "play_dead": "animation.axolotl.play_dead",
+                "swim_angle": "animation.axolotl.swim_angle",
+                "look_at_target": "animation.common.look_at_target"
+            },
+            "scripts": {
+                "pre_animation": [
+                    "variable.moving = query.ground_speed > 0 || query.vertical_speed > 0;",
+                    "variable.pitch = query.body_x_rotation;"
+                ]
+            },
+            "animation_controllers": [
+                {
+                    "general": "controller.animation.axolotl.general"
+                },
+                {
+                    "move": "controller.animation.axolotl.move"
+                }
+            ],
+            "render_controllers": [
+                "controller.render.state:heart_14",
+                "controller.render.axolotl"
+            ],
+            "spawn_egg": {
+                "base_color": "#0xfbc1e3",
+                "overlay_color": "#0xa62d74"
+            }
+        }
+    }
+}

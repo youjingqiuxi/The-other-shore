@@ -1,0 +1,55 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:phantom",
+			"materials": {
+				"default": "phantom",
+				"invisible": "phantom_invisible",
+				"HeartState": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/phantom",
+				"HE_0": "textures/HeartState/heart_0",
+				"HE_1": "textures/HeartState/heart_1",
+				"HE_2": "textures/HeartState/heart_2",
+				"HE_3": "textures/HeartState/heart_3",
+				"HE_4": "textures/HeartState/heart_4"
+			},
+			"geometry": {
+				"default": "geometry.phantom",
+				"HeartState": "geometry.HeartStateRoot_Y.32"
+			},
+			"scripts": {
+				"initialize": [
+					"variable.runtimeid = 0;",
+					"variable.tailrotx = -5.0;",
+					"variable.wingrotz = 0.0;"
+				],
+				"animate": [
+					"phantom_base_pose_controller",
+					"move"
+				]
+			},
+			"animations": {
+				"phantom_base_pose": "animation.phantom.base_pose",
+				"phantom_base_pose_controller": "controller.animation.phantom.base_pose",
+				"move": "animation.phantom.move"
+			},
+			"particle_effects": {
+				"wing_dust": "minecraft:phantom_trail_particle"
+			},
+			"sound_effects": {
+				"flap": "mob.phantom.flap"
+			},
+			"render_controllers": [
+				"controller.render.phantom",
+				"controller.render.state:heart_20"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 51
+			}
+		}
+	}
+}

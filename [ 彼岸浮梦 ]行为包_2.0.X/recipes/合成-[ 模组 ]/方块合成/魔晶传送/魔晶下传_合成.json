@@ -8,9 +8,9 @@
             "crafting_table"
         ],
         "pattern": [
-            "TtT",
+            "TTT",
             "tMt",
-            "TtT"
+            "tTt"
         ],
         "key": {
             "M": {

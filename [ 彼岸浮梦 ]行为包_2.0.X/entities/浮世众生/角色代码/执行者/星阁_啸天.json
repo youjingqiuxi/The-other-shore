@@ -289,14 +289,13 @@
                 },
                 "minecraft:ageable": {
                     "duration": 15,
-                    "feed_items": [],
                     "grow_up": {
                         "event": "事件:骑乘控制",
                         "target": "self"
                     }
                 }
             },
-            "坐骑": {
+            "驾驶": {
                 "minecraft:behavior.controlled_by_player": {
                     "priority": 1
                 },
@@ -342,6 +341,40 @@
                 "minecraft:behavior.player_ride_tamed": {},
                 "minecraft:input_ground_controlled": {},
                 "minecraft:can_power_jump": {}
+            },
+            "骑乘": {
+                "minecraft:variant": {
+                    "value": 1
+                },
+                "minecraft:scale": {
+                    "value": 1.75
+                },
+                "minecraft:rideable": {
+                    "seat_count": 2,
+                    "family_types": [
+                        "prime"
+                    ],
+                    "seats": [
+                        {
+                            "position": [
+                                0.0,
+                                0.9,
+                                0.1
+                            ],
+                            "min_rider_count": 0,
+                            "max_rider_count": 2
+                        },
+                        {
+                            "position": [
+                                0.0,
+                                0.82,
+                                -0.35
+                            ],
+                            "min_rider_count": 2,
+                            "max_rider_count": 2
+                        }
+                    ]
+                }
             },
             "取消": {
                 "minecraft:variant": {
@@ -723,18 +756,77 @@
             "事件:骑乘控制": {
                 "sequence": [
                     {
+                        //骑乘状态初始化
                         "filters": {
                             "all_of": [
                                 {
-                                    "test": "has_component",
-                                    "operator": "==",
-                                    "value": "minecraft:rideable"
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "mount_mode.0"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "mount_mode.1"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "mount_mode.2"
                                 }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add mount_mode.0",
+                                "title @a[r=15] actionbar 【 @s 】: | 坐骑状态 |: 可驾驶, 玩家主权控制"
                             ]
                         },
                         "remove": {
                             "component_groups": [
-                                "坐骑"
+                                "取消",
+                                "骑乘",
+                                "成长"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "驾驶"
+                            ]
+                        }
+                    },
+                    {
+                        //无人骑乘模式
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "mount_mode.0"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "mount_mode.1"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "mount_mode.2"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add mount_mode.0",
+                                "tag @s remove mount_mode.2",
+                                "title @a[r=15] actionbar 【 @s 】: | 坐骑状态 |: 不可骑乘"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "驾驶",
+                                "骑乘"
                             ]
                         },
                         "add": {
@@ -744,24 +836,82 @@
                         }
                     },
                     {
+                        //玩家主权模式
                         "filters": {
                             "all_of": [
                                 {
-                                    "test": "has_component",
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "mount_mode.0"
+                                },
+                                {
+                                    "test": "has_tag",
                                     "operator": "!=",
-                                    "value": "minecraft:rideable"
+                                    "value": "mount_mode.1"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "mount_mode.2"
                                 }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add mount_mode.1",
+                                "tag @s remove mount_mode.0",
+                                "title @a[r=15] actionbar 【 @s 】: | 坐骑状态 |: 可驾驶, 玩家主权控制"
                             ]
                         },
                         "remove": {
                             "component_groups": [
                                 "取消",
-                                "成长"
+                                "骑乘"
                             ]
                         },
                         "add": {
                             "component_groups": [
-                                "坐骑"
+                                "驾驶"
+                            ]
+                        }
+                    },
+                    {
+                        //角色骑乘模式
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "mount_mode.0"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "mount_mode.1"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "mount_mode.2"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tag @s add mount_mode.2",
+                                "tag @s remove mount_mode.1",
+                                "title @a[r=15] actionbar 【 @s 】: | 坐骑状态 |: 仅供角色骑乘"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "取消",
+                                "驾驶"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "骑乘"
                             ]
                         }
                     }
@@ -819,31 +969,31 @@
                     }
                 ]
             },
-			"事件:锚点虚印": {
-				"sequence": [
-					{
-						"filters": {
-							"any_of": [
-								{
-									"test": "has_component",
-									"operator": "==",
-									"value": "minecraft:is_tamed"
-								},
-								{
-									"test": "has_tag",
-									"operator": "!=",
-									"value": "SitDown"
-								}
-							]
-						},
-						"run_command": {
-							"command": [
-								"particle 提示图标:通用提示 ~ ~2.5 ~"
-							]
-						}
-					}
-				]
-			}
+            "事件:锚点虚印": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_component",
+                                    "operator": "==",
+                                    "value": "minecraft:is_tamed"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "SitDown"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 提示图标:通用提示 ~ ~2.5 ~"
+                            ]
+                        }
+                    }
+                ]
+            }
         }
     }
 }

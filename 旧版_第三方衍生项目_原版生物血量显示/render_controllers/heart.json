@@ -1,0 +1,734 @@
+{
+	"format_version": "1.10.0",
+	"render_controllers": {
+		"controller.render.state:heart_03": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health + 1.9) / 1)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 3 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_04": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health + 0.9) / 1)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 4 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_05": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 0.1) / 1)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 5 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_06": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 1.1) / 1)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 6 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_07": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 2.1) / 1)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 7 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_08": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 3.1) / 1)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 8 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_09": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 0) / 2)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 9 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_10": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 1) / 2)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 10 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_11": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 2) / 2)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 11 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_12": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 3) / 2)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 12 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_13": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 4) / 2)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 13 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_14": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 0.2) / 3)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 14 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_15": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 1.2) / 3)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 15 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_16": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health + 3) / 4)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 16 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_17": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 2.3) / 3)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 17 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_18": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 3.3) / 3)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 18 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_19": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 0) / 4)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 19 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_20": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 1) / 4)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 20 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_24": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 5) / 4)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 24 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_26": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 7) / 4)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 26 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_30": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 0.3) / 6)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 30 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_40": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 1) / 8)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 40 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_50": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 1) / 10)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 50 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_80": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 0.8) / 16)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 80 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_100": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 1) / 20)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 100 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_350": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[math.trunc((query.health - 1.4) / 70)]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.health != 350 ? true : false"
+				}
+			]
+		},
+		"controller.render.state:heart_wolf": {
+			"arrays": {
+				"textures": {
+					"Array.heart": [
+						"Texture.HE_0",
+						"Texture.HE_1",
+						"Texture.HE_2",
+						"Texture.HE_3",
+						"Texture.HE_4"
+					]
+				}
+			},
+			"geometry": "Geometry.HeartState",
+			"materials": [
+				{
+					"*": "Material.HeartState"
+				}
+			],
+			"textures": [
+				"Array.heart[query.has_owner ? (math.trunc((query.health - 1) / 4)) : (math.trunc((query.health - 3.1) / 1))]"
+			],
+			"part_visibility": [
+				{
+					"*": "query.has_owner ? (query.health != 20 ? true : false) : (query.health != 8 ? true : false)"
+				}
+			]
+		}
+	}
+}

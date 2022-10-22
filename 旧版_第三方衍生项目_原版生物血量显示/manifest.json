@@ -1,0 +1,25 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "生物血量显示",
+        "uuid": "557EF04A-82C6-470F-B67F-C6F13283E2B8",
+        "name": "生物血量显示",
+        "version": [
+            0,
+            0,
+            2
+        ]
+    },
+    "modules": [
+        {
+            "uuid": "4673ECDD-591F-CE28-BCB2-CAE72FB556E3",
+            "description": "Biological_health_display",
+            "type": "resources",
+            "version": [
+                0,
+                0,
+                2
+            ]
+        }
+    ]
+}

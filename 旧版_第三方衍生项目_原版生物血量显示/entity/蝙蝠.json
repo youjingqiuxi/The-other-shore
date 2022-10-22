@@ -1,0 +1,44 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "minecraft:bat",
+        "materials": {
+          "default": "bat",
+          "HeartState": "entity_alphatest"
+        },
+        "textures": {
+          "default": "textures/entity/bat",
+          "HE_0": "textures/HeartState/heart_0",
+          "HE_1": "textures/HeartState/heart_1",
+          "HE_2": "textures/HeartState/heart_2",
+          "HE_3": "textures/HeartState/heart_3",
+          "HE_4": "textures/HeartState/heart_4"
+        },
+        "geometry": {
+          "default": "geometry.bat",
+          "HeartState": "geometry.HeartStateBase_Y.30"
+        },
+        "scripts": {
+          "scale": "0.35"
+        },
+        "animations": {
+          "resting": "animation.bat.resting",
+          "flying": "animation.bat.flying"
+        },
+        "animation_controllers": [
+          {
+            "move": "controller.animation.bat.move"
+          }
+        ],
+        "render_controllers": [
+          "controller.render.bat",
+          "controller.render.state:heart_06"
+        ],
+        "spawn_egg": {
+          "texture": "spawn_egg",
+          "texture_index": 18
+        }
+      }
+    }
+  }
