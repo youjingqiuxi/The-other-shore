@@ -14,13 +14,89 @@ import {
 } from "@minecraft/server-ui"
 
 import {
-    EntityRaycastOptions,
-    BlockRaycastOptions,
     BlockLocation,
+    ItemStack,
+    ItemTypes,
     world
 } from "@minecraft/server"
-
+//定义全局变量
+const 获取维度 = world.getDimension('overworld') || world.getDimension('nether') || world.getDimension('the end')
+//定义 类
 export class 通用组件 {
+    /**
+     * @param {string} 类型 限制为: <实体 | 物品 | 粒子>
+     * @param {string} 目标 限制为: <实体类 对象>
+     * @param {object|string} 位置 指定的生成实体的坐标
+     * @param {value} 数量 生成物品时, 每次生成的数量
+     * @param {value} 数据 生成物品时, 附加的物品数值
+     * @returns {run.command}
+     */
+    static 生成实体 = function (类型, 目标, 位置, 数量 = 1, 数据 = 0) {
+        switch (typeof (位置)) {
+            case 'string':
+                var 坐标运算 = 位置.split(/\s/)
+                var 生成坐标 = new BlockLocation(Math.floor(坐标运算[0]), Math.floor(坐标运算[1]), Math.floor(坐标运算[2]))
+                break
+
+            default:
+                var 生成坐标 = 位置
+                break
+        }
+        switch (类型) {
+            case '实体':
+                获取维度.spawnEntity(目标, 生成坐标)
+                break
+
+            case '物品':
+                获取维度.spawnItem(new ItemStack(ItemTypes.get(目标), 数量, 数据), 生成坐标)
+                break
+
+            case '粒子':
+                获取维度.spawnParticle(目标, 生成坐标)
+                break
+        }
+    }
+    /**
+     * @param {object} 目标 限制为: <实体类 对象>
+     * @param {string} 类型 限制为: < entity | block | ...>
+     * @param {string} 用户 限制为: <玩家名称><目标选择器>
+     * @returns {run.command | string}
+     */
+    static 查询名称 = function (目标, 类型 = 'return_entity', 用户) {
+        //定义实现当前功能所需的变量
+        let 查询_命名空间 = 目标.typeId.split(':')
+        //实现接口功能
+        switch (类型) {
+            case 'entity':
+                if (用户) {
+                    获取维度.runCommand(`tellraw ${用户} {"rawtext":[{"translate":"entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name"}]}`)
+                }
+                else {
+                    获取维度.runCommand(`tellraw @a {"rawtext":[{"translate":"entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name"}]}`)
+                }
+                break
+
+            case 'block':
+                if (用户) {
+                    获取维度.runCommand(`tellraw ${用户} {"rawtext":[{"translate":"tile.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name"}]}`)
+                }
+                else {
+                    获取维度.runCommand(`tellraw @a {"rawtext":[{"translate":"tile.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name"}]}`)
+                }
+                break
+
+            case 'return_entity':
+                if (目标.typeId == 'minecraft:player') {
+                    return `{ "text": "${目标.name}" }`
+                }
+                else {
+                    return `{ "translate": "entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name" }`
+                }
+
+            case 'return_block':
+                return `{ "translate": "tile.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name" }`
+        }
+    }
     /**
      * @param {string} 类型 限制为: < 快捷消息 | 原版指令 | ... >
      * @param {string} 内容 需要执行的 内容 或 指令
@@ -29,9 +105,9 @@ export class 通用组件 {
      * @returns {Promise<any>|run.command}
      */
     static 延迟执行 = function (类型, 内容, 用户, 延迟 = 20) {
-        //定义实现当前功能所需的变量
+        //定义玩家名称
         var 玩家名称 = `"` + `${用户.nameTag}` + `"`
-        //执行接口功能
+        //创建异步执行
         return new Promise(async function () {
             let 等待执行 = function () {
                 if (延迟 <= 0) {
@@ -63,7 +139,7 @@ export class 通用组件 {
      * @param {value} 数值A 取值区间的最小值
      * @param {value} 数值B 取值区间的最大值
      * @param {string} 类型 限制为: < A--B | --B | A-- >
-     * @returns {value}
+     * @returns {string}
      */
     static 随机数值 = function (数值A, 数值B, 类型 = 'A--B') {
         switch (类型) {
@@ -106,10 +182,10 @@ export class 通用组件 {
                 break
         }
         try {
-            world.getDimension("overworld").runCommand(`titleraw ${目标} ${类型} {"rawtext":[{"text":"${内容}"}` + `${附加 ? ',' + 附加 : ``}` + `]}`)
+            获取维度.runCommand(`titleraw ${目标} ${类型} {"rawtext":[{"text":"${内容}"}` + `${附加 ? ',' + 附加 : ``}` + `]}`)
         }
         catch {
-            world.getDimension("overworld").runCommand(`titleraw @a ${类型} {"rawtext":[{"text":"${内容}"}` + `${附加 ? ',' + 附加 : ``}` + `]}`)
+            获取维度.runCommand(`titleraw @a ${类型} {"rawtext":[{"text":"${内容}"}` + `${附加 ? ',' + 附加 : ``}` + `]}`)
         }
     }
     /**
@@ -119,20 +195,19 @@ export class 通用组件 {
      * @returns {show}
      */
     static 通知界面 = function (用户, 标题, 内容) {
-        //定义实现当前功能所需的变量
-        var 页面元素 = new MessageFormData()
         //定义当前界面所用到的各项元素
-        页面元素 = 页面元素.title(标题)
+        var 页面元素 = new MessageFormData()
+            .title(标题)
             .body(内容)
             .button1("查看 功能目录")
             .button2("关闭 当前界面")
-            //生成界面并执行玩家的选择
-            .show(用户).then((用户选择) => {
-                if (用户选择.selection == 1) {
-                    辅助说明.目录(用户)
-                }
+        //生成界面并执行玩家的选择
+        页面元素.show(用户).then((用户选择) => {
+            if (用户选择.selection == 1) {
+                辅助说明.目录(用户)
             }
-            )
+        }
+        )
     }
     /**
      * @param {string} 内容 需要显示的内容
@@ -146,47 +221,6 @@ export class 通用组件 {
         }
         catch {
             world.getDimension("overworld").runCommand(`tellraw @a {"rawtext":[{"text":"${内容}"}` + `${附加 ? ',' + 附加 : ``}` + `]}`)
-        }
-    }
-    /**
-     * @param {object} 目标 限制为: <实体类 对象>
-     * @param {string} 类型 限制为: < entity | block | ...>
-     * @param {string} 用户 限制为: <玩家名称><目标选择器>
-     * @returns {run.command | string}
-     */
-    static 查询名称 = function (目标, 类型, 用户) {
-        //定义实现当前功能所需的变量
-        let 查询_命名空间 = 目标.typeId.split(':')
-        //实现接口功能
-        switch (类型) {
-            case 'entity':
-                try {
-                    world.getDimension("overworld").runCommand(`tellraw ${用户} {"rawtext":[{"translate":"entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name"}]}`)
-                }
-                catch {
-                    world.getDimension("overworld").runCommand(`tellraw @a {"rawtext":[{"translate":"entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name"}]}`)
-                }
-                break
-
-            case 'block':
-                try {
-                    world.getDimension("overworld").runCommand(`tellraw ${用户} {"rawtext":[{"translate":"tile.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name"}]}`)
-                }
-                catch {
-                    world.getDimension("overworld").runCommand(`tellraw @a {"rawtext":[{"translate":"tile.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name"}]}`)
-                }
-                break
-
-            case 'return_entity':
-                if (目标.typeId == 'minecraft:player') {
-                    return `{ "text": "${目标.name}" }`
-                }
-                else {
-                    return `{ "translate": "entity.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name" }`
-                }
-
-            case 'return_block':
-                return `{ "translate": "tile.${(查询_命名空间[0] == 'minecraft') ? 查询_命名空间[1] : 目标.typeId}.name" }`
         }
     }
 }
@@ -335,55 +369,23 @@ export class 坐标信息 {
     /**
     * @param {string} 名称 需要保存的<坐标数值>的名称
     * @param {object} 用户 限制为: <玩家类 对象>
-    * @param {string} X轴 需要保存的坐标数值
-    * @param {string} Y轴 需要保存的坐标数值
-    * @param {string} Z轴 需要保存的坐标数值
-    * @returns {string}
-    */
-    static 保存坐标 = function (名称, 用户, X轴, Y轴, Z轴) {
-        //定义实现当前功能所需的变量
-        let 查询标签 = 用户.getTags()
-        //执行指定的功能
-        for (let 目标标签 in 查询标签) { //循环 获取标签
-            if (查询标签[目标标签].startsWith(`{"${名称}":{`)) { //如果 有标签 就 根据标签 执行 指定功能
-                //读取 标签中 的数据
-                let 标签数据 = JSON.parse(查询标签[目标标签])
-                let 待删除_坐标X = 标签数据[名称]['坐标X']
-                let 待删除_坐标Y = 标签数据[名称]['坐标Y']
-                let 待删除_坐标Z = 标签数据[名称]['坐标Z']
-                //整合 获得的 坐标数据
-                let 待删除_坐标点 = {
-                    [名称]: {
-                        '坐标X': 待删除_坐标X,
-                        '坐标Y': 待删除_坐标Y,
-                        '坐标Z': 待删除_坐标Z,
-                    }
-                }
-                //移除无用的坐标
-                用户.removeTag(JSON.stringify(待删除_坐标点))
-            }
-        }
-        //整合 当前的 坐标数据
-        let 坐标点 = {
-            [名称]: {
-                '坐标X': X轴,
-                '坐标Y': Y轴,
-                '坐标Z': Z轴,
-            }
-        }
-        //添加对应的标签
-        用户.addTag(JSON.stringify(坐标点))
-    }
-    /**
-    * @param {string} 名称 需要保存的<坐标数值>的名称
-    * @param {object} 用户 限制为: <玩家类 对象>
-    * @param {object} 位置 限制为: <坐标类 对象>
+    * @param {object|string} 位置 需要保存的坐标
     * @returns {string}
     */
     static 数据保存 = function (名称, 用户, 位置) {
         //定义实现当前功能所需的变量
         let 查询标签 = 用户.getTags()
         //执行指定的功能
+        switch (typeof (位置)) {
+            case 'string':
+                var 运算 = 位置.split(/\s/)
+                var 坐标 = new BlockLocation(Math.floor(运算[0]), Math.floor(运算[1]), Math.floor(运算[2]))
+                break
+
+            default:
+                var 坐标 = 位置
+                break
+        }
         for (let 目标标签 in 查询标签) { //循环 获取标签
             if (查询标签[目标标签].startsWith(`{"${名称}":{`)) { //如果 有标签 就 根据标签 执行 指定功能
                 //读取 标签中 的数据
@@ -406,9 +408,9 @@ export class 坐标信息 {
         //整合 当前的 坐标数据
         let 坐标点 = {
             [名称]: {
-                '坐标X': 位置.x,
-                '坐标Y': 位置.y,
-                '坐标Z': 位置.z,
+                '坐标X': 坐标.x,
+                '坐标Y': 坐标.y,
+                '坐标Z': 坐标.z,
             }
         }
         //添加对应的标签

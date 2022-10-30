@@ -30,7 +30,7 @@
             },
             "minecraft:cooldown": {
                 "category": "精灵治愈",
-                "duration": 5
+                "duration": 15
             },
             "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
@@ -84,22 +84,22 @@
                     {
                         "run_command": {
                             "command": [
-                                "summon 矩阵接口:绘制 ~~~ 标签驱动.图形绘制.旋转",
-                                "tag @e[family=Matrix_API,c=1] add Matrix_API.rotate.Red_rising"
+                                "execute at @e [r=8,type=!item,family=!monster] run summon 矩阵接口:绘制 ~~~ 标签驱动.图形绘制.旋转",
+                                "tag @e[family=Matrix_API,r=10] add Matrix_API.rotate.Red_rising"
                             ]
                         }
                     },
                     {
                         "run_command": {
                             "command": [
-                                "effect @s regeneration 5 4 true"
+                                "effect @e[r=8,type=!item,family=!monster] regeneration 15 4 true"
                             ]
                         }
                     },
                     {
                         "damage": {
                             "type": "magic",
-                            "amount": 10
+                            "amount": 15
                         }
                     }
                 ]

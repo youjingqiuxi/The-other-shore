@@ -1,13 +1,13 @@
 {
     "format_version": 2,
     "header": {
-        "description": "§l模组版本§r: §6V2.0.5\n§l适配版本§r: §2MC_BE:1.19.40§r\n§4请开启全部|实验性玩法|以保证功能可以正常运行",
+        "description": "§l模组版本§r: §6V2.0.6\n§l适配版本§r: §2MC_BE:1.19.40§r\n§4请开启全部|实验性玩法|以保证功能可以正常运行",
         "uuid": "986b0fa9-b70e-4909-b50c-3752810dbb86",
         "name": "§9[ 彼岸浮梦 ]资源包§r",
         "min_engine_version": [
             1,
             19,
-            40
+            30
         ],
         "version": [
             2,

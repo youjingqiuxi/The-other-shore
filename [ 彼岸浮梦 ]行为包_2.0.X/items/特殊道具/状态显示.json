@@ -2,33 +2,35 @@
     "format_version": "1.19.10",
     "minecraft:item": {
         "description": {
-            "identifier": "魔法礼盒:换装礼盒",
-            "category": "items"
+            "identifier": "特殊道具:状态显示",
+            "category": "equipment"
         },
         "components": {
+            "minecraft:icon": {
+                "texture": "状态显示"
+            },
+            "minecraft:display_name": {
+                "value": "§6<| 状态显示 |>§r"
+            },
+            "minecraft:creative_category": {
+                "parent": "equipment"
+            },
             "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,
-            "minecraft:foil": false,
-            "minecraft:icon": {
-                "texture": "换装礼盒"
-            },
-            "minecraft:display_name": {
-                "value": "§l§6< 换装礼盒 >§r"
-            },
             "minecraft:render_offsets": {
                 "main_hand": {
                     "third_person": {
                         "position": [
-                            0.50,
-                            0.75,
-                            -0.90
+                            0.05,
+                            0.65,
+                            -0.3
                         ],
                         "scale": [
-                            0.04,
-                            0.04,
-                            0.04
+                            0.05,
+                            0.05,
+                            0.05
                         ]
                     },
                     "first_person": {
@@ -38,9 +40,9 @@
                             -3.0
                         ],
                         "scale": [
-                            0.045,
-                            0.045,
-                            0.054
+                            0.09,
+                            0.09,
+                            0.09
                         ]
                     }
                 }

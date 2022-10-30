@@ -20,14 +20,6 @@
             "minecraft:creative_category": {
                 "parent": "equipment"
             },
-            "minecraft:weapon": {
-                "on_hurt_entity": {
-                    "event": "事件:触发道具"
-                },
-                "on_hit_block": {
-                    "event": "事件:触发道具"
-                }
-            },
             "minecraft:on_use": {
                 "on_use": {
                     "event": "事件:触发道具",

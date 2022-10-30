@@ -10,7 +10,7 @@
                 "texture": "物资整理"
             },
             "minecraft:display_name": {
-                "value": "§6<[ 物资整理仪 ]>§r"
+                "value": "§6<| 物资整理 |>§r"
             },
             "minecraft:creative_category": {
                 "parent": "equipment"

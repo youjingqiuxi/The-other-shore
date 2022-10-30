@@ -1,0 +1,33 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.special_item.Status_display"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "RGR",
+            "RSR",
+            "RHR"
+        ],
+        "key": {
+            "R": {
+                "item": "minecraft:red_dye"
+            },
+            "S": {
+                "item": "魔法书籍:精灵治愈"
+            },
+            "G": {
+                "item": "minecraft:bone_meal"
+            },
+            "H": {
+                "item": "合金材料:钢岩合金"
+            }
+        },
+        "result": {
+            "item": "特殊道具:状态显示"
+        }
+    }
+}

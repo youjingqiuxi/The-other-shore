@@ -18,13 +18,15 @@ import {
     BlockRaycastOptions,
     BlockLocation,
     Dimension,
-    Entity,
+    Entity, ItemStack, ItemTypes,
     world
 } from "@minecraft/server"
 
 //导入< matrix_API >预设接口
 import { 通用组件, 数据标签, 坐标信息 } from './matrix_API'
-
+//定义全局变量
+const 获取维度 = world.getDimension('overworld') || world.getDimension('nether') || world.getDimension('the end')
+//定义 类
 export class 专用界面 {
     /**
      * @param {object} 用户 此参数限制为: <玩家类 对象>
@@ -168,56 +170,73 @@ export class 专用界面 {
         //定义实现当前功能所需的变量
         let 当前坐标 = new BlockLocation(Math.floor(用户.location.x), Math.floor(用户.location.y), Math.floor(用户.location.z))
         let 玩家名称 = `"` + `${用户.nameTag}` + `"`
-        //定义当前界面所用到的各项元素
-        let 功能界面 = new ModalFormData()
-            .title("<§c§o§l 锚点虚印 §r>§9操作界面")
-            .dropdown("设置<§c§o§l 锚点虚印 §r>", ["§1§l执行§r<§9§o§l 锚点召集 §r>", "§6§l绑定§r<§5§o§l 锚点虚印 §r>", "§c§l移除§r<§4§o§l 锚点虚印 §r>"], 0)
-            .slider("§6设置§r <§9§o§l 锚点召集 §r> §a有效范围§r", 1, 64, 1, 32)
-            .slider("§6设置§r <§9§o§l 锚点召集 §r> §a有效数量§r", 1, 64, 1, 16)
-            .slider("§c设置§r <§4§o§l 锚点虚印 §r> §a修改范围§r", 1, 16, 1, 16)
-            .toggle("§c设置§r <§9§o§l 锚点召集 §r> §a范围限制§r", true)
-            .textField("<§9§o§l 锚点虚印 §r>§c召集点坐标§r", "§c请输入 召集点 坐标§r", `${当前坐标.x} ${当前坐标.y} ${当前坐标.z}`)
-        功能界面.show(用户).then((用户选择) => {
-            switch (用户选择.formValues[0]) {
-                case 0:
-                    try {
-                        用户.runCommand(`event entity @e[tag=${玩家名称},r=${用户选择.formValues[1]},tag=!SitDown] 事件:锚点虚印`)
-                        用户.runCommand(`tp @e[tag=${玩家名称}${(用户选择.formValues[4]) ? `,r=${用户选择.formValues[1]}` : ""},c=${用户选择.formValues[2]},tag=!SitDown] ${用户选择.formValues[5]}`)
-                        用户.runCommand(`title @s actionbar 正在召集 |> @e[tag=${玩家名称}${(用户选择.formValues[4]) ? `,r=${用户选择.formValues[1]}` : ""},c=${用户选择.formValues[2]},tag=!SitDown] <|`)
-                    }
-                    catch {
-                        let 标题 = "§c|§4§l 锚点虚印 - 错误提示 §r§c|"
-                        let 内容 = `无法召唤您所期望的§6<§a 角色 §6>§r\n\n如需进行<§9§o§l 锚点召集 §r>应满足下列条件:\n\n     *. §6<§a 角色 §6>§r 没有 <§5 进行坐下 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§6 与您绑定 §r>\n\n     *. §6<§a 角色 §6>§r 处于 <§9 加载区块 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§5 精灵结契 §r>`
-                        通用组件.通知界面(用户, 标题, 内容)
-                    }
-                    break
+        switch (用户.isSneaking) {
+            case true:
+                //定义当前界面所用到的各项元素
+                let 功能界面 = new ModalFormData()
+                    .title("<§c§o§l 锚点虚印 §r>§9操作界面")
+                    .dropdown("设置<§c§o§l 锚点虚印 §r>", ["§1§l执行§r<§9§o§l 锚点召集 §r>", "§6§l绑定§r<§5§o§l 锚点虚印 §r>", "§c§l移除§r<§4§o§l 锚点虚印 §r>"], 0)
+                    .slider("§6设置§r <§9§o§l 锚点召集 §r> §a有效范围§r", 1, 64, 1, 32)
+                    .slider("§6设置§r <§9§o§l 锚点召集 §r> §a有效数量§r", 1, 64, 1, 16)
+                    .slider("§c设置§r <§4§o§l 锚点虚印 §r> §a修改范围§r", 1, 16, 1, 16)
+                    .toggle("§c设置§r <§9§o§l 锚点召集 §r> §a范围限制§r", true)
+                    .textField("<§9§o§l 锚点虚印 §r>§c召集点坐标§r", "§c请输入 召集点 坐标§r", `${当前坐标.x} ${当前坐标.y} ${当前坐标.z}`)
+                功能界面.show(用户).then((用户选择) => {
+                    switch (用户选择.formValues[0]) {
+                        case 0:
+                            try {
+                                用户.runCommand(`event entity @e[tag=${玩家名称},r=${用户选择.formValues[1]},tag=!SitDown] 事件:锚点虚印`)
+                                用户.runCommand(`tp @e[tag=${玩家名称}${(用户选择.formValues[4]) ? `,r=${用户选择.formValues[1]}` : ""},c=${用户选择.formValues[2]},tag=!SitDown] ${用户选择.formValues[5]}`)
+                                用户.runCommand(`title @s actionbar 正在召集 |> @e[tag=${玩家名称}${(用户选择.formValues[4]) ? `,r=${用户选择.formValues[1]}` : ""},c=${用户选择.formValues[2]},tag=!SitDown] <|`)
+                            }
+                            catch {
+                                let 标题 = "§c|§4§l 锚点虚印 - 错误提示 §r§c|"
+                                let 内容 = `无法召唤您所期望的§6<§a 角色 §6>§r\n\n如需进行<§9§o§l 锚点召集 §r>应满足下列条件:\n\n     *. §6<§a 角色 §6>§r 没有 <§5 进行坐下 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§6 与您绑定 §r>\n\n     *. §6<§a 角色 §6>§r 处于 <§9 加载区块 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§5 精灵结契 §r>`
+                                通用组件.通知界面(用户, 标题, 内容)
+                            }
+                            break
 
-                case 1:
-                    try {
-                        用户.runCommand(`tag @e[family=Tayun,family=Peer,tag=contract,tag=!SitDown,r=${用户选择.formValues[3]}] add ${玩家名称}`)
-                        用户.runCommand(`title @s actionbar 您已与 |> @e[family=Tayun,family=Peer,tag=contract,tag=!SitDown,r=8] <| 完成了<§6 锚点虚印 §r>的绑定`)
-                    }
-                    catch {
-                        let 标题 = "§c|§4§l 锚点虚印 - 错误提示 §r§c|"
-                        let 内容 = `无法绑定您所期望的§6<§a 角色 §6>§r\n\n如需进行<§9§o§l 锚点绑定 §r>应满足下列条件:\n\n     *. §6<§a 角色 §6>§r 没有 <§5 进行坐下 §r>\n\n     *. §6<§a 角色 §6>§r 没有 <§6 与您绑定 §r>\n\n     *. §6<§a 角色 §6>§r 处于 <§9 加载区块 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§5 精灵结契 §r>`
-                        通用组件.通知界面(用户, 标题, 内容)
-                    }
-                    break
+                        case 1:
+                            try {
+                                用户.runCommand(`tag @e[family=Tayun,family=Peer,tag=contract,tag=!SitDown,r=${用户选择.formValues[3]}] add ${玩家名称}`)
+                                用户.runCommand(`title @s actionbar 您已与 |> @e[family=Tayun,family=Peer,tag=contract,tag=!SitDown,r=8] <| 完成了<§6 锚点虚印 §r>的绑定`)
+                            }
+                            catch {
+                                let 标题 = "§c|§4§l 锚点虚印 - 错误提示 §r§c|"
+                                let 内容 = `无法绑定您所期望的§6<§a 角色 §6>§r\n\n如需进行<§9§o§l 锚点绑定 §r>应满足下列条件:\n\n     *. §6<§a 角色 §6>§r 没有 <§5 进行坐下 §r>\n\n     *. §6<§a 角色 §6>§r 没有 <§6 与您绑定 §r>\n\n     *. §6<§a 角色 §6>§r 处于 <§9 加载区块 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§5 精灵结契 §r>`
+                                通用组件.通知界面(用户, 标题, 内容)
+                            }
+                            break
 
-                case 2:
-                    try {
-                        用户.runCommand(`tag @e[family=Tayun,family=Peer,tag=contract,tag=!SitDown,r=${用户选择.formValues[3]}] remove ${玩家名称}`)
-                        用户.runCommand(`title @s actionbar 您已与 |> @e[family=Tayun,family=Peer,tag=contract,tag=!SitDown,r=8] <| 移除了<§6 锚点虚印 §r>的绑定`)
+                        case 2:
+                            try {
+                                用户.runCommand(`tag @e[family=Tayun,family=Peer,tag=contract,tag=!SitDown,r=${用户选择.formValues[3]}] remove ${玩家名称}`)
+                                用户.runCommand(`title @s actionbar 您已与 |> @e[family=Tayun,family=Peer,tag=contract,tag=!SitDown,r=8] <| 移除了<§6 锚点虚印 §r>的绑定`)
+                            }
+                            catch {
+                                let 标题 = "§c|§4§l 锚点虚印 - 错误提示 §r§c|"
+                                let 内容 = `无法解绑您所期望的§6<§a 角色 §6>§r\n\n如需进行<§9§o§l 锚点移除 §r>应满足下列条件:\n\n     *. §6<§a 角色 §6>§r 没有 <§5 进行坐下 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§6 与您绑定 §r>\n\n     *. §6<§a 角色 §6>§r 处于 <§9 加载区块 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§5 精灵结契 §r>`
+                                通用组件.通知界面(用户, 标题, 内容)
+                            }
+                            break
                     }
-                    catch {
-                        let 标题 = "§c|§4§l 锚点虚印 - 错误提示 §r§c|"
-                        let 内容 = `无法解绑您所期望的§6<§a 角色 §6>§r\n\n如需进行<§9§o§l 锚点移除 §r>应满足下列条件:\n\n     *. §6<§a 角色 §6>§r 没有 <§5 进行坐下 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§6 与您绑定 §r>\n\n     *. §6<§a 角色 §6>§r 处于 <§9 加载区块 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§5 精灵结契 §r>`
-                        通用组件.通知界面(用户, 标题, 内容)
-                    }
-                    break
-            }
+                }
+                )
+                break
+
+            case false:
+                try {
+                    使用物品.source.runCommand(`title @s actionbar 正在召集 |> @e[tag=${玩家名称},tag=!SitDown] <| `)
+                    使用物品.source.runCommand(`event entity @e[tag=${玩家名称},tag=!SitDown] 事件:锚点虚印`)
+                    使用物品.source.runCommand(`tp @e[tag=${玩家名称},tag=!SitDown] ~~~`)
+                }
+                catch {
+                    let 标题 = "§c|§4§l 锚点虚印 - 错误提示 §r§c|"
+                    let 内容 = `无法召唤您所期望的§6<§a 角色 §6>§r\n\n如需进行<§9§o§l 锚点召集 §r>应满足下列条件:\n\n     *. §6<§a 角色 §6>§r 没有 <§5 进行坐下 §r>\n\n     *. §6<§a 角色 §6>§r 已经 <§6 锚点绑定 §r>\n\n     *. §6<§a 角色 §6>§r 处于 <§9 加载区块 §r>`
+                    通用组件.通知界面(用户, 标题, 内容)
+                }
+                break
         }
-        )
     }
 }
 export class 专用组件 {
@@ -326,12 +345,11 @@ export class 专用组件 {
                 let 目标位置 = new BlockLocation(Math.floor(目标实体.location.x), Math.floor(目标实体.location.y), Math.floor(目标实体.location.z))
                 //获取信息并进行显示
                 if (健康状态) {
-                    用户.runCommand(`titleraw @s actionbar {"rawtext":[{"text":"=========================\n§b实体名称§7: §3"},${通用组件.查询名称(目标实体, 'return_entity')},{"text":"\n§e实体标识§7: §6${目标实体.typeId}\n§l§e实体血量§7: §2${Math.round(健康状态.current)}/${健康状态.value}\n§a实体事件§7: §b${目标.id}\n§6实体位置§7: §e${目标位置.x} ${目标位置.y} ${目标位置.z}\n§r========================="}]}`)
+                    用户.runCommand(`titleraw @s actionbar {"rawtext":[{"text":"=========================\n§b实体名称§7: §3"},${通用组件.查询名称(目标实体)},{"text":"\n§e实体标识§7: §6${目标实体.typeId}\n§l§e实体血量§7: §2${Math.round(健康状态.current)}/${健康状态.value}\n§a实体事件§7: §b${目标.id}\n§6实体位置§7: §e${目标位置.x} ${目标位置.y} ${目标位置.z}\n§r========================="}]}`)
                 }
                 else {
-                    用户.runCommand(`titleraw @s actionbar {"rawtext":[{"text":"=========================\n§b实体名称§7: §3"},${通用组件.查询名称(目标实体, 'return_entity')},{"text":"\n§e实体标识§7: §6${目标实体.typeId}\n§a实体事件§7: §b${目标.id}\n§6实体位置§7: §e${目标位置.x} ${目标位置.y} ${目标位置.z}\n§r========================="}]}`)
+                    用户.runCommand(`titleraw @s actionbar {"rawtext":[{"text":"=========================\n§b实体名称§7: §3"},${通用组件.查询名称(目标实体)},{"text":"\n§e实体标识§7: §6${目标实体.typeId}\n§a实体事件§7: §b${目标.id}\n§6实体位置§7: §e${目标位置.x} ${目标位置.y} ${目标位置.z}\n§r========================="}]}`)
                 }
-                目标实体.runCommand('particle 提示图标:通用提示 ~ ~2 ~')
                 break
         }
     }
@@ -471,8 +489,8 @@ export class 专用组件 {
                 //等待一段时间后归还道具
                 通用组件.延迟执行('给予物品', '拟态矩阵:方块调试', 用户, 通用组件.随机数值(10, 30))
                 //执行功能
-                switch (查询) {
-                    case '标准调试':
+                switch (用户.isSneaking) {
+                    case true:
                         //定义实现当前功能所需的变量
                         var 获取方块 = world.getDimension("overworld").getBlock(new BlockLocation(坐标.x, 坐标.y, 坐标.z))
                         var 调试属性 = 获取方块.type.createDefaultBlockPermutation()
@@ -518,7 +536,7 @@ export class 专用组件 {
                         )
                         break
 
-                    case '随机调试':
+                    case false:
                         var 获取方块 = world.getDimension("overworld").getBlock(new BlockLocation(坐标.x, 坐标.y, 坐标.z))
                         var 调试属性 = 获取方块.type.createDefaultBlockPermutation()
                         try {
@@ -655,6 +673,16 @@ export class 专用组件 {
                 }
                 break
 
+            case 'e':
+                let 物品坐标 = new BlockLocation(Math.floor(用户.location.x), Math.floor(用户.location.y + 10), Math.floor(用户.location.z))
+                let 实体坐标 = new BlockLocation(Math.floor(用户.location.x + 1), Math.floor(用户.location.y), Math.floor(用户.location.z))
+                let 释放物品 = new ItemStack(ItemTypes.get('minecraft:enchanted_book'), 1, 0)
+                获取维度.spawnItem(释放物品, 物品坐标)
+                var 实体 = 获取维度.getEntitiesAtBlockLocation(实体坐标)[0]
+                通用组件.快捷消息(`${实体.typeId}`)
+                通用组件.生成实体('物品', 'minecraft:book', '0 64 0')
+                break
+
             default:
                 通用组件.快捷消息("===============", 玩家名称)
                 通用组件.快捷消息(`§o§l§c| 彼岸附加指令组 |§r`, 玩家名称)
@@ -682,8 +710,8 @@ export class 专用组件 {
         let 玩家名称 = `"` + `${用户.nameTag}` + `"`
         let 物品列表 = []
         //执行功能
-        switch (类型) {
-            case '容器类':
+        switch (用户.isSneaking) {
+            case true:
                 //仅限<箱子>可以执行物品分类
                 if (方块容器.type.id == "minecraft:chest" || 方块容器.type.id == "minecraft:trapped_chest") {
                     //定义实现当前功能所需的变量
@@ -740,7 +768,7 @@ export class 专用组件 {
                 }
                 break
 
-            case '掉落物':
+            case false:
                 //定义当前界面所用到的各项元素
                 let 功能界面 = new ModalFormData()
                     .title("<§8§o§l 物资清除 §r>§9操作界面")
@@ -797,5 +825,34 @@ export class 专用组件 {
             //归还道具:匣里乾坤
             通用组件.延迟执行('给予物品', '魔法礼盒:匣里乾坤', 用户, 通用组件.随机数值(10, 20))
         }
+    }
+    /**
+     * @param {object} 用户 此参数限制为: <玩家类 对象>
+     * @returns {run.command}
+     */
+    static 状态显示 = function (用户) {
+        //移除玩家手上的道具
+        用户.runCommand("replaceitem entity @s slot.weapon.mainhand 0 air")
+        //等待一段时间后归还道具
+        通用组件.延迟执行('给予物品', '特殊道具:状态显示', 用户, 通用组件.随机数值(20, 40))
+        //定义<坐标类 对象>
+        let 位置 = new BlockLocation(Math.floor(用户.location.x), Math.floor(用户.location.y + 1), Math.floor(用户.location.z))
+        //召唤需要检测的实体
+        用户.runCommand(`tp @e[type=!player,r=15,c=1] ${位置.x} ${位置.y} ${位置.z}`)
+        //获取实体信息
+        let 实体 = 获取维度.getEntitiesAtBlockLocation(位置)[0]
+        let 泳速 = 实体.getComponent('underwater_movement')
+        let 栓绳 = 实体.getComponent('leashable')
+        let 移速 = 实体.getComponent('movement')
+        let 血量 = 实体.getComponent('health')
+        //显示获取到的实体信息
+        if (血量) {
+            用户.runCommand(`titleraw @s actionbar {"rawtext":[{"text":"=========================\n§b实体名称§7: §3"},${通用组件.查询名称(实体)},{"text":"\n§e实体标识§7: §6${实体.typeId}\n§l§e实体血量§7: §2${Math.round(血量.current)}/${血量.value}\n§l§2能否牵引§r: ${!!栓绳}\n${(移速) ? `§l§5常规移速§r: ${移速.value.toFixed(2)}` : ""}\n${(泳速) ? `§l§9水下移速§r: ${泳速.value.toFixed(2)}` : ""}\n§r========================="}]}`)
+        }
+        else {
+            用户.runCommand(`titleraw @s actionbar {"rawtext":[{"text":"=========================\n§b实体名称§7: §3"},${通用组件.查询名称(实体)},{"text":"\n§e实体标识§7: §6${实体.typeId}\n§r========================="}]}`)
+        }
+        //释放粒子效果
+        实体.runCommand('particle 烟雾效果:紫影 ~~~')
     }
 }

@@ -84,6 +84,11 @@
                 "textures/items/物资整理"
             ]
         },
+        "状态显示": {
+            "textures": [
+                "textures/items/状态显示"
+            ]
+        },
         "载具控制_行驶开关": {
             "textures": [
                 "textures/items/载具控制/行驶开关"
