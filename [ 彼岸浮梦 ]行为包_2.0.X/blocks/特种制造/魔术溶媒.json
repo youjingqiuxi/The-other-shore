@@ -28,7 +28,9 @@
             "minecraft:geometry": "geometry.prop_block.take_apart",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 5,
-            "minecraft:destructible_by_mining": true,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:creative_category": {
                 "category": "construction"
             },

@@ -18,7 +18,7 @@
                     4,
                     5
                 ],
-                "Table:direction": [
+                "Table:angle": [
                     0,
                     1,
                     2,
@@ -29,10 +29,12 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.broken_core",
+            "minecraft:geometry": "geometry.servo_mechanism.destroy_the_core",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 5,
-            "minecraft:destructible_by_mining": true,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:friction": 0.9,
             "minecraft:creative_category": {
                 "category": "construction"
@@ -114,7 +116,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:direction') == 0",
+                "condition": "query.block_property('Table:angle') == 0",
                 "components": {
                     "minecraft:rotation": [
                         -90,
@@ -124,7 +126,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:direction') == 1",
+                "condition": "query.block_property('Table:angle') == 1",
                 "components": {
                     "minecraft:rotation": [
                         90,
@@ -134,7 +136,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:direction') == 2",
+                "condition": "query.block_property('Table:angle') == 2",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -144,7 +146,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:direction') == 3",
+                "condition": "query.block_property('Table:angle') == 3",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -154,7 +156,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:direction') == 4",
+                "condition": "query.block_property('Table:angle') == 4",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -164,7 +166,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:direction') == 5",
+                "condition": "query.block_property('Table:angle') == 5",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -177,7 +179,7 @@
         "events": {
             "事件:放置方块": {
                 "set_block_property": {
-                    "Table:direction": "query.cardinal_facing"
+                    "Table:angle": "query.cardinal_facing"
                 }
             },
             "事件:进行交互": {
@@ -185,7 +187,7 @@
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
                         "set_block_property": {
-                            "Table:direction": "query.block_property('Table:direction') != 5 ? (query.block_property('Table:direction') + 1) : 0"
+                            "Table:angle": "query.block_property('Table:angle') != 5 ? (query.block_property('Table:angle') + 1) : 0"
                         },
                         "run_command": {
                             "command": [
@@ -240,7 +242,7 @@
                                 }
                             },
                             {
-                                "condition": "query.block_property('Table:direction') == 0",
+                                "condition": "query.block_property('Table:angle') == 0",
                                 "run_command": {
                                     "command": [
                                         "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_Y -6",
@@ -250,7 +252,7 @@
                                 }
                             },
                             {
-                                "condition": "query.block_property('Table:direction') == 1",
+                                "condition": "query.block_property('Table:angle') == 1",
                                 "run_command": {
                                     "command": [
                                         "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_Y 6",
@@ -260,7 +262,7 @@
                                 }
                             },
                             {
-                                "condition": "query.block_property('Table:direction') == 2",
+                                "condition": "query.block_property('Table:angle') == 2",
                                 "run_command": {
                                     "command": [
                                         "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_Z -6",
@@ -270,7 +272,7 @@
                                 }
                             },
                             {
-                                "condition": "query.block_property('Table:direction') == 3",
+                                "condition": "query.block_property('Table:angle') == 3",
                                 "run_command": {
                                     "command": [
                                         "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_Z 6",
@@ -280,7 +282,7 @@
                                 }
                             },
                             {
-                                "condition": "query.block_property('Table:direction') == 4",
+                                "condition": "query.block_property('Table:angle') == 4",
                                 "run_command": {
                                     "command": [
                                         "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_X -6",
@@ -290,7 +292,7 @@
                                 }
                             },
                             {
-                                "condition": "query.block_property('Table:direction') == 5",
+                                "condition": "query.block_property('Table:angle') == 5",
                                 "run_command": {
                                     "command": [
                                         "scoreboard players set @e[r=1,tag=!Matrix_API.open,family=Matrix_API] set_X 6",
@@ -307,7 +309,7 @@
                             "command": [
                                 "particle 提示图标:通用提示 ~ ~1 ~",
                                 "playsound random.anvil_land @a[r=15] ~~~",
-                                "title @p actionbar | 破坏核心 | : §c§l能源储备不足, 请补充能量"
+                                "title @a[r=5] actionbar | 破坏核心 | : §c§l能源储备不足, 请补充能量"
                             ]
                         }
                     },

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.19.10",
     "minecraft:item": {
         "description": {
             "identifier": "特殊道具:召唤渊鲸",
@@ -90,7 +90,7 @@
                         "condition": "query.is_in_water == 0",
                         "run_command": {
                             "command": [
-                                "title @p actionbar §4环境错误 ! 请在水中进行召唤 !"
+                                "title @a[r=5] actionbar §4环境错误 ! 请在水中进行召唤 !"
                             ]
                         }
                     }

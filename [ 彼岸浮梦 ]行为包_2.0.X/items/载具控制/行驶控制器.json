@@ -1,5 +1,5 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.19.10",
     "minecraft:item": {
         "description": {
             "identifier": "载具控制:行驶开关",
@@ -10,7 +10,7 @@
                 "texture": "载具控制_行驶开关"
             },
             "minecraft:display_name": {
-                "value": "§5<[ 行驶控制器 ]>§r"
+                "value": "§5<[§6 行驶控制器 §5]>§r"
             },
             "minecraft:creative_category": {
                 "parent": "equipment"

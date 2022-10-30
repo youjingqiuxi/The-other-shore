@@ -52,9 +52,11 @@
         "components": {
             "minecraft:geometry": "geometry.prop_block.magmastove",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:block_light_filter": 0,
+            "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:material_instances": {
                 "*": {
                     "texture": "曜石熔炼炉",
@@ -296,7 +298,7 @@
                         "condition": "query.block_property('Table:output') == 0",
                         "run_command": {
                             "command": [
-                                "title @p actionbar 储备不足, 无法提取"
+                                "title @a[r=5] actionbar 储备不足, 无法提取"
                             ]
                         }
                     },

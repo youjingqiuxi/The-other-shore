@@ -26,10 +26,10 @@
         "components": {
             "minecraft:geometry": "geometry.door_block.linkage_diorite",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
-            "minecraft:breathability": "air",
             "minecraft:destructible_by_mining": false,
+            "minecraft:light_dampening": 0,
+            "minecraft:breathability": "air",
+            "minecraft:light_emission": 5,
             "minecraft:material_instances": {
                 "*": {
                     "texture": "特殊机关门",
@@ -239,6 +239,7 @@
             {
                 "condition": "query.block_property('Table:switch') == 1",
                 "components": {
+                    "tag:Magic_Bus_switch:1": {},
                     "tag:Magic_Bus_open": {}
                 }
             }

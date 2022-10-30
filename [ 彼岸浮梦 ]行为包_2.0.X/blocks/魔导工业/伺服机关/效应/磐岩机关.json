@@ -29,9 +29,11 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.stone_mechanism",
+            "minecraft:geometry": "geometry.servo_mechanism.stone_mechanism",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:destructible_by_mining": true,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:friction": 0.9,
             "minecraft:material_instances": {
                 "*": {
@@ -262,7 +264,7 @@
                             "command": [
                                 "particle 提示图标:通用提示 ~ ~1 ~",
                                 "playsound random.anvil_land @a[r=15] ~~~",
-                                "title @p actionbar | 攀岩机关 | : §c§l能源储备不足, 请补充能量"
+                                "title @a[r=5] actionbar | 攀岩机关 | : §c§l能源储备不足, 请补充能量"
                             ]
                         },
                         "set_block_property": {
@@ -275,7 +277,7 @@
                             "command": [
                                 "particle 提示图标:通用提示 ~ ~1 ~",
                                 "playsound random.anvil_land @a[r=15] ~~~",
-                                "title @p actionbar | 攀岩机关 | : §c§l§r<§4 熔岩 §r>储备不足, 请补充<§4 熔岩 §r>"
+                                "title @a[r=5] actionbar | 攀岩机关 | : §c§l§r<§4 熔岩 §r>储备不足, 请补充<§4 熔岩 §r>"
                             ]
                         },
                         "set_block_property": {
@@ -288,7 +290,7 @@
                             "command": [
                                 "particle 提示图标:通用提示 ~ ~1 ~",
                                 "playsound random.anvil_land @a[r=15] ~~~",
-                                "title @p actionbar | 攀岩机关 | : §c§l无法找到§r<§b 水源 §r>§c§l, 请将本模块放置在§r<§b 水源 §r>§c§l上方"
+                                "title @a[r=5] actionbar | 攀岩机关 | : §c§l无法找到§r<§b 水源 §r>§c§l, 请将本模块放置在§r<§b 水源 §r>§c§l上方"
                             ]
                         },
                         "set_block_property": {

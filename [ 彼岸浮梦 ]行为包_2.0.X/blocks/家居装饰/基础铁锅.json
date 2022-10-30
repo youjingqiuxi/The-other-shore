@@ -28,10 +28,12 @@
         "components": {
             "minecraft:geometry": "geometry.decorate_block.iron_pot",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 0,
-            "minecraft:block_light_filter": 0,
+            "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_emission": 0,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:creative_category": {
                 "category": "construction"
             },

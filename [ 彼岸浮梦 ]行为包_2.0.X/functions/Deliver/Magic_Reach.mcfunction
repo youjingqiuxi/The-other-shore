@@ -5,8 +5,8 @@
 tag @s add Reach_the_target
 
 #传送
-execute as @a [y=~128,dy=-256] if block ~~~ 伺服机关:魔晶上传 run tp @s @e[c=1,tag=Reach_the_target]
-execute as @a [y=~128,dy=-256] if block ~~~ 伺服机关:魔晶下传 run tp @s @e[c=1,tag=Reach_the_target]
+execute as @e [y=~128,dy=-256] if block ~~~ 伺服机关:魔晶上传 run tp @s @e[c=1,tag=Reach_the_target]
+execute as @e [y=~128,dy=-256] if block ~~~ 伺服机关:魔晶下传 run tp @s @e[c=1,tag=Reach_the_target]
 
 #销毁
 event entity @s 事件:实体消失

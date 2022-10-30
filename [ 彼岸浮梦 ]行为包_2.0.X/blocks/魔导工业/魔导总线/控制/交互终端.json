@@ -55,10 +55,12 @@
         "components": {
             "minecraft:geometry": "geometry.prop_block.button_bus",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
+            "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:creative_category": {
                 "category": "construction"
             },
@@ -143,6 +145,17 @@
         "permutations": [
             {
                 "condition": "query.block_property('Table:switch') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_总线本体.空白",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1 && query.block_property('Table:value') == 0",
                 "components": {
                     "minecraft:material_instances": {
                         "*": {
@@ -378,7 +391,7 @@
                         "condition": "query.block_property('Table:value') == 0",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§9 蓝色模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e交互终端§r[§9 蓝色模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -387,7 +400,7 @@
                         "condition": "query.block_property('Table:value') == 1",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§4 红色模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e交互终端§r[§4 红色模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -396,7 +409,7 @@
                         "condition": "query.block_property('Table:value') == 2",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§2 绿色模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e交互终端§r[§2 绿色模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -405,7 +418,7 @@
                         "condition": "query.block_property('Table:value') == 3",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§6 橙色模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e交互终端§r[§6 橙色模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -417,7 +430,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e交互终端§r[§l 无效模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e交互终端§r[§l 无效模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -440,7 +453,7 @@
                         "condition": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') == 0",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l交互终端§r | : §4当前操作无法执行!§r\n| §l交互终端§r | : 使用§l§6 魔晶起子 §r调整| 运行参数 |\n| §l交互终端§r | : 使用§l§6 魔晶扳手 §r调整| 设备朝向 |",
+                                "title @a[r=5] actionbar | §l交互终端§r | : §4当前操作无法执行!§r\n| §l交互终端§r | : 使用§l§6 魔晶起子 §r调整| 运行参数 |\n| §l交互终端§r | : 使用§l§6 魔晶扳手 §r调整| 设备朝向 |",
                                 "playsound random.click @a[r=15] ~~~"
                             ]
                         }
@@ -449,7 +462,7 @@
                         "condition": "query.block_property('Table:switch') == 0 && query.block_property('Table:Detect') == 0 && query.block_property('Table:value') == 0",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §6灯光侦测§r | : 当面板上方的[§4 红石灯 §r]被§e点亮§r时, 将触发§9脉冲信号§r\n| §l交互终端§r | : 使用§l§6 魔晶起子 §r调整| 运行参数 |\n| §l交互终端§r | : 使用§l§6 魔晶扳手 §r调整| 设备朝向 |",
+                                "title @a[r=5] actionbar | §6灯光侦测§r | : 当面板上方的[§4 红石灯 §r]被§e点亮§r时, 将触发§9脉冲信号§r\n| §l交互终端§r | : 使用§l§6 魔晶起子 §r调整| 运行参数 |\n| §l交互终端§r | : 使用§l§6 魔晶扳手 §r调整| 设备朝向 |",
                                 "playsound random.click @a[r=15] ~~~"
                             ]
                         }
@@ -458,7 +471,7 @@
                         "condition": "query.block_property('Table:value') != 0",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l交互终端§r | : §6信号已发送",
+                                "title @a[r=5] actionbar | §l交互终端§r | : §6信号已发送",
                                 "playsound conduit.activate @a[r=15] ~~~"
                             ]
                         }

@@ -10,7 +10,7 @@
                 "texture": "载具控制_浮力开关"
             },
             "minecraft:display_name": {
-                "value": "§5<[ 浮力控制器 ]>§r"
+                "value": "§5<[§6 浮力控制器 §5]>§r"
             },
             "minecraft:creative_category": {
                 "parent": "equipment"

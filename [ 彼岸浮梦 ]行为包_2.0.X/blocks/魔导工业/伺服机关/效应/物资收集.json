@@ -16,7 +16,7 @@
                     1,
                     2
                 ],
-                "Table:direction": [
+                "Table:angle": [
                     2,
                     3,
                     4,
@@ -25,15 +25,17 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.goods_collection",
+            "minecraft:geometry": "geometry.servo_mechanism.collection_goods",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
+            "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:material_instances": {
                 "*": {
-                    "texture": "魔导总线_传送节点",
+                    "texture": "魔导总线_传送节点_紫",
                     "render_method": "alpha_test"
                 }
             },
@@ -66,7 +68,7 @@
         },
         "permutations": [
             {
-                "condition": "query.block_property('Table:direction') == 2",
+                "condition": "query.block_property('Table:angle') == 2",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -76,7 +78,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:direction') == 3",
+                "condition": "query.block_property('Table:angle') == 3",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -86,7 +88,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:direction') == 4",
+                "condition": "query.block_property('Table:angle') == 4",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -96,7 +98,7 @@
                 }
             },
             {
-                "condition": "query.block_property('Table:direction') == 5",
+                "condition": "query.block_property('Table:angle') == 5",
                 "components": {
                     "minecraft:rotation": [
                         0,
@@ -141,7 +143,7 @@
         "events": {
             "事件:放置方块": {
                 "set_block_property": {
-                    "Table:direction": "query.cardinal_facing_2d"
+                    "Table:angle": "query.cardinal_facing_2d"
                 }
             },
             "事件:进行交互": {
@@ -156,7 +158,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l参数设置§r | : 使用§l§6 魔晶起子 §r调整| 工作半径 |",
+                                "title @a[r=5] actionbar | §l参数设置§r | : 使用§l§6 魔晶起子 §r调整| 工作半径 |",
                                 "playsound random.click @a[r=15] ~~~",
                                 "particle 提示图标:通用提示 ~ ~1 ~"
                             ]
@@ -175,7 +177,7 @@
                         "condition": "query.block_property('Table:value') == 1",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e物资收集§r[§4 工作半径: 8 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e物资收集§r[§4 工作半径: 8 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -184,7 +186,7 @@
                         "condition": "query.block_property('Table:value') == 2",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e物资收集§r[§2 工作半径: 16 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e物资收集§r[§2 工作半径: 16 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -193,7 +195,7 @@
                         "condition": "query.block_property('Table:value') == 3",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e物资收集§r[§6 工作半径: 32 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e物资收集§r[§6 工作半径: 32 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -202,7 +204,7 @@
                         "condition": "query.block_property('Table:value') == 4",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e物资收集§r[§l 工作半径: 64 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e物资收集§r[§l 工作半径: 64 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }

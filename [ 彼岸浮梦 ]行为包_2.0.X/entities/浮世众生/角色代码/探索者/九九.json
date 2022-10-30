@@ -788,7 +788,7 @@
 			"事件:强制回归": {
 				"run_command": {
 					"command": [
-						"title @p actionbar 【 @s 】: 正在重新定位... 成功",
+						"title @a[r=5] actionbar 【 @s 】: 正在重新定位... 成功",
 						"effect @s slowness 1 255 true",
 						"event entity @s 事件:常规台词",
 						"tp @s @p"
@@ -798,7 +798,7 @@
 			"事件:漫游状态": {
 				"run_command": {
 					"command": [
-						"title @p actionbar 【 @s 】:  我会在附近散步, 有需要欢迎随时来找我",
+						"title @a[r=5] actionbar 【 @s 】:  我会在附近散步, 有需要欢迎随时来找我",
 						"tag @s add NO_follow"
 					]
 				},
@@ -816,7 +816,7 @@
 			"事件:驻留状态": {
 				"run_command": {
 					"command": [
-						"title @p actionbar 【 @s 】: 我将随你一起行动, 你可以随时安排我坐下",
+						"title @a[r=5] actionbar 【 @s 】: 我将随你一起行动, 你可以随时安排我坐下",
 						"tag @s remove NO_follow"
 					]
 				},

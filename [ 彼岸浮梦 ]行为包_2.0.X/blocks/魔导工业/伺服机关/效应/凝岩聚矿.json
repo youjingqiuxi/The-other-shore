@@ -21,9 +21,11 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.mineral_mechanism",
+            "minecraft:geometry": "geometry.servo_mechanism.mineral_mechanism",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:destructible_by_mining": true,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:light_emission": 15,
             "minecraft:friction": 0.9,
             "minecraft:material_instances": {
@@ -151,7 +153,7 @@
                             "command": [
                                 "particle 提示图标:通用提示 ~ ~1 ~",
                                 "playsound random.anvil_land @a[r=15] ~~~",
-                                "title @p actionbar | 凝岩聚矿 | : §c§l能源储备不足, 请补充能量"
+                                "title @a[r=5] actionbar | 凝岩聚矿 | : §c§l能源储备不足, 请补充能量"
                             ]
                         }
                     },

@@ -1,0 +1,25 @@
+{
+    "format_version": "1.8.5",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "MC.block.log|chest|order1"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "MMM",
+            "M#M",
+            "MMM"
+        ],
+        "key": {
+            "M": {
+                "tag": "minecraft:logs"
+            }
+        },
+        "result": {
+            "item": "chest",
+            "count": 4
+        }
+    }
+}
