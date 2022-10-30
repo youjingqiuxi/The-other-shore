@@ -29,11 +29,13 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.drag_base",
+            "minecraft:geometry": "geometry.servo_mechanism.servo_traction",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 0,
-            "minecraft:block_light_filter": 0,
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_dampening": 0,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:friction": 0.5,
             "minecraft:creative_category": {
                 "category": "construction"
@@ -175,7 +177,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e伺服牵引§r已修改[§6 最大负载 §r]参数",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e伺服牵引§r已修改[§6 最大负载 §r]参数",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }

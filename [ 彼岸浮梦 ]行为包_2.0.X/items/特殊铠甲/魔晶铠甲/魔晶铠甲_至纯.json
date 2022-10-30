@@ -1,5 +1,5 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.19.10",
     "minecraft:item": {
         "description": {
             "identifier": "特殊铠甲:魔晶铠甲_至纯",
@@ -95,7 +95,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "title @p actionbar 特种防具 [ 魔晶铠甲 ] 自动穿戴已完成 可随时进入战斗状态",
+                                "title @a[r=5] actionbar 特种防具 [ 魔晶铠甲 ] 自动穿戴已完成 可随时进入战斗状态",
                                 "playsound armor.equip_iron @a[r=15] ~~~"
                             ]
                         }

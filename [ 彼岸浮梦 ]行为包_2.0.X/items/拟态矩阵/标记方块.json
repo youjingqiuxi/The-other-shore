@@ -10,7 +10,7 @@
                 "texture": "拟态矩阵_标记方块"
             },
             "minecraft:display_name": {
-                "value": "§b|§a 拟态矩阵 - 标记方块 §b|§r"
+                "value": "§b|§a 拟态矩阵 §8-§6 标记方块 §b|§r"
             },
             "minecraft:creative_category": {
                 "parent": "equipment"

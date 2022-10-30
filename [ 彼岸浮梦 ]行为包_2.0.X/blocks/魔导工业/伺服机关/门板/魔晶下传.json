@@ -25,37 +25,23 @@
                 "Table:face_3": [
                     0,
                     1
-                ],
-                "Table:value.bit": [
-                    0,
-                    1,
-                    2,
-                    3,
-                    4,
-                    5
-                ],
-                "Table:value.ten": [
-                    0,
-                    1,
-                    2,
-                    3,
-                    4,
-                    5
                 ]
             }
         },
         "components": {
             "minecraft:geometry": "geometry.door_block.magic_delivery",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:block_light_filter": 0,
+            "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:creative_category": {
                 "category": "construction"
             },
             "minecraft:material_instances": {
                 "*": {
-                    "texture": "魔导总线_传送节点",
+                    "texture": "魔导总线_传送节点_绿",
                     "render_method": "alpha_test"
                 }
             },
@@ -107,8 +93,8 @@
                     "minecraft:queued_ticking": {
                         "looping": true,
                         "interval_range": [
-                            10,
-                            10
+                            2,
+                            2
                         ],
                         "on_tick": {
                             "event": "事件:自动侦测",
@@ -146,27 +132,17 @@
                         }
                     },
                     {
-                        "condition": "query.block_property('Table:value.bit') != 5",
-                        "set_block_property": {
-                            "Table:value.bit": "query.block_property('Table:value.bit') + 1"
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1",
+                        "trigger": {
+                            "event": "事件:进行交互",
+                            "target": "self"
                         }
                     },
                     {
-                        "condition": "query.block_property('Table:value.bit') == 5",
-                        "set_block_property": {
-                            "Table:value.ten": "query.block_property('Table:value.ten') + 1",
-                            "Table:value.bit": 0
-                        }
-                    },
-                    {
-                        "condition": "query.block_property('Table:value.ten') == 5",
-                        "set_block_property": {
-                            "Table:value.ten": 0
-                        },
-                        "run_command": {
-                            "command": [
-                                "particle 提示图标:下传提示 ~~1.5~"
-                            ]
+                        "condition": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
+                        "trigger": {
+                            "event": "事件:进行交互",
+                            "target": "self"
                         }
                     }
                 ]
@@ -184,15 +160,16 @@
                             "command": [
                                 "execute as @p[tag=!ambient] run function Data/ambient",
                                 "playsound conduit.activate @a[r=15] ~~~",
-                                "tp @p ~~-0.5~"
+                                "particle 提示图标:下传提示 ~~~",
+                                "tp @e[r=5] ~~-0.5~"
                             ]
                         }
                     },
                     {
                         "run_command": {
                             "command": [
-                                "title @p title §6正在执行 §5传送操作",
-                                "title @p[r=15] subtitle §9\n请站立于[ 传送门 ]上耐心等待, 正在匹配传送门\n\n请勿频繁操作, 干扰传送流程, 以免遭遇不测!!!",
+                                "title @a[r=1] title §6正在执行 §5传送操作",
+                                "title @a[r=1] subtitle §9\n请站立于[ 传送门 ]上耐心等待, 正在匹配传送门\n\n请勿频繁操作, 干扰传送流程, 以免遭遇不测!!!",
                                 "summon 矩阵接口:绘制 ~~-1~ 数据驱动.线条绘制.基础"
                             ]
                         }

@@ -22,11 +22,13 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.carrier_base_set",
+            "minecraft:geometry": "geometry.servo_mechanism.parameter_setting",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 0,
-            "minecraft:block_light_filter": 0,
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_dampening": 0,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:friction": 0.5,
             "minecraft:creative_category": {
                 "category": "construction"
@@ -172,7 +174,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : 预设参数已修改, 将在与[§l§e 伺服基座 §r]接触时, 传递参数",
+                                "title @a[r=5] actionbar | 参数设置 | : 预设参数已修改, 将在与[§l§e 伺服基座 §r]接触时, 传递参数",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }

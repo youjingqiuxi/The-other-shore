@@ -95,7 +95,7 @@
                         "run_command": {
                             "command": [
                                 "execute as @e [type=wandering_trader,tag=!unreal_all_end,r=15,c=1] positioned ~ ~32 ~ run summon 矩阵接口:绘制 ~~32~ 预设案例:角色召唤.幻生",
-                                "execute as @e [type=wandering_trader,tag=!unreal_all_end,r=15,c=1] run title @p actionbar 正在召唤 [ 虚幻天星 ] 请抬头注意彗星动向",
+                                "execute as @e [type=wandering_trader,tag=!unreal_all_end,r=15,c=1] run title @a[r=5] actionbar 正在召唤 [ 虚幻天星 ] 请抬头注意彗星动向",
                                 "execute as @e [type=wandering_trader,tag=!unreal_all_end,r=15,c=1] positioned ~ ~32 ~ run summon minecraft:lightning_bolt ~~~",
                                 "tag @e[type=wandering_trader,tag=!unreal_all_end,r=15,c=1] add unreal_all_end"
                             ]

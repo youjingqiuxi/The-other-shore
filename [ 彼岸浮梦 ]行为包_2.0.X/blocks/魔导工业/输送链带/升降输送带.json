@@ -14,10 +14,12 @@
         "components": {
             "minecraft:geometry": "geometry.prop_block.lift_traffic",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
+            "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:material_instances": {
                 "*": {
                     "texture": "升降输送带",
@@ -114,7 +116,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 自动运行 | : 物品下降"
+                                "title @a[r=5] actionbar | 自动运行 | : 物品下降"
                             ]
                         }
                     },
@@ -125,7 +127,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 自动运行 | : 物品上升"
+                                "title @a[r=5] actionbar | 自动运行 | : 物品上升"
                             ]
                         }
                     }

@@ -723,7 +723,7 @@
             "事件:强制回归": {
                 "run_command": {
                     "command": [
-                        "title @p actionbar 【 @s 】: 汪 汪汪 汪汪 旺 !",
+                        "title @a[r=5] actionbar 【 @s 】: 汪 汪汪 汪汪 旺 !",
                         "effect @s slowness 1 255 true",
                         "tp @s @p"
                     ]

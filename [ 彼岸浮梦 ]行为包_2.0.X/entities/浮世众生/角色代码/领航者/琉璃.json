@@ -910,7 +910,7 @@
 			"事件:强制回归": {
 				"run_command": {
 					"command": [
-						"title @p actionbar 【 @s 】: 等等我, 我跟不上了!",
+						"title @a[r=5] actionbar 【 @s 】: 等等我, 我跟不上了!",
 						"effect @s slowness 1 255 true",
 						"event entity @s 事件:常规台词",
 						"tp @s @p"
@@ -978,7 +978,7 @@
 			"事件:进入下界": {
 				"run_command": {
 					"command": [
-						"title @p actionbar @s 当前环境特殊, 我会携带背包并尽力保护你, 如果我不见了记得找我!",
+						"title @a[r=5] actionbar @s 当前环境特殊, 我会携带背包并尽力保护你, 如果我不见了记得找我!",
 						"tag @s add NO_follow"
 					]
 				},
@@ -1000,7 +1000,7 @@
 			"事件:漫游状态": {
 				"run_command": {
 					"command": [
-						"title @p actionbar 【 @s 】:  我会在附近散步, 有需要欢迎随时来找我",
+						"title @a[r=5] actionbar 【 @s 】:  我会在附近散步, 有需要欢迎随时来找我",
 						"tag @s add NO_follow"
 					]
 				},
@@ -1022,7 +1022,7 @@
 			"事件:驻留状态": {
 				"run_command": {
 					"command": [
-						"title @p actionbar 【 @s 】: 我将随你一起行动, 你可以随时安排我坐下",
+						"title @a[r=5] actionbar 【 @s 】: 我将随你一起行动, 你可以随时安排我坐下",
 						"tag @s remove NO_follow"
 					]
 				},
@@ -1044,7 +1044,7 @@
 			"事件:背包状态": {
 				"run_command": {
 					"command": [
-						"title @p actionbar 【 @s 】: 我将随你一起行动, 并为你携带背包",
+						"title @a[r=5] actionbar 【 @s 】: 我将随你一起行动, 并为你携带背包",
 						"tag @s remove NO_follow"
 					]
 				},
@@ -1066,7 +1066,7 @@
 			"事件:贸易状态": {
 				"run_command": {
 					"command": [
-						"title @p actionbar 【 @s 】: 我将随你一起行动, 如有需要你也可以与我兑换部分物品",
+						"title @a[r=5] actionbar 【 @s 】: 我将随你一起行动, 如有需要你也可以与我兑换部分物品",
 						"tag @s remove NO_follow"
 					]
 				},

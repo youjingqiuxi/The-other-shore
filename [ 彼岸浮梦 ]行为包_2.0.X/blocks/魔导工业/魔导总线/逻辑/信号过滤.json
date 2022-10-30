@@ -51,10 +51,12 @@
         "components": {
             "minecraft:geometry": "geometry.prop_block.filter_bus",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
+            "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:creative_category": {
                 "category": "construction"
             },
@@ -412,7 +414,7 @@
                         "condition": "query.block_property('Table:value') == 0",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e信号过滤§r[§9 蓝色模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e信号过滤§r[§9 蓝色模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -421,7 +423,7 @@
                         "condition": "query.block_property('Table:value') == 1",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e信号过滤§r[§4 红色模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e信号过滤§r[§4 红色模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -430,7 +432,7 @@
                         "condition": "query.block_property('Table:value') == 2",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e信号过滤§r[§2 绿色模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e信号过滤§r[§2 绿色模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -439,7 +441,7 @@
                         "condition": "query.block_property('Table:value') == 3",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e信号过滤§r[§6 橙色模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e信号过滤§r[§6 橙色模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -448,7 +450,7 @@
                         "condition": "query.block_property('Table:value') == 4",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e信号过滤§r[§5 紫色模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e信号过滤§r[§5 紫色模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -457,7 +459,7 @@
                         "condition": "query.block_property('Table:value') == 5",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e信号过滤§r[§l 无效模式 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e信号过滤§r[§l 无效模式 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }

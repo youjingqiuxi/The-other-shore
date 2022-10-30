@@ -50,10 +50,12 @@
         "components": {
             "minecraft:geometry": "geometry.prop_block.pulse_bus",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
+            "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:creative_category": {
                 "category": "construction"
             },
@@ -327,7 +329,7 @@
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 0",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 脉冲总线 | : 使用§l§6 魔晶起子 §r调整| 运行参数 |\n| 脉冲总线 | : 使用§l§6 魔晶扳手 §r关闭| 模块运行 |",
+                                "title @a[r=5] actionbar | 脉冲总线 | : 使用§l§6 魔晶起子 §r调整| 运行参数 |\n| 脉冲总线 | : 使用§l§6 魔晶扳手 §r关闭| 模块运行 |",
                                 "playsound random.click @a[r=15] ~~~"
                             ]
                         }
@@ -346,7 +348,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§4 关闭运行 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§4 关闭运行 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -364,7 +366,7 @@
                         "condition": "query.block_property('Table:value') == 9",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§4 关闭运行 §r]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§4 关闭运行 §r]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -373,7 +375,7 @@
                         "condition": "query.block_property('Table:value') == 0",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 1§r 秒 > ]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 1§r 秒 > ]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -382,7 +384,7 @@
                         "condition": "query.block_property('Table:value') == 1",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 2§r 秒 > ]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 2§r 秒 > ]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -391,7 +393,7 @@
                         "condition": "query.block_property('Table:value') == 2",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 3§r 秒 > ]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 3§r 秒 > ]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -400,7 +402,7 @@
                         "condition": "query.block_property('Table:value') == 3",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 4§r 秒 > ]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 4§r 秒 > ]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -409,7 +411,7 @@
                         "condition": "query.block_property('Table:value') == 4",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 5§r 秒 > ]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 5§r 秒 > ]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -418,7 +420,7 @@
                         "condition": "query.block_property('Table:value') == 5",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 6§r 秒 > ]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 6§r 秒 > ]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -427,7 +429,7 @@
                         "condition": "query.block_property('Table:value') == 6",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 7§r 秒 > ]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 7§r 秒 > ]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -436,7 +438,7 @@
                         "condition": "query.block_property('Table:value') == 7",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 8§r 秒 > ]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 8§r 秒 > ]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }
@@ -445,7 +447,7 @@
                         "condition": "query.block_property('Table:value') == 8",
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 9§r 秒 > ]",
+                                "title @a[r=5] actionbar | 参数设置 | : §l§e脉冲总线§r[§6 运行周期§r:<§a 9§r 秒 > ]",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }

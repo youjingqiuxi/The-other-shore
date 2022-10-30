@@ -10,19 +10,19 @@
                     1,
                     2
                 ],
-                "Table:direction_0": [
+                "Table:angle_0": [
                     0,
                     1
                 ],
-                "Table:direction_1": [
+                "Table:angle_1": [
                     0,
                     1
                 ],
-                "Table:direction_2": [
+                "Table:angle_2": [
                     0,
                     1
                 ],
-                "Table:direction_3": [
+                "Table:angle_3": [
                     0,
                     1
                 ]
@@ -31,10 +31,10 @@
         "components": {
             "minecraft:geometry": "geometry.door_block.linkage_andesite",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
-            "minecraft:breathability": "air",
             "minecraft:destructible_by_mining": false,
+            "minecraft:light_dampening": 0,
+            "minecraft:breathability": "air",
+            "minecraft:light_emission": 5,
             "minecraft:material_instances": {
                 "*": {
                     "texture": "特殊机关门",
@@ -47,10 +47,10 @@
             "minecraft:part_visibility": {
                 "conditions": {
                     "plank": "query.block_property('Table:switch') == 0",
-                    "frame_x_plus": "query.block_property('Table:direction_0') == 1",
-                    "frame_x_down": "query.block_property('Table:direction_1') == 1",
-                    "frame_z_plus": "query.block_property('Table:direction_2') == 1",
-                    "frame_z_down": "query.block_property('Table:direction_3') == 1"
+                    "frame_x_plus": "query.block_property('Table:angle_0') == 1",
+                    "frame_x_down": "query.block_property('Table:angle_1') == 1",
+                    "frame_z_plus": "query.block_property('Table:angle_2') == 1",
+                    "frame_z_down": "query.block_property('Table:angle_3') == 1"
                 }
             },
             "minecraft:on_interact": {
@@ -166,6 +166,7 @@
             {
                 "condition": "query.block_property('Table:switch') == 1",
                 "components": {
+                    "tag:Magic_Bus_switch:1": {},
                     "tag:Magic_Bus_open": {}
                 }
             }
@@ -174,7 +175,7 @@
             "事件:进行交互": {
                 "sequence": [
                     {
-                        "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'伺服机关:闪长岩门') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶钥匙') == 0",
+                        "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'伺服机关:安山岩门') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶钥匙') == 0",
                         "set_block_property": {
                             "Table:switch": 1
                         },
@@ -199,10 +200,10 @@
                 "sequence": [
                     {
                         "set_block_property": {
-                            "Table:direction_0": "query.block_neighbor_has_all_tags(1,0,0,'level2_mechanism_door') == 1 ? 0 : 1",
-                            "Table:direction_1": "query.block_neighbor_has_all_tags(-1,0,0,'level2_mechanism_door') == 1 ? 0 : 1",
-                            "Table:direction_2": "query.block_neighbor_has_all_tags(0,0,1,'level2_mechanism_door')  == 1 ? 0 : 1",
-                            "Table:direction_3": "query.block_neighbor_has_all_tags(0,0,-1,'level2_mechanism_door')  == 1 ? 0 : 1"
+                            "Table:angle_0": "query.block_neighbor_has_all_tags(1,0,0,'level2_mechanism_door') == 1 ? 0 : 1",
+                            "Table:angle_1": "query.block_neighbor_has_all_tags(-1,0,0,'level2_mechanism_door') == 1 ? 0 : 1",
+                            "Table:angle_2": "query.block_neighbor_has_all_tags(0,0,1,'level2_mechanism_door')  == 1 ? 0 : 1",
+                            "Table:angle_3": "query.block_neighbor_has_all_tags(0,0,-1,'level2_mechanism_door')  == 1 ? 0 : 1"
                         }
                     },
                     {

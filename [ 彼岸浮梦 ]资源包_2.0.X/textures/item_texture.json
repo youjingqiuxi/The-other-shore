@@ -79,9 +79,9 @@
                 "textures/items/蓝图碎片"
             ]
         },
-        "质能转换": {
+        "物资整理": {
             "textures": [
-                "textures/items/质能转换"
+                "textures/items/物资整理"
             ]
         },
         "载具控制_行驶开关": {
@@ -132,6 +132,11 @@
         "拟态矩阵_方块标定": {
             "textures": [
                 "textures/items/拟态矩阵/方块标定"
+            ]
+        },
+        "拟态矩阵_方块调试": {
+            "textures": [
+                "textures/items/拟态矩阵/方块调试"
             ]
         },
         "洁净曜石": {

@@ -6,12 +6,14 @@
             "properties": {}
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.effect_core",
+            "minecraft:geometry": "geometry.servo_mechanism.effect_core",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
+            "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:material_instances": {
                 "*": {
                     "texture": "魔导总线_效应基座",

@@ -34,10 +34,12 @@
         "components": {
             "minecraft:geometry": "geometry.prop_block.fast_build",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
             "minecraft:breathability": "air",
-            "minecraft:destructible_by_mining": true,
+            "minecraft:light_dampening": 0,
+            "minecraft:light_emission": 5,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:material_instances": {
                 "*": {
                     "texture": "智能建筑",
@@ -136,7 +138,7 @@
                         "run_command": {
                             "command": [
                                 "playsound random.anvil_land @a[r=15] ~~~",
-                                "title @p actionbar 系统正在运行, 请勿进行操作"
+                                "title @a[r=5] actionbar 系统正在运行, 请勿进行操作"
                             ]
                         }
                     },
@@ -171,7 +173,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar 运行模式已切换至:§3 蓝图加载模式 §r"
+                                "title @a[r=5] actionbar 运行模式已切换至:§3 蓝图加载模式 §r"
                             ]
                         }
                     }
@@ -182,7 +184,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : §4 未检测到< 建筑蓝图 > §r !\n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >"
+                                "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : §4 未检测到< 建筑蓝图 > §r !\n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >"
                             ]
                         }
                     },
@@ -192,7 +194,7 @@
                             {
                                 "run_command": {
                                     "command": [
-                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 智能仓库 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 智能仓库 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
                                         "summon 矩阵接口:绘制 ~1 ~-1 ~-12.5 数据驱动.立方绘制.效率"
                                     ]
                                 }
@@ -222,7 +224,7 @@
                             {
                                 "run_command": {
                                     "command": [
-                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 深渊迷途 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 深渊迷途 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
                                         "summon 矩阵接口:绘制 ~-2.5 ~-1 ~-2.5 数据驱动.立方绘制.效率"
                                     ]
                                 }
@@ -252,7 +254,7 @@
                             {
                                 "run_command": {
                                     "command": [
-                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 猪灵之塔 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 猪灵之塔 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
                                         "summon 矩阵接口:绘制 ~1 ~-1 ~-12.5 数据驱动.立方绘制.效率"
                                     ]
                                 }
@@ -282,7 +284,7 @@
                             {
                                 "run_command": {
                                     "command": [
-                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 星辉楼磐 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 星辉楼磐 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
                                         "summon 矩阵接口:绘制 ~1 ~-1 ~-12.5 数据驱动.立方绘制.效率"
                                     ]
                                 }
@@ -312,7 +314,7 @@
                             {
                                 "run_command": {
                                     "command": [
-                                        "title @p actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 幻灵浑居 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
+                                        "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§2 面积显示模式 §r\n当前蓝图 : <§9 幻灵浑居 §r> \n功能切换 : 使用§l§6 魔晶起子 §r可将运行模式切换至< 蓝图加载模式 >",
                                         "summon 矩阵接口:绘制 ~1 ~-1 ~-32.5 数据驱动.立方绘制.效率"
                                     ]
                                 }
@@ -343,7 +345,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : §4 未检测到< 建筑蓝图 > §r !"
+                                "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : §4 未检测到< 建筑蓝图 > §r !"
                             ]
                         }
                     },
@@ -356,7 +358,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 智能仓库 §r>\n蓝图状态 : 已接入系统"
+                                "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 智能仓库 §r>\n蓝图状态 : 已接入系统"
                             ]
                         },
                         "decrement_stack": {}
@@ -376,7 +378,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 深渊迷途 §r>\n蓝图状态 : 已接入系统"
+                                "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 深渊迷途 §r>\n蓝图状态 : 已接入系统"
                             ]
                         },
                         "decrement_stack": {}*/
@@ -390,7 +392,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 双门猪人塔 §r>\n蓝图状态 : 已接入系统"
+                                "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 双门猪人塔 §r>\n蓝图状态 : 已接入系统"
                             ]
                         },
                         "decrement_stack": {}
@@ -404,7 +406,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 星辉楼磐 §r>\n蓝图状态 : 已接入系统"
+                                "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 星辉楼磐 §r>\n蓝图状态 : 已接入系统"
                             ]
                         },
                         "decrement_stack": {}
@@ -418,7 +420,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 幻灵浑居 §r>\n蓝图状态 : 已接入系统"
+                                "title @a[r=5] actionbar | §l智能建筑§r |\n运行模式:§3 蓝图加载模式 §r\n当前蓝图 : <§9 幻灵浑居 §r>\n蓝图状态 : 已接入系统"
                             ]
                         },
                         "decrement_stack": {}
@@ -434,7 +436,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar | 蓝图 | 数据加载中....."
+                                "title @a[r=5] actionbar | 蓝图 | 数据加载中....."
                             ]
                         }
                     },
@@ -445,7 +447,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar 正在校验 | 蓝图 | 完整性......"
+                                "title @a[r=5] actionbar 正在校验 | 蓝图 | 完整性......"
                             ]
                         }
                     },
@@ -456,7 +458,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar 正在部署 | 蓝图 | 运行环境......"
+                                "title @a[r=5] actionbar 正在部署 | 蓝图 | 运行环境......"
                             ]
                         }
                     },
@@ -519,7 +521,7 @@
                                 "fill ~1 ~-13 ~-12  ~21 ~0 ~12 stained_glass",
                                 "fill ~1 ~00 ~-12  ~21 ~19 ~12 stained_glass",
                                 "structure load 蓝图建筑:半自动仓库 ~1 ~-13 ~-12 0_degrees none true true",
-                                "title @p actionbar 蓝图名称: [ 智能仓库 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                                "title @a[r=5] actionbar 蓝图名称: [ 智能仓库 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }
                     },
@@ -530,7 +532,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "title @p actionbar 进阶建筑蓝图: [ 深渊迷途 ] \n蓝图解析: 在线校验异常\n设备状态: 正在执行 离线升级 操作"
+                                "title @a[r=5] actionbar 进阶建筑蓝图: [ 深渊迷途 ] \n蓝图解析: 在线校验异常\n设备状态: 正在执行 离线升级 操作"
                             ]
                         },
                         "trigger": {
@@ -547,7 +549,7 @@
                             "command": [
                                 "fill ~1 ~ ~-12  ~9 ~53 ~11 stained_glass 15",
                                 "structure load 蓝图建筑:双门猪灵塔 ~1 ~ ~-12 0_degrees none block_by_block 20 false true",
-                                "title @p actionbar 蓝图名称: [ 双门猪灵塔 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                                "title @a[r=5] actionbar 蓝图名称: [ 双门猪灵塔 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }
                     },
@@ -559,7 +561,7 @@
                         "run_command": {
                             "command": [
                                 "structure load 蓝图建筑:星辉楼岚 ~1 ~-1 ~-13 0_degrees none block_by_block 20 true true",
-                                "title @p actionbar 蓝图名称: [ 星辉楼岚 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                                "title @a[r=5] actionbar 蓝图名称: [ 星辉楼岚 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }
                     },
@@ -571,7 +573,7 @@
                         "run_command": {
                             "command": [
                                 "structure load 蓝图建筑:星辉楼磐 ~1 ~-1 ~-8 0_degrees none true true",
-                                "title @p actionbar 蓝图名称: [ 星辉楼磐 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                                "title @a[r=5] actionbar 蓝图名称: [ 星辉楼磐 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }
                     },
@@ -583,7 +585,7 @@
                         "run_command": {
                             "command": [
                                 "structure load 蓝图建筑:幻灵浑居 ~1 ~-2 ~-32 0_degrees none block_by_block 10 true true",
-                                "title @p actionbar 蓝图名称: [ 幻灵浑居 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
+                                "title @a[r=5] actionbar 蓝图名称: [ 幻灵浑居 ] \n蓝图解析: 已完成\n蓝图状态: 已消耗"
                             ]
                         }
                     }

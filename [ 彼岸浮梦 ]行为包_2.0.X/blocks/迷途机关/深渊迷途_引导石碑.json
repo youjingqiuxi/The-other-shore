@@ -33,10 +33,10 @@
         "components": {
             "minecraft:geometry": "geometry.prop_block.guide_stone",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
-            "minecraft:breathability": "air",
             "minecraft:destructible_by_mining": false,
+            "minecraft:light_dampening": 0,
+            "minecraft:breathability": "air",
+            "minecraft:light_emission": 5,
             "minecraft:friction": 0.9,
             "minecraft:material_instances": {
                 "*": {

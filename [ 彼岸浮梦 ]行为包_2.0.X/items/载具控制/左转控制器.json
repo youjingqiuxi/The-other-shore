@@ -1,5 +1,5 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.19.10",
     "minecraft:item": {
         "description": {
             "identifier": "载具控制:左舷回转",
@@ -10,7 +10,7 @@
                 "texture": "载具控制_左舷回转"
             },
             "minecraft:display_name": {
-                "value": "§5<[ 左转控制器 ]>§r"
+                "value": "§5<[§6 左转控制器 §5]>§r"
             },
             "minecraft:creative_category": {
                 "parent": "equipment"

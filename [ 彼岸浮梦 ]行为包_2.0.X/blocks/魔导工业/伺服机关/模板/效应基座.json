@@ -28,10 +28,12 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.effect_base",
+            "minecraft:geometry": "geometry.servo_mechanism.effect_base",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 5,
-            "minecraft:destructible_by_mining": true,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:friction": 0.9,
             "minecraft:material_instances": {
                 "*": {

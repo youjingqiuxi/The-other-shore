@@ -14,10 +14,10 @@
         "components": {
             "minecraft:geometry": "geometry.prop_block.button_bus",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:block_light_filter": 0,
-            "minecraft:breathability": "air",
             "minecraft:destructible_by_mining": false,
+            "minecraft:light_dampening": 0,
+            "minecraft:breathability": "air",
+            "minecraft:light_emission": 5,
             "minecraft:part_visibility": {
                 "conditions": {
                     "link_0": "query.block_property('Table:switch') != 2",

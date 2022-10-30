@@ -9,7 +9,9 @@
             "minecraft:geometry": "geometry.basic_block0",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 15,
-            "minecraft:destructible_by_mining": true,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
             "minecraft:friction": 0.9,
             "minecraft:creative_category": {
                 "category": "construction"
