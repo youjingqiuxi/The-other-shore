@@ -1,4 +1,5 @@
 # 彼岸浮梦
+[English](./README-en_US.md)
 
 真诚期待基岩版的模组社区，可以逐步向java版看齐
 
