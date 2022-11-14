@@ -1,4 +1,5 @@
 # The-other-shore
+[中文](./README.md)
 
 Embrace sincerity and anticipation. The bedrock plugin community can gradually imitate java.To do this, we created a bedrock plan.
 
