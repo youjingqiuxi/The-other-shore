@@ -20,7 +20,7 @@
                 "item": "合金材料:特种合金"
             },
             "H": {
-                "item": "redstone_torch"
+                "item": "minecraft:redstone_torch"
             }
         },
         "result": {

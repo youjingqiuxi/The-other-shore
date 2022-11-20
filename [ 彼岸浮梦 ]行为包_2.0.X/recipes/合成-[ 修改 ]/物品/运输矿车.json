@@ -13,14 +13,14 @@
         ],
         "key": {
             "X": {
-                "item": "chest"
+                "item": "minecraft:chest"
             },
             "T": {
-                "item": "iron_ingot"
+                "item": "minecraft:iron_ingot"
             }
         },
         "result": {
-            "item": "chest_minecart"
+            "item": "minecraft:chest_minecart"
         }
     }
 }

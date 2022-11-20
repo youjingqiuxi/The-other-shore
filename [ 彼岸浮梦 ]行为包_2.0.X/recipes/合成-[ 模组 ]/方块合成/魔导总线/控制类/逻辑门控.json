@@ -17,10 +17,10 @@
                 "item": "魔导总线:总线本体"
             },
             "H": {
-                "item": "redstone_torch"
+                "item": "minecraft:redstone_torch"
             },
             "B": {
-                "item": "comparator"
+                "item": "minecraft:comparator"
             }
         },
         "result": {

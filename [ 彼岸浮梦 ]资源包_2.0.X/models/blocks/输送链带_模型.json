@@ -3,7 +3,7 @@
     "minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.prop_block.basic_traffic",
+				"identifier": "geometry.conveyor_belt.basic",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 2,
@@ -25,7 +25,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.route_traffic",
+				"identifier": "geometry.conveyor_belt.route",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 2,
@@ -199,7 +199,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.lift_traffic",
+				"identifier": "geometry.conveyor_belt.lift",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 2,

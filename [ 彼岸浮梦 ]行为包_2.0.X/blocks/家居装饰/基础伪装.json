@@ -72,10 +72,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "permutations": [
@@ -416,34 +416,34 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing)"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "trigger": {
-                            "event": "事件:木板方块",
+                            "event": "木板方块",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:磨制石头",
+                            "event": "磨制石头",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:石砖方块",
+                            "event": "石砖方块",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:木板方块": {
+            "木板方块": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:planks') == 1",
@@ -499,7 +499,7 @@
                     }
                 ]
             },
-            "事件:磨制石头": {
+            "磨制石头": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:stone') == 1",
@@ -555,7 +555,7 @@
                     }
                 ]
             },
-            "事件:石砖方块": {
+            "石砖方块": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:stonebrick') == 1",

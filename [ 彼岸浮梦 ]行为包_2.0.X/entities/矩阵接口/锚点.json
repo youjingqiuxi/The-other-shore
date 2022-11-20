@@ -12,7 +12,7 @@
                 "minecraft:ageable": {
                     "duration": 30,
                     "grow_up": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 }
@@ -24,8 +24,9 @@
         "components": {
             "minecraft:type_family": {
                 "family": [
+                    "Matrix_Anchor",
                     "Matrix_API",
-                    "Matrix_Anchor"
+                    "prime"
                 ]
             },
             "minecraft:damage_sensor": {
@@ -47,6 +48,9 @@
             "minecraft:collision_box": {
                 "width": 0.1,
                 "height": 0.1
+            },
+            "minecraft:health": {
+                "value": 1
             },
             "minecraft:conditional_bandwidth_optimization": {
                 "conditional_values": {
@@ -71,7 +75,7 @@
                     ]
                 }
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "add": {
                     "component_groups": [
                         "实体消失"

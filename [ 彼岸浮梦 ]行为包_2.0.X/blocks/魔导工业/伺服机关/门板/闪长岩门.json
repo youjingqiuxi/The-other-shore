@@ -51,10 +51,10 @@
                 }
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:level2_mechanism_door": {}
         },
@@ -69,7 +69,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:进行侦测",
+                            "event": "进行侦测",
                             "target": "self"
                         }
                     }
@@ -85,7 +85,7 @@
                             3
                         ],
                         "on_tick": {
-                            "event": "事件:等待关闭",
+                            "event": "等待关闭",
                             "target": "self"
                         }
                     }
@@ -101,7 +101,7 @@
                             100
                         ],
                         "on_tick": {
-                            "event": "事件:完全关闭",
+                            "event": "完全关闭",
                             "target": "self"
                         }
                     }
@@ -245,7 +245,7 @@
             }
         ],
         "events": {
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:about') != 0 && query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'伺服机关:闪长岩门') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶钥匙') == 0",
@@ -279,7 +279,7 @@
                     }
                 ]
             },
-            "事件:进行侦测": {
+            "进行侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(-1,0,0,'level2_mechanism_door') == 1",
@@ -359,12 +359,12 @@
                     }
                 ]
             },
-            "事件:等待关闭": {
+            "等待关闭": {
                 "set_block_property": {
                     "Table:switch": 2
                 }
             },
-            "事件:完全关闭": {
+            "完全关闭": {
                 "set_block_property": {
                     "Table:switch": 0
                 },

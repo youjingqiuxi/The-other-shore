@@ -84,7 +84,6 @@
             "minecraft:icon": {
                 "texture": "魔晶铠甲_LV:2"
             },
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1

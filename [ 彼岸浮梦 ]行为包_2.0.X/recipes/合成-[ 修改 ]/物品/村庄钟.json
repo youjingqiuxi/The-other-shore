@@ -14,17 +14,17 @@
         ],
         "key": {
             "G": {
-                "item": "gold_ingot"
+                "item": "minecraft:gold_ingot"
             },
             "N": {
-                "item": "gold_nugget"
+                "item": "minecraft:gold_nugget"
             },
             "M": {
-                "item": "stick"
+                "item": "minecraft:stick"
             }
         },
         "result": {
-            "item": "bell"
+            "item": "minecraft:bell"
         }
     }
 }

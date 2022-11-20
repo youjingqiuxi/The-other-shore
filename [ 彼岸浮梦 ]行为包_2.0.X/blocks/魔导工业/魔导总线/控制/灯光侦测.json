@@ -12,7 +12,7 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.button_bus",
+            "minecraft:geometry": "geometry.magic_bus.button_bus",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": false,
             "minecraft:light_dampening": 0,
@@ -107,7 +107,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:脉冲结束",
+                            "event": "脉冲结束",
                             "target": "self"
                         }
                     },
@@ -126,7 +126,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:灯光侦测",
+                            "event": "灯光侦测",
                             "target": "self"
                         }
                     }
@@ -134,7 +134,7 @@
             }
         ],
         "events": {
-            "事件:脉冲结束": {
+            "脉冲结束": {
                 "sequence": [
                     {
                         "run_command": {
@@ -148,7 +148,7 @@
                     }
                 ]
             },
-            "事件:灯光侦测": {
+            "灯光侦测": {
                 "sequence": [
                     {
                         "run_command": {

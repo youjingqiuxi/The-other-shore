@@ -8,7 +8,7 @@
             "furnace",
             "blast_furnace"
         ],
-        "input": "rotten_flesh",
-        "output": "leather"
+        "input": "minecraft:rotten_flesh",
+        "output": "minecraft:leather"
     }
 }

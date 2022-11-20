@@ -47,7 +47,7 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.pulse_count",
+            "minecraft:geometry": "geometry.magic_bus.pulse_count",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -95,7 +95,7 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "tag:Magic_Bus_Series": {}
         },
@@ -127,7 +127,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     },
@@ -147,7 +147,7 @@
                             20
                         ],
                         "on_tick": {
-                            "event": "事件:功能运行_脉冲模式",
+                            "event": "功能运行_脉冲模式",
                             "target": "self"
                         }
                     }
@@ -163,7 +163,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:功能运行_计数模式",
+                            "event": "功能运行_计数模式",
                             "target": "self"
                         }
                     }
@@ -171,44 +171,44 @@
             }
         ],
         "events": {
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 0",
                         "trigger": {
-                            "event": "事件:状态显示",
+                            "event": "状态显示",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
                         "trigger": {
-                            "event": "事件:参数调整",
+                            "event": "参数调整",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
                         "trigger": {
-                            "event": "事件:模式修改",
+                            "event": "模式修改",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:状态显示": {
+            "状态显示": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0",
                         "trigger": {
-                            "event": "事件:参数显示_脉冲模式",
+                            "event": "参数显示_脉冲模式",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:switch') == 1",
                         "trigger": {
-                            "event": "事件:参数显示_计数模式",
+                            "event": "参数显示_计数模式",
                             "target": "self"
                         }
                     },
@@ -221,7 +221,7 @@
                     }
                 ]
             },
-            "事件:参数调整": {
+            "参数调整": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -329,7 +329,7 @@
                     }
                 ]
             },
-            "事件:模式修改": {
+            "模式修改": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0",
@@ -357,7 +357,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:output') == 1",
@@ -368,7 +368,7 @@
                     }
                 ]
             },
-            "事件:参数显示_脉冲模式": {
+            "参数显示_脉冲模式": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:value') == 0",
@@ -471,7 +471,7 @@
                     }
                 ]
             },
-            "事件:参数显示_计数模式": {
+            "参数显示_计数模式": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:value') == 0",
@@ -574,7 +574,7 @@
                     }
                 ]
             },
-            "事件:功能运行_脉冲模式": {
+            "功能运行_脉冲模式": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:offline') == 0 && query.block_property('Table:store') == 0 && ( query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_Latch') == 1 )",
@@ -607,7 +607,7 @@
                     }
                 ]
             },
-            "事件:功能运行_计数模式": {
+            "功能运行_计数模式": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:offline') == 0 && ( query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_Latch') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_Latch') == 1 )",

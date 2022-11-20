@@ -1,0 +1,118 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "矩阵接口:容器",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "储存空间": {
+                "minecraft:inventory": {
+                    "container_type": "inventory",
+					"restrict_to_owner": true,
+                    "inventory_size": 2044
+                },
+                "minecraft:ageable": {
+                    "duration": 5,
+                    "grow_up": {
+                        "event": "实体死亡",
+                        "target": "self"
+                    }
+                }
+            },
+            "显示名称": {
+                "minecraft:nameable": {
+                    "allow_name_tag_renaming": true,
+                    "always_show": true
+                },
+                "minecraft:ageable": {
+                    "duration": 1,
+                    "grow_up": {
+                        "event": "实体消失",
+                        "target": "self"
+                    }
+                }
+            },
+            "实体消失": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "Matrix_container",
+                    "Matrix_API",
+                    "prime"
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "*",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:collision_box": {
+                "width": 0.1,
+                "height": 0.1
+            },
+            "minecraft:health": {
+                "value": 1
+            },
+            "minecraft:conditional_bandwidth_optimization": {
+                "conditional_values": {
+                    "max_dropped_ticks": 20,
+                    "max_optimized_distance": 200,
+                    "use_motion_prediction_hints": true
+                },
+                "default_values": {
+                    "max_dropped_ticks": 10,
+                    "max_optimized_distance": 100,
+                    "use_motion_prediction_hints": true
+                }
+            },
+            "minecraft:fire_immune": true
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "储存空间"
+                    ]
+                }
+            },
+            "显示名称": {
+                "add": {
+                    "component_groups": [
+                        "显示名称"
+                    ]
+                }
+            },
+            "实体消失": {
+                "add": {
+                    "component_groups": [
+                        "实体消失"
+                    ]
+                }
+            },
+            "实体死亡": {
+                "run_command": {
+                    "command": [
+                        "kill @s"
+                    ]
+                }
+            }
+        }
+    }
+}

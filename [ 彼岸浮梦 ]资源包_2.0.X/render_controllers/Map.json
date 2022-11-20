@@ -158,6 +158,28 @@
 				"Array.skins[query.mark_variant]"
 			]
 		},
+		"controller.render.Map:Z05": {
+			"arrays": {
+				"textures": {
+					"Array.skins": [
+						"Texture.z0",
+						"Texture.z1",
+						"Texture.z2",
+						"Texture.z3",
+						"Texture.z4"
+					]
+				}
+			},
+			"geometry": "Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"Array.skins[query.mark_variant]"
+			]
+		},
 		"controller.render.Map:Z11": {
 			"arrays": {
 				"textures": {

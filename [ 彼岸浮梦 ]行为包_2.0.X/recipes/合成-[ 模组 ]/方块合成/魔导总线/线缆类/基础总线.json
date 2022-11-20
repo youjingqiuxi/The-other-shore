@@ -17,10 +17,10 @@
                 "item": "合金材料:钢岩合金"
             },
             "B": {
-                "item": "glass"
+                "item": "minecraft:glass"
             },
             "M": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             }
         },
         "result": {

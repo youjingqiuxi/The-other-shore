@@ -41,7 +41,7 @@
 						"value": true
 					},
 					"calm_event": {
-						"event": "事件:放弃进攻",
+						"event": "放弃进攻",
 						"target": "self"
 					}
 				}
@@ -54,7 +54,7 @@
 					"duration": 1.0,
 					"feed_items": [],
 					"grow_up": {
-						"event": "事件:展开施法",
+						"event": "展开施法",
 						"target": "self"
 					}
 				}
@@ -135,7 +135,7 @@
 								}
 							]
 						},
-						"event": "事件:强制回归",
+						"event": "强制回归",
 						"target": "self"
 					}
 				]
@@ -228,7 +228,7 @@
 				"def": "制导飞弹:逐渊"
 			},
 			"minecraft:on_target_acquired": {
-				"event": "事件:发现目标",
+				"event": "发现目标",
 				"target": "self"
 			},
 			"minecraft:collision_box": {
@@ -294,7 +294,7 @@
 					]
 				}
 			},
-			"事件:发现目标": {
+			"发现目标": {
 				"add": {
 					"component_groups": [
 						"准备",
@@ -307,7 +307,7 @@
 					]
 				}
 			},
-			"事件:展开施法": {
+			"展开施法": {
 				"remove": {
 					"component_groups": [
 						"准备"
@@ -319,7 +319,7 @@
 					]
 				}
 			},
-			"事件:放弃进攻": {
+			"放弃进攻": {
 				"add": {
 					"component_groups": [
 						"空闲"
@@ -343,7 +343,7 @@
 					]
 				}
 			},
-			"事件:强制回归": {
+			"强制回归": {
 				"run_command": {
 					"command": [
 						"tp @s @e[r=64,family=RareBox,c=1]"

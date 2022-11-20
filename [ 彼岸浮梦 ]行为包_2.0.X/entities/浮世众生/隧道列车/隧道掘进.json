@@ -99,27 +99,7 @@
                                         }
                                     ]
                                 },
-                                "event": "事件:载具充能",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "cooldown": 1,
-                            "use_item": false,
-                            "interact_text": "< 填充魔晶石 >",
-                            "play_sounds": "armor.equip_diamond",
-                            "on_interact": {
-                                "filters": {
-                                    "any_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "domain": "hand",
-                                            "subject": "other",
-                                            "value": "载具控制:仓储过滤"
-                                        }
-                                    ]
-                                },
-                                "event": "事件:过滤设置",
+                                "event": "载具充能",
                                 "target": "self"
                             }
                         }
@@ -133,7 +113,7 @@
                     "new_screen": true
                 },
                 "minecraft:inventory": {
-                    "container_type": "container",
+                    "container_type": "inventory",
                     "can_be_siphoned_from": true,
                     "inventory_size": 27,
                     "private": true
@@ -141,7 +121,7 @@
             },
             "仓储": {
                 "minecraft:inventory": {
-                    "container_type": "container",
+                    "container_type": "inventory",
                     "inventory_size": 27
                 }
             },
@@ -180,7 +160,7 @@
                     {
                         "cause": "*",
                         "on_damage": {
-                            "event": "事件:回收载具",
+                            "event": "回收载具",
                             "target": "self"
                         },
                         "deals_damage": false
@@ -199,7 +179,7 @@
             "minecraft:timer": {
                 "time": 0.01,
                 "time_down_event": {
-                    "event": "事件:载具功能",
+                    "event": "载具功能",
                     "target": "self"
                 }
             }
@@ -219,7 +199,7 @@
                     ]
                 }
             },
-            "事件:回收载具": {
+            "回收载具": {
                 "sequence": [
                     {
                         "filters": {
@@ -256,7 +236,7 @@
                     }
                 ]
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "sequence": [
                     {
                         "run_command": {
@@ -272,7 +252,7 @@
                     }
                 ]
             },
-            "事件:载具充能": {
+            "载具充能": {
                 "sequence": [
                     {
                         "filters": {
@@ -350,7 +330,7 @@
                     }
                 ]
             },
-            "事件:载具开关": {
+            "载具开关": {
                 "sequence": [
                     { //关闭 载具运行
                         "filters": {
@@ -397,7 +377,7 @@
                     }
                 ]
             },
-            "事件:载具功能": {
+            "载具功能": {
                 "sequence": [
                     {
                         "filters": {
@@ -429,7 +409,7 @@
                                     {
                                         "run_command": {
                                             "command": [
-                                                "event entity @s[scores={MU=75..}] 事件:载具行驶",
+                                                "event entity @s[scores={MU=75..}] 载具行驶",
                                                 "execute as @s [scores={MU=..75}] run particle 提示图标:启动标识 ~ ~2 ~"
                                             ]
                                         }
@@ -437,14 +417,14 @@
                                     {
                                         "run_command": {
                                             "command": [
-                                                "event entity @s 事件:仓储过滤"
+                                                "event entity @s 仓储过滤"
                                             ]
                                         }
                                     },
                                     { //收集附近的掉落物
                                         "run_command": {
                                             "command": [
-                                                "tp @e[type=item,r=5] @p[r=15]"
+                                                "tp @e[type=item,r=5] @s"
                                             ]
                                         }
                                     }
@@ -498,399 +478,8 @@
                     }
                 ]
             },
-            "事件:过滤设置": {
-                "sequence": [
-                    { //标记 < 香草:圆石 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:cobblestone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:cobblestone"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:石头 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:stone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:stone 1 3"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:深板岩 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:cobbled_deepslate"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:cobbled_deepslate"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:泥土 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:dirt"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:dirt"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:砂砾 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:gravel"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:gravel"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:黑石 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:blackstone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:blackstone"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:粗铜 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:raw_copper"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:raw_copper_block"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:凝灰岩 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:tuff"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:tuff"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:方解石 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:calcite"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:calcite"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:砂岩 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:sandstone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:sandstone"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:红砂岩 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:red_sandstone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:red_sandstone"
-                            ]
-                        }
-                    },
-                    { //标记 < 香草:地狱岩 > 用于过滤
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "domain": "hand",
-                                    "subject": "other",
-                                    "value": "minecraft:netherrack"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "replaceitem entity @s slot.weapon.mainhand 0 minecraft:netherrack"
-                            ]
-                        }
-                    }
-                ]
-            },
-            "事件:仓储过滤": {
-                "sequence": [
-                    { //过滤 < 香草:圆石 >
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:cobblestone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:cobblestone 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:石头 >
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:stone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:stone -1 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:深板岩 > 
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:cobbled_deepslate"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:cobbled_deepslate 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:泥土 >
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:dirt"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:dirt 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:砂砾 > 
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:gravel"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:gravel 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:黑石 >
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:blackstone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:blackstone 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:粗铜 >
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:raw_copper_block"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:raw_copper 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:凝灰岩 >
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:tuff"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:tuff 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:方解石 >
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:calcite"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:calcite 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:砂岩 >
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:sandstone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:sandstone 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤 < 香草:红砂岩 >
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:red_sandstone"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:red_sandstone 0 64"
-                            ]
-                        }
-                    },
-                    { //过滤< 香草:地狱岩 > 
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "has_equipment",
-                                    "value": "minecraft:netherrack"
-                                }
-                            ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "clear @p[r=15] minecraft:netherrack 0 64"
-                            ]
-                        }
-                    }
-                ]
-            },
-            "事件:载具行驶": {
+            "仓储过滤": {},
+            "载具行驶": {
                 "sequence": [
                     { //用于使车辆前进 并消耗能量 同时赋予玩家状态效果
                         "run_command": {

@@ -47,7 +47,7 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.let_through",
+            "minecraft:geometry": "geometry.magic_bus.let_through",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -95,7 +95,7 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:Magic_Bus_Series": {}
         },
@@ -110,7 +110,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:等待激活",
+                            "event": "等待激活",
                             "target": "self"
                         }
                     }
@@ -126,7 +126,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:正在激活",
+                            "event": "正在激活",
                             "target": "self"
                         }
                     }
@@ -142,7 +142,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:状态侦测",
+                            "event": "状态侦测",
                             "target": "self"
                         }
                     }
@@ -158,7 +158,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:正在关闭",
+                            "event": "正在关闭",
                             "target": "self"
                         }
                     }
@@ -191,7 +191,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -216,7 +216,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -241,7 +241,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -266,7 +266,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -291,7 +291,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -316,7 +316,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     }
@@ -324,12 +324,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:switch": 0
                 }
             },
-            "事件:正在激活": {
+            "正在激活": {
                 "set_block_property": {
                     "Table:switch": 2
                 },
@@ -339,7 +339,7 @@
                     ]
                 }
             },
-            "事件:正在关闭": {
+            "正在关闭": {
                 "set_block_property": {
                     "Table:switch": 0
                 },
@@ -349,7 +349,7 @@
                     ]
                 }
             },
-            "事件:等待激活": {
+            "等待激活": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -369,7 +369,7 @@
                     }
                 ]
             },
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -390,13 +390,13 @@
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
                         "trigger": {
-                            "event": "事件:色彩侦测",
+                            "event": "色彩侦测",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:色彩侦测": {
+            "色彩侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:1') == 1",
@@ -436,7 +436,7 @@
                     }
                 ]
             },
-            "事件:结束激活": {
+            "结束激活": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -445,7 +445,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "sequence": [
                     {
                         "set_block_property": {

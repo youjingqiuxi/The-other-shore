@@ -23,7 +23,7 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.logic_gate",
+            "minecraft:geometry": "geometry.magic_bus.logic_gate",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -65,10 +65,10 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:Magic_Bus_Series": {}
         },
@@ -100,7 +100,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -125,7 +125,7 @@
                             8
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     }
@@ -141,7 +141,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:与门侦测",
+                            "event": "与门侦测",
                             "target": "self"
                         }
                     }
@@ -157,7 +157,7 @@
                             10
                         ],
                         "on_tick": {
-                            "event": "事件:非门侦测",
+                            "event": "非门侦测",
                             "target": "self"
                         }
                     }
@@ -205,48 +205,48 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:与门侦测": {
+            "与门侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:angle') == 2 || query.block_property('Table:angle') == 3",
                         "trigger": {
-                            "event": "事件:与门_方向_Z",
+                            "event": "与门_方向_Z",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:angle') == 4 || query.block_property('Table:angle') == 5",
                         "trigger": {
-                            "event": "事件:与门_方向_X",
+                            "event": "与门_方向_X",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:非门侦测": {
+            "非门侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:angle') == 2 || query.block_property('Table:angle') == 3",
                         "trigger": {
-                            "event": "事件:非门_方向_Z",
+                            "event": "非门_方向_Z",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:angle') == 4 || query.block_property('Table:angle') == 5",
                         "trigger": {
-                            "event": "事件:非门_方向_X",
+                            "event": "非门_方向_X",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:与门_方向_X": {
+            "与门_方向_X": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_Latch') == 1 && query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_Latch') == 1",
@@ -256,7 +256,7 @@
                     }
                 ]
             },
-            "事件:与门_方向_Z": {
+            "与门_方向_Z": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_Latch') == 1 && query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_Latch') == 1",
@@ -266,7 +266,7 @@
                     }
                 ]
             },
-            "事件:非门_方向_X": {
+            "非门_方向_X": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_Latch') == 1 && query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_Latch') == 0",
@@ -282,7 +282,7 @@
                     }
                 ]
             },
-            "事件:非门_方向_Z": {
+            "非门_方向_Z": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_Latch') == 1 && query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_Latch') == 0",
@@ -298,7 +298,7 @@
                     }
                 ]
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1 && query.block_property('Table:value') == 0",
@@ -326,7 +326,7 @@
                     }
                 ]
             },
-            "事件:结束激活": {
+            "结束激活": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -353,7 +353,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "sequence": [
                     {
                         "set_block_property": {

@@ -14,10 +14,10 @@
         ],
         "key": {
             "X": {
-                "item": "redstone"
+                "item": "minecraft:redstone"
             },
             "#": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             }
         },
         "result": {

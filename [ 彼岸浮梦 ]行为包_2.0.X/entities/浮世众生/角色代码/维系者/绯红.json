@@ -32,7 +32,7 @@
 					"probability": 1.0,
 					"tame_items": "魔法书籍:精灵结契",
 					"tame_event": {
-						"event": "事件:缔结契约",
+						"event": "缔结契约",
 						"target": "self"
 					}
 				},
@@ -102,7 +102,7 @@
 										}
 									]
 								},
-								"event": "事件:状态切换",
+								"event": "状态切换",
 								"target": "self"
 							}
 						},
@@ -122,7 +122,7 @@
 										}
 									]
 								},
-								"event": "事件:更换武装",
+								"event": "更换武装",
 								"target": "self"
 							}
 						},
@@ -142,7 +142,7 @@
 										}
 									]
 								},
-								"event": "事件:双重跟随",
+								"event": "双重跟随",
 								"target": "self"
 							}
 						}
@@ -173,7 +173,7 @@
 									}
 								]
 							},
-							"event": "事件:强制回归",
+							"event": "强制回归",
 							"target": "self"
 						},
 						{
@@ -195,7 +195,7 @@
 									}
 								]
 							},
-							"event": "事件:强制回归",
+							"event": "强制回归",
 							"target": "self"
 						},
 						{
@@ -217,13 +217,13 @@
 									}
 								]
 							},
-							"event": "事件:强制回归",
+							"event": "强制回归",
 							"target": "self"
 						}
 					]
 				},
 				"minecraft:inventory": {
-					"container_type": "container",
+					"container_type": "inventory",
 					"can_be_siphoned_from": false,
 					"restrict_to_owner": true,
 					"inventory_size": 27,
@@ -264,7 +264,7 @@
 									}
 								]
 							},
-							"event": "事件:强制回归",
+							"event": "强制回归",
 							"target": "self"
 						},
 						{
@@ -280,7 +280,7 @@
 									}
 								]
 							},
-							"event": "事件:黑夜模式",
+							"event": "黑夜模式",
 							"target": "self"
 						},
 						{
@@ -306,7 +306,7 @@
 									}
 								]
 							},
-							"event": "事件:白昼模式",
+							"event": "白昼模式",
 							"target": "self"
 						}
 					]
@@ -318,7 +318,7 @@
 				},
 				"minecraft:sittable": {},
 				"minecraft:inventory": {
-					"container_type": "container",
+					"container_type": "inventory",
 					"can_be_siphoned_from": false,
 					"restrict_to_owner": true,
 					"inventory_size": 27,
@@ -329,7 +329,7 @@
 				"minecraft:item_hopper": {},
 				"minecraft:is_chested": {},
 				"minecraft:inventory": {
-					"container_type": "container",
+					"container_type": "inventory",
 					"can_be_siphoned_from": true,
 					"restrict_to_owner": true,
 					"inventory_size": 27,
@@ -338,7 +338,7 @@
 			},
 			"贸易": {
 				"minecraft:inventory": {
-					"container_type": "container",
+					"container_type": "inventory",
 					"can_be_siphoned_from": false,
 					"restrict_to_owner": true,
 					"inventory_size": 27,
@@ -380,7 +380,7 @@
 						"value": true
 					},
 					"calm_event": {
-						"event": "事件:放弃进攻",
+						"event": "放弃进攻",
 						"target": "self"
 					}
 				}
@@ -392,7 +392,7 @@
 				"minecraft:ageable": {
 					"duration": 1.5,
 					"grow_up": {
-						"event": "事件:展开施法",
+						"event": "展开施法",
 						"target": "self"
 					}
 				}
@@ -423,7 +423,7 @@
 					{
 						"cause": "projectile",
 						"on_damage": {
-							"event": "事件:损伤判定",
+							"event": "损伤判定",
 							"target": "self",
 							"filters": {
 								"any_of": [
@@ -444,7 +444,7 @@
 					{
 						"cause": "entity_attack",
 						"on_damage": {
-							"event": "事件:损伤判定",
+							"event": "损伤判定",
 							"target": "self",
 							"filters": {
 								"any_of": [
@@ -465,7 +465,7 @@
 					{
 						"cause": "entity_explosion",
 						"on_damage": {
-							"event": "事件:损伤判定",
+							"event": "损伤判定",
 							"target": "self",
 							"filters": {
 								"any_of": [
@@ -486,7 +486,7 @@
 					{
 						"cause": "block_explosion",
 						"on_damage": {
-							"event": "事件:损伤判定",
+							"event": "损伤判定",
 							"target": "self",
 							"filters": {
 								"any_of": [
@@ -525,7 +525,7 @@
 				"def": "制导飞弹:坠星"
 			},
 			"minecraft:on_target_acquired": {
-				"event": "事件:发现目标",
+				"event": "发现目标",
 				"target": "self"
 			},
 			"minecraft:behavior.nearest_attackable_target": {
@@ -609,26 +609,26 @@
 					]
 				}
 			},
-			"事件:黑夜模式": {
+			"黑夜模式": {
 				"run_command": {
 					"command": [
 						"title @p[r=5] actionbar 【 @s 】: 天黑了, 请注意休息. 以免怪物偷家 !",
 						"tag @s remove daily_task",
-						"event entity @s 事件:常规台词"
+						"event entity @s 常规台词"
 					]
 				}
 			},
-			"事件:强制回归": {
+			"强制回归": {
 				"run_command": {
 					"command": [
 						"title @a[r=5] actionbar 【 @s 】: 等等我!",
 						"effect @s slowness 1 255 true",
-						"event entity @s 事件:常规台词",
+						"event entity @s 常规台词",
 						"tp @s @p"
 					]
 				}
 			},
-			"事件:漫游状态": {
+			"漫游状态": {
 				"run_command": {
 					"command": [
 						"title @a[r=5] actionbar 【 @s 】:  我会在附近散步, 有需要欢迎随时来找我",
@@ -649,7 +649,7 @@
 					]
 				}
 			},
-			"事件:驻留状态": {
+			"驻留状态": {
 				"run_command": {
 					"command": [
 						"title @a[r=5] actionbar 【 @s 】: 我将随你一起行动, 你可以随时安排我坐下",
@@ -670,7 +670,7 @@
 					]
 				}
 			},
-			"事件:背包状态": {
+			"背包状态": {
 				"run_command": {
 					"command": [
 						"title @a[r=5] actionbar 【 @s 】: 我将随你一起行动, 并为你携带背包",
@@ -691,7 +691,7 @@
 					]
 				}
 			},
-			"事件:贸易状态": {
+			"贸易状态": {
 				"run_command": {
 					"command": [
 						"title @a[r=5] actionbar 【 @s 】: 我将随你一起行动, 如有需要你也可以与我兑换部分物品",
@@ -712,16 +712,16 @@
 					]
 				}
 			},
-			"事件:白昼模式": {
+			"白昼模式": {
 				"run_command": {
 					"command": [
 						"title @p[r=5] actionbar 【 @s 】: 早安 !",
 						"tag @s add daily_task",
-						"event entity @s 事件:常规台词"
+						"event entity @s 常规台词"
 					]
 				}
 			},
-			"事件:展开施法": {
+			"展开施法": {
 				"run_command": {
 					"command": [
 						"effect @e[r=24,family=!monster,family=!abyss] regeneration 9 3 true",
@@ -740,7 +740,7 @@
 					]
 				}
 			},
-			"事件:放弃进攻": {
+			"放弃进攻": {
 				"run_command": {
 					"command": [
 						"effect @s slowness 1 255 true"
@@ -758,7 +758,7 @@
 					]
 				}
 			},
-			"事件:缔结契约": {
+			"缔结契约": {
 				"run_command": {
 					"command": [
 						"function RoleCode/EnterContracts"
@@ -778,7 +778,7 @@
 					]
 				}
 			},
-			"事件:状态切换": {
+			"状态切换": {
 				"sequence": [
 					{
 						"run_command": {
@@ -799,7 +799,7 @@
 						},
 						"run_command": {
 							"command": [
-								"event entity @s 事件:漫游状态"
+								"event entity @s 漫游状态"
 							]
 						}
 					},
@@ -815,7 +815,7 @@
 						},
 						"run_command": {
 							"command": [
-								"event entity @s 事件:驻留状态"
+								"event entity @s 驻留状态"
 							]
 						}
 					},
@@ -831,7 +831,7 @@
 						},
 						"run_command": {
 							"command": [
-								"event entity @s 事件:背包状态"
+								"event entity @s 背包状态"
 							]
 						}
 					},
@@ -847,7 +847,7 @@
 						},
 						"run_command": {
 							"command": [
-								"event entity @s 事件:贸易状态"
+								"event entity @s 贸易状态"
 							]
 						}
 					},
@@ -898,7 +898,7 @@
 								},
 								"run_command": {
 									"command": [
-										"event entity @s 事件:漫游状态"
+										"event entity @s 漫游状态"
 									]
 								}
 							},
@@ -919,7 +919,7 @@
 								},
 								"run_command": {
 									"command": [
-										"event entity @s 事件:驻留状态"
+										"event entity @s 驻留状态"
 									]
 								}
 							},
@@ -940,7 +940,7 @@
 								},
 								"run_command": {
 									"command": [
-										"event entity @s 事件:贸易状态"
+										"event entity @s 贸易状态"
 									]
 								}
 							},
@@ -966,7 +966,7 @@
 								},
 								"run_command": {
 									"command": [
-										"event entity @s 事件:背包状态"
+										"event entity @s 背包状态"
 									]
 								}
 							}
@@ -974,7 +974,7 @@
 					}
 				]
 			},
-			"事件:双重跟随": {
+			"双重跟随": {
 				"sequence": [
 					{
 						"filters": {
@@ -1014,7 +1014,7 @@
 					}
 				]
 			},
-			"事件:发现目标": {
+			"发现目标": {
 				"run_command": {
 					"command": [
 						"effect @s slowness 1 255 true",
@@ -1032,14 +1032,14 @@
 					]
 				}
 			},
-			"事件:实体消失": {
+			"实体消失": {
 				"add": {
 					"component_groups": [
 						"消失"
 					]
 				}
 			},
-			"事件:损伤判定": {
+			"损伤判定": {
 				"sequence": [
 					{
 						"filters": {
@@ -1091,7 +1091,7 @@
 					}
 				]
 			},
-			"事件:常规台词": {
+			"常规台词": {
 				"sequence": [
 					{
 						"randomize": [
@@ -1145,7 +1145,7 @@
 					}
 				]
 			},
-			"事件:更换武装": {
+			"更换武装": {
 				"sequence": [
 					{
 						"filters": {
@@ -1311,7 +1311,7 @@
 					}
 				]
 			},
-			"事件:锚点虚印": {
+			"锚点虚印": {
 				"sequence": [
 					{
 						"filters": {

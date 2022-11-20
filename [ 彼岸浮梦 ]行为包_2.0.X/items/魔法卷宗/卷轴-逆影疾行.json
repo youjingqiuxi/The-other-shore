@@ -6,12 +6,6 @@
             "category": "equipment"
         },
         "components": {
-            "minecraft:can_destroy_in_creative": false,
-            "minecraft:allow_off_hand": false,
-            "minecraft:hand_equipped": true,
-            "minecraft:max_stack_size": 1,
-            "minecraft:foil": true,
-            "minecraft:damage": 1,
             "minecraft:icon": {
                 "texture": "魔法卷轴"
             },
@@ -65,7 +59,12 @@
                     "min": 0,
                     "max": 0
                 }
-            }
+            },
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:foil": true,
+            "minecraft:damage": 1
         },
         "events": {
             "阅读书籍": {

@@ -14,17 +14,17 @@
         ],
         "key": {
             "H": {
-                "item": "brown_mushroom"
+                "item": "minecraft:brown_mushroom"
             },
             "G": {
-                "item": "red_mushroom"
+                "item": "minecraft:red_mushroom"
             },
             "T": {
-                "item": "dirt"
+                "item": "minecraft:dirt"
             }
         },
         "result": {
-            "item": "mycelium",
+            "item": "minecraft:mycelium",
             "count": 6
         }
     }

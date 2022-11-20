@@ -25,8 +25,8 @@
                 "controller.render.Map:X01"
             ],
             "spawn_egg": {
-                "texture": "Tayun_born",
-                "texture_index":4
+                "texture": "基础类_图标",
+                "texture_index":1
             }
         }
     }

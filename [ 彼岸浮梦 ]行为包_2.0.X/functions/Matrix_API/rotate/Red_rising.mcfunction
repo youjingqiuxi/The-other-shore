@@ -15,4 +15,4 @@ particle minecraft:obsidian_glow_dust_particle ^ ^ ^1.0
 particle minecraft:obsidian_glow_dust_particle ^ ^ ^-1.0
 
 #销毁
-event entity @s[scores={CD=20..}] 事件:实体消失
+event entity @s[scores={CD=20..}] 实体消失

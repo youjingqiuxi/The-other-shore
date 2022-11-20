@@ -79,14 +79,14 @@
                     20
                 ],
                 "on_tick": {
-                    "event": "事件:倒计时",
+                    "event": "倒计时",
                     "target": "self"
                 }
             },
             "tag:void_block": {}
         },
         "events": {
-            "事件:倒计时": {
+            "倒计时": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0",
@@ -109,7 +109,7 @@
                     {
                         "condition": "query.block_property('Table:switch') == 1 && query.block_property('Table:value') == 1",
                         "trigger": {
-                            "event": "事件:方块销毁",
+                            "event": "方块销毁",
                             "target": "self"
                         },
                         "run_command": {
@@ -120,7 +120,7 @@
                     }
                 ]
             },
-            "事件:方块销毁": {
+            "方块销毁": {
                 "sequence": [
                     {
                         "set_block": {

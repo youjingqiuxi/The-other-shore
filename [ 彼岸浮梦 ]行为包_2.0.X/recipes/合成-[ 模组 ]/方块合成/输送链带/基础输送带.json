@@ -17,10 +17,10 @@
                 "item": "合金材料:特种合金"
             },
             "G": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             },
             "P": {
-                "item": "leather"
+                "item": "minecraft:leather"
             }
         },
         "result": {

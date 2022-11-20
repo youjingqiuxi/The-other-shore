@@ -90,10 +90,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "permutations": [
@@ -107,7 +107,7 @@
                             20
                         ],
                         "on_tick": {
-                            "event": "事件:功能运行",
+                            "event": "功能运行",
                             "target": "self"
                         }
                     }
@@ -123,7 +123,7 @@
                             10
                         ],
                         "on_tick": {
-                            "event": "事件:待机动画",
+                            "event": "待机动画",
                             "target": "self"
                         }
                     }
@@ -131,7 +131,7 @@
             }
         ],
         "events": {
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 2",
@@ -145,7 +145,7 @@
                     {
                         "condition": "query.block_property('Table:switch') == 0",
                         "trigger": {
-                            "event": "事件:面积显示",
+                            "event": "面积显示",
                             "target": "self"
                         },
                         "run_command": {
@@ -157,7 +157,7 @@
                     {
                         "condition": "query.block_property('Table:switch') == 1",
                         "trigger": {
-                            "event": "事件:蓝图加载",
+                            "event": "蓝图加载",
                             "target": "self"
                         },
                         "run_command": {
@@ -179,7 +179,7 @@
                     }
                 ]
             },
-            "事件:面积显示": {
+            "面积显示": {
                 "sequence": [
                     {
                         "run_command": {
@@ -340,7 +340,7 @@
                     }
                 ]
             },
-            "事件:蓝图加载": {
+            "蓝图加载": {
                 "sequence": [
                     {
                         "run_command": {
@@ -427,7 +427,7 @@
                     }
                 ]
             },
-            "事件:功能运行": {
+            "功能运行": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:action') == 0",
@@ -481,7 +481,7 @@
                             "Table:switch": 0
                         },
                         "trigger": {
-                            "event": "事件:房屋搭建",
+                            "event": "房屋搭建",
                             "target": "self"
                         },
                         "run_command": {
@@ -493,7 +493,7 @@
                     }
                 ]
             },
-            "事件:待机动画": {
+            "待机动画": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:action') != 5",
@@ -509,7 +509,7 @@
                     }
                 ]
             },
-            "事件:房屋搭建": {
+            "房屋搭建": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:function') == 1",

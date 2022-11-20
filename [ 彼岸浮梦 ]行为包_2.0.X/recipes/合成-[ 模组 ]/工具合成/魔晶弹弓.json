@@ -14,10 +14,10 @@
         ],
         "key": {
             "G": {
-                "item": "bow"
+                "item": "minecraft:bow"
             },
             "M": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             }
         },
         "result": {

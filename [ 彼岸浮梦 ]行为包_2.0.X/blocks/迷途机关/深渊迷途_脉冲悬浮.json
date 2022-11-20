@@ -64,15 +64,15 @@
                     80
                 ],
                 "on_tick": {
-                    "event": "事件:运行中",
+                    "event": "运行中",
                     "target": "self"
                 }
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "permutations": [
@@ -110,13 +110,13 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:color": 0,
                     "Table:angle": 0
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:angle') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
@@ -163,7 +163,7 @@
                     }
                 ]
             },
-            "事件:运行中": {
+            "运行中": {
                 "run_command": {
                     "command": [
                         "effect @e[dy=1] slow_falling 15 00 true",

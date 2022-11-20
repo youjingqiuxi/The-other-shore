@@ -14,14 +14,14 @@
         ],
         "key": {
             "F": {
-                "item": "rotten_flesh"
+                "item": "minecraft:rotten_flesh"
             },
             "T": {
-                "item": "dirt"
+                "item": "minecraft:dirt"
             }
         },
         "result": {
-            "item": "podzol",
+            "item": "minecraft:podzol",
             "count": 6
         }
     }

@@ -14,7 +14,7 @@
         ],
         "key": {
             "S": {
-                "item": "cobblestone"
+                "item": "minecraft:cobblestone"
             }
         },
         "result": {

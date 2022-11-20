@@ -4,6 +4,10 @@
 		"animation.hold_magic_bow": {
 			"loop": true,
 			"bones": {
+				"rightItem": {
+					"rotation": ["context.is_first_person == 1 ? 25 : 0", "context.is_first_person == 1 ? 60 : 0", "context.is_first_person == 1 ? -15 : 0"],
+					"position": ["context.is_first_person == 1 ? -5 : 0", 0, "context.is_first_person == 1 ? -5 : 0"]
+				},
 				"core0": {
 					"scale": "query.is_sneaking != 1 ? 1 : 0"
 				},
@@ -20,8 +24,67 @@
 				}
 			}
 		},
+		"animation.hold_dynamic_sight": {
+			"loop": true,
+			"bones": {
+				"sight": {
+					"rotation": [0, 0, "query.is_sneaking == 1 ? (query.life_time * 75) : 0"],
+					"scale": "context.is_first_person == 1 ? (query.is_sneaking == 1 ? 0.55 : 0.75) : 0"
+				},
+				"default": {
+					"scale": "context.is_first_person == 1 ? (query.is_sneaking != 1 ? 1 : 0) : 0"
+				},
+				"Sneak": {
+					"scale": "context.is_first_person == 1 ? (query.is_sneaking == 1 ? 1 : 0) : 0"
+				},
+				"rightItem": {
+					"rotation": ["context.is_first_person == 1 ? 45 : 0", "context.is_first_person == 1 ? 45 : 0", "context.is_first_person == 1 ? 15 : 0"],
+					"scale": 0.5
+				},
+				"instrument": {
+					"position": [0, 0, "context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 1.5) + 10 : (math.cos(query.life_time * 50) * 1.5) - 3"]
+				}
+			}
+		},
+		"animation.hold_magic_pellet_sight": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"sight": {
+					"scale": "context.is_first_person == 1 ? 0.75 : 0"
+				},
+				"rightItem": {
+					"rotation": ["context.is_first_person == 1 ? 45 : 0", "context.is_first_person == 1 ? 45 : 0", "context.is_first_person == 1 ? 15 : 0"],
+					"scale": 0.5
+				},
+				"instrument": {
+					"rotation": ["query.life_time * 75", 0, "query.life_time * 75"],
+					"position": [0, 0, "context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 1.5) + 10 : (math.cos(query.life_time * 50) * 1.5) - 3"],
+					"scale": {
+						"0.0": [0.75, 0.75, 0.75],
+						"1.0": [0.5, 0.5, 0.5],
+						"2.0": [0.75, 0.75, 0.75]
+					}
+				},
+				"block_0": {
+					"rotation": ["query.life_time * 50", 0, 0]
+				},
+				"block_1": {
+					"rotation": [0, "query.life_time * 50", 0]
+				},
+				"block_2": {
+					"rotation": [0, 0, "query.life_time * 50"]
+				},
+				"block_3": {
+					"rotation": ["query.life_time * 50", 0, "query.life_time * 50"]
+				},
+				"block_4": {
+					"rotation": [0, "query.life_time * 50", "query.life_time * 50"]
+				}
+			}
+		},
 		"animation.hold_use.shield": {
-			"animation_length": 1.0,
+			"animation_length": 1,
 			"bones": {
 				"leftArm": {
 					"rotation": {

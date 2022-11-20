@@ -71,12 +71,12 @@
                     4
                 ],
                 "on_tick": {
-                    "event": "事件:状态侦测",
+                    "event": "状态侦测",
                     "target": "self"
                 }
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:collision_box": {
                 "origin": [
@@ -160,12 +160,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:device') == 0 && [ query.block_neighbor_has_all_tags(0,1,0,'block_Table') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'block_Table') == 1 ]",

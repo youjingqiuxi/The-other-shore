@@ -11,10 +11,10 @@
         "priority": 1,
         "ingredients": [
             {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             },
             {
-                "item": "book"
+                "item": "minecraft:book"
             }
         ],
         "result": {

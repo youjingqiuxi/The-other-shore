@@ -13,7 +13,7 @@
         ],
         "key": {
             "S": {
-                "item": "obsidian"
+                "item": "minecraft:obsidian"
             },
             "T": {
                 "item": "minecraft:bucket",
@@ -25,7 +25,7 @@
                 "item": "特殊道具:洁净黑曜石"
             },
             {
-                "item": "bucket"
+                "item": "minecraft:bucket"
             }
         ]
     }

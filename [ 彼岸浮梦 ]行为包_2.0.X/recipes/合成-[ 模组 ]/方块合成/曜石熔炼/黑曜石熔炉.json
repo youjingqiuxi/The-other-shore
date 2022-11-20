@@ -14,13 +14,13 @@
         ],
         "key": {
             "H": {
-                "item": "obsidian"
+                "item": "minecraft:obsidian"
             },
             "R": {
-                "item": "furnace"
+                "item": "minecraft:furnace"
             },
             "N": {
-                "item": "cauldron"
+                "item": "minecraft:cauldron"
             }
         },
         "result": {

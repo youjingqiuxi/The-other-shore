@@ -3,6 +3,7 @@
     "minecraft:block": {
         "description": {
             "identifier": "深渊迷途:迷宫再现",
+            "category": "commands",
             "properties": {
                 "Table:angle": [
                     0,
@@ -94,10 +95,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "permutations": [
@@ -111,7 +112,7 @@
                             20
                         ],
                         "on_tick": {
-                            "event": "事件:播放动画",
+                            "event": "播放动画",
                             "target": "self"
                         }
                     }
@@ -119,7 +120,7 @@
             }
         ],
         "events": {
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') <= 2",
@@ -130,20 +131,20 @@
                     {
                         "condition": "query.block_property('Table:switch') == 0",
                         "trigger": {
-                            "event": "事件:结构判定",
+                            "event": "结构判定",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:angle') == 0",
                         "trigger": {
-                            "event": "事件:激活判定",
+                            "event": "激活判定",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:结构判定": {
+            "结构判定": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(2,0,2,'rate_crysta_block') == 1 && query.block_neighbor_has_all_tags(-2,0,2,'rate_crysta_block') == 1 && query.block_neighbor_has_all_tags(-2,0,-2,'rate_crysta_block') == 1 && query.block_neighbor_has_all_tags(2,0,-2,'rate_crysta_block') == 1",
@@ -165,7 +166,7 @@
                     }
                 ]
             },
-            "事件:激活判定": {
+            "激活判定": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 3",
@@ -213,7 +214,7 @@
                     }
                 ]
             },
-            "事件:播放动画": {
+            "播放动画": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:action') != 5",
@@ -227,13 +228,13 @@
                             "Table:action": 0
                         },
                         "trigger": {
-                            "event": "事件:构筑迷宫",
+                            "event": "构筑迷宫",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:构筑迷宫": {
+            "构筑迷宫": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:function') == 0",

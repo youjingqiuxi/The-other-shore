@@ -69,10 +69,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "permutations": [
@@ -95,7 +95,7 @@
                             4900
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -113,7 +113,7 @@
                             3500
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -131,7 +131,7 @@
                             1300
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -149,7 +149,7 @@
                             3900
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -167,7 +167,7 @@
                             1700
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -175,7 +175,7 @@
             }
         ],
         "events": {
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:lava_bucket') == 1 && query.block_property('Table:switch') == 0",
@@ -310,7 +310,7 @@
                     }
                 ]
             },
-            "事件:运行停止": {
+            "运行停止": {
                 "set_block_property": {
                     "Table:switch": 0,
                     "Table:cache": 0

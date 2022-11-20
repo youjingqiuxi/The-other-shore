@@ -82,7 +82,7 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "tag:magic_Portal": {}
         },
@@ -97,7 +97,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:自动侦测",
+                            "event": "自动侦测",
                             "target": "self"
                         }
                     }
@@ -113,7 +113,7 @@
                             60
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     }
@@ -121,7 +121,7 @@
             }
         ],
         "events": {
-            "事件:自动侦测": {
+            "自动侦测": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -134,20 +134,20 @@
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1",
                         "trigger": {
-                            "event": "事件:进行交互",
+                            "event": "进行交互",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
                         "trigger": {
-                            "event": "事件:进行交互",
+                            "event": "进行交互",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0",
@@ -197,7 +197,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "sequence": [
                     {
                         "set_block_property": {

@@ -25,7 +25,6 @@
                 "category": "渊鲸控制器",
                 "duration": 1
             },
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,
@@ -79,7 +78,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "execute as @e [family=ocean_mount,r=5] if block ~~~ water run event entity @s 事件:解除禁航"
+                                "execute as @e [family=ocean_mount,r=5] if block ~~~ water run event entity @s 解除禁航"
                             ]
                         }
                     }

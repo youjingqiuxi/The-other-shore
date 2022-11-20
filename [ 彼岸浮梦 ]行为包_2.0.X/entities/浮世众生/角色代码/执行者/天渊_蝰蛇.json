@@ -30,7 +30,7 @@
                         "value": true
                     },
                     "calm_event": {
-                        "event": "事件:放弃进攻",
+                        "event": "放弃进攻",
                         "target": "self"
                     }
                 }
@@ -39,7 +39,7 @@
                 "minecraft:timer": {
                     "time": 18,
                     "time_down_event": {
-                        "event": "事件:淡化退场",
+                        "event": "淡化退场",
                         "target": "self"
                     }
                 }
@@ -52,7 +52,7 @@
                 "minecraft:ageable": {
                     "duration": 1,
                     "grow_up": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 }
@@ -132,7 +132,7 @@
                 "value": 0.15
             },
             "minecraft:on_target_acquired": {
-                "event": "事件:发现目标",
+                "event": "发现目标",
                 "target": "self"
             },
             "minecraft:navigation.generic": {
@@ -184,7 +184,7 @@
                                 }
                             ]
                         },
-                        "event": "事件:召唤野蜂",
+                        "event": "召唤野蜂",
                         "target": "self"
                     }
                 ]
@@ -226,7 +226,7 @@
                     ]
                 }
             },
-            "事件:发现目标": {
+            "发现目标": {
                 "run_command": {
                     "command": [
                         "execute at @e [family=!abyss,family=spirit,r=32] run particle minecraft:knockback_roar_particle ~~~",
@@ -240,7 +240,7 @@
                     ]
                 }
             },
-            "事件:放弃进攻": {
+            "放弃进攻": {
                 "run_command": {
                     "command": [
                         "execute at @e [family=!abyss,family=spirit,r=32] run particle minecraft:knockback_roar_particle ~~~",
@@ -253,27 +253,27 @@
                     ]
                 }
             },
-            "事件:召唤野蜂": {
+            "召唤野蜂": {
                 "run_command": {
                     "command": [
-                        "summon 天渊阁:野蜂 ~~~ 事件:武装支援",
+                        "summon 天渊阁:野蜂 ~~~ 武装支援",
                         "spreadplayers ~ ~ 5 16 @e[type=天渊阁:野蜂,c=1,r=1]",
-                        "summon 天渊阁:野蜂 ~~~ 事件:武装支援",
+                        "summon 天渊阁:野蜂 ~~~ 武装支援",
                         "spreadplayers ~ ~ 5 08 @e[type=天渊阁:野蜂,c=1,r=1]",
-                        "summon 天渊阁:野蜂 ~~~ 事件:武装支援",
+                        "summon 天渊阁:野蜂 ~~~ 武装支援",
                         "spreadplayers ~ ~ 5 06 @e[type=天渊阁:野蜂,c=1,r=1]",
                         "tag @s add End_of_call"
                     ]
                 }
             },
-            "事件:淡化退场": {
+            "淡化退场": {
                 "add": {
                     "component_groups": [
                         "淡化"
                     ]
                 }
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "run_command": {
                     "command": [
                         "particle minecraft:knockback_roar_particle ~~~"

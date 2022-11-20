@@ -17,13 +17,13 @@
                 "item": "合金材料:特种合金"
             },
             "C": {
-                "item": "copper_ingot"
+                "item": "minecraft:copper_ingot"
             },
             "M": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             },
             "S": {
-                "item": "stonecutter_block"
+                "item": "minecraft:stonecutter_block"
             }
         },
         "result": {

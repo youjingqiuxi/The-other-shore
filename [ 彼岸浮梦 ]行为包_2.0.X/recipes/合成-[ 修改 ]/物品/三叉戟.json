@@ -14,14 +14,14 @@
         ],
         "key": {
             "T": {
-                "item": "iron_ingot"
+                "item": "minecraft:iron_ingot"
             },
             "Z": {
-                "item": "diamond"
+                "item": "minecraft:diamond"
             }
         },
         "result": {
-            "item": "trident"
+            "item": "minecraft:trident"
         }
     }
 }

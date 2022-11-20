@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "特殊道具:物资整理",
+			"materials": {
+				"enchanted": "armor_enchanted",
+				"default": "armor"
+			},
+			"textures": {
+				"enchanted": "textures/misc/enchanted_item_glint",
+				"default": "textures/armor/物资整理"
+			},
+			"geometry": {
+				"default": "geometry.material_sorting_sight"
+			},
+			"scripts": {
+				"parent_setup": "variable.boot_layer_visible = 0.0;",
+				"animate": [
+					"hold_use"
+				]
+			},
+			"animations": {
+				"hold_use": "animation.hold_dynamic_sight"
+			},
+			"render_controllers": [
+				"controller.render.armor"
+			]
+		}
+	}
+}

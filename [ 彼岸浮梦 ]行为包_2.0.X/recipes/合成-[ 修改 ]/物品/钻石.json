@@ -14,14 +14,14 @@
         ],
         "key": {
             "T": {
-                "item": "coal_block"
+                "item": "minecraft:coal_block"
             },
             "M": {
                 "tag": "energy_crystal"
             }
         },
         "result": {
-            "item": "diamond",
+            "item": "minecraft:diamond",
             "count": 8
         }
     }

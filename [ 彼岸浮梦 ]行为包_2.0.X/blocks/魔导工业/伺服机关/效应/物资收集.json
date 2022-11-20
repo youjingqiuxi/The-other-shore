@@ -58,10 +58,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:collision_box": false,
             "tag:Magic_Bus_Series": {}
@@ -117,7 +117,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:状态侦测",
+                            "event": "状态侦测",
                             "target": "self"
                         }
                     }
@@ -133,7 +133,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:功能运行",
+                            "event": "功能运行",
                             "target": "self"
                         }
                     }
@@ -141,17 +141,17 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "query.cardinal_facing_2d"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
                         "trigger": {
-                            "event": "事件:参数调整",
+                            "event": "参数调整",
                             "target": "self"
                         }
                     },
@@ -166,7 +166,7 @@
                     }
                 ]
             },
-            "事件:参数调整": {
+            "参数调整": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -211,7 +211,7 @@
                     }
                 ]
             },
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_energy') == 1",
@@ -221,7 +221,7 @@
                     }
                 ]
             },
-            "事件:功能运行": {
+            "功能运行": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:value') == 1",

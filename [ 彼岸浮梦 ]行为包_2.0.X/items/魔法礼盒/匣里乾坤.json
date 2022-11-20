@@ -19,7 +19,6 @@
                 "category": "匣里乾坤",
                 "duration": 1
             },
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,

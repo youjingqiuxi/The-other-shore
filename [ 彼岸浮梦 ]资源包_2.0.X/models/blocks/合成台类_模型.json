@@ -3,7 +3,7 @@
     "minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.prop_block.make",
+				"identifier": "geometry.crafting_table.spirit_make",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 2,
@@ -821,7 +821,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.magic_bus_make",
+				"identifier": "geometry.crafting_table.magic_bus_make",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -1104,7 +1104,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.take_apart",
+				"identifier": "geometry.crafting_table.take_apart",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 2,

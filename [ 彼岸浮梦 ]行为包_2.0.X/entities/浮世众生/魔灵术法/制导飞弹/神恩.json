@@ -59,7 +59,7 @@
                     "track_target": true,
                     "speed_multiplier": 1.4,
                     "on_attack": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 }
@@ -177,7 +177,7 @@
             "minecraft:timer": {
                 "time": 5,
                 "time_down_event": {
-                    "event": "事件:实体消失",
+                    "event": "实体消失",
                     "target": "self"
                 }
             },
@@ -265,7 +265,7 @@
                     ]
                 }
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "add": {
                     "component_groups": [
                         "消失"

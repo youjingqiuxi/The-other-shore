@@ -49,7 +49,7 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.filter_bus",
+            "minecraft:geometry": "geometry.magic_bus.filter_bus",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -100,10 +100,10 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:Magic_Bus_Series": {}
         },
@@ -124,7 +124,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:默认状态",
+                            "event": "默认状态",
                             "target": "self"
                         }
                     }
@@ -146,7 +146,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -171,7 +171,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -196,7 +196,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -221,7 +221,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -246,7 +246,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -271,7 +271,7 @@
                             8
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     }
@@ -279,12 +279,12 @@
             } 
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:switch": 0
                 }
             },
-            "事件:默认状态": {
+            "默认状态": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -299,41 +299,41 @@
                     {
                         "condition": "query.block_property('Table:value') == 1",
                         "trigger": {
-                            "event": "事件:蓝色信号",
+                            "event": "蓝色信号",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:value') == 2",
                         "trigger": {
-                            "event": "事件:红色信号",
+                            "event": "红色信号",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:value') == 3",
                         "trigger": {
-                            "event": "事件:绿色信号",
+                            "event": "绿色信号",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:value') == 4",
                         "trigger": {
-                            "event": "事件:橙色信号",
+                            "event": "橙色信号",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:value') == 5",
                         "trigger": {
-                            "event": "事件:紫色信号",
+                            "event": "紫色信号",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:蓝色信号": {
+            "蓝色信号": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:1') == 1",
@@ -343,7 +343,7 @@
                     }
                 ]
             },
-            "事件:红色信号": {
+            "红色信号": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:2') == 1",
@@ -353,7 +353,7 @@
                     }
                 ]
             },
-            "事件:绿色信号": {
+            "绿色信号": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:3') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:3') == 1",
@@ -363,7 +363,7 @@
                     }
                 ]
             },
-            "事件:橙色信号": {
+            "橙色信号": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:4') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:4') == 1",
@@ -373,7 +373,7 @@
                     }
                 ]
             },
-            "事件:紫色信号": {
+            "紫色信号": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:5') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:5') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:5') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:5') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:5') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:5') == 1",
@@ -383,12 +383,12 @@
                     }
                 ]
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
                         "trigger": {
-                            "event": "事件:参数设置",
+                            "event": "参数设置",
                             "target": "self"
                         }
                     },
@@ -403,7 +403,7 @@
                     }
                 ]
             },
-            "事件:参数设置": {
+            "参数设置": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -466,7 +466,7 @@
                     }
                 ]
             },
-            "事件:结束激活": {
+            "结束激活": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -475,7 +475,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "sequence": [
                     {
                         "set_block_property": {

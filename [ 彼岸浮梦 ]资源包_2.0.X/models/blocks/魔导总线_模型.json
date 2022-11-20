@@ -3,7 +3,7 @@
     "minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.prop_block.magic_bus",
+				"identifier": "geometry.magic_bus.basics",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -499,7 +499,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.pulse_bus",
+				"identifier": "geometry.magic_bus.pulse_bus",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -8264,7 +8264,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.button_bus",
+				"identifier": "geometry.magic_bus.button_bus",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -10701,7 +10701,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.filter_bus",
+				"identifier": "geometry.magic_bus.filter_bus",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -11722,7 +11722,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.pulse_latch",
+				"identifier": "geometry.magic_bus.pulse_latch",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -12590,7 +12590,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.signal_change",
+				"identifier": "geometry.magic_bus.signal_change",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -13611,7 +13611,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.logic_gate",
+				"identifier": "geometry.magic_bus.logic_gate",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -15117,7 +15117,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.hydro_power",
+				"identifier": "geometry.magic_bus.hydro_power",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -16199,7 +16199,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.pulse_count",
+				"identifier": "geometry.magic_bus.pulse_count",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -16538,7 +16538,7 @@
 		},
 		{
 			"description": {
-				"identifier": "geometry.prop_block.let_through",
+				"identifier": "geometry.magic_bus.let_through",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,

@@ -25,7 +25,6 @@
                 "category": "列车控制器",
                 "duration": 2
             },
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,
@@ -72,7 +71,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "event entity @e[family=train,r=16,c=1] 事件:载具开关",
+                                "event entity @e[family=train,r=16,c=1] 载具开关",
                                 "playsound tile.piston.out @a[r=15] ~~~"
                             ]
                         }

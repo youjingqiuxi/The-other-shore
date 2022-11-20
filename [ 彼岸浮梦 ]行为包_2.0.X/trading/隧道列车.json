@@ -88,6 +88,26 @@
                         {
                             "wants": [
                                 {
+                                    "item": "合金材料:特种合金",
+                                    "quantity": 1
+                                }
+                            ],
+                            "gives": [
+                                {
+                                    "item": "拟态矩阵:标记方块",
+                                    "quantity": 1
+                                }
+                            ],
+                            "max_uses": 1
+                        }
+                    ]
+                },
+                {
+                    "num_to_select": 1,
+                    "trades": [
+                        {
+                            "wants": [
+                                {
                                     "item": "leather",
                                     "quantity": 2
                                 },

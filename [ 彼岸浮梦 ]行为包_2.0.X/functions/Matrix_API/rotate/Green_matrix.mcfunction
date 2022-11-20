@@ -24,4 +24,4 @@ execute as @e [family=Matrix_Anchor,r=5] at @e [family=Matrix_Anchor,r=5]  run p
 execute as @e [family=Matrix_Anchor,r=5] at @e [family=Matrix_Anchor,r=5]  run particle 动态轨迹:靛蓝 ^ ^ ^2
 
 #销毁
-execute as @s [scores={CD=240}] run event entity @e[family=Matrix_API,r=5] 事件:实体消失
+execute as @s [scores={CD=240}] run event entity @e[family=Matrix_API,r=5] 实体消失

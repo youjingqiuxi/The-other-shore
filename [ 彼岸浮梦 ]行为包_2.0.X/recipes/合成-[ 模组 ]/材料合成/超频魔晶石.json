@@ -14,10 +14,10 @@
         ],
         "key": {
             "X": {
-                "item": "diamond"
+                "item": "minecraft:diamond"
             },
             "#": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             },
             "0": {
                 "item": "dye",

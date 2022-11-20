@@ -14,15 +14,14 @@
         ],
         "key": {
             "D": {
-                "item": "carpet"
+                "item": "minecraft:carpet"
             },
             "M": {
-                "item": "planks"
+                "tag": "minecraft:planks"
             },
             "Z": {
-                "item": "fence"
+                "item": "minecraft:fence"
             }
-        
         },
         "result": {
             "item": "装饰类:基础椅子",

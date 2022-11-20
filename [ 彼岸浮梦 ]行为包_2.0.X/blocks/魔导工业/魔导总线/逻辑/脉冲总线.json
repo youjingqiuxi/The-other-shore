@@ -48,7 +48,7 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.pulse_bus",
+            "minecraft:geometry": "geometry.magic_bus.pulse_bus",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -104,10 +104,10 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:Magic_Bus_Series": {}
         },
@@ -139,7 +139,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     },
@@ -158,7 +158,7 @@
                             20
                         ],
                         "on_tick": {
-                            "event": "事件:总线运行",
+                            "event": "总线运行",
                             "target": "self"
                         }
                     }
@@ -174,7 +174,7 @@
                             40
                         ],
                         "on_tick": {
-                            "event": "事件:总线运行",
+                            "event": "总线运行",
                             "target": "self"
                         }
                     }
@@ -190,7 +190,7 @@
                             60
                         ],
                         "on_tick": {
-                            "event": "事件:总线运行",
+                            "event": "总线运行",
                             "target": "self"
                         }
                     }
@@ -206,7 +206,7 @@
                             80
                         ],
                         "on_tick": {
-                            "event": "事件:总线运行",
+                            "event": "总线运行",
                             "target": "self"
                         }
                     }
@@ -222,7 +222,7 @@
                             100
                         ],
                         "on_tick": {
-                            "event": "事件:总线运行",
+                            "event": "总线运行",
                             "target": "self"
                         }
                     }
@@ -238,7 +238,7 @@
                             120
                         ],
                         "on_tick": {
-                            "event": "事件:总线运行",
+                            "event": "总线运行",
                             "target": "self"
                         }
                     }
@@ -254,7 +254,7 @@
                             140
                         ],
                         "on_tick": {
-                            "event": "事件:总线运行",
+                            "event": "总线运行",
                             "target": "self"
                         }
                     }
@@ -270,7 +270,7 @@
                             160
                         ],
                         "on_tick": {
-                            "event": "事件:总线运行",
+                            "event": "总线运行",
                             "target": "self"
                         }
                     }
@@ -286,7 +286,7 @@
                             180
                         ],
                         "on_tick": {
-                            "event": "事件:总线运行",
+                            "event": "总线运行",
                             "target": "self"
                         }
                     }
@@ -294,7 +294,7 @@
             } 
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -308,7 +308,7 @@
                     }
                 ]
             },
-            "事件:总线运行": {
+            "总线运行": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -323,7 +323,7 @@
                     }
                 ]
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 0",
@@ -337,7 +337,7 @@
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
                         "trigger": {
-                            "event": "事件:参数调整",
+                            "event": "参数调整",
                             "target": "self"
                         }
                     },
@@ -355,7 +355,7 @@
                     }
                 ]
             },
-            "事件:参数调整": {
+            "参数调整": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -454,7 +454,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "sequence": [
                     {
                         "set_block_property": {

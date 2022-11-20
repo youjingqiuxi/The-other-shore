@@ -13,7 +13,7 @@ scoreboard players add @s[scores={set_X=1..}] set_X -1
 scoreboard players add @s[scores={set_X=..-1}] set_X 1
 
 #销毁
-event entity @s[scores={set_Z=0}] 事件:实体消失
+event entity @s[scores={set_Z=0}] 实体消失
 
 #标记
 tag @s[tag=!Matrix_API.draw_set] add Matrix_API.draw_set

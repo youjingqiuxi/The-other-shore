@@ -27,8 +27,8 @@ execute as @s [scores={ZX=1}] run particle minecraft:knockback_roar_particle ~~~
 execute as @s [scores={ZX=2}] run damage @e[r=5,family=!abyss,type=!item] 5 drowning entity @e[type=天渊阁:渊鲸,c=1]
 
 #销毁
-event entity @s[scores={ZX=03}] 事件:实体消失
-event entity @s[scores={CD=99}] 事件:实体消失
+event entity @s[scores={ZX=03}] 实体消失
+event entity @s[scores={CD=99}] 实体消失
 
 #效果
 particle 闪烁粒子:海蓝 ~~~

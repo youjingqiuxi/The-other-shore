@@ -9,7 +9,7 @@
 			},
 			"textures": {
 				"enchanted": "textures/misc/enchanted_item_glint",
-				"default": "textures/armor/手持道具_盒子/匣里乾坤"
+				"default": "textures/armor/匣里乾坤"
 			},
 			"geometry": {
 				"default": "geometry.hold_box"
@@ -22,9 +22,9 @@
 			},
 			"animations": {
 				"Hold": "controller.animation.hold_box_switch",
-				"Float":"animation.hold_box.float",
-				"Close":"animation.hold_box.close",
-				"Open":"animation.hold_box.open"
+				"Float": "animation.hold_box.float",
+				"Close": "animation.hold_box.close",
+				"Open": "animation.hold_box.open"
 			},
 			"render_controllers": [
 				"controller.render.armor"

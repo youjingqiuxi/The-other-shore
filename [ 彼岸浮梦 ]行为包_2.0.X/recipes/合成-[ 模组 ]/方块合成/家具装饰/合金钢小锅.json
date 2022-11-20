@@ -14,7 +14,7 @@
         ],
         "key": {
             "M": {
-                "item": "log"
+                "tag": "minecraft:logs"
             },
             "G": {
                 "item": "合金材料:特种合金"

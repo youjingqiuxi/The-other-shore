@@ -14,13 +14,13 @@
         ],
         "key": {
             "T": {
-                "item": "dirt"
+                "item": "minecraft:dirt"
             },
             "Z": {
-                "item": "wheat_seeds"
+                "item": "minecraft:wheat_seeds"
             },
             "C": {
-                "item": "wooden_hoe"
+                "item": "minecraft:wooden_hoe"
             },
             "G": {
                 "item": "能量水晶:高压魔晶"

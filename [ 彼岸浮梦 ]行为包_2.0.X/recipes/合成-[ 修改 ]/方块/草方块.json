@@ -14,14 +14,14 @@
         ],
         "key": {
             "C": {
-                "item": "tallgrass"
+                "item": "minecraft:tallgrass"
             },
             "T": {
-                "item": "dirt"
+                "item": "minecraft:dirt"
             }
         },
         "result": {
-            "item": "grass",
+            "item": "minecraft:grass",
             "count": 6
         }
     }

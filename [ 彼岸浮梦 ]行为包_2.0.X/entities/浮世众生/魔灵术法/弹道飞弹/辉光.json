@@ -53,7 +53,7 @@
                     "definition_event": {
                         "affect_projectile": true,
                         "event_trigger": {
-                            "event": "事件:点亮环境",
+                            "event": "点亮环境",
                             "target": "self"
                         }
                     }
@@ -85,13 +85,13 @@
                 "time": 0.01,
                 "looping": true,
                 "time_down_event": {
-                    "event": "事件:弹道粒子",
+                    "event": "弹道粒子",
                     "target": "self"
                 }
             }
         },
         "events": {
-            "事件:点亮环境": {
+            "点亮环境": {
                 "sequence": [
                     {
                         "filters": {
@@ -106,21 +106,21 @@
                         "run_command": {
                             "command": [
                                 "fill ~~~ ~~~ light_block 15 keep",
-                                "event entity @s 事件:实体消失",
+                                "event entity @s 实体消失",
                                 "tag @s add bullet_hit"
                             ]
                         }
                     }
                 ]
             },
-            "事件:弹道粒子": {
+            "弹道粒子": {
                 "run_command": {
                     "command": [
                         "particle 动态轨迹:靛蓝 ~~~"
                     ]
                 }
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "add": {
                     "component_groups": [
                         "消失"

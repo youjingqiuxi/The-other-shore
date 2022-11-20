@@ -14,18 +14,18 @@
         ],
         "key": {
             "M": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             },
             "Y": {
-                "item": "Clownfish"
+                "item": "minecraft:Clownfish"
             },
             "T": {
-                "item": "bucket",
+                "item": "minecraft:bucket",
                 "data": 8
             }
         },
         "result": {
-            "item": "bucket",
+            "item": "minecraft:bucket",
             "data": 4
         }
     }

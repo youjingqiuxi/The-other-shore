@@ -8,7 +8,7 @@
             "furnace",
             "blast_furnace"
         ],
-        "input": "bell",
-        "output": "gold_ingot"
+        "input": "minecraft:bell",
+        "output": "minecraft:gold_ingot"
     }
 }

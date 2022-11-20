@@ -5,8 +5,7 @@
             "identifier": "能量水晶:永恒魔晶",
             "category": "items"
         },
-        "components": {         
-            "minecraft:can_destroy_in_creative": false,
+        "components": {
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,

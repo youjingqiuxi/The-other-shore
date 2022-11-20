@@ -14,11 +14,11 @@
         ],
         "key": {
             "X": {
-                "item": "snow"
+                "item": "minecraft:snow"
             }
         },
         "result": {
-            "item": "ice"
+            "item": "minecraft:ice"
         }
     }
 }

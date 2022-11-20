@@ -197,6 +197,20 @@
                 },
                 {
                     "type": "item",
+                    "name": "魔法工具:魔晶弹珠",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
                     "name": "特制模板:空灵单元",
                     "weight": 1,
                     "functions": [

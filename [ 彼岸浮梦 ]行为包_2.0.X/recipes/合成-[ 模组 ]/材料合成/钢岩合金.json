@@ -14,13 +14,13 @@
         ],
         "key": {
             "I": {
-                "item": "iron_ingot"
+                "item": "minecraft:iron_ingot"
             },
             "S": {
-                "item": "stone"
+                "item": "minecraft:stone"
             },
             "T": {
-                "item": "copper_ingot"
+                "item": "minecraft:copper_ingot"
             }
         },
         "result": {

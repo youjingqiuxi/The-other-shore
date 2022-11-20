@@ -12,16 +12,16 @@
         ],
         "key": {
             "0": {
-                "item": "enchanted_book"
+                "item": "minecraft:enchanted_book"
             }
         },
         "result": [
             {
-                "item": "experience_bottle",
+                "item": "minecraft:experience_bottle",
                 "count": 8
             },
             {
-                "item": "book"
+                "item": "minecraft:book"
             }
         ]
     }
