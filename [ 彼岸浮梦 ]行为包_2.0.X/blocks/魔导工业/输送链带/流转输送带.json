@@ -13,7 +13,7 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.route_traffic",
+            "minecraft:geometry": "geometry.conveyor_belt.route",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -68,7 +68,7 @@
                             10
                         ],
                         "on_tick": {
-                            "event": "事件:执行功能",
+                            "event": "执行功能",
                             "target": "self"
                         }
                     }
@@ -84,7 +84,7 @@
                             10
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     },
@@ -93,7 +93,7 @@
             }
         ],
         "events": {
-            "事件:执行功能": {
+            "执行功能": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'conveyor_belt.face_just_X') == 1",
@@ -134,7 +134,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "set_block_property": {
                     "Table:switch": 0
                 }

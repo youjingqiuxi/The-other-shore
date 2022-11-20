@@ -1,5 +1,5 @@
 {
-    "format_version": "1.12",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.item.rate_crysta"
@@ -14,10 +14,10 @@
         ],
         "key": {
             "X": {
-                "item": "diamond"
+                "item": "minecraft:diamond"
             },
             "#": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             },
             "0": {
                 "item": "dye",

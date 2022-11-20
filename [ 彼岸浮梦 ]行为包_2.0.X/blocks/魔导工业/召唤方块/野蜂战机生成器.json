@@ -80,16 +80,16 @@
                     20
                 ],
                 "on_tick": {
-                    "event": "事件:运行判定",
+                    "event": "运行判定",
                     "target": "self"
                 }
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             }
         },
         "events": {
-            "事件:运行判定": {
+            "运行判定": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:value') != 8",
@@ -110,20 +110,20 @@
                             "Table:value.1": 0
                         },
                         "trigger": {
-                            "event": "事件:野蜂生成",
+                            "event": "野蜂生成",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'initial_crystal_block') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'initial_crystal_block') == 1 || query.block_neighbor_has_all_tags(0,0,1,'initial_crystal_block') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'initial_crystal_block') == 1 || query.block_neighbor_has_all_tags(0,1,0,'initial_crystal_block') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'initial_crystal_block') == 1",
                         "trigger": {
-                            "event": "事件:方块损毁",
+                            "event": "方块损毁",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:野蜂生成": {
+            "野蜂生成": {
                 "sequence": [
                     {
                         "run_command": {
@@ -136,7 +136,7 @@
                     }
                 ]
             },
-            "事件:方块损毁": {
+            "方块损毁": {
                 "run_command": {
                     "command": [
                         "title @a[r=15] actionbar < 野蜂战机生成器 > 已过载损毁 !",

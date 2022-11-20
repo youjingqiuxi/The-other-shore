@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_furnace": {
         "description": {
             "identifier": "MC.melting.netherstar|melts-into|heart_of_the_sea"
@@ -8,7 +8,7 @@
             "furnace",
             "blast_furnace"
         ],
-        "input": "netherstar",
-        "output": "heart_of_the_sea"
+        "input": "minecraft:netherstar",
+        "output": "minecraft:heart_of_the_sea"
     }
 }

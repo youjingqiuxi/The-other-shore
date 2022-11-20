@@ -1,0 +1,30 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.special_item.Status_display"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "HHH",
+            "HCH",
+            "HSH"
+        ],
+        "key": {
+            "C": {
+                "item": "能量水晶:超频魔晶"
+            },
+            "S": {
+                "item": "魔法书籍:精灵治愈"
+            },
+            "H": {
+                "item": "合金材料:钢岩合金"
+            }
+        },
+        "result": {
+            "item": "特殊道具:状态显示"
+        }
+    }
+}

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.Magic_bus.Parameter_setting"
@@ -20,7 +20,7 @@
                 "item": "魔导总线:交互终端"
             },
             "T": {
-                "item": "copper_ingot"
+                "item": "minecraft:copper_ingot"
             }
         },
         "result": {

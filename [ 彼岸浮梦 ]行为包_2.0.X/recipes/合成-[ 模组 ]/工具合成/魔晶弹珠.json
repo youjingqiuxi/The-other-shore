@@ -1,0 +1,31 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.tool.pellet"
+        },
+        "tags": [
+            "魔导总线合成台"
+        ],
+        "pattern": [
+            "GBG",
+            "BTB",
+            "GBG"
+        ],
+        "key": {
+            "T": {
+                "item": "minecraft:raw_copper_block"
+            },
+            "G": {
+                "item": "领域石:特种合金"
+            },
+            "B": {
+                "item": "minecraft:glass"
+            }
+        },
+        "result": {
+            "item": "魔法工具:魔晶弹珠",
+            "count": 16
+        }
+    }
+}

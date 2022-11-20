@@ -60,7 +60,7 @@
                     "track_target": true,
                     "speed_multiplier": 1.4,
                     "on_attack": {
-                        "event": "事件:攻击命中",
+                        "event": "攻击命中",
                         "target": "self"
                     }
                 },
@@ -76,7 +76,7 @@
                                         }
                                     ]
                                 },
-                                "event": "事件:昔日荣光"
+                                "event": "昔日荣光"
                             }
                         }
                     ]
@@ -120,7 +120,7 @@
                 ]
             },
             "minecraft:on_target_acquired": {
-                "event": "事件:发现目标",
+                "event": "发现目标",
                 "target": "self"
             },
             "minecraft:scale": {
@@ -129,7 +129,7 @@
             "minecraft:ageable": {
                 "duration": 15,
                 "grow_up": {
-                    "event": "事件:实体消失",
+                    "event": "实体消失",
                     "target": "self"
                 }
             },
@@ -151,14 +151,14 @@
             }
         },
         "events": {
-            "事件:发现目标": {
+            "发现目标": {
                 "add": {
                     "component_groups": [
                         "战斗"
                     ]
                 }
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "sequence": [
                     {
                         "run_command": {
@@ -174,25 +174,25 @@
                     }
                 ]
             },
-            "事件:攻击命中": {
+            "攻击命中": {
                 "sequence": [
                     {
                         "run_command": {
                             "command": [
-                                "event entity @e[tag=Endangered,r=32,c=1] 事件:紧急规避"
+                                "event entity @e[tag=Endangered,r=32,c=1] 紧急规避"
                             ]
                         }
                     }
                 ]
             },
-            "事件:昔日荣光": {
+            "昔日荣光": {
                 "sequence": [
                     {
                         "run_command": {
                             "command": [
                                 "summon minecraft:lightning_bolt ~~~",
                                 "particle minecraft:knockback_roar_particle ~~~",
-                                "damage @e[r=8,family=!Tayun,family=!player,family=!spirit] 15 suicide entity @r"
+                                "damage @e[r=8,family=!Tayun,family=!player,family=!spirit] 15 entity_attack entity @r"
                             ]
                         }
                     }

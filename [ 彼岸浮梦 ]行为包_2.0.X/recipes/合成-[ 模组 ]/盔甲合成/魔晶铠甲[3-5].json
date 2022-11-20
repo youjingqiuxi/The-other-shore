@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.item.MagicCrystalArmor.1 -> 2"
@@ -14,7 +14,7 @@
         ],
         "key": {
             "X": {
-                "item": "gold_ingot"
+                "item": "minecraft:gold_ingot"
             },
             "G": {
                 "item": "合金材料:钢岩合金"

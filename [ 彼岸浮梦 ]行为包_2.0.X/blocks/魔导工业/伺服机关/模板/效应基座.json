@@ -91,7 +91,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:状态侦测",
+                            "event": "状态侦测",
                             "target": "self"
                         }
                     }
@@ -107,7 +107,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:功能运行",
+                            "event": "功能运行",
                             "target": "self"
                         }
                     }
@@ -115,7 +115,7 @@
             }
         ],
         "events": {
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_energy') == 1",
@@ -154,7 +154,7 @@
                     }
                 ]
             },
-            "事件:功能运行": {
+            "功能运行": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:state') == 1",

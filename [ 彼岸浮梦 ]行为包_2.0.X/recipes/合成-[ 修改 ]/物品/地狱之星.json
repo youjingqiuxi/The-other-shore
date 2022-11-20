@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "MC.item.netherstar"
@@ -14,17 +14,17 @@
         ],
         "key": {
             "X": {
-                "item": "quartz"
+                "item": "minecraft:quartz"
             },
             "H": {
-                "item": "heart_of_the_sea"
+                "item": "minecraft:heart_of_the_sea"
             },
             "M": {
-                "item": "enchanted_book"
+                "item": "minecraft:enchanted_book"
             }
         },
         "result": {
-            "item": "netherstar"
+            "item": "minecraft:netherstar"
         }
     }
 }

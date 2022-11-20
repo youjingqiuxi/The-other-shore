@@ -81,7 +81,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:状态侦测",
+                            "event": "状态侦测",
                             "target": "self"
                         }
                     }
@@ -97,7 +97,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -116,7 +116,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -135,7 +135,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -154,7 +154,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -173,7 +173,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -192,7 +192,7 @@
                             8
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     }
@@ -200,18 +200,18 @@
             }
         ],
         "events": {
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
                         "trigger": {
-                            "event": "事件:色彩侦测",
+                            "event": "色彩侦测",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:色彩侦测": {
+            "色彩侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:1') == 1",
@@ -245,7 +245,7 @@
                     }
                 ]
             },
-            "事件:结束激活": {
+            "结束激活": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -254,7 +254,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "sequence": [
                     {
                         "set_block_property": {

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "MC.item.heart_of_the_sea"
@@ -14,17 +14,17 @@
         ],
         "key": {
             "S": {
-                "item": "enchanted_book"
+                "item": "minecraft:enchanted_book"
             },
             "H": {
-                "item": "heart_of_the_sea"
+                "item": "minecraft:heart_of_the_sea"
             },
             "M": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             }
         },
         "result": {
-            "item": "heart_of_the_sea",
+            "item": "minecraft:heart_of_the_sea",
             "count": 3
         }
     }

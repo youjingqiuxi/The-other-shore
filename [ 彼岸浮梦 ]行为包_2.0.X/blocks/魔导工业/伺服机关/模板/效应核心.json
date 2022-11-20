@@ -54,7 +54,7 @@
                     60
                 ],
                 "on_tick": {
-                    "event": "事件:运行时",
+                    "event": "运行时",
                     "target": "self"
                 }
             },

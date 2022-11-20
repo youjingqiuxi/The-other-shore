@@ -24,7 +24,6 @@
                 }
             },
             "minecraft:damage": 5,
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:render_offsets": "tools",
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
@@ -47,7 +46,7 @@
                             "command": [
                                 "execute at @e [r=8,c=2,type=!item,type=!player,family=!prime] run particle minecraft:huge_explosion_emitter ~~~",
                                 "execute at @e [r=8,c=5,type=!item,type=!player,family=!prime] run particle minecraft:sonic_explosion ~~~",
-                                "damage @e[r=8,type=!item,type=!player,family=!prime] 15 suicide entity @p",
+                                "damage @e[r=8,type=!item,type=!player,family=!prime] 15 entity_attack entity @p",
                                 "effect @s jump_boost 3 4 true"
                             ]
                         },

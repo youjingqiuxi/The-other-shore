@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.book.Planting_instruction"
@@ -14,13 +14,13 @@
         ],
         "key": {
             "T": {
-                "item": "dirt"
+                "item": "minecraft:dirt"
             },
             "Z": {
-                "item": "wheat_seeds"
+                "item": "minecraft:wheat_seeds"
             },
             "C": {
-                "item": "wooden_hoe"
+                "item": "minecraft:wooden_hoe"
             },
             "G": {
                 "item": "能量水晶:高压魔晶"

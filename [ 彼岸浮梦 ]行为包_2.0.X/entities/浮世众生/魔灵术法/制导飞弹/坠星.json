@@ -26,7 +26,7 @@
                     "track_target": true,
                     "speed_multiplier": 1.4,
                     "on_attack": {
-                        "event": "事件:攻击命中",
+                        "event": "攻击命中",
                         "target": "self"
                     }
                 },
@@ -51,7 +51,7 @@
                 "minecraft:ageable": {
                     "duration": 10,
                     "grow_up": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 },
@@ -80,14 +80,14 @@
                 "minecraft:ageable": {
                     "duration": 5,
                     "grow_up": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 },
                 "minecraft:timer": {
                     "time": 0.01,
                     "time_down_event": {
-                        "event": "事件:符文牵引",
+                        "event": "符文牵引",
                         "target": "self"
                     }
                 },
@@ -160,21 +160,21 @@
                     ]
                 }
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "add": {
                     "component_groups": [
                         "消失"
                     ]
                 }
             },
-            "事件:星芒爆发": {
+            "星芒爆发": {
                 "add": {
                     "component_groups": [
                         "消失"
                     ]
                 }
             },
-            "事件:攻击命中": {
+            "攻击命中": {
                 "add": {
                     "component_groups": [
                         "符文"
@@ -186,7 +186,7 @@
                     ]
                 }
             },
-            "事件:符文牵引": {
+            "符文牵引": {
                 "run_command": {
                     "command": [
                         "execute as @s [tag=!RuneHit] run spreadplayers ~ ~ 0 1 @e[r=8,family=monster,c=1]",

@@ -12,7 +12,7 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.lift_traffic",
+            "minecraft:geometry": "geometry.conveyor_belt.lift",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -60,10 +60,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "tag:conveyor_belt_transfer": {}
         },
@@ -78,7 +78,7 @@
                             15
                         ],
                         "on_tick": {
-                            "event": "事件:物品上升",
+                            "event": "物品上升",
                             "target": "self"
                         }
                     }
@@ -94,7 +94,7 @@
                             15
                         ],
                         "on_tick": {
-                            "event": "事件:物品下降",
+                            "event": "物品下降",
                             "target": "self"
                         }
                     }
@@ -102,12 +102,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": 0
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1 && query.block_property('Table:angle') == 0",
@@ -133,14 +133,14 @@
                     }
                 ]
             },
-            "事件:物品下降": {
+            "物品下降": {
                 "run_command": {
                     "command": [
                         "tp @e[type=item,r=1] ~ ~-1 ~"
                     ]
                 }
             },
-            "事件:物品上升": {
+            "物品上升": {
                 "run_command": {
                     "command": [
                         "tp @e[type=item,r=1] ~~~",

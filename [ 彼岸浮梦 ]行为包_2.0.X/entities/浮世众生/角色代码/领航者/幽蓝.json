@@ -34,7 +34,7 @@
 					"probability": 1.0,
 					"tame_items": "魔法书籍:精灵结契",
 					"tame_event": {
-						"event": "事件:缔结契约",
+						"event": "缔结契约",
 						"target": "self"
 					}
 				},
@@ -104,7 +104,7 @@
 										}
 									]
 								},
-								"event": "事件:状态切换",
+								"event": "状态切换",
 								"target": "self"
 							}
 						},
@@ -124,7 +124,7 @@
 										}
 									]
 								},
-								"event": "事件:更换武装",
+								"event": "更换武装",
 								"target": "self"
 							}
 						},
@@ -144,7 +144,7 @@
 										}
 									]
 								},
-								"event": "事件:双重跟随",
+								"event": "双重跟随",
 								"target": "self"
 							}
 						}
@@ -175,7 +175,7 @@
 									}
 								]
 							},
-							"event": "事件:强制回归",
+							"event": "强制回归",
 							"target": "self"
 						},
 						{
@@ -197,7 +197,7 @@
 									}
 								]
 							},
-							"event": "事件:强制回归",
+							"event": "强制回归",
 							"target": "self"
 						},
 						{
@@ -219,7 +219,7 @@
 									}
 								]
 							},
-							"event": "事件:强制回归",
+							"event": "强制回归",
 							"target": "self"
 						}
 					]
@@ -259,7 +259,7 @@
 									}
 								]
 							},
-							"event": "事件:强制回归",
+							"event": "强制回归",
 							"target": "self"
 						},
 						{
@@ -275,7 +275,7 @@
 									}
 								]
 							},
-							"event": "事件:黑夜模式",
+							"event": "黑夜模式",
 							"target": "self"
 						},
 						{
@@ -301,7 +301,7 @@
 									}
 								]
 							},
-							"event": "事件:白昼模式",
+							"event": "白昼模式",
 							"target": "self"
 						}
 					]
@@ -311,14 +311,7 @@
 				"minecraft:behavior.stay_while_sitting": {
 					"priority": 0
 				},
-				"minecraft:sittable": {},
-				"minecraft:inventory": {
-					"container_type": "container",
-					"can_be_siphoned_from": false,
-					"restrict_to_owner": true,
-					"inventory_size": 27,
-					"private": true
-				}
+				"minecraft:sittable": {}
 			},
 			"空闲": {
 				"minecraft:variant": {
@@ -342,7 +335,7 @@
 						"value": true
 					},
 					"calm_event": {
-						"event": "事件:放弃进攻",
+						"event": "放弃进攻",
 						"target": "self"
 					}
 				}
@@ -354,7 +347,7 @@
 				"minecraft:ageable": {
 					"duration": 1.5,
 					"grow_up": {
-						"event": "事件:展开施法",
+						"event": "展开施法",
 						"target": "self"
 					}
 				}
@@ -491,7 +484,7 @@
 					{
 						"cause": "projectile",
 						"on_damage": {
-							"event": "事件:损伤判定",
+							"event": "损伤判定",
 							"target": "self",
 							"filters": {
 								"any_of": [
@@ -512,7 +505,7 @@
 					{
 						"cause": "entity_attack",
 						"on_damage": {
-							"event": "事件:损伤判定",
+							"event": "损伤判定",
 							"target": "self",
 							"filters": {
 								"any_of": [
@@ -533,7 +526,7 @@
 					{
 						"cause": "entity_explosion",
 						"on_damage": {
-							"event": "事件:损伤判定",
+							"event": "损伤判定",
 							"target": "self",
 							"filters": {
 								"any_of": [
@@ -554,7 +547,7 @@
 					{
 						"cause": "block_explosion",
 						"on_damage": {
-							"event": "事件:损伤判定",
+							"event": "损伤判定",
 							"target": "self",
 							"filters": {
 								"any_of": [
@@ -585,7 +578,7 @@
 				"max_failed_attempts": 99
 			},
 			"minecraft:on_target_acquired": {
-				"event": "事件:发现目标",
+				"event": "发现目标",
 				"target": "self"
 			},
 			"minecraft:behavior.nearest_attackable_target": {
@@ -715,30 +708,30 @@
 					]
 				}
 			},
-			"事件:黑夜模式": {
+			"黑夜模式": {
 				"run_command": {
 					"command": [
 						"title @p[r=5] actionbar 【 @s 】: 天黑了, 请注意休息. 以免怪物偷家 !",
 						"tag @s remove daily_task",
-						"event entity @s 事件:常规台词"
+						"event entity @s 常规台词"
 					]
 				}
 			},
-			"事件:强制回归": {
+			"强制回归": {
 				"run_command": {
 					"command": [
 						"title @a[r=5] actionbar 【 @s 】: 等等我!",
 						"effect @s slowness 1 255 true",
-						"event entity @s 事件:常规台词",
+						"event entity @s 常规台词",
 						"tp @s @p"
 					]
 				}
 			},
-			"事件:漫游状态": {
+			"漫游状态": {
 				"run_command": {
 					"command": [
 						"title @a[r=5] actionbar 【 @s 】:  我会在附近散步, 有需要欢迎随时来找我",
-						"event entity @s 事件:结束贸易",
+						"event entity @s 结束贸易",
 						"tag @s add NO_follow"
 					]
 				},
@@ -754,11 +747,11 @@
 					]
 				}
 			},
-			"事件:驻留状态": {
+			"驻留状态": {
 				"run_command": {
 					"command": [
 						"title @a[r=5] actionbar 【 @s 】: 我将随你一起行动, 你可以随时安排我坐下",
-						"event entity @s 事件:结束贸易",
+						"event entity @s 结束贸易",
 						"tag @s remove NO_follow"
 					]
 				},
@@ -774,7 +767,7 @@
 					]
 				}
 			},
-			"事件:结束贸易": {
+			"结束贸易": {
 				"remove": {
 					"component_groups": [
 						"贸易:农民",
@@ -794,16 +787,16 @@
 					]
 				}
 			},
-			"事件:白昼模式": {
+			"白昼模式": {
 				"run_command": {
 					"command": [
 						"title @p[r=5] actionbar 【 @s 】: 早安 !",
 						"tag @s add daily_task",
-						"event entity @s 事件:常规台词"
+						"event entity @s 常规台词"
 					]
 				}
 			},
-			"事件:展开施法": {
+			"展开施法": {
 				"sequence": [
 					{
 						"run_command": {
@@ -956,10 +949,10 @@
 					}
 				]
 			},
-			"事件:放弃进攻": {
+			"放弃进攻": {
 				"run_command": {
 					"command": [
-						"event entity @e[type=幻生阁:野蜂,r=64,c=15] 事件:实体消失",
+						"event entity @e[type=幻生阁:野蜂,r=64,c=15] 实体消失",
 						"effect @s slowness 1 255 true"
 					]
 				},
@@ -975,7 +968,7 @@
 					]
 				}
 			},
-			"事件:缔结契约": {
+			"缔结契约": {
 				"run_command": {
 					"command": [
 						"function RoleCode/EnterContracts"
@@ -995,7 +988,7 @@
 					]
 				}
 			},
-			"事件:状态切换": {
+			"状态切换": {
 				"sequence": [
 					{
 						"run_command": {
@@ -1016,7 +1009,7 @@
 						},
 						"run_command": {
 							"command": [
-								"event entity @s 事件:漫游状态"
+								"event entity @s 漫游状态"
 							]
 						}
 					},
@@ -1032,7 +1025,7 @@
 						},
 						"run_command": {
 							"command": [
-								"event entity @s 事件:驻留状态"
+								"event entity @s 驻留状态"
 							]
 						}
 					},
@@ -1078,7 +1071,7 @@
 								},
 								"run_command": {
 									"command": [
-										"event entity @s 事件:漫游状态"
+										"event entity @s 漫游状态"
 									]
 								}
 							},
@@ -1094,7 +1087,7 @@
 								},
 								"run_command": {
 									"command": [
-										"event entity @s 事件:驻留状态"
+										"event entity @s 驻留状态"
 									]
 								}
 							}
@@ -1102,7 +1095,7 @@
 					}
 				]
 			},
-			"事件:双重跟随": {
+			"双重跟随": {
 				"sequence": [
 					{
 						"filters": {
@@ -1142,7 +1135,7 @@
 					}
 				]
 			},
-			"事件:发现目标": {
+			"发现目标": {
 				"run_command": {
 					"command": [
 						"effect @s slowness 1 255 true"
@@ -1159,7 +1152,7 @@
 					]
 				}
 			},
-			"事件:紧急规避": {
+			"紧急规避": {
 				"sequence": [
 					{
 						"run_command": {
@@ -1177,14 +1170,14 @@
 					}
 				]
 			},
-			"事件:实体消失": {
+			"实体消失": {
 				"add": {
 					"component_groups": [
 						"消失"
 					]
 				}
 			},
-			"事件:损伤判定": {
+			"损伤判定": {
 				"sequence": [
 					{
 						"filters": {
@@ -1236,7 +1229,7 @@
 					}
 				]
 			},
-			"事件:常规台词": {
+			"常规台词": {
 				"sequence": [
 					{
 						"randomize": [
@@ -1306,7 +1299,7 @@
 					}
 				]
 			},
-			"事件:更换武装": {
+			"更换武装": {
 				"sequence": [
 					{
 						"filters": {
@@ -1472,7 +1465,7 @@
 					}
 				]
 			},
-			"事件:锚点虚印": {
+			"锚点虚印": {
 				"sequence": [
 					{
 						"filters": {

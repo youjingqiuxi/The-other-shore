@@ -7,6 +7,7 @@
 ##珍宝箱
 item.spawn_egg.entity.珍宝箱:迷途.name=§5放置 §6迷途珍宝§r
 item.spawn_egg.entity.珍宝箱:旅途.name=§5放置 §6旅途珍宝§r
+item.spawn_egg.entity.珍宝箱:结构.name=§5放置 §6结构珍宝§r
 
 ##魔法飞弹
 item.spawn_egg.entity.制导飞弹:坠星.name=§5精灵·坠星§r
@@ -209,62 +210,6 @@ tile.输送链带:基础运输.name=§6< §9输送链带§r _ §l§e基础运输
 ##————————————————————————————————————————
 
 ##【模组_自定义界面】
-##标题
-howtoplay.主题00=§l§6功能简介
-howtoplay.主题01=§l§6开发人员
-howtoplay.主题02=§l§6项目授权
-
-howtoplay.主题03=§l§9星光阁 <实体>
-howtoplay.主题04=§l§9幻生阁 <实体>
-howtoplay.主题05=§l§9明镜阁 <实体>
-howtoplay.主题06=§l§9天渊阁 <实体>
-
-howtoplay.主题10=§l§9隧道列车 <实体>
-howtoplay.主题11=§l§a特殊道具 <物品>
-howtoplay.主题12=§l§a魔导书籍 <物品>
-howtoplay.主题13=§l§5附属功能 <混合>
-howtoplay.主题14=§l§5魔晶矿石 <混合>
-
-howtoplay.主题16=§l§e曜石熔炼 <方块>
-howtoplay.主题17=§l§e迷途机关 <方块>
-howtoplay.主题18=§l§e领域方块 <方块>
-howtoplay.主题19=§l§e输送单元 <方块>
-howtoplay.主题20=§l§5辅助增强 <混合>
-howtoplay.主题21=§l§8深渊迷途 <秘境>
-howtoplay.主题22=§l§e魔导总线 <方块>
-
-
-##简介
-howtoplay.主题00.title=§9关于
-howtoplay.主题01.title=§9关于
-howtoplay.主题02.title=§9关于
-howtoplay.主题03.title=§9关于
-howtoplay.主题04.title=§9关于
-howtoplay.主题05.title=§9关于
-howtoplay.主题06.title=§9关于
-howtoplay.主题07.title=§9关于
-howtoplay.主题08.title=§9关于
-howtoplay.主题09.title=§9关于
-howtoplay.主题10.title=§9关于
-howtoplay.主题11.title=§9关于
-howtoplay.主题12.title=§9关于
-howtoplay.主题13.title=§9关于
-howtoplay.主题14.title=§9关于
-howtoplay.主题15.title=§9关于
-howtoplay.主题16.title=§9关于
-howtoplay.主题17.title=§9关于
-howtoplay.主题18.title=§9关于
-howtoplay.主题19.title=§9关于
-howtoplay.主题20.title=§9关于
-howtoplay.主题21.title=§9关于
-
-##内容
-howtoplay.category.模组信息=§f 《 彼岸浮梦 》模组信息
-howtoplay.category.浮世众生=§f 《 浮世众生 》辅助文档
-howtoplay.category.魔导工业=§f 《 魔导工业 》说明文档
-howtoplay.category.基岩计划=§f 《 基岩计划 》辅助说明
-howtoplay.category.世界探索=§f 【 秘境探索 】介绍文案
-
 ##其他
 action.hint.exit.列车组:座椅=§2 已坐下 
 action.hint.exit.明镜阁:渊鲸=欢迎乘坐 < 渊鲸级 深潜炮击舰 >
@@ -442,6 +387,8 @@ item.spawn_egg.entity.piglin_brute.name=生成 猪灵蛮兵
 ##————————————————————————————————————————
 
 ##【方块】
+tile.frame.name=物品展示框
+tile.glow_frame.name=荧光物品展示框
 tile.tinted_glass.name=遮光玻璃
 tile.jigsaw.name=拼图方块
 tile.allow.name=允许建设方块
@@ -517,12 +464,12 @@ tile.coral_block.yellow_dead.name=死亡角珊瑚块
 item.shield.name=盾牌
 item.appleEnchanted.name=附魔金苹果
 item.bell.name=村庄钟
-item.bucketLava.name=桶装熔岩
-item.bucketWater.name=桶装水
-item.bucketFish.name=桶装鳕鱼
-item.bucketSalmon.name=桶装鲑鱼
-item.bucketTropical.name=桶装热带鱼
-item.bucketPuffer.name=桶装刺豚鱼
+item.bucketLava.name=桶装 熔岩
+item.bucketWater.name=桶装 水源
+item.bucketFish.name=桶装 鳕鱼
+item.bucketSalmon.name=桶装 鲑鱼
+item.bucketTropical.name=桶装 热带鱼
+item.bucketPuffer.name=桶装 刺豚鱼
 item.chorus_fruit.name=紫颂果
 item.chorus_fruit_popped.name=爆裂紫颂果
 item.elytra.name=鞘翅

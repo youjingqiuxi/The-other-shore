@@ -10,7 +10,8 @@
                 "z0": "textures/entity/无人机/野蜂/洞察者",
                 "z1": "textures/entity/无人机/野蜂/歼击者",
                 "z2": "textures/entity/无人机/野蜂/维系者",
-                "z3": "textures/entity/无人机/野蜂/湮灭者"
+                "z3": "textures/entity/无人机/野蜂/湮灭者",
+                "z4": "textures/entity/无人机/野蜂/护卫者"
             },
             "geometry": {
                 "default": "geometry.wild_bee"
@@ -26,7 +27,7 @@
                 "basic": "animation.uav-wild_bee.routine"
             },
             "render_controllers": [
-                "controller.render.Map:Z04"
+                "controller.render.Map:Z05"
             ],
             "spawn_egg": {
                 "texture": "天渊阁_图标",

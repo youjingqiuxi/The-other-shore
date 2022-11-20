@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.book.Logging_permit"
@@ -14,13 +14,13 @@
         ],
         "key": {
             "T": {
-                "item": "dirt"
+                "item": "minecraft:dirt"
             },
             "M": {
-                "item": "sapling"
+                "item": "minecraft:sapling"
             },
             "F": {
-                "item": "wooden_axe"
+                "item": "minecraft:wooden_axe"
             },
             "G": {
                 "item": "能量水晶:高压魔晶"

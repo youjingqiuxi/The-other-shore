@@ -6,7 +6,6 @@
             "category": "items"
         },
         "components": {
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": true,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,

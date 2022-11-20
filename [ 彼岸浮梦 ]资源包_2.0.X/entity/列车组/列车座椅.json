@@ -16,7 +16,7 @@
                 "controller.render.Map:X01"
             ],
             "spawn_egg": {
-                "texture": "train_born",
+                "texture": "列车类_图标",
                 "texture_index": 2
             }
         }

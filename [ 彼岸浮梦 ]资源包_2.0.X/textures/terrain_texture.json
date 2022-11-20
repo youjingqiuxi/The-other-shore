@@ -235,6 +235,9 @@
         "魔导总线_传送节点_黄": {
             "textures": "textures/blocks/伺服机关/传送节点_黄"
         },
+        "魔导总线_传送节点_红": {
+            "textures": "textures/blocks/伺服机关/传送节点_红"
+        },
         "基础输送带": {
             "textures": "textures/blocks/输送链带/基础"
         },

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.block.MergeStone"
@@ -14,7 +14,7 @@
         ],
         "key": {
             "S": {
-                "item": "cobblestone"
+                "item": "minecraft:cobblestone"
             }
         },
         "result": {

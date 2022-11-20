@@ -114,7 +114,7 @@
                         "minecraft:pumpkin_pie"
                     ],
                     "tame_event": {
-                        "event": "事件:缔结契约",
+                        "event": "缔结契约",
                         "target": "self"
                     }
                 },
@@ -166,7 +166,7 @@
                         {
                             "cause": "*",
                             "on_damage": {
-                                "event": "事件:回收载具",
+                                "event": "回收载具",
                                 "target": "self"
                             },
                             "deals_damage": false
@@ -200,7 +200,7 @@
                                     }
                                 ]
                             },
-                            "event": "事件:开启供氧",
+                            "event": "开启供氧",
                             "target": "self"
                         },
                         {
@@ -218,7 +218,7 @@
                                     }
                                 ]
                             },
-                            "event": "事件:关闭供氧",
+                            "event": "关闭供氧",
                             "target": "self"
                         },
                         {
@@ -236,7 +236,7 @@
                                     }
                                 ]
                             },
-                            "event": "事件:船只搁浅",
+                            "event": "船只搁浅",
                             "target": "self"
                         }
                     ]
@@ -280,7 +280,7 @@
                                         }
                                     ]
                                 },
-                                "event": "事件:组成舰队",
+                                "event": "组成舰队",
                                 "target": "self"
                             }
                         }
@@ -322,7 +322,7 @@
                         "value": true
                     },
                     "calm_event": {
-                        "event": "事件:放弃进攻",
+                        "event": "放弃进攻",
                         "target": "self"
                     }
                 },
@@ -334,7 +334,7 @@
                 "minecraft:timer": {
                     "time": 5.0,
                     "time_down_event": {
-                        "event": "事件:氧气提供",
+                        "event": "氧气提供",
                         "target": "self"
                     }
                 }
@@ -343,7 +343,7 @@
                 "minecraft:spawn_entity": {
                     "entities": [
                         {
-                            "spawn_event": "事件:跟随旗舰",
+                            "spawn_event": "跟随旗舰",
                             "spawn_entity": "明镜阁:渊鲸",
                             "should_leash": true,
                             "single_use": true,
@@ -376,7 +376,7 @@
         },
         "components": {
             "minecraft:on_target_acquired": {
-                "event": "事件:发现目标",
+                "event": "发现目标",
                 "target": "self"
             },
             "minecraft:conditional_bandwidth_optimization": {
@@ -436,7 +436,7 @@
                     ]
                 }
             },
-            "事件:发现目标": {
+            "发现目标": {
                 "sequence": [
                     {
                         "run_command": {
@@ -454,7 +454,7 @@
                     }
                 ]
             },
-            "事件:放弃进攻": {
+            "放弃进攻": {
                 "sequence": [
                     {
                         "run_command": {
@@ -472,7 +472,7 @@
                     }
                 ]
             },
-            "事件:上浮模式": {
+            "上浮模式": {
                 "sequence": [
                     {
                         "run_command": {
@@ -490,7 +490,7 @@
                     }
                 ]
             },
-            "事件:下潜模式": {
+            "下潜模式": {
                 "sequence": [
                     {
                         "run_command": {
@@ -508,7 +508,7 @@
                     }
                 ]
             },
-            "事件:开启供氧": {
+            "开启供氧": {
                 "sequence": [
                     {
                         "run_command": {
@@ -527,7 +527,7 @@
                     }
                 ]
             },
-            "事件:关闭供氧": {
+            "关闭供氧": {
                 "sequence": [
                     {
                         "run_command": {
@@ -546,7 +546,7 @@
                     }
                 ]
             },
-            "事件:氧气提供": {
+            "氧气提供": {
                 "run_command": {
                     "command": [
                         "effect @s instant_health 1 0 true",
@@ -554,7 +554,7 @@
                     ]
                 }
             },
-            "事件:船只搁浅": {
+            "船只搁浅": {
                 "run_command": {
                     "command": [
                         "execute as @s [tag=is_tamed] run title @p[r=5] actionbar 【 @s 】: 船只已经进入[§4 搁浅状态 §r], 请摆脱[§4 搁浅状态 §r] !"
@@ -571,7 +571,7 @@
                     ]
                 }
             },
-            "事件:解除禁航": {
+            "解除禁航": {
                 "add": {
                     "component_groups": [
                         "航行"
@@ -583,7 +583,7 @@
                     ]
                 }
             },
-            "事件:缔结契约": {
+            "缔结契约": {
                 "run_command": {
                     "command": [
                         "function RoleCode/EnterContracts",
@@ -603,7 +603,7 @@
                     ]
                 }
             },
-            "事件:跟随旗舰": {
+            "跟随旗舰": {
                 "run_command": {
                     "command": [
                         "tag @s add is_tamed"
@@ -621,7 +621,7 @@
                     ]
                 }
             },
-            "事件:组成舰队": {
+            "组成舰队": {
                 "sequence": [
                     {
                         "run_command": {
@@ -637,7 +637,7 @@
                     }
                 ]
             },
-            "事件:回收载具": {
+            "回收载具": {
                 "sequence": [
                     {
                         "filters": {
@@ -663,7 +663,7 @@
                     }
                 ]
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "sequence": [
                     {
                         "run_command": {

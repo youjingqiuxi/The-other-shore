@@ -10,4 +10,4 @@ tp @s[scores={set_Y=1..}] ~ ~1 ~
 tp @s[scores={set_Y=..-1}] ~ ~-1 ~
 
 #销毁
-event entity @s[scores={set_Y=0}] 事件:实体消失
+event entity @s[scores={set_Y=0}] 实体消失

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.Magic_bus.Servo_drag"
@@ -17,10 +17,10 @@
                 "item": "魔导总线:总线本体"
             },
             "H": {
-                "item": "sticky_piston"
+                "item": "minecraft:sticky_piston"
             },
             "T": {
-                "item": "copper_ingot"
+                "item": "minecraft:copper_ingot"
             }
         },
         "result": {

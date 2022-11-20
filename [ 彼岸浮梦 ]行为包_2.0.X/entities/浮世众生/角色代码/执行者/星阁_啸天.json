@@ -77,7 +77,7 @@
                     "probability": 1.0,
                     "tame_items": "魔法书籍:精灵结契",
                     "tame_event": {
-                        "event": "事件:缔结契约",
+                        "event": "缔结契约",
                         "target": "self"
                     }
                 }
@@ -97,11 +97,11 @@
                 },
                 "minecraft:sittable": {
                     "sit_event": {
-                        "event": "事件:禁止移动",
+                        "event": "禁止移动",
                         "target": "self"
                     },
                     "stand_event": {
-                        "event": "事件:允许移动",
+                        "event": "允许移动",
                         "target": "self"
                     }
                 },
@@ -153,7 +153,7 @@
                                     }
                                 ]
                             },
-                            "event": "事件:强制回归",
+                            "event": "强制回归",
                             "target": "self"
                         },
                         {
@@ -170,7 +170,7 @@
                                     }
                                 ]
                             },
-                            "event": "事件:进入岩浆"
+                            "event": "进入岩浆"
                         },
                         {
                             "filters": {
@@ -190,7 +190,7 @@
                                     }
                                 ]
                             },
-                            "event": "事件:离开岩浆"
+                            "event": "离开岩浆"
                         }
                     ]
                 },
@@ -212,7 +212,7 @@
                                         }
                                     ]
                                 },
-                                "event": "事件:骑乘控制",
+                                "event": "骑乘控制",
                                 "target": "self"
                             }
                         },
@@ -232,7 +232,7 @@
                                         }
                                     ]
                                 },
-                                "event": "事件:双重跟随",
+                                "event": "双重跟随",
                                 "target": "self"
                             }
                         },
@@ -252,7 +252,7 @@
                                         }
                                     ]
                                 },
-                                "event": "事件:更换武装",
+                                "event": "更换武装",
                                 "target": "self"
                             }
                         }
@@ -274,7 +274,7 @@
                 "minecraft:timer": {
                     "time": 10,
                     "time_down_event": {
-                        "event": "事件:精灵治愈",
+                        "event": "精灵治愈",
                         "target": "self"
                     }
                 }
@@ -290,7 +290,7 @@
                 "minecraft:ageable": {
                     "duration": 15,
                     "grow_up": {
-                        "event": "事件:骑乘控制",
+                        "event": "骑乘控制",
                         "target": "self"
                     }
                 }
@@ -480,7 +480,7 @@
                     {
                         "cause": "projectile",
                         "on_damage": {
-                            "event": "事件:损伤判定",
+                            "event": "损伤判定",
                             "target": "self",
                             "filters": {
                                 "any_of": [
@@ -497,7 +497,7 @@
                     {
                         "cause": "entity_attack",
                         "on_damage": {
-                            "event": "事件:损伤判定",
+                            "event": "损伤判定",
                             "target": "self",
                             "filters": {
                                 "any_of": [
@@ -514,7 +514,7 @@
                     {
                         "cause": "entity_explosion",
                         "on_damage": {
-                            "event": "事件:损伤判定",
+                            "event": "损伤判定",
                             "target": "self",
                             "filters": {
                                 "any_of": [
@@ -531,7 +531,7 @@
                     {
                         "cause": "block_explosion",
                         "on_damage": {
-                            "event": "事件:损伤判定",
+                            "event": "损伤判定",
                             "target": "self",
                             "filters": {
                                 "any_of": [
@@ -604,14 +604,14 @@
                     ]
                 }
             },
-            "事件:精灵治愈": {
+            "精灵治愈": {
                 "add": {
                     "component_groups": [
                         "治愈"
                     ]
                 }
             },
-            "事件:缔结契约": {
+            "缔结契约": {
                 "run_command": {
                     "command": [
                         "function RoleCode/EnterContracts"
@@ -629,7 +629,7 @@
                     ]
                 }
             },
-            "事件:双重跟随": {
+            "双重跟随": {
                 "sequence": [
                     {
                         "filters": {
@@ -669,7 +669,7 @@
                     }
                 ]
             },
-            "事件:进入岩浆": {
+            "进入岩浆": {
                 "sequence": [
                     {
                         "filters": {
@@ -699,7 +699,7 @@
                     }
                 ]
             },
-            "事件:离开岩浆": {
+            "离开岩浆": {
                 "sequence": [
                     {
                         "run_command": {
@@ -720,7 +720,7 @@
                     }
                 ]
             },
-            "事件:强制回归": {
+            "强制回归": {
                 "run_command": {
                     "command": [
                         "title @a[r=5] actionbar 【 @s 】: 汪 汪汪 汪汪 旺 !",
@@ -729,7 +729,7 @@
                     ]
                 }
             },
-            "事件:禁止移动": {
+            "禁止移动": {
                 "remove": {
                     "component_groups": [
                         "移动"
@@ -741,7 +741,7 @@
                     ]
                 }
             },
-            "事件:允许移动": {
+            "允许移动": {
                 "remove": {
                     "component_groups": [
                         "禁足"
@@ -753,7 +753,7 @@
                     ]
                 }
             },
-            "事件:骑乘控制": {
+            "骑乘控制": {
                 "sequence": [
                     {
                         //骑乘状态初始化
@@ -917,7 +917,7 @@
                     }
                 ]
             },
-            "事件:更换武装": {
+            "更换武装": {
                 "sequence": [
                     {
                         "filters": {
@@ -958,7 +958,7 @@
                     }
                 ]
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "sequence": [
                     {
                         "add": {
@@ -969,7 +969,7 @@
                     }
                 ]
             },
-            "事件:锚点虚印": {
+            "锚点虚印": {
                 "sequence": [
                     {
                         "filters": {

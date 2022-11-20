@@ -121,7 +121,8 @@
                 },
                 "close": {
                     "animations": [
-                        "Close"
+                        "Close",
+                        "Float"
                     ],
                     "transitions": [
                         {

@@ -32,11 +32,6 @@
                 "category": "林业指南",
                 "duration": 1
             },
-            "minecraft:can_destroy_in_creative": false,
-            "minecraft:allow_off_hand": false,
-            "minecraft:hand_equipped": true,
-            "minecraft:max_stack_size": 1,
-            "minecraft:foil": true,
             "minecraft:enchantable": {
                 "value": 10,
                 "slot": "elytra"
@@ -79,6 +74,10 @@
                     }
                 ]
             },
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:foil": true,
             "tag:Magic_Books": {}
         },
         "events": {
@@ -94,10 +93,10 @@
                     {
                         "run_command": {
                             "command": [
-                                "summon 矩阵接口:绘制 ~10 ~0.5 ~10 预设案例:林木植伐.砍伐", 
-                                "summon 矩阵接口:绘制 ~10 ~1.5 ~10 预设案例:林木植伐.砍伐", 
-                                "summon 矩阵接口:绘制 ~10 ~2.5 ~10 预设案例:林木植伐.砍伐", 
-                                "summon 矩阵接口:绘制 ~10 ~3.5 ~10 预设案例:林木植伐.砍伐", 
+                                "summon 矩阵接口:绘制 ~10 ~0.5 ~10 预设案例:林木植伐.砍伐",
+                                "summon 矩阵接口:绘制 ~10 ~1.5 ~10 预设案例:林木植伐.砍伐",
+                                "summon 矩阵接口:绘制 ~10 ~2.5 ~10 预设案例:林木植伐.砍伐",
+                                "summon 矩阵接口:绘制 ~10 ~3.5 ~10 预设案例:林木植伐.砍伐",
                                 "summon 矩阵接口:绘制 ~10 ~4.5 ~10 预设案例:林木植伐.砍伐"
                             ]
                         }
@@ -105,10 +104,10 @@
                     {
                         "run_command": {
                             "command": [
-                                "summon 矩阵接口:绘制 ~10 ~5.5 ~10 预设案例:林木植伐.砍伐", 
-                                "summon 矩阵接口:绘制 ~10 ~6.5 ~10 预设案例:林木植伐.砍伐", 
-                                "summon 矩阵接口:绘制 ~10 ~7.5 ~10 预设案例:林木植伐.砍伐", 
-                                "summon 矩阵接口:绘制 ~10 ~8.5 ~10 预设案例:林木植伐.砍伐", 
+                                "summon 矩阵接口:绘制 ~10 ~5.5 ~10 预设案例:林木植伐.砍伐",
+                                "summon 矩阵接口:绘制 ~10 ~6.5 ~10 预设案例:林木植伐.砍伐",
+                                "summon 矩阵接口:绘制 ~10 ~7.5 ~10 预设案例:林木植伐.砍伐",
+                                "summon 矩阵接口:绘制 ~10 ~8.5 ~10 预设案例:林木植伐.砍伐",
                                 "summon 矩阵接口:绘制 ~10 ~9.5 ~10 预设案例:林木植伐.砍伐"
                             ]
                         }
@@ -116,10 +115,10 @@
                     {
                         "run_command": {
                             "command": [
-                                "summon 矩阵接口:绘制 ~10 ~10.5 ~10 预设案例:林木植伐.砍伐", 
-                                "summon 矩阵接口:绘制 ~10 ~11.5 ~10 预设案例:林木植伐.砍伐", 
-                                "summon 矩阵接口:绘制 ~10 ~12.5 ~10 预设案例:林木植伐.砍伐", 
-                                "summon 矩阵接口:绘制 ~10 ~13.5 ~10 预设案例:林木植伐.砍伐", 
+                                "summon 矩阵接口:绘制 ~10 ~10.5 ~10 预设案例:林木植伐.砍伐",
+                                "summon 矩阵接口:绘制 ~10 ~11.5 ~10 预设案例:林木植伐.砍伐",
+                                "summon 矩阵接口:绘制 ~10 ~12.5 ~10 预设案例:林木植伐.砍伐",
+                                "summon 矩阵接口:绘制 ~10 ~13.5 ~10 预设案例:林木植伐.砍伐",
                                 "summon 矩阵接口:绘制 ~10 ~14.5 ~10 预设案例:林木植伐.砍伐"
                             ]
                         }

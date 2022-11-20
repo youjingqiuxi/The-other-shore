@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.book.Animal_husbandry_book"
@@ -14,7 +14,7 @@
         ],
         "key": {
             "Z": {
-                "item": "fence"
+                "item": "minecraft:fence"
             },
             "G": {
                 "item": "能量水晶:高压魔晶"
@@ -23,7 +23,7 @@
                 "item": "基础书籍:魔导手册"
             },
             "J": {
-                "item": "wooden_sword"
+                "item": "minecraft:wooden_sword"
             }
         },
         "result": {

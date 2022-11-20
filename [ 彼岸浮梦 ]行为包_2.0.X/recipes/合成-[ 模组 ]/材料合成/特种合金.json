@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.item.special_alloy"
@@ -14,21 +14,21 @@
         ],
         "key": {
             "I": {
-                "item": "iron_ingot"
+                "item": "minecraft:iron_ingot"
             },
             "C": {
-                "item": "copper_ingot"
+                "item": "minecraft:copper_ingot"
             },
             "1": {
-                "item": "stone",
+                "item": "minecraft:stone",
                 "data": 1
             },
             "3": {
-                "item": "stone",
+                "item": "minecraft:stone",
                 "data": 3
             },
             "5": {
-                "item": "stone",
+                "item": "minecraft:stone",
                 "data": 5
             }
         },

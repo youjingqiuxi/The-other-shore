@@ -69,15 +69,15 @@
                     4
                 ],
                 "on_tick": {
-                    "event": "事件:状态侦测",
+                    "event": "状态侦测",
                     "target": "self"
                 }
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:block_chair": {}
         },
@@ -188,19 +188,19 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "run_command": {
                     "command": [
                         "tp @p ~ ~1 ~"
                     ]
                 }
             },
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -215,20 +215,20 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:座椅侦测",
+                            "event": "座椅侦测",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:main') == 1",
                         "trigger": {
-                            "event": "事件:靠背侦测",
+                            "event": "靠背侦测",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:座椅侦测": {
+            "座椅侦测": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -357,7 +357,7 @@
                     }
                 ]
             },
-            "事件:靠背侦测": {
+            "靠背侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,-1,0,'block_chair.angle.2') == 1",

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.item.initial_crystal"
@@ -12,16 +12,16 @@
         ],
         "key": {
             "0": {
-                "item": "enchanted_book"
+                "item": "minecraft:enchanted_book"
             }
         },
         "result": [
             {
-                "item": "experience_bottle",
+                "item": "minecraft:experience_bottle",
                 "count": 8
             },
             {
-                "item": "book"
+                "item": "minecraft:book"
             }
         ]
     }

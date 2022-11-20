@@ -13,4 +13,4 @@ scoreboard players operation "Y轴缓存" set_Y = @s set_Y
 titleraw @p actionbar {"rawtext":[{"score":{"name":"Y轴缓存","objective":"set_Y"}}]}
 
 #销毁
-event entity @s 事件:实体消失
+event entity @s 实体消失

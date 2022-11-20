@@ -26,7 +26,7 @@
                     "duration": 1,
                     "feed_items": [],
                     "grow_up": {
-                        "event": "事件:展开施法",
+                        "event": "展开施法",
                         "target": "self"
                     }
                 }
@@ -57,7 +57,7 @@
                         "value": true
                     },
                     "calm_event": {
-                        "event": "事件:放弃进攻",
+                        "event": "放弃进攻",
                         "target": "self"
                     }
                 }
@@ -140,7 +140,7 @@
                                 }
                             ]
                         },
-                        "event": "事件:强制回归",
+                        "event": "强制回归",
                         "target": "self"
                     }
                 ]
@@ -152,7 +152,7 @@
                 "priority": 1
             },
             "minecraft:on_target_acquired": {
-                "event": "事件:发现目标",
+                "event": "发现目标",
                 "target": "self"
             },
             "minecraft:underwater_movement": {
@@ -216,7 +216,7 @@
                     ]
                 }
             },
-            "事件:发现目标": {
+            "发现目标": {
                 "sequence": [
                     {
                         "add": {
@@ -248,9 +248,9 @@
                         "run_command": {
                             "command": [
                                 "effect @a[r=15] weakness 6 255 true",
-                                "summon 制导飞弹:逐渊 ~~~ 事件:袭击玩家",
-                                "summon 制导飞弹:逐渊 ~~~ 事件:袭击玩家",
-                                "summon 制导飞弹:逐渊 ~~~ 事件:袭击玩家",
+                                "summon 制导飞弹:逐渊 ~~~ 袭击玩家",
+                                "summon 制导飞弹:逐渊 ~~~ 袭击玩家",
+                                "summon 制导飞弹:逐渊 ~~~ 袭击玩家",
                                 "tag @s add 战斗阶段_0"
                             ]
                         }
@@ -272,9 +272,9 @@
                         },
                         "run_command": {
                             "command": [
-                                "summon 制导飞弹:逐渊 ~~~ 事件:袭击钛宇",
-                                "summon 制导飞弹:逐渊 ~~~ 事件:袭击钛宇",
-                                "summon 制导飞弹:逐渊 ~~~ 事件:袭击玩家",
+                                "summon 制导飞弹:逐渊 ~~~ 袭击钛宇",
+                                "summon 制导飞弹:逐渊 ~~~ 袭击钛宇",
+                                "summon 制导飞弹:逐渊 ~~~ 袭击玩家",
                                 "tag @s add 战斗阶段_1"
                             ]
                         }
@@ -296,9 +296,9 @@
                         },
                         "run_command": {
                             "command": [
-                                "summon 制导飞弹:逐渊 ~~~ 事件:袭击钛宇",
-                                "summon 制导飞弹:逐渊 ~~~ 事件:袭击钛宇",
-                                "summon 制导飞弹:逐渊 ~~~ 事件:袭击玩家",
+                                "summon 制导飞弹:逐渊 ~~~ 袭击钛宇",
+                                "summon 制导飞弹:逐渊 ~~~ 袭击钛宇",
+                                "summon 制导飞弹:逐渊 ~~~ 袭击玩家",
                                 "tag @s remove 战斗阶段_0",
                                 "tag @s remove 战斗阶段_1"
                             ]
@@ -306,7 +306,7 @@
                     }
                 ]
             },
-            "事件:展开施法": {
+            "展开施法": {
                 "remove": {
                     "component_groups": [
                         "准备"
@@ -319,11 +319,11 @@
                 },
                 "run_command": {
                     "command": [
-                        "event entity @s 事件:战斗台词"
+                        "event entity @s 战斗台词"
                     ]
                 }
             },
-            "事件:放弃进攻": {
+            "放弃进攻": {
                 "add": {
                     "component_groups": [
                         "平静"
@@ -336,14 +336,14 @@
                     ]
                 }
             },
-            "事件:强制回归": {
+            "强制回归": {
                 "run_command": {
                     "command": [
                         "tp @s @e[r=64,family=RareBox,c=1]"
                     ]
                 }
             },
-            "事件:战斗台词": {
+            "战斗台词": {
                 "sequence": [
                     {
                         "randomize": [

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.block.magma_heatSource"
@@ -14,10 +14,10 @@
         ],
         "key": {
             "H": {
-                "item": "obsidian"
+                "item": "minecraft:obsidian"
             },
             "M": {
-                "item": "magma"
+                "item": "minecraft:magma"
             },
             "Y": {
                 "item": "合金材料:钢岩合金"

@@ -42,7 +42,7 @@
                 "max_failed_attempts": 99
             },
             "minecraft:inventory": {
-                "container_type": "container",
+                "container_type": "inventory",
                 "inventory_size": 32
             },
             "minecraft:movement.hover": {},
@@ -69,7 +69,7 @@
                 ]
             },
             "minecraft:loot": {
-                "table": "loot_tables/train/BOX.json"
+                "table": "loot_tables/列车类/BOX.json"
             },
             "minecraft:physics": {},
             "minecraft:pushable": {

@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "珍宝箱:结构",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "Map": "textures/entity/结构珍宝"
+            },
+            "geometry": {
+                "default": "geometry.rare_box"
+            },
+            "scripts": {
+                "animate": [
+                    "open"
+                ]
+            },
+            "animations": {
+                "open": "controller.animation.control_spin.basics",
+                "core": "animation.core_rotate.box"
+            },
+            "render_controllers": [
+                "controller.render.Map:X01"
+            ],
+            "spawn_egg": {
+                "texture": "基础类_图标",
+                "texture_index": 2
+            }
+        }
+    }
+}

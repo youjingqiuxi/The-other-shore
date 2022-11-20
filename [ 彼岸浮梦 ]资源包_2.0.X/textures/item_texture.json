@@ -2,23 +2,21 @@
     "resource_pack_name": "vanilla",
     "texture_name": "atlas.items",
     "texture_data": {
-        "Tayun_born": {
+        "基础类_图标": {
             "textures": [
-                "textures/icon/00",
-                "textures/icon/01",
-                "textures/icon/02",
-                "textures/icon/03",
-                "textures/icon/04",
-                "textures/icon/05"
+                "textures/icon/Basics",
+                "textures/icon/Box_maze",
+                "textures/icon/Box_build",
+                "textures/icon/Box_travel"
             ]
         },
-        "train_born": {
+        "列车类_图标": {
             "textures": [
-                "textures/icon/train/00",
-                "textures/icon/train/01",
-                "textures/icon/train/02",
-                "textures/icon/train/03",
-                "textures/icon/train/04"
+                "textures/icon/列车类/00",
+                "textures/icon/列车类/01",
+                "textures/icon/列车类/02",
+                "textures/icon/列车类/03",
+                "textures/icon/列车类/04"
             ]
         },
         "星光阁_图标": {
@@ -82,6 +80,11 @@
         "物资整理": {
             "textures": [
                 "textures/items/物资整理"
+            ]
+        },
+        "状态显示": {
+            "textures": [
+                "textures/items/状态显示"
             ]
         },
         "载具控制_行驶开关": {
@@ -247,6 +250,11 @@
         "魔晶弹弓": {
             "textures": [
                 "textures/items/魔法工具/魔晶弹弓"
+            ]
+        },
+        "魔晶弹珠": {
+            "textures": [
+                "textures/items/魔法工具/魔晶弹珠"
             ]
         },
         "空灵单元": {

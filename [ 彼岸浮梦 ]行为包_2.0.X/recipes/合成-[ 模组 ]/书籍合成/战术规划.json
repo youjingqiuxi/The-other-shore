@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.10",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.book.Battle_guidance_literature"
@@ -17,10 +17,10 @@
                 "item": "基础书籍:魔导手册"
             },
             "0": {
-                "item": "stone_sword"
+                "item": "minecraft:stone_sword"
             },
             "1": {
-                "item": "wooden_sword"
+                "item": "minecraft:wooden_sword"
             }
         },
         "result": {

@@ -65,10 +65,10 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:level1_mechanism_door":{}
         },
@@ -83,7 +83,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:进行侦测",
+                            "event": "进行侦测",
                             "target": "self"
                         }
                     }
@@ -99,7 +99,7 @@
                             10
                         ],
                         "on_tick": {
-                            "event": "事件:拆除门板",
+                            "event": "拆除门板",
                             "target": "self"
                         }
                     },
@@ -148,13 +148,13 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)",
                     "Table:switch": 0
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
@@ -200,7 +200,7 @@
                     }
                 ]
             },
-            "事件:进行侦测": {
+            "进行侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1",
@@ -283,7 +283,7 @@
                     }
                 ]
             },
-            "事件:拆除门板": {
+            "拆除门板": {
                 "run_command": {
                     "command": [
                         "playsound block.grindstone.use @a[r=15] ~~~",

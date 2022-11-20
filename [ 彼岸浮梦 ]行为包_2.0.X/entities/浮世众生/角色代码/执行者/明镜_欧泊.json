@@ -22,7 +22,7 @@
 						"value": true
 					},
 					"calm_event": {
-						"event": "事件:放弃进攻",
+						"event": "放弃进攻",
 						"target": "self"
 					}
 				},
@@ -53,7 +53,7 @@
 					{
 						"cause": "*",
 						"on_damage": {
-							"event": "事件:实体消失",
+							"event": "实体消失",
 							"target": "self"
 						},
 						"deals_damage": false
@@ -104,7 +104,7 @@
 				"priority": 1
 			},
 			"minecraft:on_target_acquired": {
-				"event": "事件:发现目标",
+				"event": "发现目标",
 				"target": "self"
 			},
 			"minecraft:pushable": {
@@ -178,7 +178,7 @@
 								}
 							]
 						},
-						"event": "事件:召唤海豚",
+						"event": "召唤海豚",
 						"target": "self"
 					},
 					{
@@ -190,7 +190,7 @@
 								}
 							]
 						},
-						"event": "事件:实体消失",
+						"event": "实体消失",
 						"target": "self"
 					}
 				]
@@ -198,7 +198,7 @@
 			"minecraft:timer": {
 				"time": 20,
 				"time_down_event": {
-					"event": "事件:实体消失",
+					"event": "实体消失",
 					"target": "self"
 				}
 			},
@@ -214,21 +214,21 @@
 					]
 				}
 			},
-			"事件:发现目标": {
+			"发现目标": {
 				"add": {
 					"component_groups": [
 						"进攻"
 					]
 				}
 			},
-			"事件:放弃进攻": {
+			"放弃进攻": {
 				"remove": {
 					"component_groups": [
 						"进攻"
 					]
 				}
 			},
-			"事件:召唤海豚": {
+			"召唤海豚": {
 				"sequence": [
 					{
 						"run_command": {
@@ -239,7 +239,7 @@
 					}
 				]
 			},
-			"事件:实体消失": {
+			"实体消失": {
 				"sequence": [
 					{
 						"run_command": {
