@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "魔法工具:魔晶扳手",
@@ -17,10 +17,10 @@
             },
             "minecraft:weapon": {
                 "on_hurt_entity": {
-                    "event": "使用工具"
+                    "event": "使用道具"
                 },
                 "on_hit_block": {
-                    "event": "使用工具"
+                    "event": "使用道具"
                 }
             },
             "minecraft:damage": 5,
@@ -39,15 +39,21 @@
             }
         },
         "events": {
-            "使用工具": {
+            "使用道具": {
                 "sequence": [
                     {
                         "condition": "query.is_sneaking == 1",
                         "run_command": {
                             "command": [
+<<<<<<< Updated upstream
                                 "execute at @e [r=8,c=2,type=!item,type=!player,family=!prime] run particle minecraft:huge_explosion_emitter ~~~",
                                 "execute at @e [r=8,c=5,type=!item,type=!player,family=!prime] run particle minecraft:sonic_explosion ~~~",
                                 "damage @e[r=8,type=!item,type=!player,family=!prime] 15 suicide entity @p",
+=======
+                                "execute at @e [r=8,c=2,type=!item,type=!player,family=!Tayun] run particle minecraft:huge_explosion_emitter ~~~",
+                                "execute at @e [r=8,c=5,type=!item,type=!player,family=!Tayun] run particle minecraft:sonic_explosion ~~~",
+                                "damage @e[r=8,type=!item,type=!player,family=!Tayun] 15 entity_attack entity @p",
+>>>>>>> Stashed changes
                                 "effect @s jump_boost 3 4 true"
                             ]
                         },

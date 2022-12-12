@@ -48,6 +48,10 @@
                     "value_9": "query.block_property('Table:value') == 9"
                 }
             },
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "itemGroup.name.anvil"
+			},
             "minecraft:collision_box": {
                 "origin": [
                     -8,

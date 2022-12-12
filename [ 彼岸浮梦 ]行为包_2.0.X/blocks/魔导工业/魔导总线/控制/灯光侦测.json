@@ -64,6 +64,10 @@
                     "panel_5": "query.block_property('Table:switch') != 2"
                 }
             },
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "itemGroup.name.anvil"
+			},
             "minecraft:material_instances": {
                 "*": {
                     "texture": "魔导总线_总线本体.蓝色",

@@ -109,7 +109,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "damage @e[r=4,type=!item,type=!player,family=!prime] 15 suicide entity @r",
+                                "damage @e[r=4,type=!item,type=!player,family=!Tayun] 15 suicide entity @r",
                                 "particle 烟雾效果:紫影 ~~~",
                                 "tag @s add bullet_hit"
                             ]
@@ -127,7 +127,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "damage @e[r=8,type=!item,type=!player,family=!prime] 5 suicide entity @r",
+                                "damage @e[r=8,type=!item,type=!player,family=!Tayun] 5 suicide entity @r",
                                 "playsound random.explode @a[r=15] ~~~",
                                 "event entity @s 事件:实体消失"
                             ]

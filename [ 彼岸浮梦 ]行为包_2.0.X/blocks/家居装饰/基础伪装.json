@@ -3,7 +3,6 @@
     "minecraft:block": {
         "description": {
             "identifier": "装饰类:基础伪装板",
-            "category": "construction",
             "properties": {
                 "Table:angle": [
                     0,

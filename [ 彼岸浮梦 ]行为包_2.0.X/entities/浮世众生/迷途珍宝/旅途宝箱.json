@@ -112,7 +112,7 @@
                 ]
             },
             "minecraft:health": {
-                "value": 999
+                "value": 10086
             },
             "minecraft:scale": {
                 "value": 0.75
@@ -158,7 +158,7 @@
                                 },
                                 "run_command": {
                                     "command": [
-                                        "execute as @p[tag=!ambient] run function Data/ambient"
+                                        "execute as @p [tag=!ambient] run function Data/ambient"
                                     ]
                                 }
                             },

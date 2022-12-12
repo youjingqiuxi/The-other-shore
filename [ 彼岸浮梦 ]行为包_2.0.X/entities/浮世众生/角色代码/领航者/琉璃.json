@@ -564,18 +564,31 @@
 			}
 		},
 		"components": {
-			"minecraft:conditional_bandwidth_optimization": {
-				"conditional_values": {
-					"max_dropped_ticks": 20,
-					"max_optimized_distance": 200,
-					"use_motion_prediction_hints": true
-				},
-				"default_values": {
-					"max_dropped_ticks": 10,
-					"max_optimized_distance": 100,
-					"use_motion_prediction_hints": true
-				}
+			//基础属性
+			"minecraft:type_family": {
+				"family": [
+					"Peer",
+					"Tayun",
+					"prime"
+				]
 			},
+			"minecraft:collision_box": {
+				"width": 0.75,
+				"height": 2.50
+			},
+			"minecraft:health": {
+				"value": 100
+			},
+			"minecraft:scale": {
+				"value": 0.57
+			},
+			"minecraft:movement": {
+				"value": 0.3
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.15
+			},
+			//行为控制
 			"minecraft:behavior.nearest_attackable_target": {
 				"priority": 4,
 				"entity_types": [
@@ -621,12 +634,22 @@
 				"start_delay": 5,
 				"max_failed_attempts": 99
 			},
-			"minecraft:underwater_movement": {
-				"value": 0.15
-			},
 			"minecraft:behavior.open_door": {
 				"priority": 1,
 				"close_door_after": true
+			},
+			//附加定义
+			"minecraft:conditional_bandwidth_optimization": {
+				"conditional_values": {
+					"max_dropped_ticks": 20,
+					"max_optimized_distance": 200,
+					"use_motion_prediction_hints": true
+				},
+				"default_values": {
+					"max_dropped_ticks": 10,
+					"max_optimized_distance": 100,
+					"use_motion_prediction_hints": true
+				}
 			},
 			"minecraft:navigation.generic": {
 				"can_path_over_water": true,
@@ -733,17 +756,6 @@
 					}
 				]
 			},
-			"minecraft:collision_box": {
-				"width": 0.75,
-				"height": 2.50
-			},
-			"minecraft:type_family": {
-				"family": [
-					"Peer",
-					"Tayun",
-					"prime"
-				]
-			},
 			"minecraft:nameable": {
 				"allow_name_tag_renaming": true,
 				"always_show": false,
@@ -761,34 +773,27 @@
 					}
 				]
 			},
-			"minecraft:movement": {
-				"value": 0.3
-			},
+			//物理效果
 			"minecraft:pushable": {
-				"is_pushable": true,
-				"is_pushable_by_piston": true
+				"is_pushable_by_piston": true,
+				"is_pushable": true
 			},
 			"minecraft:physics": {
-				"has_gravity": true,
-				"has_collision": true
+				"has_collision": true,
+				"has_gravity": true
 			},
-			"minecraft:health": {
-				"value": 100
-			},
-			"minecraft:scale": {
-				"value": 0.57
-			},
+			//基础组件
 			"minecraft:annotation.open_door": {},
 			"minecraft:movement.basic": {},
+			"minecraft:fire_immune": true,
 			"minecraft:jump.static": {},
-			"minecraft:fire_immune": {},
 			"minecraft:can_climb": {}
 		},
 		"events": {
 			"minecraft:entity_spawned": {
 				"run_command": {
 					"command": [
-						"execute as @p[tag=!ambient] run function Data/ambient"
+						"execute as @p [tag=!ambient] run function Data/ambient"
 					]
 				},
 				"add": {

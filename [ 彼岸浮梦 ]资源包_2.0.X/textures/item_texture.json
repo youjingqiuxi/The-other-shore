@@ -74,7 +74,7 @@
                 "textures/items/建筑蓝图"
             ]
         },
-        "建筑蓝图.碎片": {
+        "蓝图碎片": {
             "textures": [
                 "textures/items/蓝图碎片"
             ]
@@ -137,6 +137,16 @@
         "拟态矩阵_方块调试": {
             "textures": [
                 "textures/items/拟态矩阵/方块调试"
+            ]
+        },
+        "拟态矩阵_方块替换": {
+            "textures": [
+                "textures/items/拟态矩阵/方块替换"
+            ]
+        },
+        "拟态矩阵_结构复制": {
+            "textures": [
+                "textures/items/拟态矩阵/结构复制"
             ]
         },
         "洁净曜石": {

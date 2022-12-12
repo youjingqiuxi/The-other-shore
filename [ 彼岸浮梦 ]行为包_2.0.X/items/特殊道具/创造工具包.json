@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "特殊道具:创造工具包",
@@ -30,7 +30,11 @@
             },
             "minecraft:on_use": {
                 "on_use": {
+<<<<<<< Updated upstream:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/创造工具包.json
                     "event": "事件:触发道具",
+=======
+                    "event": "使用道具",
+>>>>>>> Stashed changes:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/创造工具.json
                     "target": "self"
                 }
             },
@@ -72,7 +76,11 @@
             }
         },
         "events": {
+<<<<<<< Updated upstream:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/创造工具包.json
             "事件:触发道具": {
+=======
+            "使用道具": {
+>>>>>>> Stashed changes:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/创造工具.json
                 "sequence": [
                     {
                         "run_command": {

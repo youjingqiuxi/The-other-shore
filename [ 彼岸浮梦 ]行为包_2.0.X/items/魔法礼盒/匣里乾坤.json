@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "魔法礼盒:匣里乾坤",
@@ -16,8 +16,14 @@
                 "parent": "equipment"
             },
             "minecraft:cooldown": {
-                "category": "匣里乾坤",
-                "duration": 1
+                "category": "特殊道具",
+                "duration": 2
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "使用道具",
+                    "target": "self"
+                }
             },
             "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,

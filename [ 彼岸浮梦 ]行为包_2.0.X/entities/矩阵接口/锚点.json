@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:entity": {
         "description": {
             "identifier": "矩阵接口:锚点",
@@ -25,7 +25,11 @@
             "minecraft:type_family": {
                 "family": [
                     "Matrix_API",
+<<<<<<< Updated upstream
                     "Matrix_Anchor"
+=======
+                    "Tayun"
+>>>>>>> Stashed changes
                 ]
             },
             "minecraft:damage_sensor": {

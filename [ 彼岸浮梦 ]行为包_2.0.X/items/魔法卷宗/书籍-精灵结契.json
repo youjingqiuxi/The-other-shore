@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "魔法书籍:精灵结契",
@@ -29,8 +29,8 @@
                 }
             },
             "minecraft:cooldown": {
-                "category": "精灵结契",
-                "duration": 30
+                "category": "魔法书籍",
+                "duration": 5
             },
             "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
@@ -73,31 +73,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "execute as @p[tag=!ambient] run function Data/ambient"
-                            ]
-                        }
-                    },
-                    {
-                        "run_command": {
-                            "command": [
-                                "execute as @s [hasitem={item=特制模板:铁偶魔芯,location=slot.weapon.offhand},tag=!call_starry_end] run function born/TaYun"
-                            ]
-                        }
-                    },
-                    {
-                        "run_command": {
-                            "command": [
-                                "title @s[hasitem={item=特制模板:铁偶魔芯,location=slot.weapon.offhand},tag=call_starry_end] actionbar 您已经召唤过 [ 星辉雅居 ] 了, 请不要尝试重复召唤"
-                            ]
-                        }
-                    },
-                    {
-                        "run_command": {
-                            "command": [
-                                "execute as @e [type=wandering_trader,tag=!unreal_all_end,r=15,c=1] positioned ~ ~32 ~ run summon 矩阵接口:绘制 ~~32~ 预设案例:角色召唤.幻生",
-                                "execute as @e [type=wandering_trader,tag=!unreal_all_end,r=15,c=1] run title @a[r=5] actionbar 正在召唤 [ 虚幻天星 ] 请抬头注意彗星动向",
-                                "execute as @e [type=wandering_trader,tag=!unreal_all_end,r=15,c=1] positioned ~ ~32 ~ run summon minecraft:lightning_bolt ~~~",
-                                "tag @e[type=wandering_trader,tag=!unreal_all_end,r=15,c=1] add unreal_all_end"
+                                "execute as @p [tag=!ambient] run function Data/ambient"
                             ]
                         }
                     },

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:entity": {
         "description": {
             "identifier": "矩阵接口:绘制",
@@ -46,7 +46,7 @@
             },
             "驱动.平面.基础": {
                 "minecraft:timer": {
-                    "time": 0.05,
+                    "time": 0.1,
                     "time_down_event": {
                         "event": "数据驱动.矩形平面.基础",
                         "target": "self"
@@ -88,7 +88,11 @@
             "minecraft:type_family": {
                 "family": [
                     "Matrix_API",
+<<<<<<< Updated upstream
                     "Matrix_main"
+=======
+                    "Tayun"
+>>>>>>> Stashed changes
                 ]
             },
             "minecraft:damage_sensor": {
@@ -1705,14 +1709,24 @@
                     ]
                 }
             },
+<<<<<<< Updated upstream
             "事件:闪烁退场": {
                 "add": {
                     "component_groups": [
                         "实体消失"
-                    ]
-                },
+=======
+            "静默退场": {
                 "run_command": {
                     "command": [
+                        "event entity @s 实体消失"
+>>>>>>> Stashed changes
+                    ]
+                }
+            },
+            "闪烁退场": {
+                "run_command": {
+                    "command": [
+                        "event entity @s 实体消失",
                         "particle 烟雾效果:靛蓝 ~~~"
                     ]
                 }

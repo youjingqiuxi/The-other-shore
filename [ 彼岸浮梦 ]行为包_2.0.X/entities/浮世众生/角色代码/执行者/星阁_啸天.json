@@ -594,7 +594,7 @@
             "minecraft:entity_spawned": {
                 "run_command": {
                     "command": [
-                        "execute as @p[tag=!ambient] run function Data/ambient"
+                        "execute as @p [tag=!ambient] run function Data/ambient"
                     ]
                 },
                 "add": {

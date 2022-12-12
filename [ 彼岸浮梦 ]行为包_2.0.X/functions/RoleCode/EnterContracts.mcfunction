@@ -18,4 +18,4 @@ particle minecraft:totem_particle ~~1~
 particle minecraft:totem_particle ~~~1
 
 #启用
-execute as @p[tag=!ambient] run function Data/ambient
+execute as @p [tag=!ambient] run function Data/ambient

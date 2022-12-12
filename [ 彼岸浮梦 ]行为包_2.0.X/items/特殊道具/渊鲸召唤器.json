@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "特殊道具:召唤渊鲸",
@@ -22,15 +22,26 @@
             },
             "minecraft:weapon": {
                 "on_hurt_entity": {
+<<<<<<< Updated upstream:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/渊鲸召唤器.json
                     "event": "事件:触发道具"
                 },
                 "on_hit_block": {
                     "event": "事件:触发道具"
+=======
+                    "event": "使用道具"
+                },
+                "on_hit_block": {
+                    "event": "使用道具"
+>>>>>>> Stashed changes:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/渊鲸召唤.json
                 }
             },
             "minecraft:on_use": {
                 "on_use": {
+<<<<<<< Updated upstream:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/渊鲸召唤器.json
                     "event": "事件:触发道具",
+=======
+                    "event": "使用道具",
+>>>>>>> Stashed changes:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/渊鲸召唤.json
                     "target": "self"
                 }
             },
@@ -72,7 +83,11 @@
             }
         },
         "events": {
+<<<<<<< Updated upstream:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/渊鲸召唤器.json
             "事件:触发道具": {
+=======
+            "使用道具": {
+>>>>>>> Stashed changes:[ 彼岸浮梦 ]行为包_2.0.X/items/特殊道具/渊鲸召唤.json
                 "sequence": [
                     {
                         "condition": "query.is_in_water == 1",

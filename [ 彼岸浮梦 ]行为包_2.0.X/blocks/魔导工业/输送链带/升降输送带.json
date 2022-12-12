@@ -3,7 +3,6 @@
     "minecraft:block": {
         "description": {
             "identifier": "输送链带:物资升降",
-            "category": "construction",
             "properties": {
                 "Table:angle": [
                     0,
@@ -26,9 +25,10 @@
                     "render_method": "alpha_test"
                 }
             },
-            "minecraft:creative_category": {
-                "category": "construction"
-            },
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "itemGroup.name.rail"
+			},
             "minecraft:part_visibility": {
                 "conditions": {
                     "rise": "query.block_property('Table:angle') == 0",

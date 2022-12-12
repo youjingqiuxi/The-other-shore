@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "载具控制:左舷回转",
@@ -17,7 +17,7 @@
             },
             "minecraft:on_use": {
                 "on_use": {
-                    "event": "使用工具",
+                    "event": "使用道具",
                     "target": "self"
                 }
             },
@@ -67,7 +67,7 @@
             }
         },
         "events": {
-            "使用工具": {
+            "使用道具": {
                 "sequence": [
                     {
                         "run_command": {

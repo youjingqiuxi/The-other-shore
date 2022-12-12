@@ -135,6 +135,115 @@
                     "value": 3
                 }
             },
+<<<<<<< Updated upstream
+=======
+            "护卫者": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "Tayun"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "warden"
+                                    },
+                                    {
+                                        "all_of": [
+                                            {
+                                                "test": "is_family",
+                                                "operator": "==",
+                                                "subject": "other",
+                                                "value": "monster"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "operator": "!=",
+                                                "subject": "other",
+                                                "value": "abyss"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "within_default": 16
+                        }
+                    ],
+                    "must_reach": true,
+                    "must_see": true
+                },
+                "minecraft:mark_variant": {
+                    "value": 4
+                },
+                "minecraft:flying_speed": {
+                    "value": 0.1
+                },
+                "minecraft:scale": {
+                    "value": 2.0
+                },
+                "minecraft:collision_box": {
+                    "width": 1.0,
+                    "height": 1.0
+                },
+                "minecraft:spell_effects": {
+                    "add_effects": [
+                        {
+                            "effect": "regeneration",
+                            "visible": true,
+                            "amplifier": 1,
+                            "duration": 45
+                        },
+                        {
+                            "effect": "resistance",
+                            "visible": true,
+                            "amplifier": 1,
+                            "duration": 45
+                        }
+                    ]
+                },
+                "minecraft:type_family": {
+                    "family": [
+                        "WildBee_guard",
+                        "wild_bee",
+                        "monster",
+                        "flyer",
+                        "abyss"
+                    ]
+                },
+                "minecraft:health": {
+                    "value": {
+                        "range_min": 45,
+                        "range_max": 75
+                    }
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/野蜂_守卫者.json"
+                },
+                "minecraft:behavior.ranged_attack": {
+                    "attack_interval_min": 4,
+                    "attack_interval_max": 6,
+                    "attack_radius": 16
+                },
+                "minecraft:shooter": {
+                    "def": "弹道飞弹:破片"
+                },
+                "minecraft:on_target_acquired": {
+                    "event": "召集护航",
+                    "target": "self"
+                }
+            },
+>>>>>>> Stashed changes
             "湮灭者警告_1": {
                 "minecraft:behavior.melee_attack": {
                     "priority": 0,
@@ -357,7 +466,7 @@
             "minecraft:entity_spawned": {
                 "run_command": {
                     "command": [
-                        "execute as @p[tag=!ambient] run function Data/ambient"
+                        "execute as @p [tag=!ambient] run function Data/ambient"
                     ]
                 },
                 "add": {
@@ -472,7 +581,116 @@
                     }
                 ]
             },
+<<<<<<< Updated upstream
             "事件:野蜂增幅": {
+=======
+            "武装守护": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "title @a[r=32] actionbar 【 @s 】: 目标已锁定, 正在启用<§4 律令 - 武装守护 §r>"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "护卫者"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "召集护航": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "号令"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "End_of_call"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~",
+                                "summon 天渊阁:野蜂 ~ ~1 ~",
+                                "tag @s add End_of_call"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "End_of_call"
+                                }
+                            ]
+                        },
+                        "randomize": [
+                            {
+                                "weight": 32,
+                                "run_command": {
+                                    "command": [
+                                        "particle 烟雾效果:猩红 ~~~",
+                                        "particle 烟雾效果:海蓝 ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle minecraft:knockback_roar_particle ~~~",
+                                        "summon 天渊阁:野蜂 ~1 ~ ~1"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle minecraft:knockback_roar_particle ~~~",
+                                        "summon 天渊阁:野蜂 ~-1 ~ ~-1"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle minecraft:knockback_roar_particle ~~~",
+                                        "summon 天渊阁:野蜂 ~1 ~ ~-1"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "run_command": {
+                                    "command": [
+                                        "particle minecraft:knockback_roar_particle ~~~",
+                                        "summon 天渊阁:野蜂 ~-1 ~ ~1"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "野蜂增幅": {
+>>>>>>> Stashed changes
                 "run_command": {
                     "command": [
                         "effect @e[r=32,family=wild_bee] resistance 4 3 true",

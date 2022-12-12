@@ -1,0 +1,252 @@
+{
+    "format_version": "1.19.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "伺服机关:诸界道标",
+            "properties": {
+                "Table:state": [
+                    0,
+                    1,
+                    2
+                ],
+                "Table:energy": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "Table:switch": [
+                    0,
+                    1,
+                    2
+                ]
+            }
+        },
+        "components": {
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "itemGroup.name.anvil"
+			},
+            "minecraft:part_visibility": {
+                "conditions": {
+                    "energy_1": "query.block_property('Table:energy') >= 1",
+                    "energy_2": "query.block_property('Table:energy') >= 2",
+                    "energy_3": "query.block_property('Table:energy') >= 3",
+                    "energy_4": "query.block_property('Table:energy') >= 4",
+                    "energy_5": "query.block_property('Table:energy') >= 5",
+                    "energy_6": "query.block_property('Table:energy') == 6",
+                    "door": "query.block_property('Table:energy') != 0"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:on_interact": {
+                "event": "进行交互"
+            },
+            "minecraft:geometry": "geometry.servo_mechanism.boundary_markers",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:friction": 0.9,
+            "tag:Magic_Bus_Series": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('Table:switch') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_传送节点_红",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_传送节点_蓝",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:switch') == 2",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "魔导总线_传送节点_绿",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:state') == 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            2,
+                            2
+                        ],
+                        "on_tick": {
+                            "event": "状态侦测",
+                            "target": "self"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_property('Table:state') != 0",
+                "components": {
+                    "minecraft:queued_ticking": {
+                        "looping": true,
+                        "interval_range": [
+                            40,
+                            40
+                        ],
+                        "on_tick": {
+                            "event": "功能运行",
+                            "target": "self"
+                        }
+                    }
+                }
+            }
+        ],
+        "events": {
+            "状态侦测": {
+                "sequence": [
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:1') == 1",
+                        "set_block_property": {
+                            "Table:state": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_energy') == 1",
+                        "sequence": [
+                            {
+                                "condition": "query.block_property('Table:energy') != 6",
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') + 1"
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "playsound beacon.activate @a[r=15] ~~~"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "进行交互": {
+                "sequence": [
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
+                        "set_block_property": {
+                            "Table:switch": "query.block_property('Table:switch') != 2 ? (query.block_property('Table:switch') + 1) : 0"
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound portal.portal @a[r=15] ~~~"
+                            ]
+                        }
+                    },
+                    {
+                        "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 0 && query.block_property('Table:energy') >= 1",
+                        "set_block_property": {
+                            "Table:state": 1
+                        },
+                        "run_command": {
+                            "command": [
+                                "playsound portal.travel @a[r=15] ~~~"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "功能运行": {
+                "sequence": [
+                    {
+                        "condition": "query.block_property('Table:energy') >= 1",
+                        "sequence": [
+                            {
+                                "condition": "query.block_property('Table:switch') == 0",
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') - 1"
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "playsound beacon.deactivate @a[r=15] ~~~",
+                                        "execute as @e [r=5] in nether run tp ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:switch') == 1",
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') - 1"
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "playsound beacon.deactivate @a[r=15] ~~~",
+                                        "execute as @e [r=5] in the_end run tp ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:switch') == 2",
+                                "set_block_property": {
+                                    "Table:energy": "query.block_property('Table:energy') - 1"
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "playsound beacon.deactivate @a[r=15] ~~~",
+                                        "execute as @e [r=5] in overworld run tp ~~~"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "set_block_property": {
+                            "Table:state": 0
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "拟态矩阵:方块标定",
@@ -14,6 +14,16 @@
             },
             "minecraft:creative_category": {
                 "parent": "equipment"
+            },
+            "minecraft:cooldown": {
+                "category": "拟态矩阵",
+                "duration": 2
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "使用道具",
+                    "target": "self"
+                }
             },
             "minecraft:render_offsets": {
                 "main_hand": {

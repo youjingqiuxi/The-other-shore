@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "魔法书籍:精灵治愈",
@@ -77,7 +77,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "execute as @p[tag=!ambient] run function Data/ambient"
+                                "execute as @p [tag=!ambient] run function Data/ambient"
                             ]
                         }
                     },

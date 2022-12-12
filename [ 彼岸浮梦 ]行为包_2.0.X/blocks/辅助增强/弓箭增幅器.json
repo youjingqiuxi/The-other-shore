@@ -3,7 +3,6 @@
     "minecraft:block": {
         "description": {
             "identifier": "武装类:弓箭增幅",
-            "category": "construction",
             "properties": {
                 "Table:test_color": [
                     0,

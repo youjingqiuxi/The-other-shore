@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "载具控制:仓储过滤",
@@ -25,6 +25,16 @@
                 "damage_chance": {
                     "min": 0,
                     "max": 0
+                }
+            },
+            "minecraft:cooldown": {
+                "category": "列车控制器",
+                "duration": 2
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "使用道具",
+                    "target": "self"
                 }
             },
             "minecraft:render_offsets": {

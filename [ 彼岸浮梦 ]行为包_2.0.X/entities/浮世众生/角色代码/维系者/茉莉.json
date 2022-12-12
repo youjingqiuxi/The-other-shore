@@ -71,6 +71,30 @@
 			}
 		},
 		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"GuardBox",
+					"monster",
+					"abyss"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.75,
+				"height": 2.50
+			},
+			"minecraft:health": {
+				"value": 100
+			},
+			"minecraft:scale": {
+				"value": 0.85
+			},
+			"minecraft:movement": {
+				"value": 0.35
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.15
+			},
+			//行为控制
 			"minecraft:behavior.nearest_attackable_target": {
 				"priority": 0,
 				"entity_types": [
@@ -116,6 +140,74 @@
 				"must_reach": true,
 				"must_see": true
 			},
+			"minecraft:behavior.restrict_open_door": {
+				"priority": 1
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 3
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 4,
+				"look_distance": 3,
+				"probability": 0.02
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:behavior.ranged_attack": {
+				"attack_interval_min": 999,
+				"attack_interval_max": 999,
+				"attack_radius": 16
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 3,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.open_door": {
+				"priority": 1,
+				"close_door_after": true
+			},
+			//附加定义 
+			"minecraft:conditional_bandwidth_optimization": {
+				"conditional_values": {
+					"max_dropped_ticks": 20,
+					"max_optimized_distance": 200,
+					"use_motion_prediction_hints": true
+				},
+				"default_values": {
+					"max_dropped_ticks": 10,
+					"max_optimized_distance": 100,
+					"use_motion_prediction_hints": true
+				}
+			},
+			"minecraft:on_target_acquired": {
+				"event": "发现目标",
+				"target": "self"
+			},
+			"minecraft:navigation.generic": {
+				"can_path_over_water": true,
+				"avoid_damage_blocks": true,
+				"can_pass_doors": true,
+				"can_open_doors": true,
+				"is_amphibious": true,
+				"can_swim": true,
+				"can_walk": true
+			},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 45 : 5"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fall",
+						"deals_damage": false
+					},
+					{
+						"cause": "projectile",
+						"deals_damage": true
+					}
+				]
+			},
 			"minecraft:scheduler": {
 				"min_delay_secs": 4,
 				"max_delay_secs": 9,
@@ -137,50 +229,6 @@
 						},
 						"event": "事件:强制回归",
 						"target": "self"
-					}
-				]
-			},
-			"minecraft:behavior.hurt_by_target": {
-				"priority": 1
-			},
-			"minecraft:experience_reward": {
-				"on_death": "query.last_hit_by_player ? 45 : 5"
-			},
-			"minecraft:type_family": {
-				"family": [
-					"GuardBox",
-					"monster",
-					"abyss"
-				]
-			},
-			"minecraft:scale": {
-				"value": 0.85
-			},
-			"minecraft:health": {
-				"value": 100
-			},
-			"minecraft:timer": {
-				"time": 5,
-				"looping": true,
-				"time_down_event": {
-					"event": "刷新增幅",
-					"target": "self"
-				}
-			},
-			"minecraft:boss": {
-				"name": "<§4 诸世维系者 §r>§8 茉莉 §r",
-				"hud_range": 15
-			},
-			"minecraft:fire_immune": true,
-			"minecraft:damage_sensor": {
-				"triggers": [
-					{
-						"cause": "fall",
-						"deals_damage": false
-					},
-					{
-						"cause": "projectile",
-						"deals_damage": true
 					}
 				]
 			},
@@ -219,74 +267,52 @@
 					}
 				]
 			},
-			"minecraft:behavior.ranged_attack": {
-				"attack_interval_min": 999,
-				"attack_interval_max": 999,
-				"attack_radius": 16
-			},
 			"minecraft:shooter": {
 				"def": "制导飞弹:逐渊"
 			},
+<<<<<<< Updated upstream
 			"minecraft:on_target_acquired": {
 				"event": "事件:发现目标",
 				"target": "self"
-			},
-			"minecraft:collision_box": {
-				"width": 0.75,
-				"height": 2.50
-			},
-			"minecraft:movement": {
-				"value": 0.3
-			},
-			"minecraft:underwater_movement": {
-				"value": 0.15
-			},
-			"minecraft:movement.basic": {},
-			"minecraft:jump.static": {},
-			"minecraft:can_climb": {},
-			"minecraft:navigation.generic": {
-				"can_path_over_water": true,
-				"avoid_damage_blocks": true,
-				"can_pass_doors": true,
-				"can_open_doors": true,
-				"is_amphibious": true,
-				"can_swim": true,
-				"can_walk": true
-			},
-			"minecraft:annotation.open_door": {},
-			"minecraft:behavior.restrict_open_door": {
-				"priority": 1
-			},
-			"minecraft:behavior.open_door": {
-				"priority": 1,
-				"close_door_after": true
-			},
-			"minecraft:behavior.random_stroll": {
-				"priority": 3,
-				"speed_multiplier": 1
-			},
-			"minecraft:behavior.random_look_around": {
-				"priority": 3
-			},
-			"minecraft:behavior.look_at_player": {
-				"priority": 4,
-				"look_distance": 3,
-				"probability": 0.02
-			},
-			"minecraft:physics": {},
-			"minecraft:pushable": {
-				"is_pushable": true,
-				"is_pushable_by_piston": true
+=======
+			"minecraft:timer": {
+				"time": 5,
+				"looping": true,
+				"time_down_event": {
+					"event": "刷新增幅",
+					"target": "self"
+				}
+>>>>>>> Stashed changes
 			},
 			"minecraft:loot": {
 				"table": "loot_tables/茉莉.json"
-			}
+			},
+			"minecraft:boss": {
+				"name": "<§4 诸世维系者 §r>§8 茉莉 §r",
+				"hud_range": 15
+			},
+			//物理效果
+			"minecraft:pushable": {
+				"is_pushable_by_piston": true,
+				"is_pushable": true
+			},
+			"minecraft:physics": {
+				"has_gravity": true,
+				"has_collision": true
+			},
+			//基础组件
+			"minecraft:annotation.open_door": {},
+			"minecraft:movement.basic": {},
+			"minecraft:fire_immune": true,
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:nameable": {}
 		},
 		"events": {
 			"minecraft:entity_spawned": {
 				"run_command": {
 					"command": [
-						"execute as @p[tag=!ambient] run function Data/ambient",
+						"execute as @p [tag=!ambient] run function Data/ambient",
 						"effect @s resistance 5 255 false",
 						"summon 增幅法阵:星渊 ~~~",
 						"summon 增幅法阵:星渊 ~~~",

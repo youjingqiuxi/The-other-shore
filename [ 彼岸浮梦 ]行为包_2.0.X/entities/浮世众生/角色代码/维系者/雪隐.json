@@ -389,7 +389,7 @@
 			}
 		},
 		"components": {
-			"minecraft:nameable": {},
+			//基础属性
 			"minecraft:type_family": {
 				"family": [
 					"Peer",
@@ -398,13 +398,98 @@
 					"unreal"
 				]
 			},
+			"minecraft:collision_box": {
+				"width": 0.75,
+				"height": 2.50
+			},
 			"minecraft:scale": {
 				"value": 0.75
 			},
 			"minecraft:health": {
 				"value": 100
 			},
-			"minecraft:fire_immune": true,
+			"minecraft:movement": {
+				"value": 0.3
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.15
+			},
+			//行为控制
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 4,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "monster"
+								}
+							]
+						},
+						"within_default": 32
+					}
+				],
+				"must_reach": true,
+				"must_see": true
+			},
+			"minecraft:behavior.restrict_open_door": {
+				"priority": 1
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 3
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 4,
+				"look_distance": 3,
+				"probability": 0.02
+			},
+			"minecraft:behavior.ranged_attack": {
+				"attack_interval_min": 99,
+				"attack_interval_max": 99,
+				"attack_radius": 16
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 3,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.find_mount": {
+				"priority": 3,
+				"within_radius": 5,
+				"start_delay": 5,
+				"max_failed_attempts": 99
+			},
+			"minecraft:behavior.open_door": {
+				"priority": 1,
+				"close_door_after": true
+			},
+			//附加定义
+			"minecraft:conditional_bandwidth_optimization": {
+				"conditional_values": {
+					"max_dropped_ticks": 20,
+					"max_optimized_distance": 200,
+					"use_motion_prediction_hints": true
+				},
+				"default_values": {
+					"max_dropped_ticks": 10,
+					"max_optimized_distance": 100,
+					"use_motion_prediction_hints": true
+				}
+			},
+			"minecraft:on_target_acquired": {
+				"event": "发现目标",
+				"target": "self"
+			},
+			"minecraft:navigation.generic": {
+				"can_path_over_water": true,
+				"avoid_damage_blocks": true,
+				"can_pass_doors": true,
+				"can_open_doors": true,
+				"is_amphibious": true,
+				"can_swim": true,
+				"can_walk": true
+			},
 			"minecraft:damage_sensor": {
 				"triggers": [
 					{
@@ -497,20 +582,10 @@
 					}
 				]
 			},
-			"minecraft:behavior.find_mount": {
-				"priority": 3,
-				"within_radius": 5,
-				"start_delay": 5,
-				"max_failed_attempts": 99
-			},
-			"minecraft:behavior.ranged_attack": {
-				"attack_interval_min": 99,
-				"attack_interval_max": 99,
-				"attack_radius": 16
-			},
 			"minecraft:shooter": {
 				"def": "制导飞弹:碎星"
 			},
+<<<<<<< Updated upstream
 			"minecraft:on_target_acquired": {
 				"event": "事件:发现目标",
 				"target": "self"
@@ -540,53 +615,30 @@
 			},
 			"minecraft:movement": {
 				"value": 0.3
+=======
+			//物理效果
+			"minecraft:pushable": {
+				"is_pushable_by_piston": true,
+				"is_pushable": true
+>>>>>>> Stashed changes
 			},
-			"minecraft:underwater_movement": {
-				"value": 0.15
+			"minecraft:physics": {
+				"has_gravity": true,
+				"has_collision": true
 			},
+			//基础组件
+			"minecraft:annotation.open_door": {},
 			"minecraft:movement.basic": {},
+			"minecraft:fire_immune": true,
 			"minecraft:jump.static": {},
 			"minecraft:can_climb": {},
-			"minecraft:navigation.generic": {
-				"can_path_over_water": true,
-				"avoid_damage_blocks": true,
-				"can_pass_doors": true,
-				"can_open_doors": true,
-				"is_amphibious": true,
-				"can_swim": true,
-				"can_walk": true
-			},
-			"minecraft:annotation.open_door": {},
-			"minecraft:behavior.restrict_open_door": {
-				"priority": 1
-			},
-			"minecraft:behavior.open_door": {
-				"priority": 1,
-				"close_door_after": true
-			},
-			"minecraft:behavior.random_stroll": {
-				"priority": 3,
-				"speed_multiplier": 1
-			},
-			"minecraft:behavior.random_look_around": {
-				"priority": 3
-			},
-			"minecraft:behavior.look_at_player": {
-				"priority": 4,
-				"look_distance": 3,
-				"probability": 0.02
-			},
-			"minecraft:physics": {},
-			"minecraft:pushable": {
-				"is_pushable": true,
-				"is_pushable_by_piston": true
-			}
+			"minecraft:nameable": {}
 		},
 		"events": {
 			"minecraft:entity_spawned": {
 				"run_command": {
 					"command": [
-						"execute as @p[tag=!ambient] run function Data/ambient"
+						"execute as @p [tag=!ambient] run function Data/ambient"
 					]
 				},
 				"add": {

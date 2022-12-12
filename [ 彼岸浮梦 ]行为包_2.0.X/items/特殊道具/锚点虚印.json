@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "特殊道具:锚点虚印",
@@ -24,15 +24,18 @@
             },
             "minecraft:on_use": {
                 "on_use": {
-                    "event": "使用工具",
+                    "event": "使用道具",
                     "target": "self"
                 }
             },
+<<<<<<< Updated upstream
             "minecraft:cooldown": {
                 "category": "锚点虚印",
                 "duration": 1
             },
             "minecraft:can_destroy_in_creative": false,
+=======
+>>>>>>> Stashed changes
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,
@@ -66,7 +69,7 @@
             }
         },
         "events": {
-            "使用工具": {
+            "使用道具": {
                 "sequence": [
                     {
                         "damage": {

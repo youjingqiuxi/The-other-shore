@@ -3,7 +3,6 @@
     "minecraft:block": {
         "description": {
             "identifier": "召唤器:野蜂生成",
-            "category": "construction",
             "properties": {
                 "Table:value": [
                     0,

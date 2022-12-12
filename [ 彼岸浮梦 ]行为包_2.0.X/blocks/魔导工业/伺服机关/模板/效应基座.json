@@ -41,6 +41,10 @@
                     "render_method": "alpha_test"
                 }
             },
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "itemGroup.name.anvil"
+			},
             "minecraft:part_visibility": {
                 "conditions": {
                     "energy_1": "query.block_property('Table:energy') >= 1",

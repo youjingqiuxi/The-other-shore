@@ -3,7 +3,6 @@
     "minecraft:block": {
         "description": {
             "identifier": "伺服机关:凝岩聚矿",
-            "category": "construction",
             "properties": {
                 "Table:state": [
                     0,
@@ -39,7 +38,12 @@
             },
             "minecraft:part_visibility": {
                 "conditions": {
-                    "energy": "query.block_property('Table:energy') >= 1"
+                    "energy_1": "query.block_property('Table:energy') >= 1",
+                    "energy_2": "query.block_property('Table:energy') >= 2",
+                    "energy_3": "query.block_property('Table:energy') >= 3",
+                    "energy_4": "query.block_property('Table:energy') >= 4",
+                    "energy_5": "query.block_property('Table:energy') >= 5",
+                    "energy_6": "query.block_property('Table:energy') == 6"
                 }
             },
             "minecraft:collision_box": {
@@ -107,6 +111,12 @@
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:1') == 1",
+                        "set_block_property": {
+                            "Table:state": 1
+                        }
+                    },
+                    {
+                        "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:2') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:2') == 1",
                         "set_block_property": {
                             "Table:state": 1
                         }

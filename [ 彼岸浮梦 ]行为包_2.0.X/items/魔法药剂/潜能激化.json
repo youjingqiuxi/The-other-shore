@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "魔法药剂:潜能激化",
@@ -71,7 +71,8 @@
                                 "effect @s speed 30 0 true",
                                 "effect @s strength 15 5 true",
                                 "effect @s weakness 30 0 true",
-                                "effect @s regeneration 15 0 true"
+                                "effect @s regeneration 15 0 true",
+                                "playsound random.drink @a[r=5] ~~~"
                             ]
                         }
                     },

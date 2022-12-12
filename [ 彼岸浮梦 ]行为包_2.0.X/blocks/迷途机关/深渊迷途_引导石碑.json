@@ -44,6 +44,13 @@
                     "render_method": "alpha_test"
                 }
             },
+<<<<<<< Updated upstream
+=======
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "itemGroup.name.anvil"
+			},
+>>>>>>> Stashed changes
             "minecraft:collision_box": {
                 "origin": [
                     -5,

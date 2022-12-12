@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "特殊铠甲:特种合金铠甲",
@@ -85,7 +85,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "playsound armor.equip_iron @a[r=15] ~~~"
+                                "playsound armor.equip_iron @a[r=5] ~~~"
                             ]
                         }
                     }

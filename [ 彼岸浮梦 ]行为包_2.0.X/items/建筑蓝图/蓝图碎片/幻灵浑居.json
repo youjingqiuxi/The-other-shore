@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "蓝图碎片:幻灵浑居",
@@ -12,7 +12,7 @@
             "minecraft:max_stack_size": 1,
             "minecraft:foil": true,
             "minecraft:icon": {
-                "texture": "建筑蓝图.碎片"
+                "texture": "蓝图碎片"
             },
             "minecraft:display_name": {
                 "value": "§l§6{|§9 蓝图碎片 §l§6|}§r\n 类型:§9 幻灵浑居 §r\n 品质:§6 核心级 §r"

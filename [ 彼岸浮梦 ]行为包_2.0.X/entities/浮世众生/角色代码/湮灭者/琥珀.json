@@ -64,6 +64,31 @@
             }
         },
         "components": {
+			//基础属性
+            "minecraft:type_family": {
+                "family": [
+                    "GuardBox",
+                    "monster",
+                    "abyss"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.75,
+                "height": 2.15
+            },
+            "minecraft:health": {
+                "value": 100
+            },
+            "minecraft:scale": {
+                "value": 0.90
+            },
+            "minecraft:movement": {
+                "value": 0.35
+            },
+            "minecraft:underwater_movement": {
+                "value": 0.15
+            },
+			//行为控制
             "minecraft:behavior.nearest_attackable_target": {
                 "priority": 0,
                 "entity_types": [
@@ -109,6 +134,45 @@
                 "must_reach": true,
                 "must_see": true
             },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 5,
+                "speed_multiplier": 1
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 5
+            },
+			//附加定义
+			"minecraft:conditional_bandwidth_optimization": {
+				"conditional_values": {
+					"max_dropped_ticks": 20,
+					"max_optimized_distance": 200,
+					"use_motion_prediction_hints": true
+				},
+				"default_values": {
+					"max_dropped_ticks": 10,
+					"max_optimized_distance": 100,
+					"use_motion_prediction_hints": true
+				}
+			},
+			"minecraft:navigation.generic": {
+				"can_path_over_water": true,
+				"avoid_damage_blocks": true,
+				"can_pass_doors": true,
+				"can_open_doors": true,
+				"is_amphibious": true,
+				"can_swim": true,
+				"can_walk": true
+			},
+			"minecraft:on_target_acquired": {
+				"event": "发现目标",
+				"target": "self"
+			},
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? 30 : 5"
+            },
             "minecraft:damage_sensor": {
                 "triggers": [
                     {
@@ -145,6 +209,7 @@
                     }
                 ]
             },
+<<<<<<< Updated upstream
             "minecraft:scale": {
                 "value": 0.90
             },
@@ -172,47 +237,37 @@
                     "monster",
                     "abyss"
                 ]
+=======
+            "minecraft:loot": {
+                "table": "loot_tables/琥珀.json"
+>>>>>>> Stashed changes
             },
             "minecraft:boss": {
                 "name": "<§4 天渊湮灭者 §r>§8 琥珀 §r",
                 "hud_range": 15
             },
-            "minecraft:health": {
-                "value": 100
-            },
-            "minecraft:movement.basic": {},
-            "minecraft:jump.static": {},
-            "minecraft:can_climb": {},
-            "minecraft:navigation.generic": {
-                "can_path_over_water": true,
-                "is_amphibious": true,
-                "can_swim": true,
-                "can_walk": true
-            },
-            "minecraft:behavior.random_stroll": {
-                "priority": 5,
-                "speed_multiplier": 1
-            },
-            "minecraft:behavior.random_look_around": {
-                "priority": 5
-            },
-            "minecraft:experience_reward": {
-                "on_death": "query.last_hit_by_player ? 30 : 5"
-            },
-            "minecraft:physics": {},
-            "minecraft:pushable": {
-                "is_pushable": true,
-                "is_pushable_by_piston": true
-            },
-            "minecraft:loot": {
-                "table": "loot_tables/琥珀.json"
-            }
+			//物理效果
+			"minecraft:pushable": {
+				"is_pushable_by_piston": true,
+				"is_pushable": true
+			},
+			"minecraft:physics": {
+				"has_gravity": true,
+				"has_collision": true
+			},
+			//基础组件
+			"minecraft:annotation.open_door": {},
+			"minecraft:movement.basic": {},
+			"minecraft:fire_immune": true,
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:nameable": {}
         },
         "events": {
             "minecraft:entity_spawned": {
                 "run_command": {
                     "command": [
-                        "execute as @p[tag=!ambient] run function Data/ambient"
+                        "execute as @p [tag=!ambient] run function Data/ambient"
                     ]
                 }
             },

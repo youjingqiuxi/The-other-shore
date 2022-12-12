@@ -130,8 +130,7 @@
             "minecraft:type_family": {
                 "family": [
                     "spirit",
-					"unreal",
-                    "prime"
+					"unreal"
                 ]
             },
             "minecraft:health": {

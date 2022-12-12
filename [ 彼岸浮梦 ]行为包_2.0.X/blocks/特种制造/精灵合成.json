@@ -3,7 +3,6 @@
     "minecraft:block": {
         "description": {
             "identifier": "制造台:精灵合成",
-            "category": "construction",
             "properties": {
                 "Table:angle": [
                     2,
@@ -40,7 +39,11 @@
             }
         },
         "components": {
+<<<<<<< Updated upstream
             "minecraft:geometry": "geometry.prop_block.make",
+=======
+            "minecraft:geometry": "geometry.prop_block.994",
+>>>>>>> Stashed changes
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 5,
             "minecraft:destructible_by_mining": {
@@ -81,7 +84,7 @@
                 ],
                 "size": [
                     16,
-                    10,
+                    16,
                     16
                 ]
             },
@@ -93,7 +96,7 @@
                 ],
                 "size": [
                     16,
-                    10,
+                    16,
                     16
                 ]
             },

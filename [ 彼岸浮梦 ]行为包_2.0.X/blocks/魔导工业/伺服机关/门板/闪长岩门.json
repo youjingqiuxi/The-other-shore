@@ -3,7 +3,6 @@
     "minecraft:block": {
         "description": {
             "identifier": "伺服机关:闪长岩门",
-            "category": "construction",
             "properties": {
                 "Table:switch": [
                     0,
@@ -36,9 +35,10 @@
                     "render_method": "alpha_test"
                 }
             },
-            "minecraft:creative_category": {
-                "category": "construction"
-            },
+			"minecraft:creative_category": {
+				"category": "construction",
+				"group": "itemGroup.name.door"
+			},
             "minecraft:part_visibility": {
                 "conditions": {
                     "about0": "query.block_property('Table:about') == 0",

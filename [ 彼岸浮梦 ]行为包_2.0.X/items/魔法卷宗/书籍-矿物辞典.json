@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:item": {
         "description": {
             "identifier": "魔法书籍:矿物辞典",
@@ -29,8 +29,8 @@
                 }
             },
             "minecraft:cooldown": {
-                "category": "矿业指南",
-                "duration": 1
+                "category": "魔法书籍",
+                "duration": 5
             },
             "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
@@ -87,6 +87,7 @@
                     {
                         "run_command": {
                             "command": [
+<<<<<<< Updated upstream
                                 "execute as @p[tag=!ambient] run function Data/ambient"
                             ]
                         }
@@ -132,6 +133,9 @@
                                 "summon 矩阵接口:绘制 ~10 ~-7.5 ~10 预设案例:岩矿采掘.挖矿", 
                                 "summon 矩阵接口:绘制 ~10 ~-8.5 ~10 预设案例:岩矿采掘.挖矿", 
                                 "summon 矩阵接口:绘制 ~10 ~-9.5 ~10 预设案例:岩矿采掘.挖矿"
+=======
+                                "execute as @p [tag=!ambient] run function Data/ambient"
+>>>>>>> Stashed changes
                             ]
                         }
                     },

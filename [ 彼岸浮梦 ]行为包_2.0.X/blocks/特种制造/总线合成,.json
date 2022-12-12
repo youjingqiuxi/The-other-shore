@@ -3,7 +3,6 @@
     "minecraft:block": {
         "description": {
             "identifier": "制造台:总线合成",
-            "category": "construction",
             "properties": {
                 "Table:switch": [
                     0,

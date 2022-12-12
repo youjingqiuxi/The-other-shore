@@ -158,7 +158,6 @@
             "minecraft:is_stackable": {},
             "minecraft:type_family": {
                 "family": [
-                    "prime",
                     "Tayun",
                     "train",
                     "make"
@@ -208,7 +207,7 @@
             "minecraft:entity_spawned": {
                 "run_command": {
                     "command": [
-                        "execute as @p[tag=!ambient] run function Data/ambient"
+                        "execute as @p [tag=!ambient] run function Data/ambient"
                     ]
                 },
                 "add": {

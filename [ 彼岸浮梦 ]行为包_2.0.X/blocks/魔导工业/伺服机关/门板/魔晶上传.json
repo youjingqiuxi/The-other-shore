@@ -3,7 +3,6 @@
     "minecraft:block": {
         "description": {
             "identifier": "伺服机关:魔晶上传",
-            "category": "construction",
             "properties": {
                 "Table:switch": [
                     0,
@@ -36,9 +35,10 @@
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
             },
-            "minecraft:creative_category": {
-                "category": "construction"
-            },
+			"minecraft:creative_category": {
+				"category": "construction",
+				"group": "itemGroup.name.door"
+			},
             "minecraft:material_instances": {
                 "*": {
                     "texture": "魔导总线_传送节点_蓝",
@@ -158,7 +158,7 @@
                     {
                         "run_command": {
                             "command": [
-                                "execute as @p[tag=!ambient] run function Data/ambient",
+                                "execute as @p [tag=!ambient] run function Data/ambient",
                                 "playsound conduit.activate @a[r=15] ~~~",
                                 "particle 提示图标:上传提示 ~~~",
                                 "tp @e[r=5] ~~-0.5~"

@@ -101,7 +101,7 @@
                 ]
             },
             "minecraft:health": {
-                "value": 999
+                "value": 10086
             },
             "minecraft:fire_immune": true,
             "minecraft:damage_sensor": {
@@ -141,7 +141,7 @@
             "minecraft:entity_spawned": {
                 "run_command": {
                     "command": [
-                        "execute as @p[tag=!ambient] run function Data/ambient"
+                        "execute as @p [tag=!ambient] run function Data/ambient"
                     ]
                 },
                 "add": {
