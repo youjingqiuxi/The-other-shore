@@ -3,17 +3,17 @@
     "minecraft:item": {
         "description": {
             "identifier": "拟态矩阵:标记起点",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:icon": {
                 "texture": "拟态矩阵_标记起点"
             },
             "minecraft:display_name": {
                 "value": "§b|§a 拟态矩阵 §8-§6 标记起点 §b|§r"
-            },
-            "minecraft:creative_category": {
-                "parent": "equipment"
             },
             "minecraft:cooldown": {
                 "category": "拟态矩阵",
@@ -79,7 +79,6 @@
                     }
                 }
             },
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,

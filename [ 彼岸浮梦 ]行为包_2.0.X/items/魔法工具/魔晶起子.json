@@ -3,19 +3,18 @@
     "minecraft:item": {
         "description": {
             "identifier": "魔法工具:魔晶起子",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:icon": {
                 "texture": "魔晶起子"
             },
             "minecraft:display_name": {
                 "value": "§6| 魔晶起子 |§r"
             },
-            "minecraft:creative_category": {
-                "parent": "equipment"
-            },
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:render_offsets": "tools",
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,

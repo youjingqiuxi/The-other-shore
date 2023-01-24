@@ -3,17 +3,17 @@
     "minecraft:item": {
         "description": {
             "identifier": "魔法书籍:精灵治愈",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:icon": {
                 "texture": "精灵治愈"
             },
             "minecraft:display_name": {
                 "value": "§d《精灵治愈》§r"
-            },
-            "minecraft:creative_category": {
-                "parent": "equipment"
             },
             "minecraft:durability": {
                 "max_durability": 350,
@@ -30,13 +30,8 @@
             },
             "minecraft:cooldown": {
                 "category": "精灵治愈",
-                "duration": 5
+                "duration": 15
             },
-            "minecraft:can_destroy_in_creative": false,
-            "minecraft:allow_off_hand": false,
-            "minecraft:hand_equipped": true,
-            "minecraft:max_stack_size": 1,
-            "minecraft:foil": true,
             "minecraft:enchantable": {
                 "value": 10,
                 "slot": "elytra"
@@ -69,6 +64,10 @@
                     }
                 }
             },
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:foil": true,
             "tag:Magic_Books": {}
         },
         "events": {
@@ -84,22 +83,22 @@
                     {
                         "run_command": {
                             "command": [
-                                "summon 矩阵接口:绘制 ~~~ 标签驱动.图形绘制.旋转",
-                                "tag @e[family=Matrix_API,c=1] add Matrix_API.rotate.Red_rising"
+                                "execute at @e [r=8,type=!item,family=!monster] run summon 矩阵接口:绘制 ~~~ 标签驱动.图形绘制.旋转",
+                                "tag @e[family=Matrix_API,r=10] add Matrix_API.rotate.Red_rising"
                             ]
                         }
                     },
                     {
                         "run_command": {
                             "command": [
-                                "effect @s regeneration 5 4 true"
+                                "effect @e[r=8,type=!item,family=!monster] regeneration 15 4 true"
                             ]
                         }
                     },
                     {
                         "damage": {
                             "type": "magic",
-                            "amount": 10
+                            "amount": 15
                         }
                     }
                 ]

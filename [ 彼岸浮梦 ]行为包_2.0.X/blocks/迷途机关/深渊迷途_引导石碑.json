@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "深渊迷途:引导石碑",
@@ -32,6 +32,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.prop_block.guide_stone",
+            "minecraft:display_name": "§6< 指引石碑 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": false,
             "minecraft:light_dampening": 0,
@@ -44,13 +45,6 @@
                     "render_method": "alpha_test"
                 }
             },
-<<<<<<< Updated upstream
-=======
-			"minecraft:creative_category": {
-				"category": "items",
-				"group": "itemGroup.name.anvil"
-			},
->>>>>>> Stashed changes
             "minecraft:collision_box": {
                 "origin": [
                     -5,
@@ -76,10 +70,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "permutations": [
@@ -125,12 +119,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,1,0,'initial_crystal_block') == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'魔晶块:基础魔晶') == 1",
@@ -143,7 +137,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:方块设置",
+                            "event": "方块设置",
                             "target": "self"
                         }
                     },
@@ -156,13 +150,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:显示引导",
+                            "event": "显示引导",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:方块设置": {
+            "方块设置": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:function') == 0",
@@ -294,7 +288,7 @@
                     }
                 ]
             },
-            "事件:显示引导": {
+            "显示引导": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:function') == 0",

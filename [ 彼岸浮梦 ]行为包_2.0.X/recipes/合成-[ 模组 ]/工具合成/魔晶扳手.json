@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.tool.wrench"
@@ -17,7 +17,7 @@
                 "item": "合金材料:特种合金"
             },
             "X": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             }
         },
         "result": {

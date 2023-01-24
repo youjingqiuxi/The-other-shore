@@ -3,17 +3,17 @@
     "minecraft:item": {
         "description": {
             "identifier": "魔法工具:魔晶扳手",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:icon": {
                 "texture": "魔晶扳手"
             },
             "minecraft:display_name": {
                 "value": "§6| 魔晶扳手 |§r"
-            },
-            "minecraft:creative_category": {
-                "parent": "equipment"
             },
             "minecraft:weapon": {
                 "on_hurt_entity": {
@@ -24,7 +24,6 @@
                 }
             },
             "minecraft:damage": 5,
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:render_offsets": "tools",
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
@@ -45,15 +44,9 @@
                         "condition": "query.is_sneaking == 1",
                         "run_command": {
                             "command": [
-<<<<<<< Updated upstream
-                                "execute at @e [r=8,c=2,type=!item,type=!player,family=!prime] run particle minecraft:huge_explosion_emitter ~~~",
-                                "execute at @e [r=8,c=5,type=!item,type=!player,family=!prime] run particle minecraft:sonic_explosion ~~~",
-                                "damage @e[r=8,type=!item,type=!player,family=!prime] 15 suicide entity @p",
-=======
                                 "execute at @e [r=8,c=2,type=!item,type=!player,family=!Tayun] run particle minecraft:huge_explosion_emitter ~~~",
                                 "execute at @e [r=8,c=5,type=!item,type=!player,family=!Tayun] run particle minecraft:sonic_explosion ~~~",
                                 "damage @e[r=8,type=!item,type=!player,family=!Tayun] 15 entity_attack entity @p",
->>>>>>> Stashed changes
                                 "effect @s jump_boost 3 4 true"
                             ]
                         },

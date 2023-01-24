@@ -1,20 +1,18 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "魔晶块:高压魔晶"
         },
         "components": {
             "minecraft:geometry": "geometry.basic_block0",
+            "minecraft:display_name": "§4高压魔晶块§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 15,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
             },
             "minecraft:friction": 0.9,
-            "minecraft:creative_category": {
-                "category": "construction"
-            },
             "minecraft:material_instances": {
                 "*": {
                     "texture": "高压魔晶块",

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:entity": {
         "description": {
             "identifier": "增幅法阵:星渊",
@@ -12,7 +12,7 @@
                 ]
             },
             "animations": {
-                "runs": "controller.animation.train_adds"
+                "runs": "controller.animation.Data.Train_Death"
             }
         },
         "component_groups": {
@@ -89,7 +89,7 @@
                     ]
                 }
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "add": {
                     "component_groups": [
                         "消失"

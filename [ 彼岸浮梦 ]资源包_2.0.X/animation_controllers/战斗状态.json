@@ -1,0 +1,249 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ControlAttack.0": {
+			"initial_state": "not",
+			"states": {
+				"not": {
+					"transitions": [
+						{
+							"attack": "query.has_target"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"not": "!query.has_target"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlAttack.1": {
+			"initial_state": "not",
+			"states": {
+				"not": {
+					"transitions": [
+						{
+							"attack": "query.has_target"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"attack.0",
+						"attack.1"
+					],
+					"transitions": [
+						{
+							"not": "!query.has_target"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlAttack.2": {
+			"initial_state": "not",
+			"states": {
+				"not": {
+					"transitions": [
+						{
+							"attack": "query.has_target && query.variant == 1"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"attack.0",
+						"attack.1"
+					],
+					"transitions": [
+						{
+							"not": "!query.has_target || !query.variant == 1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlAttack.3": {
+			"initial_state": "not",
+			"states": {
+				"not": {
+					"transitions": [
+						{
+							"attack": "query.has_target && query.variant == 1 && !query.is_sitting && !query.is_riding"
+						},
+						{
+							"calm": "!query.has_target && !query.is_sitting && !query.is_riding"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"attack.0",
+						"attack.1"
+					],
+					"transitions": [
+						{
+							"not": "!query.has_target || query.variant != 1"
+						}
+					]
+				},
+				"calm": {
+					"animations": [
+						"attack.2"
+					],
+					"transitions": [
+						{
+							"not": "query.has_target"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlAttack.4": {
+			"initial_state": "attack.end",
+			"states": {
+				"attack.end": {
+					"animations": [
+						"attack.end"
+					],
+					"transitions": [
+						{
+							"attack.start": "query.variant != 0 && !query.is_sitting && !query.is_riding"
+						}
+					]
+				},
+				"attack.start": {
+					"animations": [
+						"attack.start"
+					],
+					"transitions": [
+						{
+							"attack.end": "query.variant == 0 || query.is_sitting || query.is_riding"
+						},
+						{
+							"attack.loop": "query.variant == 2"
+						}
+					]
+				},
+				"attack.loop": {
+					"animations": [
+						"attack.loop",
+						"attack.fight"
+					],
+					"transitions": [
+						{
+							"attack.end": "query.variant == 0 || query.is_sitting || query.is_riding"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlAttack.5": {
+			"initial_state": "basic",
+			"states": {
+				"basic": {
+					"animations": [
+						"basic"
+					],
+					"transitions": [
+						{
+							"attack": "query.has_target"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"basic": "!query.has_target"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlAttack.6": {
+			"initial_state": "pages",
+			"states": {
+				"pages": {
+					"animations": [
+						"pages"
+					],
+					"transitions": [
+						{
+							"runes": "query.variant == 1"
+						}
+					]
+				},
+				"runes": {
+					"animations": [
+						"runes"
+					],
+					"transitions": [
+						{
+							"pages": "query.variant == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.ControlAttack.pearl": {
+			"initial_state": "attack.end",
+			"states": {
+				"attack.end": {
+					"animations": [
+						"attack.end"
+					],
+					"transitions": [
+						{
+							"attack.start": "query.variant == 1 && !query.is_sitting && !query.is_riding && query.has_target"
+						}
+					]
+				},
+				"attack.start": {
+					"animations": [
+						"attack.start"
+					],
+					"particle_effects": [
+						{
+							"effect": "burst",
+							"locator": "energy"
+						}
+					],
+					"transitions": [
+						{
+							"attack.end": "query.variant == 0 || query.is_sitting || query.is_riding"
+						},
+						{
+							"attack.loop": "query.variant == 2"
+						}
+					]
+				},
+				"attack.loop": {
+					"animations": [
+						"attack.loop",
+						"attack.fight"
+					],
+					"particle_effects": [
+						{
+							"effect": "power",
+							"locator": "energy"
+						}
+					],
+					"transitions": [
+						{
+							"attack.end": "query.variant == 0 || query.is_sitting || query.is_riding || !query.has_target"
+						}
+					]
+				}
+			}
+		}
+	}
+}

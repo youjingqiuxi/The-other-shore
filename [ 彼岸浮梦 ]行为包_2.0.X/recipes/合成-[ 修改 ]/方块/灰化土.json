@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "MC.block.podzol"
@@ -14,14 +14,14 @@
         ],
         "key": {
             "F": {
-                "item": "rotten_flesh"
+                "item": "minecraft:rotten_flesh"
             },
             "T": {
-                "item": "dirt"
+                "item": "minecraft:dirt"
             }
         },
         "result": {
-            "item": "podzol",
+            "item": "minecraft:podzol",
             "count": 6
         }
     }

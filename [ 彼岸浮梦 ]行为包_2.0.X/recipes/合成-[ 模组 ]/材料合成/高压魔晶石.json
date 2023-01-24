@@ -1,5 +1,5 @@
 {
-    "format_version": "1.12",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.item.Press_crystal"
@@ -14,10 +14,10 @@
         ],
         "key": {
             "X": {
-                "item": "redstone"
+                "item": "minecraft:redstone"
             },
             "#": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             }
         },
         "result": {

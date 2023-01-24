@@ -10,7 +10,7 @@
             "textures": {
                 "x0": "textures/entity/girl/蔷薇_0",
                 "x1": "textures/entity/girl/蔷薇_1",
-                "blink": "textures/entity/girl/眨眼_1",
+                "blink": "textures/entity/girl/眨眼",
                 "aims": "textures/entity/girl/战斗效果",
                 "HE_0": "textures/entity/girl/血量_0",
                 "HE_1": "textures/entity/girl/血量_1",
@@ -21,10 +21,10 @@
                 "not": "textures/entity/not"
             },
             "geometry": {
-                "default": "geometry.girl_figure_v4",
-                "heart": "geometry.girl_bracelet",
+                "default": "geometry.Role_frame.v4.girl",
+                "heart": "geometry.Role_prop.v1.bracelet",
                 "aims": "geometry.rose_aims",
-                "sit": "geometry.girl_chair"
+                "sit": "geometry.Role_prop.v0.chair"
             },
             "spawn_egg": {
                 "texture": "星光阁_图标",
@@ -61,19 +61,19 @@
                 "hold": "controller.animation.ControlTake.basics",
                 "use": "controller.animation.ControlTake.use",
                 //通用 动作动画
-                "riding_0": "animation.riding_action.arm.girl-v4",
-                "riding_1": "animation.riding_action.leg.girl-v4",
-                "initial": "animation.basic_action.girl-v4",
-                "move": "animation.human_move.girl-v4",
-                "swimming": "animation.swimming.girl-v4",
-                "sitting": "animation.sit_down.girl-v4",
-                "stand": "animation.sit_down.stand",
+                "riding_0": "animation.riding_action.arm.Role.v4",
+                "riding_1": "animation.riding_action.leg.Role.v4",
+                "initial": "animation.basic_action.Role.v4.girl",
+                "move": "animation.human_move.Role.v4",
+                "swimming": "animation.swimming.Role.v4",
+                "sitting": "animation.sit_down.Role.v4.start",
+                "stand": "animation.sit_down.Role.v4.end",
                 //通用 拾取物品
                 "use-item": "animation.humanoid.use_item_progress",
                 "held-item": "animation.humanoid.holding",
                 //通用 观察四周
-                "basic-watch": "animation.observation.girl-v4_basic",
-                "swim-watch": "animation.observation.girl-v4_swim",
+                "basic-watch": "animation.observation.Role.v4.basic",
+                "swim-watch": "animation.observation.Role.v4.swim",
                 //个性化定制 动画控制
                 "battle": "controller.animation.ControlAttack.3",
                 //个性化定制 战斗动画

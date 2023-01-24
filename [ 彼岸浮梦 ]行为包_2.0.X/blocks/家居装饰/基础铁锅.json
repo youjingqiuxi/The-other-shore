@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "装饰类:基础铁锅",
@@ -26,15 +26,13 @@
         },
         "components": {
             "minecraft:geometry": "geometry.decorate_block.iron_pot",
+            "minecraft:display_name": "§b|§6 合金小钢锅 §b|§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
             "minecraft:light_emission": 0,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:material_instances": {
                 "*": {
@@ -73,10 +71,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "permutations": [
@@ -130,7 +128,7 @@
                             600
                         ],
                         "on_tick": {
-                            "event": "事件:营火侦测",
+                            "event": "营火侦测",
                             "target": "self"
                         }
                     }
@@ -138,12 +136,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:water_bucket') == 1 && query.block_property('Table:switch') == 0",
@@ -161,13 +159,13 @@
                     {
                         "condition": "query.block_property('Table:switch') == 1",
                         "trigger": {
-                            "event": "事件:填入物资",
+                            "event": "填入物资",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:填入物资": {
+            "填入物资": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:yellow_flower') == 1 || query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:red_flower') == 1 || query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:double_plant') == 1 || query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:wither_rose') == 1",
@@ -223,7 +221,7 @@
                     }
                 ]
             },
-            "事件:营火侦测": {
+            "营火侦测": {
                 "sequence": [
                     {
                         "run_command": {
@@ -232,13 +230,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:产出汤品",
+                            "event": "产出汤品",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:产出汤品": {
+            "产出汤品": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,-1,0,'wood') == 1 && query.block_property('Table:item') == 1",

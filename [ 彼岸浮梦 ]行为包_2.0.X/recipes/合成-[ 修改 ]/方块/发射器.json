@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "MC.block.dispenser"
@@ -14,17 +14,17 @@
         ],
         "key": {
             "M": {
-                "item": "stick"
+                "item": "minecraft:stick"
             },
             "X": {
-                "item": "string"
+                "item": "minecraft:string"
             },
             "T": {
-                "item": "dropper"
+                "item": "minecraft:dropper"
             }
         },
         "result": {
-            "item": "dispenser"
+            "item": "minecraft:dispenser"
         }
     }
 }

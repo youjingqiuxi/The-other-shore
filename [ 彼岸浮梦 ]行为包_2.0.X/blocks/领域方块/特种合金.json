@@ -1,20 +1,18 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "领域石:特种合金"
         },
         "components": {
             "minecraft:geometry": "geometry.basic_block0",
+            "minecraft:display_name": "§b特种合金块§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
             "minecraft:light_emission": 5,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:material_instances": {
                 "*": {

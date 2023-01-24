@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "伺服机关:安山岩门",
@@ -29,6 +29,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.door_block.linkage_andesite",
+            "minecraft:display_name": "§6< §9伺服机关§r _ §l§e安山岩门§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": false,
             "minecraft:light_dampening": 0,
@@ -40,10 +41,6 @@
                     "render_method": "alpha_test"
                 }
             },
-			"minecraft:creative_category": {
-				"category": "construction",
-				"group": "itemGroup.name.door"
-			},
             "minecraft:part_visibility": {
                 "conditions": {
                     "plank": "query.block_property('Table:switch') == 0",
@@ -54,10 +51,10 @@
                 }
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:level2_mechanism_door": {}
         },
@@ -72,7 +69,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:进行侦测",
+                            "event": "进行侦测",
                             "target": "self"
                         }
                     }
@@ -88,7 +85,7 @@
                             3
                         ],
                         "on_tick": {
-                            "event": "事件:等待关闭",
+                            "event": "等待关闭",
                             "target": "self"
                         }
                     }
@@ -104,7 +101,7 @@
                             100
                         ],
                         "on_tick": {
-                            "event": "事件:完全关闭",
+                            "event": "完全关闭",
                             "target": "self"
                         }
                     }
@@ -172,7 +169,7 @@
             }
         ],
         "events": {
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'伺服机关:安山岩门') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶钥匙') == 0",
@@ -196,7 +193,7 @@
                     }
                 ]
             },
-            "事件:进行侦测": {
+            "进行侦测": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -230,12 +227,12 @@
                     }
                 ]
             },
-            "事件:等待关闭": {
+            "等待关闭": {
                 "set_block_property": {
                     "Table:switch": 2
                 }
             },
-            "事件:完全关闭": {
+            "完全关闭": {
                 "set_block_property": {
                     "Table:switch": 0
                 },

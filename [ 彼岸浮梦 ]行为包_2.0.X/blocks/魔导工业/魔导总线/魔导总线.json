@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "魔导总线:总线本体",
@@ -40,7 +40,8 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.magic_bus",
+            "minecraft:geometry": "geometry.magic_bus.basics",
+            "minecraft:display_name": "§6< §9魔导总线§r _ §l§e基础线缆§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -48,9 +49,6 @@
                 "seconds_to_destroy": 1.0
             },
             "minecraft:light_emission": 5,
-            "minecraft:creative_category": {
-                "category": "construction"
-            },
             "minecraft:part_visibility": {
                 "conditions": {
                     "link_0": "query.block_property('Table:face_0') == 1",
@@ -104,7 +102,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:状态侦测",
+                            "event": "状态侦测",
                             "target": "self"
                         }
                     }
@@ -126,7 +124,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -151,7 +149,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -176,7 +174,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -201,7 +199,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -226,7 +224,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:结束激活",
+                            "event": "结束激活",
                             "target": "self"
                         }
                     },
@@ -251,7 +249,7 @@
                             8
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     }
@@ -259,7 +257,7 @@
             }
         ],
         "events": {
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -274,13 +272,13 @@
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_open') == 1",
                         "trigger": {
-                            "event": "事件:色彩侦测",
+                            "event": "色彩侦测",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:色彩侦测": {
+            "色彩侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:1') == 1",
@@ -314,7 +312,7 @@
                     }
                 ]
             },
-            "事件:结束激活": {
+            "结束激活": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -323,7 +321,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "sequence": [
                     {
                         "set_block_property": {

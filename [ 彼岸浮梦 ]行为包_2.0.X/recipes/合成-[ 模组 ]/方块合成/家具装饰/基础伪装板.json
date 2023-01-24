@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.block.cover_plate"
@@ -17,7 +17,7 @@
                 "item": "领域石:特种合金"
             },
             "T": {
-                "item": "copper_ingot"
+                "item": "minecraft:copper_ingot"
             }
         
         },

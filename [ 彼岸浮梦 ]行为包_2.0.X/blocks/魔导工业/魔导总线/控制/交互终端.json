@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "魔导总线:交互终端",
@@ -52,16 +52,14 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.button_bus",
+            "minecraft:geometry": "geometry.magic_bus.button_bus",
+            "minecraft:display_name": "§6< §9魔导总线§r _ §l§e交互终端§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
             "minecraft:light_emission": 5,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:part_visibility": {
                 "conditions": {
@@ -134,10 +132,10 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:Magic_Bus_Series": {}
         },
@@ -180,7 +178,7 @@
                             16
                         ],
                         "on_tick": {
-                            "event": "事件:冷却完成",
+                            "event": "冷却完成",
                             "target": "self"
                         }
                     }
@@ -196,7 +194,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:灯光侦测",
+                            "event": "灯光侦测",
                             "target": "self"
                         }
                     }
@@ -218,7 +216,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:进行冷却",
+                            "event": "进行冷却",
                             "target": "self"
                         }
                     },
@@ -243,7 +241,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:进行冷却",
+                            "event": "进行冷却",
                             "target": "self"
                         }
                     },
@@ -268,7 +266,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:进行冷却",
+                            "event": "进行冷却",
                             "target": "self"
                         }
                     },
@@ -293,7 +291,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:进行冷却",
+                            "event": "进行冷却",
                             "target": "self"
                         }
                     },
@@ -318,7 +316,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:进行冷却",
+                            "event": "进行冷却",
                             "target": "self"
                         }
                     },
@@ -329,25 +327,25 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "sequence": [
                     {
                         "set_block_property": {
                             "Table:Detect": "query.cardinal_facing"
                         },
                         "trigger": {
-                            "event": "事件:自动链接",
+                            "event": "自动链接",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
                         "trigger": {
-                            "event": "事件:参数调整",
+                            "event": "参数调整",
                             "target": "self"
                         }
                     },
@@ -362,27 +360,27 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:自动链接",
+                            "event": "自动链接",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 0",
                         "trigger": {
-                            "event": "事件:交互判定",
+                            "event": "交互判定",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:参数调整": {
+            "参数调整": {
                 "sequence": [
                     {
                         "set_block_property": {
                             "Table:value": "query.block_property('Table:value') != 5 ? (query.block_property('Table:value') + 1) : 0"
                         },
                         "trigger": {
-                            "event": "事件:自动链接",
+                            "event": "自动链接",
                             "target": "self"
                         }
                     },
@@ -436,7 +434,7 @@
                     }
                 ]
             },
-            "事件:交互判定": {
+            "交互判定": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0 && query.block_property('Table:value') != 0",
@@ -444,7 +442,7 @@
                             "Table:switch": 1
                         },
                         "trigger": {
-                            "event": "事件:自动链接",
+                            "event": "自动链接",
                             "target": "self"
                         }
                     },
@@ -477,7 +475,7 @@
                     }
                 ]
             },
-            "事件:自动链接": {
+            "自动链接": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -491,7 +489,7 @@
                     }
                 ]
             },
-            "事件:进行冷却": {
+            "进行冷却": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -500,7 +498,7 @@
                     }
                 ]
             },
-            "事件:冷却完成": {
+            "冷却完成": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -509,7 +507,7 @@
                     }
                 ]
             },
-            "事件:灯光侦测": {
+            "灯光侦测": {
                 "sequence": [
                     {
                         "run_command": {

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "魔导总线:水素能源",
@@ -15,16 +15,14 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.hydro_power",
+            "minecraft:geometry": "geometry.magic_bus.hydro_power",
+            "minecraft:display_name": "§6< §9魔导总线§r _ §l§e水素能源§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
             "minecraft:light_emission": 5,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:material_instances": {
                 "*": {
@@ -76,7 +74,7 @@
                             90
                         ],
                         "on_tick": {
-                            "event": "事件:质能转化",
+                            "event": "质能转化",
                             "target": "self"
                         }
                     }
@@ -92,7 +90,7 @@
                             10
                         ],
                         "on_tick": {
-                            "event": "事件:质能转化",
+                            "event": "质能转化",
                             "target": "self"
                         }
                     },
@@ -103,7 +101,7 @@
             }
         ],
         "events": {
-            "事件:质能转化": {
+            "质能转化": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,-1,0,'water') == 1 && query.block_property('Table:switch') == 0",

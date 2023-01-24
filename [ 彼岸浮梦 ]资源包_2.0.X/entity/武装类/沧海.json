@@ -2,7 +2,7 @@
     "format_version": "1.10.0",
     "minecraft:client_entity": {
         "description": {
-            "identifier": "制导飞弹:沧海",
+            "identifier": "增幅法阵:沧海",
             "materials": {
                 "default": "entity_alphatest"
             },

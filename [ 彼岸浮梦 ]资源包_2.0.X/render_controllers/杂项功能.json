@@ -1,0 +1,111 @@
+{
+    "format_version": "1.10.0",
+    "render_controllers": {
+        "controller.render.blink_old": {
+            "arrays": {
+                "textures": {
+                    "Array.blink": [
+                        "Texture.not",
+                        "Texture.blink"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "Array.blink[math.abs(math.trunc(math.sin(query.life_time * 35) * 10)) - (10 * math.abs(math.trunc(math.sin(query.life_time * 45) * 10)))]"
+            ]
+        },
+        "controller.render.blink": {
+            "arrays": {
+                "textures": {
+                    "Array.blink": [
+                        "Texture.not",
+                        "Texture.blink"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "Array.blink[math.random_integer(0, 256) == 0 ? math.random_integer(0, 1) : 0]"
+            ]
+        },
+        "controller.render.tame": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "query.has_owner ? Texture.tame : Texture.free"
+            ]
+        },
+        "controller.render.aims": {
+            "arrays": {
+                "textures": {
+                    "Array.aims": [
+                        "Texture.not",
+                        "Texture.aims"
+                    ]
+                }
+            },
+            "geometry": "Geometry.aims",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "Array.aims[query.has_target]"
+            ]
+        },
+        "controller.render.bag": {
+            "arrays": {
+                "textures": {
+                    "Array.blink": [
+                        "Texture.not",
+                        "Texture.bag"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "geometry": "Geometry.bag",
+            "textures": [
+                "Array.blink[query.is_chested]"
+            ]
+        },
+        "controller.render.sit": {
+            "arrays": {
+                "textures": {
+                    "Array.blink": [
+                        "Texture.not",
+                        "Texture.sit"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "geometry": "Geometry.sit",
+            "textures": [
+                "Array.blink[query.is_sitting]"
+            ]
+        }
+    }
+}

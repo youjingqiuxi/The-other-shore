@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.book.Mining_Guide"
@@ -14,16 +14,16 @@
         ],
         "key": {
             "M": {
-                "item": "coal"
+                "item": "minecraft:coal"
             },
             "Y": {
-                "item": "quartz"
+                "item": "minecraft:quartz"
             },
             "T": {
-                "item": "iron_ingot"
+                "item": "minecraft:iron_ingot"
             },
             "H": {
-                "item": "gold_ingot"
+                "item": "minecraft:gold_ingot"
             },
             "C": {
                 "item": "能量水晶:超频魔晶"
@@ -32,7 +32,7 @@
                 "item": "基础书籍:魔导手册"
             },
             "G": {
-                "item": "wooden_pickaxe"
+                "item": "minecraft:wooden_pickaxe"
             }
         },
         "result": {

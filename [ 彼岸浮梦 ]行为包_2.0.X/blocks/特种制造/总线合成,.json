@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "制造台:总线合成",
@@ -17,16 +17,14 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.magic_bus_make",
+            "minecraft:geometry": "geometry.crafting_table.magic_bus_make",
+            "minecraft:display_name": "§b<|§6 总线合成终端 §b|>§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 5,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
             },
             "minecraft:friction": 0.9,
-            "minecraft:creative_category": {
-                "category": "construction"
-            },
             "minecraft:material_instances": {
                 "*": {
                     "texture": "总线合成台",
@@ -69,12 +67,12 @@
                     20
                 ],
                 "on_tick": {
-                    "event": "事件:环境侦测",
+                    "event": "环境侦测",
                     "target": "self"
                 }
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:rate_crysta_block": {}
         },
@@ -83,7 +81,7 @@
                 "condition": "query.block_property('Table:switch') == 0",
                 "components": {
                     "minecraft:on_interact": {
-                        "event": "事件:进行交互"
+                        "event": "进行交互"
                     }
                 }
             },
@@ -142,12 +140,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "run_command": {
@@ -158,7 +156,7 @@
                     }
                 ]
             },
-            "事件:环境侦测": {
+            "环境侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0 && query.block_neighbor_has_all_tags(0,-1,0,'Heat_source_open') == 1",

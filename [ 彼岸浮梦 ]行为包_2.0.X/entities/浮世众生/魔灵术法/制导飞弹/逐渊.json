@@ -1,5 +1,5 @@
 {
-    "format_version": "1.10.1800",
+    "format_version": "1.19.50",
     "minecraft:entity": {
         "description": {
             "identifier": "制导飞弹:逐渊",
@@ -12,7 +12,7 @@
                 ]
             },
             "animations": {
-                "data": "controller.animation.data_trail"
+                "data": "controller.animation.Data.Particle_Trail"
             }
         },
         "component_groups": {
@@ -96,7 +96,7 @@
                     "track_target": true,
                     "speed_multiplier": 1.4,
                     "on_attack": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 },
@@ -130,7 +130,7 @@
                     "time": 0.01,
                     "looping": true,
                     "time_down_event": {
-                        "event": "事件:弹道粒子",
+                        "event": "弹道粒子",
                         "target": "self"
                     }
                 },
@@ -221,7 +221,7 @@
                     "track_target": true,
                     "speed_multiplier": 1.4,
                     "on_attack": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 },
@@ -283,7 +283,7 @@
                     "track_target": true,
                     "speed_multiplier": 1.4,
                     "on_attack": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 },
@@ -313,7 +313,7 @@
                     "time": 2.5,
                     "looping": true,
                     "time_down_event": {
-                        "event": "事件:取消制导",
+                        "event": "取消制导",
                         "target": "self"
                     }
                 }
@@ -356,7 +356,7 @@
                     "track_target": true,
                     "speed_multiplier": 1.4,
                     "on_attack": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 },
@@ -382,7 +382,9 @@
                 "minecraft:can_fly": {}
             },
             "消失": {
-                "minecraft:despawn": {}
+                "minecraft:instant_despawn": {
+					"remove_child_entities": true
+				}
             }
         },
         "components": {
@@ -410,7 +412,7 @@
             "minecraft:timer": {
                 "time": 10,
                 "time_down_event": {
-                    "event": "事件:实体消失",
+                    "event": "实体消失",
                     "target": "self"
                 }
             },
@@ -436,14 +438,14 @@
                     ]
                 }
             },
-            "事件:弹道粒子": {
+            "弹道粒子": {
                 "run_command": {
                     "command": [
-                        "particle 闪烁粒子:赤红 ~~~"
+                        "particle 闪烁粒子:赤焰 ~~~"
                     ]
                 }
             },
-            "事件:袭击玩家": {
+            "袭击玩家": {
                 "add": {
                     "component_groups": [
                         "玩家",
@@ -451,7 +453,7 @@
                     ]
                 }
             },
-            "事件:袭击钛宇": {
+            "袭击钛宇": {
                 "add": {
                     "component_groups": [
                         "钛宇",
@@ -459,7 +461,7 @@
                     ]
                 }
             },
-            "事件:噬约鱼雷": {
+            "噬约鱼雷": {
                 "add": {
                     "component_groups": [
                         "鱼雷",
@@ -467,14 +469,14 @@
                     ]
                 }
             },
-            "事件:取消制导": {
+            "取消制导": {
                 "remove": {
                     "component_groups": [
                         "制导"
                     ]
                 }
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "add": {
                     "component_groups": [
                         "消失"

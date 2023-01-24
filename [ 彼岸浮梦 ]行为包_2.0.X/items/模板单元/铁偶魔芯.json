@@ -6,12 +6,10 @@
             "category": "items"
         },
         "components": {
-<<<<<<< Updated upstream
-            "minecraft:can_destroy_in_creative": false,
-            "minecraft:allow_off_hand": true,
-=======
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:allow_off_hand": false,
->>>>>>> Stashed changes
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,
             "minecraft:foil": true,
@@ -20,9 +18,6 @@
             },
             "minecraft:display_name": {
                 "value": "§l 铁偶魔芯 §r"
-            },
-            "minecraft:creative_category": {
-                "parent": "items"
             },
             "minecraft:render_offsets": {
                 "main_hand": {

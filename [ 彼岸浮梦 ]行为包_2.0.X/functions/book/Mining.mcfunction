@@ -47,7 +47,7 @@ execute if block ~~~ ancient_debris             run fill ~~~ ~~~ air 0 destroy
 execute if block ~~~ amethyst_cluster           run fill ~~~ ~~~ air 0 destroy
 
 #效果
-particle 闪烁粒子:姹紫 ~~~
+particle 闪烁粒子:紫影 ~~~
 
 #物资收集
 tp @e[r=5,type=xp_orb] @p

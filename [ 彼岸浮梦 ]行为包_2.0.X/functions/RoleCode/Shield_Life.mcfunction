@@ -6,7 +6,7 @@
 scoreboard players add @s CC 1
 
 #提示
-execute as @s [scores={CC=260..}] run particle 提示图标:碎盾警示 ~~1.5~
+execute as @s [scores={CC=260..}] run particle 提示图标:碎盾警示 ~ ~2 ~
 
 #破盾
 execute as @s [scores={CC=270..}] run replaceitem entity @s slot.weapon.offhand 0 air

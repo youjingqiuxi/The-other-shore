@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "制造台:精灵合成",
@@ -39,18 +39,11 @@
             }
         },
         "components": {
-<<<<<<< Updated upstream
-            "minecraft:geometry": "geometry.prop_block.make",
-=======
-            "minecraft:geometry": "geometry.prop_block.994",
->>>>>>> Stashed changes
+            "minecraft:geometry": "geometry.crafting_table.spirit_make.basics",
+            "minecraft:display_name": "§b<|§6 精灵合成终端 §b|>§r",
             "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:material_instances": {
                 "*": {
@@ -58,6 +51,7 @@
                     "render_method": "alpha_test"
                 }
             },
+            "minecraft:light_emission": 5,
             "minecraft:part_visibility": {
                 "conditions": {
                     "module_blank": "query.block_property('Table:slots.1') == 1",
@@ -101,10 +95,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "tag:Rite_Make_Table": {}
         },
@@ -114,7 +108,7 @@
                 "components": {
                     "minecraft:rotation": [
                         0,
-                        0,
+                        180,
                         0
                     ]
                 }
@@ -124,7 +118,7 @@
                 "components": {
                     "minecraft:rotation": [
                         0,
-                        180,
+                        0,
                         0
                     ]
                 }
@@ -134,7 +128,7 @@
                 "components": {
                     "minecraft:rotation": [
                         0,
-                        90,
+                        270,
                         0
                     ]
                 }
@@ -144,45 +138,45 @@
                 "components": {
                     "minecraft:rotation": [
                         0,
-                        270,
+                        90,
                         0
                     ]
                 }
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:slots.1') == 0",
                         "trigger": {
-                            "event": "事件:填充<模板单元>",
+                            "event": "填充<模板单元>",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:slots.1') != 0 && query.block_property('Table:slots.2') == 0",
                         "trigger": {
-                            "event": "事件:填充<魔导书籍>",
+                            "event": "填充<魔导书籍>",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:slots.1') != 0 && query.block_property('Table:slots.2') != 0 && query.block_property('Table:slots.3') == 0",
                         "trigger": {
-                            "event": "事件:填充<合金材料>",
+                            "event": "填充<合金材料>",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:slots.1') != 0 && query.block_property('Table:slots.2') != 0 && query.block_property('Table:slots.3') != 0 && query.block_property('Table:slots.4') == 0",
                         "trigger": {
-                            "event": "事件:填充<魔晶矿石>",
+                            "event": "填充<魔晶矿石>",
                             "target": "self"
                         }
                     },
@@ -199,14 +193,14 @@
                     {
                         "condition": "query.block_property('Table:slots.1') != 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
                         "trigger": {
-                            "event": "事件:合成<最终产品>",
+                            "event": "合成<最终产品>",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:slots.1') != 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
                         "trigger": {
-                            "event": "事件:退还<合成材料>",
+                            "event": "退还<合成材料>",
                             "target": "self"
                         },
                         "run_command": {
@@ -217,7 +211,7 @@
                     }
                 ]
             },
-            "事件:填充<模板单元>": {
+            "填充<模板单元>": {
                 "sequence": [
                     {
                         "run_command": {
@@ -243,7 +237,7 @@
                     }
                 ]
             },
-            "事件:填充<魔导书籍>": {
+            "填充<魔导书籍>": {
                 "sequence": [
                     {
                         "run_command": {
@@ -360,7 +354,7 @@
                     }
                 ]
             },
-            "事件:填充<合金材料>": {
+            "填充<合金材料>": {
                 "sequence": [
                     {
                         "run_command": {
@@ -399,7 +393,7 @@
                     }
                 ]
             },
-            "事件:填充<魔晶矿石>": {
+            "填充<魔晶矿石>": {
                 "sequence": [
                     {
                         "run_command": {
@@ -451,7 +445,7 @@
                     }
                 ]
             },
-            "事件:合成<最终产品>": {
+            "合成<最终产品>": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:slots.1') == 1 && query.block_property('Table:slots.2') == 7 && query.block_property('Table:slots.3') == 2 && query.block_property('Table:slots.4') == 3",
@@ -461,31 +455,31 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:正确<合成配方>",
+                            "event": "正确<合成配方>",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:slots.1') != 0",
                         "trigger": {
-                            "event": "事件:错误<合成配方>",
+                            "event": "错误<合成配方>",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:错误<合成配方>": {
+            "错误<合成配方>": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:slots.1') != 0",
                         "trigger": {
-                            "event": "事件:退还<合成材料>",
+                            "event": "退还<合成材料>",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:正确<合成配方>": {
+            "正确<合成配方>": {
                 "sequence": [
                     {
                         "run_command": {
@@ -506,7 +500,7 @@
                     }
                 ]
             },
-            "事件:退还<合成材料>": {
+            "退还<合成材料>": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:slots.1') == 1",

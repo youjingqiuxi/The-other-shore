@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "MC.block.log|chest|order1"
@@ -18,7 +18,7 @@
             }
         },
         "result": {
-            "item": "chest",
+            "item": "minecraft:chest",
             "count": 4
         }
     }

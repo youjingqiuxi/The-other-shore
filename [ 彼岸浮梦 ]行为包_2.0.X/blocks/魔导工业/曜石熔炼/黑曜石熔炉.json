@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "工业类:耀石熔炼炉",
@@ -50,6 +50,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.prop_block.magmastove",
+            "minecraft:display_name": "§6< §4耀石熔炼炉§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -61,9 +62,6 @@
                     "texture": "曜石熔炼炉",
                     "render_method": "alpha_test"
                 }
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:part_visibility": {
                 "conditions": {
@@ -128,10 +126,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "permutations": [
@@ -171,7 +169,7 @@
                             180
                         ],
                         "on_tick": {
-                            "event": "事件:功能运行",
+                            "event": "功能运行",
                             "target": "self"
                         }
                     }
@@ -187,7 +185,7 @@
                             10
                         ],
                         "on_tick": {
-                            "event": "事件:自动提取",
+                            "event": "自动提取",
                             "target": "self"
                         }
                     }
@@ -195,7 +193,7 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:output": 0,
                     "Table:input": 0,
@@ -203,12 +201,12 @@
                     "Table:full": 0
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:cobblestone') == 1",
                         "trigger": {
-                            "event": "事件:填充圆石",
+                            "event": "填充圆石",
                             "target": "self"
                         },
                         "run_command": {
@@ -220,7 +218,7 @@
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'领域石:压缩原石') == 1",
                         "trigger": {
-                            "event": "事件:快速填充",
+                            "event": "快速填充",
                             "target": "self"
                         },
                         "run_command": {
@@ -232,13 +230,13 @@
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:bucket') == 1",
                         "trigger": {
-                            "event": "事件:提取岩浆",
+                            "event": "提取岩浆",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:填充圆石": {
+            "填充圆石": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:input') != 8",
@@ -271,7 +269,7 @@
                     }
                 ]
             },
-            "事件:快速填充": {
+            "快速填充": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:cache') != 8",
@@ -291,7 +289,7 @@
                     }
                 ]
             },
-            "事件:提取岩浆": {
+            "提取岩浆": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:output') == 0",
@@ -324,7 +322,7 @@
                     }
                 ]
             },
-            "事件:功能运行": {
+            "功能运行": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:output') != 8 && query.block_property('Table:cache') != 0 && query.block_neighbor_has_all_tags(0,-1,0,'Heat_source_open') == 1 ",
@@ -346,7 +344,7 @@
                     }
                 ]
             },
-            "事件:自动提取": {
+            "自动提取": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:await') == 0 && query.block_property('Table:output') != 0 && query.block_neighbor_has_all_tags(1,0,0,'vessel_await_true') == 1",

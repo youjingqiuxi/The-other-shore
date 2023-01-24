@@ -1,128 +1,104 @@
-##《彼岸浮梦》 < addons:2.0.1 > 汉化翻译
+##《彼岸浮梦》 < addons:2.1.0 > 汉化翻译
 
 ##————————————————————————————————————————
 
 ##【模组_自定义生成】
-
-##珍宝箱
 item.spawn_egg.entity.珍宝箱:迷途.name=§5放置 §6迷途珍宝§r
 item.spawn_egg.entity.珍宝箱:旅途.name=§5放置 §6旅途珍宝§r
+item.spawn_egg.entity.珍宝箱:结构.name=§5放置 §6结构珍宝§r
 
-##魔法飞弹
-item.spawn_egg.entity.制导飞弹:坠星.name=§5精灵·坠星§r
-item.spawn_egg.entity.增幅法阵:星渊.name=§5精灵·星渊§r
-item.spawn_egg.entity.制导飞弹:逐渊.name=§4精灵·噬约§r
-item.spawn_egg.entity.制导飞弹:神恩.name=§4精灵·誓约§r
-item.spawn_egg.entity.制导飞弹:碎星.name=§4精灵·碎星§r
-item.spawn_egg.entity.制导飞弹:沧海.name=§9精灵·沧海§r
-item.spawn_egg.entity.制导飞弹:幻海.name=§9精灵·幻海§r
-item.spawn_egg.entity.增幅法阵:幻戟.name=§9精灵·幻戟§r
+item.spawn_egg.entity.制导飞弹:坠星.name=§6精灵§r·§6坠星§r
+item.spawn_egg.entity.增幅法阵:星渊.name=§4精灵§r·§c星渊§r
+item.spawn_egg.entity.制导飞弹:逐渊.name=§4精灵§r·§c噬约§r
+item.spawn_egg.entity.制导飞弹:神恩.name=§6精灵§r·§6誓约§r
+item.spawn_egg.entity.制导飞弹:碎星.name=§6精灵§r·§6碎星§r
+item.spawn_egg.entity.增幅法阵:沧海.name=§6精灵§r·§6沧海§r
+item.spawn_egg.entity.制导飞弹:幻海.name=§6精灵§r·§6幻海§r
+item.spawn_egg.entity.增幅法阵:幻戟.name=§6精灵§r·§6幻戟§r
 
-##星光阁
-item.spawn_egg.entity.星光阁:琉璃.name=§9星阁-琉璃§r
-item.spawn_egg.entity.星光阁:啸天.name=§9星阁-啸天§r
-item.spawn_egg.entity.星光阁:蔷薇.name=§9星阁-蔷薇§r
+item.spawn_egg.entity.星光阁:琉璃.name=§6星光阁§r <§9 琉璃 §r>
+item.spawn_egg.entity.星光阁:啸天.name=§6星光阁§r <§9 啸天 §r>
+item.spawn_egg.entity.星光阁:蔷薇.name=§6星光阁§r <§9 蔷薇 §r>
+item.spawn_egg.entity.星光阁:森涅.name=§6星光阁§r <§9 森涅 §r>
 
-##明镜阁
-item.spawn_egg.entity.明镜阁:海灵.name=§9明镜-海灵§r
-item.spawn_egg.entity.明镜阁:珍珠.name=§9明镜-珍珠§r
-item.spawn_egg.entity.明镜阁:欧泊.name=§9明镜-欧泊§r
-item.spawn_egg.entity.明镜阁:渊鲸.name=§9明镜-渊鲸§r
+item.spawn_egg.entity.明镜阁:海灵.name=§b明镜阁§r <§9 海灵 §r>
+item.spawn_egg.entity.明镜阁:珍珠.name=§b明镜阁§r <§9 珍珠 §r>
+item.spawn_egg.entity.明镜阁:欧泊.name=§b明镜阁§r <§9 欧泊 §r>
+item.spawn_egg.entity.明镜阁:渊鲸.name=<§b§l 渊鲸 §r> 炮击深潜船
 
-##幻生阁
-item.spawn_egg.entity.幻生阁:绯红.name=§9幻阁-绯红§r
-item.spawn_egg.entity.幻生阁:星砂.name=§9幻阁-星砂§r
-item.spawn_egg.entity.幻生阁:雪隐.name=§9幻阁-雪隐§r
-item.spawn_egg.entity.幻生阁:九九.name=§9幻阁-九九§r
-item.spawn_egg.entity.幻生阁:幽蓝.name=§9幻阁-幽蓝§r
-item.spawn_egg.entity.幻生阁:野蜂.name=§9幻阁-野蜂§r
+item.spawn_egg.entity.幻生阁:绯红.name=§a幻生阁§r <§9 绯红 §r>
+item.spawn_egg.entity.幻生阁:星砂.name=§a幻生阁§r <§9 星砂 §r>
+item.spawn_egg.entity.幻生阁:雪隐.name=§a幻生阁§r <§9 雪隐 §r>
+item.spawn_egg.entity.幻生阁:九九.name=§a幻生阁§r <§9 九九 §r>
+item.spawn_egg.entity.幻生阁:幽蓝.name=§a幻生阁§r <§9 幽蓝 §r>
+item.spawn_egg.entity.幻生阁:野蜂.name=<§a§l 野蜂 §r> 武装侦察机
 
-##超脱者
-item.spawn_egg.entity.超脱者:琉璃.name=§4终焉·琉璃§r
-item.spawn_egg.entity.超脱者:啸天.name=§4神武·啸天§r
+item.spawn_egg.entity.天渊阁:茉莉.name=§c天渊阁§r <§4 茉莉 §r>
+item.spawn_egg.entity.天渊阁:琥珀.name=§c天渊阁§r <§4 琥珀 §r>
+item.spawn_egg.entity.天渊阁:野蜂.name=<§c§l 野蜂 §r> 武装侦察机
+item.spawn_egg.entity.天渊阁:渊鲸.name=<§c§l 渊鲸 §r> 鱼雷深潜船
+item.spawn_egg.entity.天渊阁:蝰蛇.name=<§c§l 蝰蛇 §r> 轻型防空车
 
-##天渊阁
-item.spawn_egg.entity.天渊阁:茉莉.name=§4天渊-茉莉§r
-item.spawn_egg.entity.天渊阁:琥珀.name=§4天渊-琥珀§r
-item.spawn_egg.entity.天渊阁:野蜂.name=§4【 野蜂 】武装侦察机§r
-item.spawn_egg.entity.天渊阁:渊鲸.name=§4【 渊鲸 】武装深潜船§r
-item.spawn_egg.entity.天渊阁:蝰蛇.name=§4【 蝰蛇 】轻型防空车§r
+item.spawn_egg.entity.天渊阁:乾蜂.name=<§c§l 乾蜂 §r> 前哨塔核心
+item.spawn_egg.entity.天渊阁:海渊.name=<§c§l 海渊 §r> 科考站核心
+item.spawn_egg.entity.天渊阁:惧象.name=<§c§l 惧象 §r> 研究院核心
 
-item.spawn_egg.entity.天渊阁:维修.name=§4【 维修型 】增幅核心§r
-item.spawn_egg.entity.天渊阁:防御.name=§4【 防御型 】增幅核心§r
-item.spawn_egg.entity.天渊阁:乾蜂.name=§4【 乾蜂 】前哨塔核心§r
-item.spawn_egg.entity.天渊阁:海渊.name=§4【 海渊 】科考站核心§r
-item.spawn_egg.entity.天渊阁:惧象.name=§4【 惧象 】研究院核心§r
-
-##列车组
 item.spawn_egg.entity.列车组:挖掘.name=§7隧道掘进列车§r
 item.spawn_egg.entity.列车组:座椅.name=§7单人列车座椅§r
 item.spawn_egg.entity.列车组:货架.name=§7列车储物货架§r
 item.spawn_egg.entity.列车组:链接.name=§7魔导链接支架§r
 
+item.spawn_egg.entity.矩阵接口:绘制.name=§7矩阵接口§r
+item.spawn_egg.entity.矩阵接口:锚点.name=§7矩阵接口§r
+
 ##————————————————————————————————————————
 
 ##【模组_自定义实体】
+entity.珍宝箱:迷途.name=§5放置 §6迷途珍宝§r
+entity.珍宝箱:旅途.name=§5放置 §6旅途珍宝§r
+entity.珍宝箱:结构.name=§5放置 §6结构珍宝§r
 
-##魔法飞弹
-entity.增幅法阵:星渊.name=§9精灵·星渊§r
+entity.制导飞弹:坠星.name=§6精灵§r·§6坠星§r
+entity.增幅法阵:星渊.name=§4精灵§r·§c星渊§r
+entity.制导飞弹:逐渊.name=§4精灵§r·§c噬约§r
+entity.制导飞弹:神恩.name=§6精灵§r·§6誓约§r
+entity.制导飞弹:碎星.name=§6精灵§r·§6碎星§r
+entity.增幅法阵:沧海.name=§6精灵§r·§6沧海§r
+entity.制导飞弹:幻海.name=§6精灵§r·§6幻海§r
+entity.增幅法阵:幻戟.name=§6精灵§r·§6幻戟§r
 
-entity.制导飞弹:坠星.name=§9精灵·坠星§r
-entity.制导飞弹:逐渊.name=§4精灵·噬约§r
-entity.制导飞弹:碎星.name=§6精灵·碎星§r
-entity.制导飞弹:神恩.name=§6精灵·誓约§r
-entity.制导飞弹:幻海.name=§9精灵·幻海§r
-entity.增幅法阵:幻戟.name=§9精灵·幻戟§r
-entity.制导飞弹:沧海.name=§9精灵·沧海§r
+entity.星光阁:琉璃.name=§6星光阁§r <§9 琉璃 §r>
+entity.星光阁:啸天.name=§6星光阁§r <§9 啸天 §r>
+entity.星光阁:蔷薇.name=§6星光阁§r <§9 蔷薇 §r>
+entity.星光阁:森涅.name=§6星光阁§r <§9 森涅 §r>
 
-entity.弹道飞弹:辉光.name=§9精灵·辉光§r
-entity.弹道飞弹:星陨.name=§9精灵·星陨§r
+entity.明镜阁:海灵.name=§b明镜阁§r <§9 海灵 §r>
+entity.明镜阁:珍珠.name=§b明镜阁§r <§9 珍珠 §r>
+entity.明镜阁:欧泊.name=§b明镜阁§r <§9 欧泊 §r>
+entity.明镜阁:渊鲸.name=<§b§l 渊鲸 §r> 炮击深潜船
 
-##珍宝箱
-entity.珍宝箱:迷途.name=§6迷途珍宝§r
-entity.珍宝箱:旅途.name=§6旅途珍宝§r
+entity.幻生阁:绯红.name=§a幻生阁§r <§9 绯红 §r>
+entity.幻生阁:星砂.name=§a幻生阁§r <§9 星砂 §r>
+entity.幻生阁:雪隐.name=§a幻生阁§r <§9 雪隐 §r>
+entity.幻生阁:九九.name=§a幻生阁§r <§9 九九 §r>
+entity.幻生阁:幽蓝.name=§a幻生阁§r <§9 幽蓝 §r>
+entity.幻生阁:野蜂.name=<§a§l 野蜂 §r> 武装侦察机
 
-##星光阁
-entity.星光阁:琉璃.name=§9星阁-琉璃§r
-entity.星光阁:啸天.name=§9星阁-啸天§r
-entity.星光阁:蔷薇.name=§9星阁-蔷薇§r
+entity.天渊阁:茉莉.name=§c天渊阁§r <§4 茉莉 §r>
+entity.天渊阁:琥珀.name=§c天渊阁§r <§4 琥珀 §r>
+entity.天渊阁:野蜂.name=<§c§l 野蜂 §r> 武装侦察机
+entity.天渊阁:渊鲸.name=<§c§l 渊鲸 §r> 鱼雷深潜船
+entity.天渊阁:蝰蛇.name=<§c§l 蝰蛇 §r> 轻型防空车
 
-##明镜阁
-entity.明镜阁:海灵.name=§9明镜-海灵§r
-entity.明镜阁:珍珠.name=§9明镜-珍珠§r
-entity.明镜阁:欧泊.name=§9明镜-欧泊§r
-entity.明镜阁:渊鲸.name=§9明镜-渊鲸§r
+entity.天渊阁:乾蜂.name=<§c§l 乾蜂 §r> 前哨塔核心
+entity.天渊阁:海渊.name=<§c§l 海渊 §r> 科考站核心
+entity.天渊阁:惧象.name=<§c§l 惧象 §r> 研究院核心
 
-##幻生阁
-entity.幻生阁:绯红.name=§9幻阁-绯红§r
-entity.幻生阁:星砂.name=§9幻阁-星砂§r
-entity.幻生阁:雪隐.name=§9幻阁-雪隐§r
-entity.幻生阁:九九.name=§9幻阁-九九§r
-entity.幻生阁:幽蓝.name=§9幻阁-幽蓝§r
-entity.幻生阁:野蜂.name=§9幻阁-野蜂§r
+entity.列车组:挖掘.name=§7隧道掘进列车§r
+entity.列车组:座椅.name=§7单人列车座椅§r
+entity.列车组:货架.name=§7列车储物货架§r
+entity.列车组:链接.name=§7魔导链接支架§r
 
-##超脱者
-entity.超脱者:琉璃.name=§6终焉·琉璃§r
-entity.超脱者:啸天.name=§6神武·啸天§r
-
-##天渊阁
-entity.天渊阁:茉莉.name=§4天渊-茉莉§r
-entity.天渊阁:琥珀.name=§4天渊-琥珀§r
-entity.天渊阁:野蜂.name=§4【 野蜂 】§r
-entity.天渊阁:渊鲸.name=§4【 渊鲸 】§r
-entity.天渊阁:蝰蛇.name=§4【 蝰蛇 】§r
-
-entity.天渊阁:乾蜂.name=§4【 乾蜂 】§r
-entity.天渊阁:维修.name=§4【 维修 】§r
-entity.天渊阁:防御.name=§4【 防御 】§r
-
-##列车组
-entity.列车组:挖掘.name=§7隧道掘进§r
-entity.列车组:座椅.name=§7列车座椅§r
-entity.列车组:货架.name=§7列车货架§r
-entity.列车组:链接.name=§7魔导链接§r
-
-##矩阵接口
 entity.矩阵接口:绘制.name=§7矩阵接口§r
 entity.矩阵接口:锚点.name=§7矩阵接口§r
 
@@ -134,143 +110,15 @@ entity.矩阵接口:锚点.name=§7矩阵接口§r
 ##————————————————————————————————————————
 
 ##【模组_自定义方块】
-tile.工业类:耀石熔炼炉.name=§6< §4耀石熔炼炉§6 >§r
-tile.工业类:黑耀石储罐.name=§6< §4黑耀石储罐§6 >§r
-tile.工业类:黑耀石热源.name=§6< §4黑耀石热源§6 >§r
-
-tile.工业类:智能建筑台.name=§6< §9智能建造台§6 >§r
-
-tile.装饰类:基础伪装板.name=§b|§9 基础伪装板 §b|§r
-  tile.装饰类:基础椅子.name=§b|§6 丛林木椅子 §b|§r
-  tile.装饰类:基础桌子.name=§b|§6 闪长岩桌子 §b|§r
-  tile.装饰类:基础铁锅.name=§b|§6 合金小钢锅 §b|§r
-
-tile.领域石:基础方块.name=§7基础领域块§r
-tile.领域石:压缩原石.name=§6压缩圆石块§r
-tile.领域石:虚空方块.name=§b虚空之方块§r
-tile.领域石:特种合金.name=§b特种合金块§r
-
-tile.制造台:精灵合成.name=§b<|§6 精灵合成终端 §b|>§r
-tile.制造台:魔术溶媒.name=§b<|§6 魔术溶媒终端 §b|>§r
-tile.制造台:总线合成.name=§b<|§6 总线合成终端 §b|>§r
-
-tile.武装类:弓箭增幅.name=§6< §9弓箭增幅台§6 >§r
-
-tile.魔晶块:基础魔晶.name=§5基础魔晶块§r
-tile.魔晶块:高压魔晶.name=§4高压魔晶块§r
-tile.魔晶块:超频魔晶.name=§9超频魔晶块§r
-
-tile.召唤器:野蜂生成.name=§6< §9野蜂战机§r _ §l§9召唤器§6 >§r
-tile.召唤器:隧道列车.name=§6< §9隧道列车§r _ §l§9召唤器§6 >§r
-
-tile.深渊迷途:引导石碑.name=§6< 指引石碑 >§r
-tile.深渊迷途:脉冲悬浮.name=§6< 脉冲漂浮 >§r
-tile.深渊迷途:迷宫再现.name=§6< 迷途核心 >§r
-tile.深渊迷途:屏障生成.name=§6< 屏障生成 >§r
-tile.深渊迷途:初级_机关门.name=§6< 初级门板 >§r
-
-tile.魔导总线:总线本体.name=§6< §9魔导总线§r _ §l§e基础线缆§6 >§r
-tile.魔导总线:信号过滤.name=§6< §9魔导总线§r _ §l§e信号过滤§6 >§r
-tile.魔导总线:信号转化.name=§6< §9魔导总线§r _ §l§e信号转化§6 >§r
-
-tile.魔导总线:脉冲总线.name=§6< §9魔导总线§r _ §l§e脉冲总线§6 >§r
-tile.魔导总线:脉冲锁存.name=§6< §9魔导总线§r _ §l§e脉冲锁存§6 >§r
-tile.魔导总线:逻辑门控.name=§6< §9魔导总线§r _ §l§e逻辑门控§6 >§r
-tile.魔导总线:交互终端.name=§6< §9魔导总线§r _ §l§e交互终端§6 >§r
-tile.魔导总线:灯光侦测.name=§6< §9魔导总线§r _ §l§e灯光侦测§6 >§r
-tile.魔导总线:脉冲计数.name=§6< §9魔导总线§r _ §l§e脉冲计数§6 >§r
-tile.魔导总线:传播许可.name=§6< §9魔导总线§r _ §l§e传播许可§6 >§r
-tile.魔导总线:总线端口.name=§6< §9魔导总线§r _ §l§e总线端口§6 >§r
-
-tile.魔导总线:水素能源.name=§6< §9魔导总线§r _ §l§e水素能源§6 >§r
-
-tile.伺服机关:伺服基座.name=§6< §9伺服机关§r _ §l§e伺服基座§6 >§r
-tile.伺服机关:伺服牵引.name=§6< §9伺服机关§r _ §l§e伺服牵引§6 >§r
-tile.伺服机关:参数设置.name=§6< §9伺服机关§r _ §l§e参数设置§6 >§r
-
-tile.伺服机关:闪长岩门.name=§6< §9伺服机关§r _ §l§e闪长岩门§6 >§r
-tile.伺服机关:安山岩门.name=§6< §9伺服机关§r _ §l§e安山岩门§6 >§r
-
-tile.伺服机关:物资收集.name=§6< §9伺服机关§r _ §l§e物资收集§6 >§r
-tile.伺服机关:破坏核心.name=§6< §9伺服机关§r _ §l§c破坏核心§6 >§r
-tile.伺服机关:凝岩聚矿.name=§6< §9伺服机关§r _ §l§e凝岩聚矿§6 >§r
-tile.伺服机关:磐岩机关.name=§6< §9伺服机关§r _ §l§c磐岩机关§6 >§r
-
-tile.伺服机关:效应基座.name=§6< §9伺服机关§r _ §l§e效应基座§6 >§r
-tile.伺服机关:效应核心.name=§6< §9伺服机关§r _ §l§e效应核心§6 >§r
-
-tile.伺服机关:魔晶上传.name=§6< §9伺服机关§r _ §l§e魔晶§6上传§6 >§r
-tile.伺服机关:魔晶下传.name=§6< §9伺服机关§r _ §l§e魔晶§5下传§6 >§r
-
-tile.伺服机关:诸界道标.name=§6< §9伺服机关§r _ §l§e诸界道标§6 >§r
-
-tile.输送链带:物资升降.name=§6< §9输送链带§r _ §l§e物资升降§6 >§r
-tile.输送链带:物资流转.name=§6< §9输送链带§r _ §l§e物资流转§6 >§r
-tile.输送链带:基础运输.name=§6< §9输送链带§r _ §l§e基础运输§6 >§r
+## 此处内容请查询: behavior_packs/模组行为包/blocks/特定方块/"minecraft:display_name"
 
 ##————————————————————————————————————————
 
 ##【模组_自定义界面】
-##标题
-howtoplay.主题00=§l§6功能简介
-howtoplay.主题01=§l§6开发人员
-howtoplay.主题02=§l§6项目授权
-
-howtoplay.主题03=§l§9星光阁 <实体>
-howtoplay.主题04=§l§9幻生阁 <实体>
-howtoplay.主题05=§l§9明镜阁 <实体>
-howtoplay.主题06=§l§9天渊阁 <实体>
-
-howtoplay.主题10=§l§9隧道列车 <实体>
-howtoplay.主题11=§l§a特殊道具 <物品>
-howtoplay.主题12=§l§a魔导书籍 <物品>
-howtoplay.主题13=§l§5附属功能 <混合>
-howtoplay.主题14=§l§5魔晶矿石 <混合>
-
-howtoplay.主题16=§l§e曜石熔炼 <方块>
-howtoplay.主题17=§l§e迷途机关 <方块>
-howtoplay.主题18=§l§e领域方块 <方块>
-howtoplay.主题19=§l§e输送单元 <方块>
-howtoplay.主题20=§l§5辅助增强 <混合>
-howtoplay.主题21=§l§8深渊迷途 <秘境>
-howtoplay.主题22=§l§e魔导总线 <方块>
-
-
-##简介
-howtoplay.主题00.title=§9关于
-howtoplay.主题01.title=§9关于
-howtoplay.主题02.title=§9关于
-howtoplay.主题03.title=§9关于
-howtoplay.主题04.title=§9关于
-howtoplay.主题05.title=§9关于
-howtoplay.主题06.title=§9关于
-howtoplay.主题07.title=§9关于
-howtoplay.主题08.title=§9关于
-howtoplay.主题09.title=§9关于
-howtoplay.主题10.title=§9关于
-howtoplay.主题11.title=§9关于
-howtoplay.主题12.title=§9关于
-howtoplay.主题13.title=§9关于
-howtoplay.主题14.title=§9关于
-howtoplay.主题15.title=§9关于
-howtoplay.主题16.title=§9关于
-howtoplay.主题17.title=§9关于
-howtoplay.主题18.title=§9关于
-howtoplay.主题19.title=§9关于
-howtoplay.主题20.title=§9关于
-howtoplay.主题21.title=§9关于
-
-##内容
-howtoplay.category.模组信息=§f 《 彼岸浮梦 》模组信息
-howtoplay.category.浮世众生=§f 《 浮世众生 》辅助文档
-howtoplay.category.魔导工业=§f 《 魔导工业 》说明文档
-howtoplay.category.基岩计划=§f 《 基岩计划 》辅助说明
-howtoplay.category.世界探索=§f 【 秘境探索 】介绍文案
-
 ##其他
-action.hint.exit.列车组:座椅=§2 已坐下 
+action.hint.exit.列车组:座椅=§2已坐下 
 action.hint.exit.明镜阁:渊鲸=欢迎乘坐 < 渊鲸级 深潜炮击舰 >
-action.hint.exit.星光阁:啸天=§2 您已骑上<§9 星阁-啸天 §2>
+action.hint.exit.星光阁:啸天=§2您已骑上§r[ §6星光阁§r <§9 啸天 §r> ]
 
 ##accessibility.chat.howtoopen=< 彼岸浮梦 >addons
 
@@ -444,6 +292,11 @@ item.spawn_egg.entity.piglin_brute.name=生成 猪灵蛮兵
 ##————————————————————————————————————————
 
 ##【方块】
+tile.daylight_detector_inverted.name=月光传感器
+tile.lit_redstone_lamp.name=发光红石灯
+tile.melon_stem.name=西瓜茎
+tile.frame.name=物品展示框
+tile.glow_frame.name=荧光物品展示框
 tile.tinted_glass.name=遮光玻璃
 tile.jigsaw.name=拼图方块
 tile.allow.name=允许建设方块
@@ -519,12 +372,12 @@ tile.coral_block.yellow_dead.name=死亡角珊瑚块
 item.shield.name=盾牌
 item.appleEnchanted.name=附魔金苹果
 item.bell.name=村庄钟
-item.bucketLava.name=桶装熔岩
-item.bucketWater.name=桶装水
-item.bucketFish.name=桶装鳕鱼
-item.bucketSalmon.name=桶装鲑鱼
-item.bucketTropical.name=桶装热带鱼
-item.bucketPuffer.name=桶装刺豚鱼
+item.bucketLava.name=桶装 熔岩
+item.bucketWater.name=桶装 水源
+item.bucketFish.name=桶装 鳕鱼
+item.bucketSalmon.name=桶装 鲑鱼
+item.bucketTropical.name=桶装 热带鱼
+item.bucketPuffer.name=桶装 刺豚鱼
 item.chorus_fruit.name=紫颂果
 item.chorus_fruit_popped.name=爆裂紫颂果
 item.elytra.name=鞘翅

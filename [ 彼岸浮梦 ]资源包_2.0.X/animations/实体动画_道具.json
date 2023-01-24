@@ -1,0 +1,1157 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		//魔晶弹弓
+		"animation.hold_magic_bow": {
+			"loop": true,
+			"bones": {
+				"rightItem": {
+					"rotation": [
+						"context.is_first_person == 1 ? 25 : 0",
+						"context.is_first_person == 1 ? 60 : 0",
+						"context.is_first_person == 1 ? -15 : 0"
+					],
+					"position": [
+						"context.is_first_person == 1 ? -5 : 0",
+						0,
+						"context.is_first_person == 1 ? -5 : 0"
+					]
+				},
+				"core0": {
+					"scale": "query.is_sneaking != 1 ? 1 : 0"
+				},
+				"core1": {
+					"scale": "query.is_sneaking == 1 ? 1 : 0"
+				},
+				"DharmaArray_0": {
+					"rotation": [
+						0,
+						"query.is_sneaking != 1 ? (query.life_time * 100) : 0",
+						0
+					],
+					"scale": "query.is_sneaking != 1 ? 1 : 0"
+				},
+				"DharmaArray_1": {
+					"rotation": [
+						0,
+						"query.is_sneaking == 1 ? (query.life_time * 100) : 0",
+						0
+					],
+					"scale": "query.is_sneaking == 1 ? 1 : 0"
+				}
+			}
+		},
+		"animation.hold_use.magic_bow": {
+			"animation_length": 1.3,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [
+							-77.5,
+							-20.5,
+							-4.5
+						],
+						"0.6": [
+							-77.5,
+							-20.5,
+							-4.5
+						],
+						"1.0": [
+							-3.5,
+							40,
+							50
+						],
+						"1.3": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"rightItem": {
+					"rotation": {
+						"0.0": [
+							48.5,
+							-11.5,
+							-63
+						],
+						"0.3": [
+							48.5,
+							-11.5,
+							-63
+						],
+						"0.6": [
+							0,
+							0,
+							0
+						],
+						"1.0": [
+							0,
+							360,
+							0
+						]
+					},
+					"position": {
+						"0.0": [
+							-3,
+							-1,
+							-4
+						],
+						"0.3": [
+							-3,
+							-1,
+							-4
+						],
+						"0.6": [
+							0,
+							0,
+							0
+						]
+					},
+					"scale": {
+						"0.0": [
+							1.5,
+							1.5,
+							1.5
+						],
+						"0.3": [
+							1.5,
+							1.5,
+							1.5
+						],
+						"0.6": [
+							1,
+							1,
+							1
+						]
+					}
+				}
+			}
+		},
+		//准星道具
+		"animation.hold_dynamic_sight": {
+			"loop": true,
+			"bones": {
+				"sight": {
+					"rotation": [
+						0,
+						0,
+						"query.is_sneaking == 1 ? (query.life_time * 75) : 0"
+					],
+					"scale": "context.is_first_person == 1 ? (query.is_sneaking == 1 ? 0.55 : 0.75) : 0"
+				},
+				"default": {
+					"scale": "context.is_first_person == 1 ? (query.is_sneaking != 1 ? 1 : 0) : 0"
+				},
+				"Sneak": {
+					"scale": "context.is_first_person == 1 ? (query.is_sneaking == 1 ? 1 : 0) : 0"
+				},
+				"rightItem": {
+					"rotation": [
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 15 : 0"
+					],
+					"scale": 0.5
+				},
+				"instrument": {
+					"position": [
+						0,
+						0,
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 1.5) + 10 : (math.cos(query.life_time * 50) * 1.5) - 3"
+					]
+				}
+			}
+		},
+		"animation.hold_magic_pellet_sight": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"sight": {
+					"scale": "context.is_first_person == 1 ? 0.75 : 0"
+				},
+				"rightItem": {
+					"rotation": [
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 15 : 0"
+					],
+					"scale": 0.5
+				},
+				"instrument": {
+					"rotation": [
+						"query.life_time * 75",
+						0,
+						"query.life_time * 75"
+					],
+					"position": [
+						0,
+						0,
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 1.5) + 10 : (math.cos(query.life_time * 50) * 1.5) - 3"
+					],
+					"scale": {
+						"0.0": [
+							0.75,
+							0.75,
+							0.75
+						],
+						"1.0": [
+							0.5,
+							0.5,
+							0.5
+						],
+						"2.0": [
+							0.75,
+							0.75,
+							0.75
+						]
+					}
+				},
+				"block_0": {
+					"rotation": [
+						"query.life_time * 50",
+						0,
+						0
+					]
+				},
+				"block_1": {
+					"rotation": [
+						0,
+						"query.life_time * 50",
+						0
+					]
+				},
+				"block_2": {
+					"rotation": [
+						0,
+						0,
+						"query.life_time * 50"
+					]
+				},
+				"block_3": {
+					"rotation": [
+						"query.life_time * 50",
+						0,
+						"query.life_time * 50"
+					]
+				},
+				"block_4": {
+					"rotation": [
+						0,
+						"query.life_time * 50",
+						"query.life_time * 50"
+					]
+				}
+			}
+		},
+		//拟态矩阵
+		"animation.matrix_simulation.marker_block": {
+			"loop": true,
+			"bones": {
+				"rightItem": {
+					"rotation": [
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 15 : 0"
+					],
+					"position": [
+						"context.is_first_person == 1 ? -5 : 0",
+						0,
+						"context.is_first_person == 1 ? -3 : 7"
+					]
+				},
+				"instrument": {
+					"position": [
+						0,
+						0,
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 0.75) + 10 : (math.cos(query.life_time * 50) * 1.5) - 2.5"
+					]
+				},
+				"block": {
+					"rotation": [
+						"query.life_time * 50",
+						0,
+						0
+					]
+				},
+				"icon_pen": {
+					"rotation": [
+						0,
+						"math.cos(query.life_time * 350) * 3.0",
+						0
+					],
+					"position": [
+						0,
+						0,
+						"math.cos(query.life_time * 075) * 0.5"
+					]
+				}
+			}
+		},
+		"animation.matrix_simulation.mark_position": {
+			"loop": true,
+			"bones": {
+				"rightItem": {
+					"rotation": [
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 15 : 0"
+					],
+					"position": [
+						"context.is_first_person == 1 ? -5 : 0",
+						0,
+						"context.is_first_person == 1 ? -3 : 6"
+					]
+				},
+				"instrument": {
+					"position": [
+						0,
+						0,
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 0.75) + 10 : (math.cos(query.life_time * 50) * 1.5) - 2.5"
+					]
+				},
+				"block": {
+					"rotation": [
+						0,
+						"query.life_time * 75",
+						"math.cos(query.life_time * 150) * 15"
+					]
+				},
+				"icon": {
+					"position": [
+						0,
+						0,
+						"math.cos(query.life_time * 75) * 0.5"
+					]
+				},
+				"icon_line": {
+					"scale": [
+						"1 - (math.cos(query.life_time * 37.5) * 0.15)",
+						1,
+						1
+					]
+				}
+			}
+		},
+		"animation.matrix_simulation.debug_block": {
+			"loop": true,
+			"bones": {
+				"rightItem": {
+					"rotation": [
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 15 : 0"
+					],
+					"position": [
+						"context.is_first_person == 1 ? -5 : 0",
+						0,
+						"context.is_first_person == 1 ? -3 : 7"
+					]
+				},
+				"instrument": {
+					"position": [
+						0,
+						0,
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 0.75) + 10 : (math.cos(query.life_time * 50) * 1.5) - 2.5"
+					]
+				},
+				"block": {
+					"rotation": [
+						0,
+						0,
+						"query.life_time * 50"
+					]
+				},
+				"icon_pen": {
+					"rotation": [
+						0,
+						"query.life_time * 125",
+						0
+					],
+					"position": [
+						0,
+						0,
+						"math.cos(query.life_time * 075) * 0.75"
+					]
+				}
+			}
+		},
+		"animation.matrix_simulation.replace_block": {
+			"animation_length": 5,
+			"loop": true,
+			"bones": {
+				"rightItem": {
+					"rotation": [
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 15 : 0"
+					],
+					"position": [
+						"context.is_first_person == 1 ? -9 : 0",
+						0,
+						"context.is_first_person == 1 ? -7 : 3"
+					]
+				},
+				"instrument": {
+					"position": [
+						0,
+						0,
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 0.75) + 10 : (math.cos(query.life_time * 50) * 1.5) - 2.5"
+					],
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [0, 0, 0],
+						"1.5": [0, 180, 0],
+						"3.0": [0, 180, 0],
+						"3.5": [0, 360, 0]
+					}
+				},
+				"block_0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"5.0": [0, 0, 360]
+					}
+				},
+				"icon": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"5.0": [0, 360, 0]
+					}
+				},
+				"block_1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"5.0": [0, 0, -360]
+					}
+				}
+			}
+		},
+		"animation.matrix_simulation.structure_replication": {
+			"loop": true,
+			"bones": {
+				"rightItem": {
+					"rotation": [
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 15 : 0"
+					],
+					"position": [
+						"context.is_first_person == 1 ? -5 : 0",
+						0,
+						"context.is_first_person == 1 ? -3 : 7"
+					]
+				},
+				"instrument": {
+					"position": [
+						0,
+						0,
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 0.75) + 10 : (math.cos(query.life_time * 50) * 1.5) - 2.5"
+					]
+				},
+				"block": {
+					"rotation": [
+						"query.life_time * 50",
+						0,
+						"query.life_time * 50"
+					]
+				},
+				"icon_pen": {
+					"rotation": [
+						0,
+						"math.cos(query.life_time * 75) * 4.5",
+						0
+					],
+					"position": [
+						"0.5 + (math.cos(query.life_time * 75) * 0.5)",
+						0,
+						"math.cos(query.life_time * 75) * 0.5"
+					]
+				},
+				"icon_ruler": {
+					"position": [
+						"math.cos(query.life_time * 75) * 0.5",
+						0,
+						"math.cos(query.life_time * 45) * 0.3"
+					]
+				}
+			}
+		},
+		"animation.matrix_simulation.fill_block.icon": {
+			"loop": true,
+			"animation_length": 8,
+			"bones": {
+				"icon_1": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [-2, 0, 0],
+						"5.0": [-2, 0, 0],
+						"6.0": [0, 0, 0]
+					},
+					"scale": "query.is_sneaking == 0 ? 1 : 0"
+				},
+				"icon_2": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 0, 2],
+						"5.0": [0, 0, 2],
+						"5.75": [0, 0, 0]
+					}
+				},
+				"icon_3": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.75": [-2, 0, 2],
+						"5.0": [-2, 0, 2],
+						"5.5": [0, 0, 0]
+					},
+					"scale": "query.is_sneaking == 0 ? 1 : 0"
+				},
+				"icon_4": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.0": [-4, 0, 0],
+						"5.0": [-4, 0, 0],
+						"5.25": [0, 0, 0]
+					}
+				},
+				"icon_5": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.25": [0, 0, 4],
+						"5.0": [0, 0, 4],
+						"5.25": [0, 0, 0]
+					},
+					"scale": "query.is_sneaking == 0 ? 1 : 0"
+				},
+				"icon_6": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.5": [-2, 0, 4],
+						"5.0": [-2, 0, 4],
+						"5.5": [0, 0, 0]
+					}
+				},
+				"icon_7": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.75": [-4, 0, 2],
+						"5.0": [-4, 0, 2],
+						"5.75": [0, 0, 0]
+					},
+					"scale": "query.is_sneaking == 0 ? 1 : 0"
+				},
+				"icon_8": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"2.0": [-4, 0, 4],
+						"5.0": [-4, 0, 4],
+						"6.0": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.matrix_simulation.fill_block.block": {
+			"loop": true,
+			"animation_length": 3,
+			"bones": {
+				"rightItem": {
+					"rotation": [
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 45 : 0",
+						"context.is_first_person == 1 ? 15 : 0"
+					],
+					"position": [
+						"context.is_first_person == 1 ? -5 : 0",
+						0,
+						"context.is_first_person == 1 ? -3 : 7"
+					]
+				},
+				"instrument": {
+					"position": [
+						0,
+						0,
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 50) * 0.75) + 10 : (math.cos(query.life_time * 50) * 1.5) - 2.5"
+					]
+				},
+				"block": {
+					"rotation": {
+						"0.5": [0, 0, 0],
+						"1.0": [90, 0, 0],
+						"1.5": [90, 0, 0],
+						"2.0": [90, 90, 0],
+						"2.5": [90, 90, 0],
+						"3.0": [90, 90, 90]
+					}
+				}
+			}
+		},
+		//匣里乾坤
+		"animation.hold_box.open": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"box_top": {
+					"rotation": {
+						"0.3": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							-90,
+							0,
+							0
+						]
+					}
+				},
+				"hasp": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.2": [
+							0,
+							0,
+							90
+						]
+					},
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.2": [
+							-0.15,
+							1.65,
+							0
+						]
+					}
+				},
+				"world": {
+					"position": {
+						"0.0": [
+							0,
+							1,
+							0
+						],
+						"0.5": [
+							0,
+							-0.5,
+							0
+						]
+					},
+					"scale": {
+						"0.0": [
+							0.5,
+							0.5,
+							0.5
+						],
+						"0.5": [
+							1.15,
+							0.5,
+							1.15
+						]
+					}
+				}
+			}
+		},
+		"animation.hold_box.close": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"box_top": {
+					"rotation": {
+						"0.0": [
+							-90,
+							0,
+							0
+						],
+						"0.2": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"hasp": {
+					"rotation": {
+						"0.2": [
+							0,
+							0,
+							90
+						],
+						"0.4": [
+							0,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.2": [
+							-0.15,
+							1.65,
+							0
+						],
+						"0.4": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"world": {
+					"position": [
+						0,
+						-0.5,
+						0
+					],
+					"scale": [
+						1,
+						0.5,
+						1
+					]
+				}
+			}
+		},
+		"animation.hold_box.float": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"box": {
+					"rotation": [
+						"context.is_first_person == 1 ? -125 : 0",
+						"context.is_first_person == 1 ? 50 : 0",
+						"context.is_first_person == 1 ? 0 : 0"
+					],
+					"position": [
+						0,
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 25) * 0.5) - 5 : (math.cos(query.life_time * 25) * 0.5)",
+						"context.is_first_person == 1 ? (math.cos(query.life_time * 25) * 1.5) + 10 : (math.cos(query.life_time * 25) * 1.5)"
+					]
+				},
+				"world": {
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							0,
+							0.1,
+							0
+						],
+						"1.0": [
+							0,
+							0,
+							0
+						],
+						"1.5": [
+							0,
+							-0.1,
+							0
+						],
+						"2.0": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		},
+		//魔导书籍
+		"animation.hold_book.open_book": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"book_L": {
+					"rotation": {
+						"0.2": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							0,
+							-75,
+							0
+						]
+					}
+				},
+				"book_R": {
+					"rotation": {
+						"0.2": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							0,
+							75,
+							0
+						]
+					}
+				},
+				"book_Z": {
+					"position": {
+						"0.2": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							0,
+							0,
+							0.9
+						]
+					},
+					"scale": {
+						"0.2": [
+							1,
+							1,
+							1
+						],
+						"0.5": [
+							0.95,
+							1,
+							2
+						]
+					}
+				},
+				"book_X": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.2": [
+							0,
+							-75,
+							0
+						]
+					}
+				},
+				"book": {
+					"scale": 1.35
+				}
+			}
+		},
+		"animation.hold_book.close_book": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"book_L": {
+					"rotation": {
+						"0.0": [
+							0,
+							-75,
+							0
+						],
+						"0.2": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"book_R": {
+					"rotation": {
+						"0.0": [
+							0,
+							75,
+							0
+						],
+						"0.2": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"book_Z": {
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0.9
+						],
+						"0.2": [
+							0,
+							0,
+							0
+						]
+					},
+					"scale": {
+						"0.0": [
+							1,
+							1,
+							2
+						],
+						"0.2": [
+							1,
+							1,
+							1
+						]
+					}
+				},
+				"book_X": {
+					"rotation": {
+						"0.2": [
+							0,
+							-75,
+							0
+						],
+						"0.5": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"book": {
+					"scale": 1.35
+				}
+			}
+		},
+		"animation.hold_book.book_float": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"book": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							1,
+							0,
+							0
+						],
+						"1.0": [
+							0,
+							0,
+							0
+						],
+						"1.5": [
+							-1,
+							0,
+							0
+						],
+						"2.0": [
+							0,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							0,
+							0.1,
+							0
+						],
+						"1.0": [
+							0,
+							0,
+							0
+						],
+						"1.5": [
+							0,
+							-0.1,
+							0
+						],
+						"2.0": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"book_L": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							0,
+							1,
+							0
+						],
+						"1.0": [
+							0,
+							0,
+							0
+						],
+						"1.5": [
+							0,
+							-1,
+							0
+						],
+						"2.0": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"book_R": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							0,
+							1,
+							0
+						],
+						"1.0": [
+							0,
+							0,
+							0
+						],
+						"1.5": [
+							0,
+							1,
+							0
+						],
+						"2.0": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		},
+		"animation.hold_book.page_flip_1": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"Page_1": {
+					"rotation": {
+						"0.3": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							0,
+							145,
+							0
+						]
+					}
+				}
+			}
+		},
+		"animation.hold_book.page_flip_2": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.6,
+			"bones": {
+				"Page_1": {
+					"rotation": {
+						"0.3": [
+							0,
+							0,
+							0
+						],
+						"0.5": [
+							0,
+							150,
+							0
+						]
+					}
+				},
+				"Page_2": {
+					"rotation": {
+						"0.4": [
+							0,
+							0,
+							0
+						],
+						"0.6": [
+							0,
+							145,
+							0
+						]
+					}
+				}
+			}
+		},
+		//其他类
+		"animation.hold_use.shield": {
+			"animation_length": 1,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [
+							-65,
+							23,
+							10
+						],
+						"0.3": [
+							-65,
+							23,
+							10
+						],
+						"0.6": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"leftItem": {
+					"rotation": {
+						"0.0": [
+							0,
+							22.5,
+							65
+						],
+						"0.3": [
+							0,
+							22.5,
+							65
+						],
+						"0.6": [
+							0,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0": [
+							-1,
+							-4,
+							0
+						],
+						"0.3": [
+							-1,
+							-4,
+							0
+						],
+						"0.6": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		}
+	}
+}

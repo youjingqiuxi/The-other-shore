@@ -17,4 +17,4 @@ execute if block ~~~ mangrove_leaves run fill ~~~ ~~~ air 0 destroy
 execute if block ~~~ azalea_leaves_flowered run fill ~~~ ~~~ air 0 destroy
 
 #效果
-particle 闪烁粒子:叶绿 ~~~
+particle 闪烁粒子:森绿 ~~~

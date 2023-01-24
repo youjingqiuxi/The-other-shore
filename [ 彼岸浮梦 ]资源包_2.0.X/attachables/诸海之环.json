@@ -12,7 +12,7 @@
 				"default": "textures/armor/诸海之环"
 			},
 			"geometry": {
-				"default": "geometry.dog_hoof_armor"
+				"default": "geometry.the_seas_band_armor"
 			},
 			"scripts": {
 				"parent_setup": "variable.boot_layer_visible = 0.0;"

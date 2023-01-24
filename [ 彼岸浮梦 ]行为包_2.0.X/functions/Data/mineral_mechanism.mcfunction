@@ -40,4 +40,4 @@ execute as @s [scores={OP=52}] run setblock ~~~ copper_ore
 scoreboard players set @s OP 1024
 
 #销毁
-event entity @s[scores={OP=00..52}] 事件:闪烁退场
+event entity @s[scores={OP=00..52}] 闪烁退场

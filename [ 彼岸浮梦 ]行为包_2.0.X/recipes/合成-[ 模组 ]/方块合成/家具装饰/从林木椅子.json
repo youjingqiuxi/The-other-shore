@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.block.wooden_chair"
@@ -14,15 +14,14 @@
         ],
         "key": {
             "D": {
-                "item": "carpet"
+                "item": "minecraft:carpet"
             },
             "M": {
-                "item": "planks"
+                "tag": "minecraft:planks"
             },
             "Z": {
-                "item": "fence"
+                "item": "minecraft:fence"
             }
-        
         },
         "result": {
             "item": "装饰类:基础椅子",

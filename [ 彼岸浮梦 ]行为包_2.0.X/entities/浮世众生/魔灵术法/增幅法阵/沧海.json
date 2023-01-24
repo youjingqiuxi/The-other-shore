@@ -1,0 +1,343 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "增幅法阵:沧海",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "准备": {
+                "minecraft:timer": {
+                    "time": 1,
+                    "time_down_event": {
+                        "event": "展开施法",
+                        "target": "self"
+                    }
+                }
+            },
+            "进攻": {
+                "minecraft:angry": {
+                    "duration": 2,
+                    "broadcast_anger": true,
+                    "broadcast_range": 64,
+                    "broadcast_targets": [
+                        "ocean"
+                    ],
+                    "broadcast_filters": {
+                        "test": "is_visible",
+                        "subject": "other",
+                        "value": true
+                    },
+                    "calm_event": {
+                        "event": "放弃进攻",
+                        "target": "self"
+                    }
+                }
+            },
+            "缩小": {
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.5,
+                    "end_scale": 0.0
+                },
+                "minecraft:ageable": {
+                    "duration": 1,
+                    "grow_up": {
+                        "event": "实体消失",
+                        "target": "self"
+                    }
+                }
+            },
+            "消失": {
+                "minecraft:scale": {
+                    "value": 0.0
+                },
+                "minecraft:instant_despawn": {
+					"remove_child_entities": true
+				}
+            }
+        },
+        "components": {
+            //基础属性
+            "minecraft:type_family": {
+                "family": [
+                    "spirit",
+                    "ocean"
+                ]
+            },
+            "minecraft:health": {
+                "value": 100
+            },
+            "minecraft:scale": {
+                "value": 0.5
+            },
+            "minecraft:flying_speed": {
+                "value": 0.0
+            },
+            "minecraft:collision_box": {
+                "width": 0.1,
+                "height": 0.1
+            },
+            //行为控制
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 4,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "monster"
+                                }
+                            ]
+                        },
+                        "within_default": 32
+                    }
+                ],
+                "must_reach": true,
+                "must_see": true
+            },
+            //附加定义
+            "minecraft:on_target_acquired": {
+                "event": "发现目标",
+                "target": "self"
+            },
+            "minecraft:navigation.hover": {
+                "can_path_from_air": true,
+                "is_amphibious": true,
+                "can_swim": true,
+                "can_sink": true
+            },
+            "minecraft:ageable": {
+                "duration": 14,
+                "grow_up": {
+                    "event": "水母缩小",
+                    "target": "self"
+                }
+            },
+            "minecraft:breathable": {
+                "totalSupply": 10,
+                "suffocateTime": 0,
+                "breathes_air": true,
+                "breathes_lava": true,
+                "breathes_water": true,
+                "breathes_solids": true
+            },
+            //物理效果
+            "minecraft:pushable": {
+                "is_pushable_by_piston": true,
+                "is_pushable": true
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            //基础组件
+            "minecraft:fire_immune": true,
+            "minecraft:is_stackable": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "战斗"
+                    ]
+                }
+            },
+            "发现目标": {
+                "add": {
+                    "component_groups": [
+                        "准备"
+                    ]
+                }
+            },
+            "展开施法": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "battle_stage_1"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 数值显示:闪烁效果_1 ~ ~1.75 ~",
+                                "summon 制导飞弹:幻海 ~~~ LV.1",
+                                "tag @s add battle_stage_1"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_1"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "battle_stage_2"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 数值显示:闪烁效果_2 ~ ~1.75 ~",
+                                "summon 制导飞弹:幻海 ~~0~ LV.2",
+                                "summon 制导飞弹:幻海 ~~1~ LV.2",
+                                "tag @s add battle_stage_2"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_1"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_2"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "battle_stage_3"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 数值显示:闪烁效果_3 ~ ~1.75 ~",
+                                "summon 制导飞弹:幻海 ~1~~ LV.3",
+                                "summon 制导飞弹:幻海 ~~1~ LV.3",
+                                "summon 制导飞弹:幻海 ~~~1 LV.3",
+                                "tag @s add battle_stage_3"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_1"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_2"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_3"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "!=",
+                                    "value": "battle_stage_4"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 数值显示:闪烁效果_4 ~ ~1.75 ~",
+                                "summon 制导飞弹:幻海 ~1~~ LV.4",
+                                "summon 制导飞弹:幻海 ~~~1 LV.4",
+                                "summon 制导飞弹:幻海 ~~0~ LV.4",
+                                "summon 制导飞弹:幻海 ~~1~ LV.4",
+                                "tag @s add battle_stage_4"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_1"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_2"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_3"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "==",
+                                    "value": "battle_stage_4"
+                                }
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "particle 数值显示:闪烁效果_5 ~ ~1.75 ~",
+                                "summon 制导飞弹:幻海 ~1~~ LV.5",
+                                "summon 制导飞弹:幻海 ~~1~ LV.5",
+                                "summon 制导飞弹:幻海 ~~~1 LV.5",
+                                "summon 制导飞弹:幻海 ~~0~ LV.5",
+                                "summon 制导飞弹:幻海 ~~2~ LV.5",
+                                "tag @s remove battle_stage_1",
+                                "tag @s remove battle_stage_2",
+                                "tag @s remove battle_stage_3",
+                                "tag @s remove battle_stage_4"
+                            ]
+                        }
+                    },
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "准备"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "进攻"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "放弃进攻": {
+                "remove": {
+                    "component_groups": [
+                        "进攻"
+                    ]
+                }
+            },
+            "水母缩小": {
+                "add": {
+                    "component_groups": [
+                        "缩小"
+                    ]
+                }
+            },
+            "实体消失": {
+                "add": {
+                    "component_groups": [
+                        "消失"
+                    ]
+                }
+            }
+        }
+    }
+}

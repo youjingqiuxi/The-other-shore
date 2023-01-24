@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "魔导总线:灯光侦测",
@@ -12,7 +12,8 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.button_bus",
+            "minecraft:geometry": "geometry.magic_bus.button_bus",
+            "minecraft:display_name": "§6< §9魔导总线§r _ §l§e灯光侦测§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": false,
             "minecraft:light_dampening": 0,
@@ -64,10 +65,6 @@
                     "panel_5": "query.block_property('Table:switch') != 2"
                 }
             },
-			"minecraft:creative_category": {
-				"category": "items",
-				"group": "itemGroup.name.anvil"
-			},
             "minecraft:material_instances": {
                 "*": {
                     "texture": "魔导总线_总线本体.蓝色",
@@ -111,7 +108,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:脉冲结束",
+                            "event": "脉冲结束",
                             "target": "self"
                         }
                     },
@@ -130,7 +127,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:灯光侦测",
+                            "event": "灯光侦测",
                             "target": "self"
                         }
                     }
@@ -138,7 +135,7 @@
             }
         ],
         "events": {
-            "事件:脉冲结束": {
+            "脉冲结束": {
                 "sequence": [
                     {
                         "run_command": {
@@ -152,7 +149,7 @@
                     }
                 ]
             },
-            "事件:灯光侦测": {
+            "灯光侦测": {
                 "sequence": [
                     {
                         "run_command": {

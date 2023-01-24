@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "伺服机关:伺服基座",
@@ -29,6 +29,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.servo_mechanism.servo_base",
+            "minecraft:display_name": "§6< §9伺服机关§r _ §l§e伺服基座§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 0,
             "minecraft:light_dampening": 0,
@@ -36,9 +37,6 @@
                 "seconds_to_destroy": 1.0
             },
             "minecraft:friction": 0.5,
-            "minecraft:creative_category": {
-                "category": "construction"
-            },
             "minecraft:part_visibility": {
                 "conditions": {
                     "value_0": "query.block_property('Table:value') == 0",
@@ -56,10 +54,10 @@
                 }
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:collision_box": {
                 "origin": [
@@ -138,7 +136,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:状态判定",
+                            "event": "状态判定",
                             "target": "self"
                         }
                     }
@@ -154,7 +152,7 @@
                             5
                         ],
                         "on_tick": {
-                            "event": "事件:使能判定",
+                            "event": "使能判定",
                             "target": "self"
                         }
                     }
@@ -162,12 +160,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "query.cardinal_facing_2d"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
@@ -192,7 +190,7 @@
                     }
                 ]
             },
-            "事件:状态判定": {
+            "状态判定": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 && query.block_neighbor_has_all_tags(1,-1,0,'Magic_Bus_Series') == 1 && query.block_neighbor_has_all_tags(1,0,0,'MagicBus_servo_base') == 0",
@@ -220,13 +218,13 @@
                     },
                     {
                         "trigger": {
-                            "event": "事件:修改参数",
+                            "event": "修改参数",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:修改参数": {
+            "修改参数": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'carrier_base_set:0') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'carrier_base_set:0') == 1 || query.block_neighbor_has_all_tags(0,0,1,'carrier_base_set:0') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'carrier_base_set:0') == 1",
@@ -266,7 +264,7 @@
                     }
                 ]
             },
-            "事件:使能判定": {
+            "使能判定": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 1",
@@ -274,7 +272,7 @@
                             "Table:switch": 0
                         },
                         "trigger": {
-                            "event": "事件:使能判定_X+",
+                            "event": "使能判定_X+",
                             "target": "self"
                         }
                     },
@@ -284,7 +282,7 @@
                             "Table:switch": 0
                         },
                         "trigger": {
-                            "event": "事件:使能判定_X-",
+                            "event": "使能判定_X-",
                             "target": "self"
                         }
                     },
@@ -294,7 +292,7 @@
                             "Table:switch": 0
                         },
                         "trigger": {
-                            "event": "事件:使能判定_Z+",
+                            "event": "使能判定_Z+",
                             "target": "self"
                         }
                     },
@@ -304,13 +302,13 @@
                             "Table:switch": 0
                         },
                         "trigger": {
-                            "event": "事件:使能判定_Z-",
+                            "event": "使能判定_Z-",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:使能判定_X+": {
+            "使能判定_X+": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:value') == 0",
@@ -374,7 +372,7 @@
                     }
                 ]
             },
-            "事件:使能判定_X-": {
+            "使能判定_X-": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:value') == 0",
@@ -438,7 +436,7 @@
                     }
                 ]
             },
-            "事件:使能判定_Z+": {
+            "使能判定_Z+": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:value') == 0",
@@ -502,7 +500,7 @@
                     }
                 ]
             },
-            "事件:使能判定_Z-": {
+            "使能判定_Z-": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:value') == 0",

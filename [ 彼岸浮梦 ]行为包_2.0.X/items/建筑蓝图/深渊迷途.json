@@ -6,7 +6,9 @@
             "category": "items"
         },
         "components": {
-            "minecraft:can_destroy_in_creative": false,
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": false,
             "minecraft:max_stack_size": 1,
@@ -16,9 +18,6 @@
             },
             "minecraft:display_name": {
                 "value": "§6{|§9 建筑蓝图 §6-§4 深渊迷途 §6|}§r"
-            },
-            "minecraft:creative_category": {
-                "parent": "items"
             },
             "minecraft:render_offsets": {
                 "main_hand": {

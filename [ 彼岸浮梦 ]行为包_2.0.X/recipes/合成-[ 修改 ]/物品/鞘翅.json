@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "MC.item.elytra"
@@ -14,17 +14,17 @@
         ],
         "key": {
             "P": {
-                "item": "leather"
+                "item": "minecraft:leather"
             },
             "H": {
-                "item": "phantom_membrane"
+                "item": "minecraft:phantom_membrane"
             },
             "M": {
-                "item": "experience_bottle"
+                "item": "minecraft:experience_bottle"
             }
         },
         "result": {
-            "item": "elytra"
+            "item": "minecraft:elytra"
         }
     }
 }

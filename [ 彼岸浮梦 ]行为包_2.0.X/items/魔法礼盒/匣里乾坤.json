@@ -3,17 +3,17 @@
     "minecraft:item": {
         "description": {
             "identifier": "魔法礼盒:匣里乾坤",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:icon": {
                 "texture": "匣里乾坤"
             },
             "minecraft:display_name": {
                 "value": "§l§6< 匣里乾坤 >§r"
-            },
-            "minecraft:creative_category": {
-                "parent": "equipment"
             },
             "minecraft:cooldown": {
                 "category": "特殊道具",
@@ -25,7 +25,6 @@
                     "target": "self"
                 }
             },
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,

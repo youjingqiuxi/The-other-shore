@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "装饰类:基础桌子",
@@ -32,15 +32,13 @@
         },
         "components": {
             "minecraft:geometry": "geometry.decorate_block.table",
+            "minecraft:display_name": "§b|§6 闪长岩桌子 §b|§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
             "minecraft:light_emission": 0,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:material_instances": {
                 "*": {
@@ -70,12 +68,12 @@
                     4
                 ],
                 "on_tick": {
-                    "event": "事件:状态侦测",
+                    "event": "状态侦测",
                     "target": "self"
                 }
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:collision_box": {
                 "origin": [
@@ -159,12 +157,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:device') == 0 && [ query.block_neighbor_has_all_tags(0,1,0,'block_Table') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'block_Table') == 1 ]",

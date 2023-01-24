@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "制造台:魔术溶媒",
@@ -24,14 +24,12 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.take_apart",
+            "minecraft:geometry": "geometry.crafting_table.take_apart",
+            "minecraft:display_name": "§b<|§6 魔术溶媒终端 §b|>§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 5,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:material_instances": {
                 "*": {
@@ -76,12 +74,11 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
-            },
-            "tag:Rite_Make_Table": {}
+                "event": "进行交互"
+            }
         },
         "permutations": [
             {
@@ -126,12 +123,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法药剂:纯化还原') == 0 && query.block_property('Table:fluid') != 0",
@@ -141,7 +138,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:纯化还原",
+                            "event": "纯化还原",
                             "target": "self"
                         }
                     },
@@ -169,65 +166,65 @@
                     }
                 ]
             },
-            "事件:纯化还原": {
+            "纯化还原": {
                 "sequence": [
                     {
                         "trigger": {
-                            "event": "事件:分解<手斧>",
+                            "event": "分解<手斧>",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:分解<矿镐>",
+                            "event": "分解<矿镐>",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:分解<手锹>",
+                            "event": "分解<手锹>",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:分解<农锄>",
+                            "event": "分解<农锄>",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:分解<轻剑>",
+                            "event": "分解<轻剑>",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:分解<头盔>",
+                            "event": "分解<头盔>",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:分解<胸甲>",
+                            "event": "分解<胸甲>",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:分解<护腿>",
+                            "event": "分解<护腿>",
                             "target": "self"
                         }
                     },
                     {
                         "trigger": {
-                            "event": "事件:分解<靴子>",
+                            "event": "分解<靴子>",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:分解<手斧>": {
+            "分解<手斧>": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:diamond_axe') == 1",
@@ -237,7 +234,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -249,7 +246,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -261,7 +258,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -274,13 +271,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:分解<矿镐>": {
+            "分解<矿镐>": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:diamond_pickaxe') == 1",
@@ -290,7 +287,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -302,7 +299,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -314,7 +311,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -327,13 +324,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:分解<手锹>": {
+            "分解<手锹>": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:diamond_shovel') == 1",
@@ -343,7 +340,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -355,7 +352,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -367,7 +364,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -380,13 +377,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:分解<农锄>": {
+            "分解<农锄>": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:diamond_hoe') == 1",
@@ -396,7 +393,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -408,7 +405,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -420,7 +417,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -433,13 +430,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:分解<轻剑>": {
+            "分解<轻剑>": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:diamond_sword') == 1",
@@ -449,7 +446,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -461,7 +458,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -473,7 +470,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -486,13 +483,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:分解<头盔>": {
+            "分解<头盔>": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:diamond_helmet') == 1",
@@ -502,7 +499,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -514,7 +511,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -526,7 +523,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -538,7 +535,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -551,13 +548,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:分解<胸甲>": {
+            "分解<胸甲>": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:diamond_chestplate') == 1",
@@ -567,7 +564,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -579,7 +576,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -591,7 +588,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -603,7 +600,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -616,13 +613,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:分解<护腿>": {
+            "分解<护腿>": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:diamond_leggings') == 1",
@@ -632,7 +629,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -644,7 +641,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -656,7 +653,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -668,7 +665,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -681,13 +678,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:分解<靴子>": {
+            "分解<靴子>": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:diamond_boots') == 1",
@@ -697,7 +694,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -709,7 +706,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -721,7 +718,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -733,7 +730,7 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     },
@@ -746,13 +743,13 @@
                             ]
                         },
                         "trigger": {
-                            "event": "事件:消耗药剂",
+                            "event": "消耗药剂",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:消耗药剂": {
+            "消耗药剂": {
                 "sequence": [
                     {
                         "set_block_property": {

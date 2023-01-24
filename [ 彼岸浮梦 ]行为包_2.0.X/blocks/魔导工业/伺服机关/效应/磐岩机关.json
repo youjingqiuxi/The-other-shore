@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "伺服机关:磐岩机关",
@@ -29,6 +29,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.servo_mechanism.stone_mechanism",
+            "minecraft:display_name": "§6< §9伺服机关§r _ §l§c磐岩机关§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
@@ -39,9 +40,6 @@
                     "texture": "魔导总线_效应基座",
                     "render_method": "alpha_test"
                 }
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:part_visibility": {
                 "conditions": {
@@ -74,7 +72,7 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "tag:Magic_Bus_Series": {}
         },
@@ -89,7 +87,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:状态侦测",
+                            "event": "状态侦测",
                             "target": "self"
                         }
                     }
@@ -105,7 +103,7 @@
                             5
                         ],
                         "on_tick": {
-                            "event": "事件:功能运行",
+                            "event": "功能运行",
                             "target": "self"
                         }
                     }
@@ -125,7 +123,7 @@
             }
         ],
         "events": {
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:magma') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:lava_bucket') == 1",
@@ -142,7 +140,7 @@
                     }
                 ]
             },
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_energy') == 1",
@@ -159,7 +157,7 @@
                     }
                 ]
             },
-            "事件:功能运行": {
+            "功能运行": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:state') == 1",

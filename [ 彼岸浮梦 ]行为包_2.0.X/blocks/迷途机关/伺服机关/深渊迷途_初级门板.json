@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "深渊迷途:初级_机关门",
@@ -19,6 +19,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.door_block.mechanism_door",
+            "minecraft:display_name": "§6< 初级门板 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": false,
             "minecraft:light_dampening": 0,
@@ -29,9 +30,6 @@
                     "texture": "特殊机关门",
                     "render_method": "alpha_test"
                 }
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:part_visibility": {
                 "conditions": {
@@ -64,12 +62,12 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
-            "tag:level1_mechanism_door":{}
+            "tag:level1_mechanism_door": {}
         },
         "permutations": [
             {
@@ -82,7 +80,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:进行侦测",
+                            "event": "进行侦测",
                             "target": "self"
                         }
                     }
@@ -98,7 +96,7 @@
                             10
                         ],
                         "on_tick": {
-                            "event": "事件:拆除门板",
+                            "event": "拆除门板",
                             "target": "self"
                         }
                     },
@@ -147,13 +145,13 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)",
                     "Table:switch": 0
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",
@@ -199,7 +197,7 @@
                     }
                 ]
             },
-            "事件:进行侦测": {
+            "进行侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1",
@@ -234,7 +232,6 @@
                             ]
                         }
                     },
-
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(1,-1,0,'Magic_Bus_open') == 1",
                         "set_block_property": {
@@ -257,7 +254,6 @@
                             ]
                         }
                     },
-
                     {
                         "condition": "query.block_neighbor_has_all_tags(-1,1,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,-1,0,'Magic_Bus_open') == 1",
                         "set_block_property": {
@@ -282,7 +278,7 @@
                     }
                 ]
             },
-            "事件:拆除门板": {
+            "拆除门板": {
                 "run_command": {
                     "command": [
                         "playsound block.grindstone.use @a[r=15] ~~~",

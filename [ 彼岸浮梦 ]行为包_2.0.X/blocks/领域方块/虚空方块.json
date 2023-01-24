@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "领域石:虚空方块",
@@ -24,6 +24,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.basic_block3",
+            "minecraft:display_name": "§b虚空之方块§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": false,
             "minecraft:light_dampening": 0,
@@ -48,10 +49,6 @@
                     "value_9": "query.block_property('Table:value') == 9"
                 }
             },
-			"minecraft:creative_category": {
-				"category": "items",
-				"group": "itemGroup.name.anvil"
-			},
             "minecraft:collision_box": {
                 "origin": [
                     -8,
@@ -83,14 +80,14 @@
                     20
                 ],
                 "on_tick": {
-                    "event": "事件:倒计时",
+                    "event": "倒计时",
                     "target": "self"
                 }
             },
             "tag:void_block": {}
         },
         "events": {
-            "事件:倒计时": {
+            "倒计时": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0",
@@ -113,7 +110,7 @@
                     {
                         "condition": "query.block_property('Table:switch') == 1 && query.block_property('Table:value') == 1",
                         "trigger": {
-                            "event": "事件:方块销毁",
+                            "event": "方块销毁",
                             "target": "self"
                         },
                         "run_command": {
@@ -124,7 +121,7 @@
                     }
                 ]
             },
-            "事件:方块销毁": {
+            "方块销毁": {
                 "sequence": [
                     {
                         "set_block": {

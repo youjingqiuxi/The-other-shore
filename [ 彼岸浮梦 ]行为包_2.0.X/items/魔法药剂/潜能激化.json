@@ -3,10 +3,12 @@
     "minecraft:item": {
         "description": {
             "identifier": "魔法药剂:潜能激化",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
-            "minecraft:can_destroy_in_creative": false,
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": false,
             "minecraft:max_stack_size": 1,
@@ -16,9 +18,6 @@
             },
             "minecraft:display_name": {
                 "value": "§6 炼金药水 - 潜能激化 §r"
-            },
-            "minecraft:creative_category": {
-                "parent": "equipment"
             },
             "minecraft:on_use": {
                 "on_use": {

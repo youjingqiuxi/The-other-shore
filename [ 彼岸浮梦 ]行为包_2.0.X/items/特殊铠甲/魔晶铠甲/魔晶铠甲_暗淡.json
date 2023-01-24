@@ -3,14 +3,14 @@
     "minecraft:item": {
         "description": {
             "identifier": "特殊铠甲:魔晶铠甲_暗淡",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:knockback_resistance": {
                 "protection": 0.3
-            },
-            "minecraft:creative_category": {
-                "parent": "itemGroup.name.leggings"
             },
             "minecraft:render_offsets": {
                 "main_hand": {
@@ -84,7 +84,6 @@
             "minecraft:icon": {
                 "texture": "魔晶铠甲_LV:3"
             },
-            "minecraft:can_destroy_in_creative": false,
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1

@@ -1,0 +1,159 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+		"controller.animation.Data.Train_Death": {
+			"initial_state": "list",
+			"states": {
+				"list": {
+					"transitions": [
+						{
+							"buffer": "query.is_riding"
+						}
+					]
+				},
+				"buffer": {
+					"transitions": [
+						{
+							"destroy": "!query.is_riding"
+						}
+					]
+				},
+				"destroy": {
+					"on_entry": [
+						"/kill @s"
+					]
+				}
+			}
+		},
+        "controller.animation.Data.Basics_Death": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "death": "query.health == 0"
+                        }
+                    ]
+                },
+                "death": {
+                    "on_entry": [
+                        "/particle minecraft:knockback_roar_particle ~~~"
+                    ]
+                }
+            }
+        },
+        "controller.animation.Data.Particle_Trail": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "00": "query.variant == 0 && query.has_target"
+                        },
+                        {
+                            "01": "query.variant == 1 && query.has_target"
+                        },
+                        {
+                            "02": "query.variant == 2 && query.has_target"
+                        },
+                        {
+                            "03": "query.variant == 3 && query.has_target"
+                        },
+                        {
+                            "04": "query.variant == 4"
+                        },
+                        {
+                            "09": "query.variant == 9"
+                        }
+                    ]
+                },
+                "00": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:靛蓝 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "01": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:纯白 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "02": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:森绿 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "03": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:赤焰 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "04": {
+                    "on_entry": [
+                        "/function BulletEffect/main_0"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "09": {
+                    "on_entry": [
+                        "/particle 闪烁粒子:森绿 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.Data.WildBee_Explosion": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "death_0": "query.mark_variant != 4 && query.health <= 1"
+                        },
+                        {
+                            "death_1": "query.mark_variant == 4 && query.health <= 1"
+                        }
+                    ]
+                },
+                "death_0": {
+                    "on_entry": [
+                        "/particle minecraft:knockback_roar_particle ~~~"
+                    ]
+                },
+                "death_1": {
+                    "on_entry": [
+                        "/execute as @e [r=32,family=wild_bee] run particle minecraft:knockback_roar_particle ~~~",
+                        "/kill @e[r=32,family=wild_bee]"
+                    ]
+                }
+            }
+        }
+    }
+}

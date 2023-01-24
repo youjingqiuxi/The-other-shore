@@ -12,36 +12,6 @@
                                     "quantity": 1
                                 },
                                 {
-                                    "item": "gunpowder",
-                                    "quantity": 1
-                                }
-                            ],
-                            "gives": [
-                                {
-                                    "item": "spawn_egg",
-                                    "functions": [
-                                        {
-                                            "function": "set_actor_id",
-                                            "id": "工具组:凝滞"
-                                        }
-                                    ],
-                                    "quantity": 1
-                                }
-                            ],
-                            "max_uses": 16
-                        }
-                    ]
-                },
-                {
-                    "num_to_select": 1,
-                    "trades": [
-                        {
-                            "wants": [
-                                {
-                                    "item": "特制模板:空灵单元",
-                                    "quantity": 1
-                                },
-                                {
                                     "item": "crafting_table",
                                     "quantity": 1
                                 }
@@ -53,36 +23,6 @@
                                 }
                             ],
                             "max_uses": 4
-                        }
-                    ]
-                },
-                {
-                    "num_to_select": 1,
-                    "trades": [
-                        {
-                            "wants": [
-                                {
-                                    "item": "特制模板:空灵单元",
-                                    "quantity": 1
-                                },
-                                {
-                                    "item": "魔法书籍:瞬间移动",
-                                    "quantity": 1
-                                }
-                            ],
-                            "gives": [
-                                {
-                                    "item": "spawn_egg",
-                                    "functions": [
-                                        {
-                                            "function": "set_actor_id",
-                                            "id": "执行器:区块"
-                                        }
-                                    ],
-                                    "quantity": 1
-                                }
-                            ],
-                            "max_uses": 1
                         }
                     ]
                 },

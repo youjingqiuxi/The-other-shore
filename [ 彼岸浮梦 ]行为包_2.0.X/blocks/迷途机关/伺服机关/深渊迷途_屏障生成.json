@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "深渊迷途:屏障生成",
@@ -13,6 +13,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.basic_block0",
+            "minecraft:display_name": "§6< 屏障生成 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": false,
             "minecraft:light_dampening": 0,
@@ -23,9 +24,6 @@
                     "texture": "深渊迷途_屏障生成",
                     "render_method": "alpha_test"
                 }
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:collision_box": {
                 "origin": [
@@ -52,10 +50,10 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             }
         },
         "permutations": [
@@ -69,7 +67,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:进行侦测",
+                            "event": "进行侦测",
                             "target": "self"
                         }
                     }
@@ -85,7 +83,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:方块枯竭",
+                            "event": "方块枯竭",
                             "target": "self"
                         }
                     },
@@ -94,12 +92,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:switch": 0
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:switch') == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
@@ -116,7 +114,7 @@
                     }
                 ]
             },
-            "事件:进行侦测": {
+            "进行侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_open') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_open') == 1",
@@ -153,7 +151,7 @@
                     }
                 ]
             },
-            "事件:方块枯竭": {
+            "方块枯竭": {
                 "run_command": {
                     "command": [
                         "particle minecraft:knockback_roar_particle ~~~",

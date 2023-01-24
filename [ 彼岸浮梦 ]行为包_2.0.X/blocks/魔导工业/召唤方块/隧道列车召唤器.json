@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "召唤器:隧道列车",
@@ -13,6 +13,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.prop_block.train_call",
+            "minecraft:display_name": "§6< §9隧道列车§r _ §l§9召唤器§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -25,9 +26,6 @@
                     "texture": "列车生成器",
                     "render_method": "alpha_test"
                 }
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:part_visibility": {
                 "conditions": {
@@ -60,19 +58,19 @@
                 ]
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             }
         },
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:sort": 2
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",

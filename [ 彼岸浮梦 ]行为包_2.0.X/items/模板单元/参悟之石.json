@@ -1,0 +1,79 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:item": {
+        "description": {
+            "identifier": "特制模板:参悟之石",
+            "category": "items"
+        },
+        "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 16,
+            "minecraft:foil": true,
+            "minecraft:icon": {
+                "texture": "参悟之石"
+            },
+            "minecraft:display_name": {
+                "value": "§b 参悟之石 §r"
+            },
+            "minecraft:render_offsets": {
+                "main_hand": {
+                    "third_person": {
+                        "position": [
+                            0.0,
+                            0.75,
+                            -0.3
+                        ],
+                        "scale": [
+                            0.04,
+                            0.04,
+                            0.04
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            1.5,
+                            -0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.045,
+                            0.045,
+                            0.054
+                        ]
+                    }
+                },
+                "off_hand": {
+                    "third_person": {
+                        "position": [
+                            0.1,
+                            0.75,
+                            -0.3
+                        ],
+                        "scale": [
+                            0.04,
+                            0.04,
+                            0.04
+                        ]
+                    },
+                    "first_person": {
+                        "position": [
+                            -1.5,
+                            0.5,
+                            -3.0
+                        ],
+                        "scale": [
+                            0.1,
+                            0.1,
+                            0.1
+                        ]
+                    }
+                }
+            }
+        },
+        "events": {}
+    }
+}

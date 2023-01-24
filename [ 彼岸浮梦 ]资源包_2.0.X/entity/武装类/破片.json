@@ -1,0 +1,24 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "弹道飞弹:破片",
+            "materials": {
+                "default": "arrow"
+            },
+            "textures": {
+                "Map": "textures/entity/not"
+            },
+            "geometry": {
+                "default": "geometry.basic_cube"
+            },
+            "render_controllers": [
+                "controller.render.Map:X01"
+            ],
+            "spawn_egg": {
+                "texture": "基础类_图标",
+                "texture_index": 0
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "addons.Magic_bus.Boundary_markers"
+        },
+        "tags": [
+            "魔导总线合成台"
+        ],
+        "pattern": [
+            "HEH",
+            "GNG",
+            "HGH"
+        ],
+        "key": {
+            "G": {
+                "item": "魔导总线:总线本体"
+            },
+            "N": {
+                "item": "minecraft:netherstar"
+            },
+            "E": {
+                "item": "minecraft:end_crystal"
+            },
+            "H": {
+                "item": "minecraft:heart_of_the_sea"
+            }
+        },
+        "result": {
+            "item": "伺服机关:诸界道标",
+            "count": 2
+        }
+    }
+}

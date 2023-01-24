@@ -3,17 +3,17 @@
     "minecraft:item": {
         "description": {
             "identifier": "特殊道具:状态显示",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:icon": {
                 "texture": "状态显示"
             },
             "minecraft:display_name": {
                 "value": "§6<| 状态显示 |>§r"
-            },
-            "minecraft:creative_category": {
-                "parent": "equipment"
             },
             "minecraft:cooldown": {
                 "category": "特殊道具",

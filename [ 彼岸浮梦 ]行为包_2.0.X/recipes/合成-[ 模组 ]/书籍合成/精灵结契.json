@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.book.enter_contracts"
@@ -14,10 +14,10 @@
         ],
         "key": {
             "#": {
-                "item": "gold_nugget"
+                "item": "minecraft:gold_nugget"
             },
             "0": {
-                "item": "diamond"
+                "item": "minecraft:diamond"
             },
             "1": {
                 "item": "基础书籍:魔导手册"

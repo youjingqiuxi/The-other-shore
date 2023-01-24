@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "魔导总线:脉冲锁存",
@@ -41,16 +41,14 @@
             }
         },
         "components": {
-            "minecraft:geometry": "geometry.prop_block.pulse_latch",
+            "minecraft:geometry": "geometry.magic_bus.pulse_latch",
+            "minecraft:display_name": "§6< §9魔导总线§r _ §l§e脉冲锁存§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
             "minecraft:light_emission": 5,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:part_visibility": {
                 "conditions": {
@@ -87,7 +85,7 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:Magic_Bus_Series": {}
         },
@@ -108,7 +106,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:等待激活",
+                            "event": "等待激活",
                             "target": "self"
                         }
                     }
@@ -130,7 +128,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:正在激活",
+                            "event": "正在激活",
                             "target": "self"
                         }
                     }
@@ -152,7 +150,7 @@
                             2
                         ],
                         "on_tick": {
-                            "event": "事件:等待关闭",
+                            "event": "等待关闭",
                             "target": "self"
                         }
                     },
@@ -175,7 +173,7 @@
                             4
                         ],
                         "on_tick": {
-                            "event": "事件:正在关闭",
+                            "event": "正在关闭",
                             "target": "self"
                         }
                     }
@@ -183,22 +181,22 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:switch": 0
                 }
             },
-            "事件:正在激活": {
+            "正在激活": {
                 "set_block_property": {
                     "Table:switch": 2
                 }
             },
-            "事件:正在关闭": {
+            "正在关闭": {
                 "set_block_property": {
                     "Table:switch": 0
                 }
             },
-            "事件:等待激活": {
+            "等待激活": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -218,7 +216,7 @@
                     }
                 ]
             },
-            "事件:等待关闭": {
+            "等待关闭": {
                 "sequence": [
                     {
                         "set_block_property": {

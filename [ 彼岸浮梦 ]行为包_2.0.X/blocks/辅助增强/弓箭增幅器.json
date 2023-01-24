@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "武装类:弓箭增幅",
@@ -13,6 +13,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.step_block1",
+            "minecraft:display_name": "§6< §9弓箭增幅台§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:breathability": "air",
             "minecraft:light_dampening": 0,
@@ -25,9 +26,6 @@
                     "texture": "弓箭增幅",
                     "render_method": "alpha_test"
                 }
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:collision_box": {
                 "origin": [
@@ -67,24 +65,24 @@
                     2
                 ],
                 "on_tick": {
-                    "event": "事件:生效时",
+                    "event": "生效时",
                     "target": "self"
                 }
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:test_color": 0
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 1",
@@ -99,32 +97,32 @@
                     }
                 ]
             },
-            "事件:生效时": {
+            "生效时": {
                 "sequence": [
                     {
                         "condition": "query.block_property('Table:test_color') == 0",
                         "trigger": {
-                            "event": "事件:多重锁定",
+                            "event": "多重锁定",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:test_color') == 1",
                         "trigger": {
-                            "event": "事件:陨雷绽放",
+                            "event": "陨雷绽放",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:test_color') == 2",
                         "trigger": {
-                            "event": "事件:汇聚之矢",
+                            "event": "汇聚之矢",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:多重锁定": {
+            "多重锁定": {
                 "run_command": {
                     "command": [
                         "title @p[dy=1] actionbar §8《 精灵箭术 - 多重锁定 》§r",
@@ -132,7 +130,7 @@
                     ]
                 }
             },
-            "事件:陨雷绽放": {
+            "陨雷绽放": {
                 "run_command": {
                     "command": [
                         "title @p[dy=1] actionbar §8《 精灵箭术 - 陨雷绽放 》§r",
@@ -140,7 +138,7 @@
                     ]
                 }
             },
-            "事件:汇聚之矢": {
+            "汇聚之矢": {
                 "run_command": {
                     "command": [
                         "title @p[dy=1] actionbar §8《 精灵箭术 - 汇聚之矢 》§r",

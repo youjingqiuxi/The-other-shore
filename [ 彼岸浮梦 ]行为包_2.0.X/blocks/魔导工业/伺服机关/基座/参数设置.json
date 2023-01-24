@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "伺服机关:参数设置",
@@ -22,6 +22,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.servo_mechanism.parameter_setting",
+            "minecraft:display_name": "§6< §9伺服机关§r _ §l§e参数设置§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_emission": 0,
             "minecraft:light_dampening": 0,
@@ -29,9 +30,6 @@
                 "seconds_to_destroy": 1.0
             },
             "minecraft:friction": 0.5,
-            "minecraft:creative_category": {
-                "category": "construction"
-            },
             "minecraft:part_visibility": {
                 "conditions": {
                     "value_0": "query.block_property('Table:value') == 0",
@@ -49,10 +47,10 @@
                 }
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:collision_box": {
                 "origin": [
@@ -159,12 +157,12 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "query.cardinal_facing_2d"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶起子') == 1",

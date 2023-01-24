@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "MC.block.grass"
@@ -14,14 +14,14 @@
         ],
         "key": {
             "C": {
-                "item": "tallgrass"
+                "item": "minecraft:tallgrass"
             },
             "T": {
-                "item": "dirt"
+                "item": "minecraft:dirt"
             }
         },
         "result": {
-            "item": "grass",
+            "item": "minecraft:grass",
             "count": 6
         }
     }

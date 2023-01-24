@@ -1,0 +1,33 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "拟态矩阵:开始填充",
+			"materials": {
+				"enchanted": "armor_enchanted",
+				"default": "armor"
+			},
+			"textures": {
+				"enchanted": "textures/misc/enchanted_item_glint",
+				"default": "textures/armor/拟态矩阵/开始填充"
+			},
+			"geometry": {
+				"default": "geometry.fill_block"
+			},
+			"scripts": {
+				"parent_setup": "variable.boot_layer_visible = 0.0;",
+				"animate": [
+					"hold_use.0",
+					"hold_use.1"
+				]
+			},
+			"animations": {
+				"hold_use.0": "animation.matrix_simulation.fill_block.icon",
+				"hold_use.1": "animation.matrix_simulation.fill_block.block"
+			},
+			"render_controllers": [
+				"controller.render.armor"
+			]
+		}
+	}
+}

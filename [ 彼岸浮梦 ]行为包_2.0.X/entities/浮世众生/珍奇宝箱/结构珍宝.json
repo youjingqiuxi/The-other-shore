@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:entity": {
         "description": {
             "identifier": "珍宝箱:结构",
@@ -75,7 +75,9 @@
                 }
             },
             "消失": {
-                "minecraft:instant_despawn": {}
+                "minecraft:instant_despawn": {
+					"remove_child_entities": true
+				}
             }
         },
         "components": {

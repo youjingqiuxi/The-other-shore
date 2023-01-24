@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "MC.item.name_tag"
@@ -14,14 +14,14 @@
         ],
         "key": {
             "Z": {
-                "item": "paper"
+                "item": "minecraft:paper"
             },
             "X": {
-                "item": "string"
+                "item": "minecraft:string"
             }
         },
         "result": {
-            "item": "name_tag"
+            "item": "minecraft:name_tag"
         }
     }
 }

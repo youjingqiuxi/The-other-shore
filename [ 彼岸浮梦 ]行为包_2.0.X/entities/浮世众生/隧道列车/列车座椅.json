@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:entity": {
         "description": {
             "identifier": "列车组:座椅",
@@ -12,7 +12,7 @@
                 ]
             },
             "animations": {
-                "runs": "controller.animation.train_adds"
+                "runs": "controller.animation.Data.Train_Death"
             }
         },
         "component_groups": {
@@ -103,7 +103,7 @@
                 ]
             },
             "minecraft:loot": {
-                "table": "loot_tables/train/seat.json"
+                "table": "loot_tables/列车类/seat.json"
             },
             "minecraft:physics": {},
             "minecraft:pushable": {
@@ -119,7 +119,7 @@
                     ]
                 }
             },
-            "事件:显示模式": {
+            "显示模式": {
                 "add": {
                     "component_groups": [
                         "显示"
@@ -131,7 +131,7 @@
                     ]
                 }
             },
-            "事件:隐藏模式": {
+            "隐藏模式": {
                 "add": {
                     "component_groups": [
                         "隐藏"

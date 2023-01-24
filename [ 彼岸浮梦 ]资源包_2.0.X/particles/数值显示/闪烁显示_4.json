@@ -5,7 +5,7 @@
 			"identifier": "数值显示:闪烁效果_4",
 			"basic_render_parameters": {
 				"material": "particles_alpha",
-				"texture": "textures/粒子贴图/数值纹理"
+				"texture": "textures/粒子贴图/基础纹理"
 			}
 		},
 		"components": {
@@ -42,15 +42,15 @@
 				],
 				"facing_camera_mode": "lookat_y",
 				"uv": {
-					"texture_width": 64,
-					"texture_height": 64,
+					"texture_height": 256,
+					"texture_width": 256,
 					"uv": [
-						1,
-						13
+						101,
+						131
 					],
 					"uv_size": [
-						11,
-						11
+						24,
+						24
 					]
 				}
 			},

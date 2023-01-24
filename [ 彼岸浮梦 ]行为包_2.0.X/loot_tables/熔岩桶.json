@@ -12,13 +12,13 @@
                             "data": 10
                         },
                         {
-                          "function": "specific_enchants",
-                          "enchants": [
-                             {
-                                "id": "fire_aspect",
-                                "level": 1
-                             }
-                          ]
+                            "function": "specific_enchants",
+                            "enchants": [
+                                {
+                                    "id": "fire_aspect",
+                                    "level": 1
+                                }
+                            ]
                         }
                     ]
                 }

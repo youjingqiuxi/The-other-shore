@@ -8,25 +8,27 @@
             },
             "enable_attachables": true,
             "textures": {
-                "blink": "textures/entity/girl/眨眼_1",
-                "sit": "textures/entity/girl/星阁座椅",
                 "Map": "textures/entity/girl/森涅",
+                "blink": "textures/entity/girl/眨眼",
+                "HE_0": "textures/entity/girl/血量_0",
+                "HE_1": "textures/entity/girl/血量_1",
+                "HE_2": "textures/entity/girl/血量_2",
+                "HE_3": "textures/entity/girl/血量_3",
+                "HE_4": "textures/entity/girl/血量_4",
+                "sit": "textures/entity/girl/星阁座椅",
                 "not": "textures/entity/not"
             },
             "geometry": {
-                "default": "geometry.girl_figure_v4",
-                "sit": "geometry.girl_chair"
+                "default": "geometry.Role_frame.v4.girl",
+                "heart": "geometry.Role_prop.v1.bracelet",
+                "sit": "geometry.Role_prop.v0.chair"
             },
             "spawn_egg": {
                 "texture": "星光阁_图标",
                 "texture_index": 1
             },
-            "particle_effects": {
-                "burst": "烟雾效果:海蓝",
-                "power": "闪烁粒子:海蓝",
-                "camp": "阵营图标:明镜阁"
-            },
             "render_controllers": [
+                "controller.render.heart:100",
                 "controller.render.Map:X01",
                 "controller.render.blink",
                 {
@@ -53,26 +55,25 @@
                 "hold": "controller.animation.ControlTake.basics",
                 "use": "controller.animation.ControlTake.use",
                 //通用 动作动画
-                "riding_0": "animation.riding_action.arm.girl-v4",
-                "riding_1": "animation.riding_action.leg.girl-v4",
-                "initial": "animation.basic_action.girl-v4",
-                "move": "animation.human_move.girl-v4",
-                "swimming": "animation.swimming.girl-v4",
-                "sitting": "animation.sit_down.girl-v4",
-                "stand": "animation.sit_down.stand",
+                "riding_0": "animation.riding_action.arm.Role.v4",
+                "riding_1": "animation.riding_action.leg.Role.v4",
+                "initial": "animation.basic_action.Role.v4.girl",
+                "move": "animation.human_move.Role.v4",
+                "swimming": "animation.swimming.Role.v4",
+                "sitting": "animation.sit_down.Role.v4.start",
+                "stand": "animation.sit_down.Role.v4.end",
                 //通用 拾取物品
                 "use-item": "animation.humanoid.use_item_progress",
                 "held-item": "animation.humanoid.holding",
                 //通用 观察四周
-                "basic-watch": "animation.observation.girl-v4_basic",
-                "swim-watch": "animation.observation.girl-v4_swim",
+                "basic-watch": "animation.observation.Role.v4.basic",
+                "swim-watch": "animation.observation.Role.v4.swim",
                 //个性化定制 动画控制
-                "battle": "controller.animation.ControlAttack.pearl",
+                "battle": "controller.animation.ControlAttack.3",
                 //个性化定制 战斗动画
-                "attack.start": "animation.pearl.start",
-                "attack.fight": "animation.pearl.fight",
-                "attack.loop": "animation.pearl.loop",
-                "attack.end": "animation.pearl.end"
+                "attack.0": "animation.Sen_Nie.attact_0",
+                "attack.1": "animation.Sen_Nie.attact_1",
+                "attack.2": "animation.Sen_Nie.attact_2"
             }
         }
     }

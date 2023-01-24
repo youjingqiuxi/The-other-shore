@@ -1,5 +1,5 @@
 {
-    "format_version": "1.10.1700",
+    "format_version": "1.19.50",
     "minecraft:entity": {
         "description": {
             "identifier": "制导飞弹:幻海",
@@ -49,7 +49,9 @@
                 }
             },
             "消失": {
-                "minecraft:despawn": {}
+                "minecraft:instant_despawn": {
+					"remove_child_entities": true
+				}
             }
         },
         "components": {
@@ -100,7 +102,7 @@
             "minecraft:ageable": {
                 "duration": 5,
                 "grow_up": {
-                    "event": "事件:实体消失",
+                    "event": "实体消失",
                     "target": "self"
                 }
             },
@@ -195,19 +197,13 @@
                 }
             },
             "攻击命中": {
-				"run_command": {
-					"command": [
-						"effect @e[r=32,family=!monster] regeneration 5 3 true",
-						"scoreboard players add @e[type=明镜阁:珍珠,r=15] MU 1"
-					]
-				},
                 "add": {
                     "component_groups": [
                         "消失"
                     ]
                 }
             },
-            "事件:实体消失": {
+            "实体消失": {
                 "add": {
                     "component_groups": [
                         "消失"

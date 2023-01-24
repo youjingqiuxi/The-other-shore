@@ -3,17 +3,17 @@
     "minecraft:item": {
         "description": {
             "identifier": "特殊道具:锚点虚印",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:icon": {
                 "texture": "锚点虚印"
             },
             "minecraft:display_name": {
                 "value": "§6<[ 锚点虚印 ]>§r"
-            },
-            "minecraft:creative_category": {
-                "parent": "equipment"
             },
             "minecraft:durability": {
                 "max_durability": 350,
@@ -28,14 +28,6 @@
                     "target": "self"
                 }
             },
-<<<<<<< Updated upstream
-            "minecraft:cooldown": {
-                "category": "锚点虚印",
-                "duration": 1
-            },
-            "minecraft:can_destroy_in_creative": false,
-=======
->>>>>>> Stashed changes
             "minecraft:allow_off_hand": false,
             "minecraft:hand_equipped": true,
             "minecraft:max_stack_size": 1,

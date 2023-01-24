@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "addons.block.alloy_steel_pot"
@@ -14,7 +14,7 @@
         ],
         "key": {
             "M": {
-                "item": "log"
+                "tag": "minecraft:logs"
             },
             "G": {
                 "item": "合金材料:特种合金"

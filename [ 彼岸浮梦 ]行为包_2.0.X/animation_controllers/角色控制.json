@@ -1,0 +1,190 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        //单体效果
+        "controller.animation.RoleCode.liu-li": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "cure": "query.health <= 45"
+                        }
+                    ]
+                },
+                "cure": {
+                    "on_entry": [
+                        "/effect @s regeneration 9 9 true"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "query.health >= 45"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.RoleCode.jasmine": {
+            "initial_state": "list",
+            "states": {
+                "list": {
+                    "transitions": [
+                        {
+                            "attack": "query.has_target && query.variant == 2 && query.health != 0"
+                        },
+                        {
+                            "spare": "!query.has_target && query.health != 0"
+                        },
+                        {
+                            "death": "query.health == 0"
+                        }
+                    ]
+                },
+                "spare": {
+                    "on_entry": [
+                        "/execute as @s [scores={CD=300}] run function Lines/jasmine",
+                        "/scoreboard players add @s CD 1"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "attack": {
+                    "on_entry": [
+                        "/execute as @s [scores={ZX=5}] at @e [family=abyss,family=!spirit,r=32] run particle 阵营图标:天渊阁 ~ ~2 ~",
+                        "/execute as @s [scores={ZX=5}] run effect @e[family=abyss,family=!spirit,r=32] regeneration 15 4 true",
+                        "/scoreboard players set @s[scores={ZX=15..}] ZX 0",
+                        "/scoreboard players add @s ZX 1"
+                    ],
+                    "transitions": [
+                        {
+                            "list": "(1.0)"
+                        }
+                    ]
+                },
+                "death": {
+                    "on_entry": [
+                        "/execute at @e [family=abyss,family=!spirit,r=32] run particle 阵营图标:天渊阁 ~ ~2 ~",
+                        "/effect @e[family=abyss,family=!spirit,r=32] regeneration 15 255 false",
+                        "/effect @e[family=abyss,family=!spirit,r=32] resistance 15 255 false",
+                        "/title @p[r=32] actionbar @s: §c[ §4百花之祈§c ]"
+                    ]
+                }
+            }
+        },
+        "controller.animation.RoleCode.DullBlue": {
+            "initial_state": "healthy",
+            "states": {
+                "healthy": {
+                    "on_entry": [
+                        "/tag @s remove Endangered"
+                    ],
+                    "transitions": [
+                        {
+                            "Endangered": "query.health <= 35"
+                        }
+                    ]
+                },
+                "Endangered": {
+                    "on_entry": [
+                        "/tag @s add Endangered"
+                    ],
+                    "transitions": [
+                        {
+                            "healthy": "query.health >= 35"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.RoleCode.Sen_Nie": {
+            "initial_state": "healthy",
+            "states": {
+                "healthy": {
+                    "on_entry": [
+                        "/event entity @s 结束规避"
+                    ],
+                    "transitions": [
+                        {
+                            "Endangered": "query.health <= 35"
+                        }
+                    ]
+                },
+                "Endangered": {
+                    "on_entry": [
+                        "/event entity @s 紧急规避"
+                    ],
+                    "transitions": [
+                        {
+                            "healthy": "query.health >= 95"
+                        }
+                    ]
+                }
+            }
+        },
+        //通用效果
+        "controller.animation.RoleCode.OceanApostle": {
+            "initial_state": "array",
+            "states": {
+                "array": {
+                    "transitions": [
+                        {
+                            "call": "query.is_in_water && !query.is_riding && query.has_target"
+                        },
+                        {
+                            "adds": "query.is_in_water && query.is_riding && query.has_target"
+                        }
+                    ]
+                },
+                "call": {
+                    "on_entry": [
+                        "/particle minecraft:knockback_roar_particle ~~~",
+                        "/summon 明镜阁:欧泊 ~~~"
+                    ],
+                    "transitions": [
+                        {
+                            "array": "!query.has_target"
+                        }
+                    ]
+                },
+                "adds": {
+                    "on_entry": [
+                        "/effect @e[r=5,family=ocean] regeneration 1 0 true"
+                    ],
+                    "transitions": [
+                        {
+                            "array": "!query.has_target"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.RoleCode.SitDown": {
+            "initial_state": "false",
+            "states": {
+                "true": {
+                    "on_entry": [
+                        "/tag @s add SitDown"
+                    ],
+                    "transitions": [
+                        {
+                            "false": "!query.is_sitting"
+                        }
+                    ]
+                },
+                "false": {
+                    "on_entry": [
+                        "/tag @s remove SitDown"
+                    ],
+                    "transitions": [
+                        {
+                            "true": "query.is_sitting"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

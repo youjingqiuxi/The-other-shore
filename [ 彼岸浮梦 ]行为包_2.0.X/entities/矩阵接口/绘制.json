@@ -12,7 +12,7 @@
                 "minecraft:ageable": {
                     "duration": 1,
                     "grow_up": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 }
@@ -21,7 +21,7 @@
                 "minecraft:ageable": {
                     "duration": 30,
                     "grow_up": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 }
@@ -30,7 +30,7 @@
                 "minecraft:ageable": {
                     "duration": 270,
                     "grow_up": {
-                        "event": "事件:实体消失",
+                        "event": "实体消失",
                         "target": "self"
                     }
                 }
@@ -81,18 +81,17 @@
                 }
             },
             "实体消失": {
-                "minecraft:instant_despawn": {}
+                "minecraft:instant_despawn": {
+					"remove_child_entities": true
+				}
             }
         },
         "components": {
             "minecraft:type_family": {
                 "family": [
+                    "Matrix_main",
                     "Matrix_API",
-<<<<<<< Updated upstream
-                    "Matrix_main"
-=======
                     "Tayun"
->>>>>>> Stashed changes
                 ]
             },
             "minecraft:damage_sensor": {
@@ -114,6 +113,9 @@
             "minecraft:collision_box": {
                 "width": 0.1,
                 "height": 0.1
+            },
+            "minecraft:health": {
+                "value": 1
             },
             "minecraft:conditional_bandwidth_optimization": {
                 "conditional_values": {
@@ -1235,7 +1237,7 @@
                                 "tag @s remove wait_call",
                                 "execute if block ~~~ air run tag @s add wait_call",
                                 "execute as @s [tag=!wait_call] run function born/unreal",
-                                "event entity @s[tag=!wait_call] 事件:实体消失"
+                                "event entity @s[tag=!wait_call] 实体消失"
                             ]
                         }
                     }
@@ -1271,7 +1273,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "particle 动态轨迹:赤红 ~~~"
+                                "particle 动态轨迹:赤焰 ~~~"
                             ]
                         }
                     },
@@ -1386,7 +1388,7 @@
                                 "weight": 1,
                                 "run_command": {
                                     "command": [
-                                        "particle 动态轨迹:赤红 ~~~"
+                                        "particle 动态轨迹:赤焰 ~~~"
                                     ]
                                 }
                             },
@@ -1416,7 +1418,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "event entity @s[scores={set_X=0,set_Y=0,set_Z=0}] 事件:实体消失"
+                                "event entity @s[scores={set_X=0,set_Y=0,set_Z=0}] 实体消失"
                             ]
                         }
                     },
@@ -1432,9 +1434,9 @@
                         },
                         "run_command": {
                             "command": [
-                                "event entity @s[scores={set_X=0}] 事件:实体消失",
-                                "event entity @s[scores={set_Y=0}] 事件:实体消失",
-                                "event entity @s[scores={set_Z=0}] 事件:实体消失"
+                                "event entity @s[scores={set_X=0}] 实体消失",
+                                "event entity @s[scores={set_Y=0}] 实体消失",
+                                "event entity @s[scores={set_Z=0}] 实体消失"
                             ]
                         }
                     },
@@ -1455,7 +1457,7 @@
                         },
                         "run_command": {
                             "command": [
-                                "event entity @s 事件:实体消失",
+                                "event entity @s 实体消失",
                                 "say 必须定义< Matrix_API.destroy.any > 或 < Matrix_API.destroy.all >",
                                 "say 否则, 会因为积压过多的实体, 而造成卡顿"
                             ]
@@ -1702,24 +1704,17 @@
                 ]
             },
             //通用的实体销毁事件
-            "事件:实体消失": {
+            "实体消失": {
                 "add": {
                     "component_groups": [
                         "实体消失"
                     ]
                 }
             },
-<<<<<<< Updated upstream
-            "事件:闪烁退场": {
-                "add": {
-                    "component_groups": [
-                        "实体消失"
-=======
             "静默退场": {
                 "run_command": {
                     "command": [
                         "event entity @s 实体消失"
->>>>>>> Stashed changes
                     ]
                 }
             },

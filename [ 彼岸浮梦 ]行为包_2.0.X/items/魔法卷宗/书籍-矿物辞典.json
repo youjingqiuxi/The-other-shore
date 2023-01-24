@@ -3,17 +3,17 @@
     "minecraft:item": {
         "description": {
             "identifier": "魔法书籍:矿物辞典",
-            "category": "equipment"
+            "category": "items"
         },
         "components": {
+            "minecraft:creative_category": {
+                "parent": "items"
+            },
             "minecraft:icon": {
                 "texture": "矿物辞典"
             },
             "minecraft:display_name": {
                 "value": "§l《矿物辞典》§r"
-            },
-            "minecraft:creative_category": {
-                "parent": "equipment"
             },
             "minecraft:durability": {
                 "max_durability": 350,
@@ -32,11 +32,6 @@
                 "category": "魔法书籍",
                 "duration": 5
             },
-            "minecraft:can_destroy_in_creative": false,
-            "minecraft:allow_off_hand": false,
-            "minecraft:hand_equipped": true,
-            "minecraft:max_stack_size": 1,
-            "minecraft:foil": true,
             "minecraft:enchantable": {
                 "value": 10,
                 "slot": "elytra"
@@ -79,6 +74,10 @@
                     }
                 ]
             },
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:foil": true,
             "tag:Magic_Books": {}
         },
         "events": {
@@ -87,55 +86,7 @@
                     {
                         "run_command": {
                             "command": [
-<<<<<<< Updated upstream
-                                "execute as @p[tag=!ambient] run function Data/ambient"
-                            ]
-                        }
-                    },
-                    {
-                        "run_command": {
-                            "command": [
-                                "summon 矩阵接口:绘制 ~10 ~0.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~1.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~2.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~3.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~4.5 ~10 预设案例:岩矿采掘.挖矿"
-                            ]
-                        }
-                    },
-                    {
-                        "run_command": {
-                            "command": [
-                                "summon 矩阵接口:绘制 ~10 ~5.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~6.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~7.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~8.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~9.5 ~10 预设案例:岩矿采掘.挖矿"
-                            ]
-                        }
-                    },
-                    {
-                        "run_command": {
-                            "command": [
-                                "summon 矩阵接口:绘制 ~10 ~-0.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~-1.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~-2.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~-3.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~-4.5 ~10 预设案例:岩矿采掘.挖矿"
-                            ]
-                        }
-                    },
-                    {
-                        "run_command": {
-                            "command": [
-                                "summon 矩阵接口:绘制 ~10 ~-5.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~-6.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~-7.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~-8.5 ~10 预设案例:岩矿采掘.挖矿", 
-                                "summon 矩阵接口:绘制 ~10 ~-9.5 ~10 预设案例:岩矿采掘.挖矿"
-=======
                                 "execute as @p [tag=!ambient] run function Data/ambient"
->>>>>>> Stashed changes
                             ]
                         }
                     },

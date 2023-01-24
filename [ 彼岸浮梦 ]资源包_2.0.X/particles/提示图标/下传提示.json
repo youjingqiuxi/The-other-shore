@@ -41,8 +41,8 @@
 				],
 				"facing_camera_mode": "lookat_y",
 				"uv": {
-					"texture_width": 128,
-					"texture_height": 128,
+					"texture_height": 256,
+					"texture_width": 256,
 					"uv": [
 						25,
 						76

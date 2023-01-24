@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "伺服机关:诸界道标",
@@ -26,13 +26,14 @@
             }
         },
         "components": {
+            "minecraft:geometry": "geometry.servo_mechanism.boundary_markers",
+            "minecraft:display_name": "§6< §9伺服机关§r _ §l§e诸界道标§6 >§r",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:light_emission": 5,
+            "minecraft:friction": 0.9,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
             },
-			"minecraft:creative_category": {
-				"category": "items",
-				"group": "itemGroup.name.anvil"
-			},
             "minecraft:part_visibility": {
                 "conditions": {
                     "energy_1": "query.block_property('Table:energy') >= 1",
@@ -71,10 +72,6 @@
             "minecraft:on_interact": {
                 "event": "进行交互"
             },
-            "minecraft:geometry": "geometry.servo_mechanism.boundary_markers",
-            "minecraft:destructible_by_explosion": false,
-            "minecraft:light_emission": 5,
-            "minecraft:friction": 0.9,
             "tag:Magic_Bus_Series": {}
         },
         "permutations": [
@@ -117,8 +114,8 @@
                     "minecraft:queued_ticking": {
                         "looping": true,
                         "interval_range": [
-                            2,
-                            2
+                            4,
+                            4
                         ],
                         "on_tick": {
                             "event": "状态侦测",
@@ -149,9 +146,53 @@
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_switch:1') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_switch:1') == 1",
-                        "set_block_property": {
-                            "Table:state": 1
-                        }
+                        "sequence": [
+                            {
+                                "condition": "query.block_property('Table:energy') != 0",
+                                "sequence": [
+                                    {
+                                        "set_block_property": {
+                                            "Table:state": 1
+                                        },
+                                        "run_command": {
+                                            "command": [
+                                                "playsound portal.travel @a[r=15] ~~~"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_property('Table:switch') == 0",
+                                        "run_command": {
+                                            "command": [
+                                                "execute in nether run tickingarea remove Dimension:nether",
+                                                "execute in nether run tickingarea add circle ~~~ 2 Dimension:nether true",
+                                                "execute in nether run structure load 道标浮台 ~-2 ~-3 ~-2 0_degrees none true true"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_property('Table:switch') == 1",
+                                        "run_command": {
+                                            "command": [
+                                                "execute in the_end run tickingarea remove Dimension:the_end",
+                                                "execute in the_end run tickingarea add circle ~~~ 2 Dimension:the_end true",
+                                                "execute in the_end run structure load 道标浮台 ~-2 ~-3 ~-2 0_degrees none true true"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": "query.block_property('Table:switch') == 2",
+                                        "run_command": {
+                                            "command": [
+                                                "execute in overworld run tickingarea remove Dimension:overworld",
+                                                "execute in overworld run tickingarea add circle ~~~ 2 Dimension:overworld true",
+                                                "execute in overworld run structure load 道标浮台 ~-2 ~-3 ~-2 0_degrees none true true"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     {
                         "condition": "query.block_neighbor_has_all_tags(1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,1,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(-1,0,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,-1,0,'Magic_Bus_energy') == 1 || query.block_neighbor_has_all_tags(0,0,-1,'Magic_Bus_energy') == 1",
@@ -186,14 +227,48 @@
                     },
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'魔法工具:魔晶扳手') == 0 && query.block_property('Table:energy') >= 1",
-                        "set_block_property": {
-                            "Table:state": 1
-                        },
-                        "run_command": {
-                            "command": [
-                                "playsound portal.travel @a[r=15] ~~~"
-                            ]
-                        }
+                        "sequence": [
+                            {
+                                "set_block_property": {
+                                    "Table:state": 1
+                                },
+                                "run_command": {
+                                    "command": [
+                                        "playsound portal.travel @a[r=15] ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:switch') == 0",
+                                "run_command": {
+                                    "command": [
+                                        "execute in nether run tickingarea remove Dimension:nether",
+                                        "execute in nether run tickingarea add circle ~~~ 2 Dimension:nether true",
+                                        "execute in nether run structure load 道标浮台 ~-2 ~-3 ~-2 0_degrees none true true"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:switch') == 1",
+                                "run_command": {
+                                    "command": [
+                                        "execute in the_end run tickingarea remove Dimension:the_end",
+                                        "execute in the_end run tickingarea add circle ~~~ 2 Dimension:the_end true",
+                                        "execute in the_end run structure load 道标浮台 ~-2 ~-3 ~-2 0_degrees none true true"
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": "query.block_property('Table:switch') == 2",
+                                "run_command": {
+                                    "command": [
+                                        "execute in overworld run tickingarea remove Dimension:overworld",
+                                        "execute in overworld run tickingarea add circle ~~~ 2 Dimension:overworld true",
+                                        "execute in overworld run structure load 道标浮台 ~-2 ~-3 ~-2 0_degrees none true true"
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 ]
             },

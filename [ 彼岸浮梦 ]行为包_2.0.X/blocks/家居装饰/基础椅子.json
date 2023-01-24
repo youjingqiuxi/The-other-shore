@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "装饰类:基础椅子",
@@ -30,15 +30,13 @@
         },
         "components": {
             "minecraft:geometry": "geometry.decorate_block.chair",
+            "minecraft:display_name": "§b|§6 丛林木椅子 §b|§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
             "minecraft:light_emission": 0,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.0
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:material_instances": {
                 "*": {
@@ -68,15 +66,15 @@
                     4
                 ],
                 "on_tick": {
-                    "event": "事件:状态侦测",
+                    "event": "状态侦测",
                     "target": "self"
                 }
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "tag:block_chair": {}
         },
@@ -187,19 +185,19 @@
             }
         ],
         "events": {
-            "事件:放置方块": {
+            "放置方块": {
                 "set_block_property": {
                     "Table:angle": "(query.cardinal_facing_2d)"
                 }
             },
-            "事件:进行交互": {
+            "进行交互": {
                 "run_command": {
                     "command": [
                         "tp @p ~ ~1 ~"
                     ]
                 }
             },
-            "事件:状态侦测": {
+            "状态侦测": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -210,24 +208,24 @@
                         "condition": "query.block_property('Table:main') == 0",
                         "run_command": {
                             "command": [
-                                "execute positioned ~ ~0.5 ~ run playanimation @p[r=0.5] animation.sit_down.seat"
+                                "execute positioned ~ ~0.5 ~ run playanimation @p[r=0.5] animation.sit_down.player"
                             ]
                         },
                         "trigger": {
-                            "event": "事件:座椅侦测",
+                            "event": "座椅侦测",
                             "target": "self"
                         }
                     },
                     {
                         "condition": "query.block_property('Table:main') == 1",
                         "trigger": {
-                            "event": "事件:靠背侦测",
+                            "event": "靠背侦测",
                             "target": "self"
                         }
                     }
                 ]
             },
-            "事件:座椅侦测": {
+            "座椅侦测": {
                 "sequence": [
                     {
                         "set_block_property": {
@@ -356,7 +354,7 @@
                     }
                 ]
             },
-            "事件:靠背侦测": {
+            "靠背侦测": {
                 "sequence": [
                     {
                         "condition": "query.block_neighbor_has_all_tags(0,-1,0,'block_chair.angle.2') == 1",

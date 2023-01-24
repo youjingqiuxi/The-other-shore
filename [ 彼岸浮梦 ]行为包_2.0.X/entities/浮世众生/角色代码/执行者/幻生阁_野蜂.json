@@ -1,0 +1,205 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "幻生阁:野蜂",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "战斗": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "monster"
+                                    }
+                                ]
+                            },
+                            "within_default": 64
+                        }
+                    ],
+                    "must_reach": true,
+                    "must_see": true
+                },
+                "minecraft:behavior.random_hover": {
+                    "y_offset": -1,
+                    "interval": 1,
+                    "priority": 5,
+                    "xz_dist": 5,
+                    "y_dist": 5,
+                    "hover_height": [
+                        0,
+                        1
+                    ]
+                },
+                "minecraft:behavior.float": {
+                    "priority": 10
+                },
+                "minecraft:flying_speed": {
+                    "value": 0.2
+                },
+                "minecraft:underwater_movement": {
+                    "value": 0.3
+                },
+                "minecraft:navigation.hover": {
+                    "can_path_from_air": true,
+                    "is_amphibious": true,
+                    "can_swim": true,
+                    "can_sink": true
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 0,
+                    "attack_once": false,
+                    "track_target": true,
+                    "speed_multiplier": 1.4,
+                    "on_attack": {
+                        "event": "攻击命中",
+                        "target": "self"
+                    }
+                },
+                "minecraft:damage_sensor": {
+                    "triggers": [
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_damage",
+                                            "value": "fatal"
+                                        }
+                                    ]
+                                },
+                                "event": "昔日荣光"
+                            }
+                        }
+                    ]
+                },
+                "minecraft:collision_box": {
+                    "width": 0.1,
+                    "height": 0.1
+                },
+                "minecraft:attack": {
+                    "damage": {
+                        "range_min": 15,
+                        "range_max": 35
+                    }
+                },
+                "minecraft:movement.hover": {},
+                "minecraft:can_fly": {}
+            },
+            "爆炸": {
+                "minecraft:explode": {
+                    "destroy_affected_by_griefing": true,
+                    "fire_affected_by_griefing": true,
+                    "causes_fire": true,
+                    "fuse_lit": true,
+                    "fuse_length": 0,
+                    "power": 1
+                }
+            },
+            "消失": {
+                "minecraft:instant_despawn": {
+					"remove_child_entities": true
+				}
+            }
+        },
+        "components": {
+            "minecraft:fire_immune": true,
+            "minecraft:health": {
+                "value": 50
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "Tayun",
+                    "unreal"
+                ]
+            },
+            "minecraft:on_target_acquired": {
+                "event": "发现目标",
+                "target": "self"
+            },
+            "minecraft:scale": {
+                "value": 0.5
+            },
+            "minecraft:ageable": {
+                "duration": 15,
+                "grow_up": {
+                    "event": "实体消失",
+                    "target": "self"
+                }
+            },
+            "minecraft:breathable": {
+                "totalSupply": 10,
+                "suffocateTime": 0,
+                "breathes_air": true,
+                "breathes_lava": true,
+                "breathes_water": true,
+                "breathes_solids": true
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            }
+        },
+        "events": {
+            "发现目标": {
+                "add": {
+                    "component_groups": [
+                        "战斗"
+                    ]
+                }
+            },
+            "实体消失": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "particle minecraft:knockback_roar_particle ~~~"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "消失"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "攻击命中": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "event entity @e[tag=Endangered,r=32,c=1] 紧急规避"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "昔日荣光": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "command": [
+                                "summon minecraft:lightning_bolt ~~~",
+                                "particle minecraft:knockback_roar_particle ~~~",
+                                "damage @e[r=8,family=!Tayun,family=!player,family=!spirit] 15 entity_attack entity @r"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

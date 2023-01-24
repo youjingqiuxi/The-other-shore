@@ -1,5 +1,5 @@
 {
-    "format_version": "1.19.10",
+    "format_version": "1.19.50",
     "minecraft:block": {
         "description": {
             "identifier": "工业类:黑耀石热源",
@@ -22,6 +22,7 @@
         },
         "components": {
             "minecraft:geometry": "geometry.prop_block.magma_heat",
+            "minecraft:display_name": "§6< §4黑耀石热源§6 >§r",
             "minecraft:destructible_by_explosion": false,
             "minecraft:light_dampening": 0,
             "minecraft:breathability": "air",
@@ -33,9 +34,6 @@
                     "texture": "曜石熔炼炉",
                     "render_method": "alpha_test"
                 }
-            },
-            "minecraft:creative_category": {
-                "category": "construction"
             },
             "minecraft:part_visibility": {
                 "conditions": {
@@ -68,10 +66,10 @@
                 ]
             },
             "minecraft:on_player_placing": {
-                "event": "事件:放置方块"
+                "event": "放置方块"
             },
             "minecraft:on_interact": {
-                "event": "事件:进行交互"
+                "event": "进行交互"
             }
         },
         "permutations": [
@@ -94,7 +92,7 @@
                             4900
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -112,7 +110,7 @@
                             3500
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -130,7 +128,7 @@
                             1300
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -148,7 +146,7 @@
                             3900
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -166,7 +164,7 @@
                             1700
                         ],
                         "on_tick": {
-                            "event": "事件:运行停止",
+                            "event": "运行停止",
                             "target": "self"
                         }
                     }
@@ -174,7 +172,7 @@
             }
         ],
         "events": {
-            "事件:进行交互": {
+            "进行交互": {
                 "sequence": [
                     {
                         "condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:lava_bucket') == 1 && query.block_property('Table:switch') == 0",
@@ -309,7 +307,7 @@
                     }
                 ]
             },
-            "事件:运行停止": {
+            "运行停止": {
                 "set_block_property": {
                     "Table:switch": 0,
                     "Table:cache": 0

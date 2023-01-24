@@ -36,7 +36,9 @@
                 }
             },
             "实体消失": {
-                "minecraft:instant_despawn": {}
+                "minecraft:instant_despawn": {
+					"remove_child_entities": true
+				}
             }
         },
         "components": {

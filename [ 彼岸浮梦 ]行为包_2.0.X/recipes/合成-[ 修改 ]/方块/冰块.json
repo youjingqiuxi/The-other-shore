@@ -1,5 +1,5 @@
 {
-    "format_version": "1.8.5",
+    "format_version": "1.19.50",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "MC.block.ice_block"
@@ -14,11 +14,11 @@
         ],
         "key": {
             "X": {
-                "item": "snow"
+                "item": "minecraft:snow"
             }
         },
         "result": {
-            "item": "ice"
+            "item": "minecraft:ice"
         }
     }
 }
